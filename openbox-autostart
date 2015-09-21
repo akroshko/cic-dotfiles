@@ -1,0 +1,3 @@
+xscreensaver -nosplash &
+gnome-panel &
+rxvt-unicode -e bash -c "source ~/.profile" &

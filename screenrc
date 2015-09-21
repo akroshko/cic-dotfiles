@@ -1,0 +1,54 @@
+# https://bugs.launchpad.net/ubuntu/+source/vte/+bug/29787
+# Control-^ (usually Control-Shift-6) is traditional and the only key not used by emacs
+# escape ^^^^
+# binds both M-[ and C-^ as command
+# escape ^^^^
+# bindkey "^[[" command
+# use c-o as escape key
+escape ^oO
+# Yes, we want this!
+autodetach on
+startup_message off
+# Lots of scrollback is good!
+defscrollback 9999
+## do not trash BackSpace, usually DEL
+bindkey -k kb
+bindkey -d -k kb
+## do not trash Delete, usually ESC [ 3 ~
+bindkey -k kD
+bindkey -d -k kD
+# remove some key bindings
+bind k
+bind W
+bind ^k
+bind .
+bind ^\
+bind \\
+bind ^h
+bind h
+# make them safer
+bind K kill
+# make screen behave a bit like emacs
+# do I want 'windows' instead?
+# want something that makes sense for this "http://www.gnu.org/software/screen/manual/screen.html#Screen-Command"
+bind b select
+bind ^b windowlist
+bind ^f screen
+bind ^j copy
+bind o focus
+bind n next
+bind p prev
+bind s screen
+bind 2 split
+bind 3 split -v
+# Seem to reflect Ctrl-W commands in VIM
+bind = resize =
+bind + resize +1
+bind - resize -1
+bind _ resize max
+# hardstatus
+# hardstatus on
+# hardstatus alwayslastline
+# copy mode
+# https://gist.github.com/paxan/4666544
+markkeys =:=V:h=:l=:0=:$=:/=:?=

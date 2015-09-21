@@ -1,0 +1,55 @@
+! xscreensaver ---------------------------------------------------------------
+xscreensaver.lock:                True
+xscreensaver.mode:                random
+xscreensaver.timeout:             0:55:00
+xscreensaver.cycle:               0:10:00
+xscreensaver.lockTimeout:         0:05:00
+xscreensaver.passwdTimeout:       0:00:30
+xscreensaver.dpmsEnabled:         True
+xscreensaver.dpmsQuickoffEnabled: False
+xscreensaver.dpmsStandby:         1:30:00
+xscreensaver.dpmsSuspend:         1:45:00
+xscreensaver.dpmsOff:             2:00:00
+! from arch wiki -------------------------------------------------------------
+! xpdf -----------------------------------------------------------------------
+xpdf*enableFreetype:              yes
+xpdf*antialias:                   yes
+xpdf*foreground:                  black
+xpdf*background:                  white
+xpdf*urlCommand:                  /usr/bin/firefox %s
+! rxvt -----------------------------------------------------------------------
+URxvt*transparent: true
+URxvt*tintColor: Black
+! URxvt*tintColor: Blue
+! URxvt*shading: 40
+URxvt*saveLines: 12000
+URxvt*foreground: White
+! URxvt*background: Blue
+URxvt*background: Black
+! URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=12:antialias=true:hinting=true
+! URxvt*boldFont: xft:Bitstream Vera Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
+! URxvt*font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
+! URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
+! URxvt*font: xft:Liberation Mono:pixelsize=10:antialias=true:hinting=true
+! URxvt*boldFont: xft:Liberation Mono:bold:pixelsize=10:antialias=true:hinting=true
+! URxvt*font: xft:terminus:pixelsize=10
+! URxvt*boldFont: xft:terminus:bold:pixelsize=10
+! URxvt.font:     xft:bitstream vera sans mono:size=12:antialias=true
+! URxvt.boldFont: xft:bitstream vera sans mono:bold:size=12:antialias=true
+URxvt*font:-*-courier-medium-r-normal-*-12-*-*-*-*-*-iso8859-1
+URxvt*boldFont:-*-courier-bold-r-normal-*-12-*-*-*-*-*-iso8859-1
+URxvt*color4: RoyalBlue
+URxvt*color12: RoyalBlue
+! URxvt*color4: black
+! URxvt*color12: black
+URxvt*scrollBar: true
+URxvt*scrollBar_right: false
+URxvt*scrollstyle: rxvt
+! from archwiki
+URxvt.perl-ext-common: default,clipboard
+URxvt.iso14755: False
+URxvt.iconFile:  ~/.urxvt.svg
+! URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+! URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+! URxvt.clipboard.copycmd:  xsel -ib
+! URxvt.clipboard.pastecmd: xsel -ob

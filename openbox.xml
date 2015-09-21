@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openbox_config xmlns="http://openbox.org/3.4/rc"
+                xmlns:xi="http://www.w3.org/2001/XInclude">
+  <keyboard>
+    <keybind key="M-W-F11">
+      <action name="ToggleFullscreen"/>
+    </keybind>
+    <keybind key="M-W-m">
+      <action name="Maximize"/>
+    </keybind>
+    <keybind key="M-W-l">
+      <action name="Iconify"/>
+    </keybind>
+    <keybind key="M-W-b">
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+      </action>
+      <action name="MoveToEdge"><direction>west</direction></action>
+    </keybind>
+    <keybind key="M-W-f">
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+      </action>
+      <action name="MoveToEdge"><direction>east</direction></action>
+    </keybind>
+    <keybind key="M-W-x">
+      <action name="PreviousWindow"/>
+    </keybind>
+    <keybind key="M-W-c">
+      <action name="NextWindow"/>
+    </keybind>
+    <keybind key="M-W-d">
+      <action name="ToggleShowDesktop"/>
+    </keybind>
+    <keybind key="M-W-1">
+      <action name="SendToDesktop"><to>1</to></action>
+    </keybind>
+    <keybind key="M-W-2">
+      <action name="SendToDesktop"><to>2</to></action>
+    </keybind>
+    <keybind key="M-W-3">
+      <action name="SendToDesktop"><to>3</to></action>
+    </keybind>
+    <keybind key="M-W-4">
+      <action name="SendToDesktop"><to>4</to></action>
+    </keybind>
+    <keybind key="C-W-1">
+      <action name="GoToDesktop"><to>1</to></action>
+    </keybind>
+    <keybind key="C-W-2">
+      <action name="GoToDesktop"><to>2</to></action>
+    </keybind>
+    <keybind key="C-W-3">
+      <action name="GoToDesktop"><to>3</to></action>
+    </keybind>
+    <keybind key="C-W-4">
+      <action name="GoToDesktop"><to>4</to></action>
+    </keybind>
+    <keybind key="C-W-b">
+      <action name="GoToDesktop">
+        <to>previous</to>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
+    <keybind key="C-W-f">
+      <action name="GoToDesktop">
+        <to>next</to>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
+  </keyboard>
+</openbox_config>

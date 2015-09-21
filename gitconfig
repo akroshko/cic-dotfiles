@@ -1,0 +1,8 @@
+[user]
+    name = Andrew Kroshko
+    email = akroshko.public+devel@gmail.com
+[core]
+    editor = emacs
+    excludesfile = ~/.gitignore
+[push]
+	default = matching

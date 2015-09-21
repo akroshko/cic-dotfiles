@@ -1,0 +1,24 @@
+# useful links for inputrc
+# http://codeinthehole.com/archives/17-The-most-important-command-line-tip-incremental-history-searching-with-.inputrc.html
+# http://fahdshariff.blogspot.ca/2011/08/my-bash-profile-part-vi-inputrc.html
+# https://wiki.archlinux.org/index.php/Readline
+set bell-style none
+set completion-ignore-case On
+set echo-control-characters Off
+# TAB: menu-complete
+set show-all-if-ambiguous on
+# XXXX these may need customization under some circumstances
+set meta-flag on
+set convert-meta on
+set input-meta on
+set output-meta on
+# Incrementally search history with up/down arrow keys
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+# Incrementally search history with M-p/M-n
+"\M-p": history-search-backward
+"\M-n": history-search-forward
+
+$if Bash
+    Space: magic-space
+$endif
