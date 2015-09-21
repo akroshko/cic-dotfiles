@@ -1,11 +1,11 @@
 akroshko personal configuration files
 =====================================
 
-These are personal configuration files provided as-is.  There is no
-guarantee they will work on a particular system or give the desirired
-configuration.  They are provided demonstrate useful ideas and should
-evolve to be reasonably robust.  However, some have not been used for
-a long time and may not work well.
+These are personal configuration files provided as-is. They
+demonstrate many useful ideas and should evolve to be reasonably
+robust.  However, some have not been used for a long time and may not
+work well.  There is no guarantee they will work on a particular
+system or give the desired behaviour.
 
 The script
 [symlink-home.sh](http://github.com/akroshko/dotfiles-stdlib/symlink-home.sh)

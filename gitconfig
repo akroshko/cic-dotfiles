@@ -6,3 +6,6 @@
     excludesfile = ~/.gitignore
 [push]
 	default = matching
+[instaweb]
+        local = true
+        httpd = apache2 -f
