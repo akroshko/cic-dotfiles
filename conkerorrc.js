@@ -14,14 +14,23 @@ register_user_stylesheet(
             "  line-height: 18px !important;\n"+
             "}"));
 // standard keys
+define_key(content_buffer_normal_keymap, "C-[", "unfocus");
+define_key(content_buffer_normal_keymap, "s-z", "unfocus");
+// define_key(content_buffer_normal_keymap, "s-f", "follow-new-buffer");
+define_key(content_buffer_normal_keymap, "s-l f", "follow-new-buffer");
+define_key(content_buffer_normal_keymap, "s-l B", "back");
+// define_key(content_buffer_normal_keymap, "s-B", "back");
+// define_key(content_buffer_normal_keymap, "s-l", "back");
+// define_key(content_buffer_normal_keymap, "s-g", "find-url");
+define_key(content_buffer_normal_keymap, "s-l g", "find-url");
+define_key(content_buffer_normal_keymap, "s-space", "cmd_scrollPageDown");
+// TODO: do I still want this?
 define_key(content_buffer_normal_keymap, "C-u f", "follow-new-buffer");
 define_key(content_buffer_normal_keymap, "b", "follow-new-buffer-background");
-// TODO: these might be good emergency keys in other circumstances
-define_key(content_buffer_normal_keymap, "f3", "find-url");
+define_key(content_buffer_normal_keymap, "s-b", "follow-new-buffer-background");
+// emergency key to kill buffer quickly
 define_key(content_buffer_normal_keymap, "f4", "kill-buffer");
-
 // key redefines
-// TODO make similar to next buffer same mode in emacs
 define_key(content_buffer_normal_keymap, "s-]", "buffer-next");
 define_key(content_buffer_normal_keymap, "s-[", "buffer-previous");
 
@@ -72,6 +81,7 @@ interactive("duplicate-buffer", "Duplicate buffer",
                 browser_object_follow(I.buffer, OPEN_NEW_BUFFER, I.buffer.current_uri.spec);
             });
 define_key(content_buffer_normal_keymap, "d", "duplicate-buffer");
+define_key(content_buffer_normal_keymap, "M-d", "duplicate-buffer");
 
 // http://conkeror.org/Focus
 function focusblock (buffer) {

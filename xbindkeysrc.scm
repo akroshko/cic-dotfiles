@@ -36,7 +36,6 @@
   "Check for a desktop environment, only gnome for now."
   (equal? (getenv "DESKTOP_SESSION") "gnome"))
 
-
 (define (first-binding)
   "First binding."
   ;; control-backtick as a prefix key
@@ -47,6 +46,13 @@
   (xbindkey-function '(alt "b:7")
                      (lambda ()
                        (run-command "conkeror-clipboard.sh scholar")))
+  ;; Super-arrow keys to the do mouse wheel
+  (xbindkey-function '(mod4 "c:111")
+                     (lambda ()
+                       (run-command "xdotool getwindowfocus key --window %1 click 4")))
+  (xbindkey-function '(mod4 "c:116")
+                     (lambda ()
+                       (run-command "xdotool getwindowfocus key --window %1 click 5")))
   ;; multi-media app keys are normally handled by DE
   (when (not (check-de))
         (xbindkey-function '("c:122")

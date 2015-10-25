@@ -45,8 +45,9 @@ gsettings set org.gnome.Epiphany restore-session-policy never
 ## keybindings I like
 # get with: gsettings list-recursively org.gnome.desktop.wm.keybindings > keybindings
 gsettings set org.gnome.desktop.wm.keybindings show-desktop " @as ['<Alt><Super>d']"
-gsettings set org.gnome.desktop.wm.keybindings switch-windows "@as ['<Alt><Super>c', '<Alt>Tab']"
-gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "@as ['<Alt><Super>x', '<Shift><Alt>Tab']"
+# TODO: originally super alt-x,z
+gsettings set org.gnome.desktop.wm.keybindings switch-windows "@as ['<Super>x', '<Alt>Tab']"
+gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "@as ['<Shift><Super>x', '<Shift><Alt>Tab']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-left "@as ['<Shift><Alt><Super>b']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-right "@as ['<Shift><Alt><Super>f']"
 gsettings set org.gnome.desktop.wm.keybindings cycle-windows-backward " ['<Shift><Alt>Escape']"
