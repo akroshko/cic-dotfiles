@@ -102,12 +102,12 @@ ${endif}
 $hr
 ${if_match "${nodename}" == "akroshko-netbook"}\
 ${color grey}Address: ${color}${addr wlan0}
-${color grey}Down:${color} ${downspeed wlan0} k/s${color lightgrey} ${alignr}Up:${color} ${upspeed wlan0} k/s
+${color grey}Down:${color} ${downspeed wlan0}/s${color lightgrey} ${alignr}Up:${color} ${upspeed wlan0}/s
 ${downspeedgraph wlan0 32,270 ff0000 0000ff} $alignr${upspeedgraph wlan0 32,270 0000ff ff0000}
 ${else}\
-${color grey}Address: ${color}${addr eth1}
-${color grey}Down:${color} ${downspeed eth1} k/s${color lightgrey} ${alignr}Up:${color} ${upspeed eth1} k/s
-${downspeedgraph eth1 32,300 ff0000 0000ff} $alignr${upspeedgraph eth1 32,300 0000ff ff0000}\
+${color grey}Address: ${color}${addr eth0}
+${color grey}Down:${color} ${downspeed eth0}/s${color lightgrey} ${alignr}Up:${color} ${upspeed eth0}/s
+${downspeedgraph eth0 32,300 ff0000 0000ff} $alignr${upspeedgraph eth0 32,300 0000ff ff0000}\
 ${endif}
 ${color lightgrey}Inbound/Outbound: $color${tcp_portmon 1 32767 count}/${tcp_portmon 32768 61000 count}${alignr}${color lightgrey}ALL: $color${tcp_portmon 1 65535 count}
 ${color lightgrey}Inbound Connection ${alignr} Local Service/Port$color

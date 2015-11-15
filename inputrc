@@ -18,7 +18,8 @@ set output-meta on
 # Incrementally search history with M-p/M-n
 "\M-p": history-search-backward
 "\M-n": history-search-forward
-
+# XXXX: required for sage terminal
+"\e[3~":delete-char
 $if Bash
     Space: magic-space
 $endif

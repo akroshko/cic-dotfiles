@@ -9,6 +9,8 @@ gsettings set org.gnome.mutter overlay-key "Menu"
 # I like this theme because it gives clear indication of the focused window and I really like this font
 gsettings set org.gnome.desktop.wm.preferences theme "Shiki-Colors-Striped-Metacity"
 gsettings set org.gnome.desktop.wm.preferences titlebar-font "Droid Sans Mono Bold 9"
+# see https://major.io/2015/07/06/allow-new-windows-to-steal-focus-in-gnome-3/
+gsettings set org.gnome.desktop.wm.preferences focus-new-windows 'strict'
 # gsettings set org.gnome.desktop.wm.preferences titlebar-font "Cantarell Bold 9"
 gsettings set org.gnome.mutter.keybindings toggle-tiled-left "@as ['<Alt><Super>b']"
 gsettings set org.gnome.mutter.keybindings toggle-tiled-right "@as ['<Alt><Super>f']"
