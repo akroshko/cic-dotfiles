@@ -4,7 +4,9 @@
 # also see /usr/share/glib-2.0/schemas
 # org.gnome.desktop.screensaver
 # misc gnome stuff
-gsettings set org.gnome.mutter overlay-key "Menu"
+# TODO: remapped to space for now
+# gsettings set org.gnome.mutter overlay-key "Menu"
+gsettings set org.gnome.mutter overlay-key ""
 # gsettings set org.gnome.desktop.wm.preferences theme "Crux"
 # I like this theme because it gives clear indication of the focused window and I really like this font
 gsettings set org.gnome.desktop.wm.preferences theme "Shiki-Colors-Striped-Metacity"
@@ -43,6 +45,10 @@ gsettings set org.gnome.Epiphany.web enable-adblock true
 gsettings set org.gnome.Epiphany.web enable-popups false
 gsettings set org.gnome.Epiphany.web do-not-track true
 gsettings set org.gnome.Epiphany restore-session-policy never
+# terminal
+gsettings set org.gnome.Terminal.Legacy.Settings dark-theme true
+gsettings set org.gnome.Terminal.Legacy.Settings confirm-close false
+gsettings set org.gnome.Terminal.Legacy.Settings default-show-menubar false
 ################################################################################
 ## keybindings I like
 # get with: gsettings list-recursively org.gnome.desktop.wm.keybindings > keybindings
@@ -60,7 +66,7 @@ gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-2 "['<Primary><
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-3 "['<Primary><Super>3']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-4 "['<Primary><Super>4']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-last "['<Primary><Super>e']"
-# some defaults  I want to make sure are set
+# Some defaults  I want to make sure are set
 gsettings set org.gnome.desktop.wm.keybindings panel-run-dialog "['<Alt>F2']"
 gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4']"
 gsettings set org.gnome.desktop.wm.keybindings begin-move "['<Alt>F7']"

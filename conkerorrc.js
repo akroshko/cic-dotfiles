@@ -201,7 +201,7 @@ var current_conkeror_proxy_init=true;
 // fetch video as audio
 interactive("fetch-video", "Fetch Video",
     function (I) {
-        var cmd_str = 'rxvt -e bash -c \"cd ~/Documents; youtube-dl --no-cache-dir ' + I.buffer.display_uri_string + '; read -p \'Press [Enter] to continue...\'\"'
+        var cmd_str = 'gnome-terminal --working-directory="~/Documents" --execute bash -c "youtube-dl --no-cache-dir ' + I.buffer.display_uri_string + '; read -p \'Press [Enter] to continue...\'"'
         shell_command_blind(cmd_str);
     });
 define_key(content_buffer_normal_keymap,"C-c v","fetch-video");
@@ -209,7 +209,7 @@ define_key(content_buffer_normal_keymap,"C-c v","fetch-video");
 // fetch video as audio
 interactive("fetch-video-as-audio", "Fetch Video as audio",
     function (I) {
-        var cmd_str = 'rxvt -e bash -c \"cd ~/Documents; youtube-dl --no-cache-dir --extract-audio --audio-format mp3 ' + I.buffer.display_uri_string + '; read -p \'Press [Enter] to continue...\'\"'
+        var cmd_str = 'gnome-terminal --working-directory="~/Documents" --execute bash -c "youtube-dl --no-cache-dir --extract-audio --audio-format mp3 ' + I.buffer.display_uri_string + '; read -p \'Press [Enter] to continue...\'"'
         shell_command_blind(cmd_str);
     });
 define_key(content_buffer_normal_keymap,"C-c V","fetch-video-as-audio");

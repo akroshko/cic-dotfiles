@@ -70,6 +70,10 @@
   (xbindkey-function '(control shift "c")
                      (lambda ()
                        (run-command "xclip -o -selection primary | xclip -i -selection clipboard")))
+  ;; TODO: does not work that well to replace space key
+  ;; (xbindkey-function '(control shift "f")
+  ;;                    (lambda ()
+  ;;                      (run-command "sleep 0.1; xdotool key space")))
   (xbindkey-function '(control shift "v")
                      (lambda ()
                        ;; TODO: doesn't work everywhere
@@ -94,17 +98,17 @@
   ;; [
   (xbindkey-function '("c:34")
                      (lambda ()
-                       (run-command "urxvt -title \"nuke-extra\" -e bash -c -i \"nuke-extra;read -p 'Press [Enter] to continue...'\"")
+                       (run-command "gnome-terminal --title=\"nuke-extra\" --execute bash -c -i \"nuke-extra;read -p 'Press [Enter] to continue...'\"")
                        (reset-first-binding)))
   ;; ]
   (xbindkey-function '("c:35")
                      (lambda ()
-                       (run-command "urxvt -title \"start-extra\" -e bash -c -i \"start-extra;read -p 'Press [Enter] to continue...'\"")
+                       (run-command "gnome-terminal --title=\"start-extra\" -execute bash -c -i \"start-extra;read -p 'Press [Enter] to continue...'\"")
                        (reset-first-binding)))
   (xbindkey-function '("c:51")
                      (lambda ()
                        ;; TODO: lock then hibernate
-                       (run-command "urxvt -title \"pm-hibernate\" -e bash -c \"sudo pm-hibernate\"")
+                       (run-command "gnome-terminal --title=\"pm-hibernate\" -execute bash -c \"sudo pm-hibernate\"")
                        (reset-first-binding)))
   ;; /
   (xbindkey-function '("c:61")
@@ -188,15 +192,15 @@
                        (reset-first-binding)))
   (xbindkey-function 'i
                      (lambda ()
-                       (run-command "rxvt-unicode -e bash -i -c \"sage;read -p 'Press [Enter] to continue...'\"")
+                       (run-command "gnome-terminal --title=\"SAGE\" --execute bash -i -c \"sage;read -p 'Press [Enter] to continue...'\"")
                        (reset-first-binding)))
   (xbindkey-function '(alt "i")
                      (lambda ()
-                       (run-command "rxvt-unicode -title \"SAGE notebook\" -e bash -i -c \"sage-notebook;read -p 'Press [Enter] to continue...'\"")
+                       (run-command "gnome-terminal --title=\"SAGE notebook\" --execute bash -i -c \"sage-notebook;read -p 'Press [Enter] to continue...'\"")
                        (reset-first-binding)))
   (xbindkey-function 'm
                      (lambda ()
-                       (run-command "urxvt -title \"power-managment\" -e bash -i -c \"power-management-terminal;read -p 'Press [Enter] to continue...'\"")
+                       (run-command "gnome-terminal --title=\"power-managment\" --execute bash -i -c \"power-management-terminal;read -p 'Press [Enter] to continue...'\"")
                        (reset-first-binding)))
   (xbindkey-function 's
                      (lambda ()
@@ -208,7 +212,7 @@
                        (reset-first-binding)))
   (xbindkey-function 't
                      (lambda ()
-                       (run-command "rxvt-unicode")
+                       (run-command "gnome-terminal")
                        (reset-first-binding)))
   (xbindkey-function '(alt "w")
                      (lambda ()
