@@ -1,3 +1,4 @@
+continuousView yes
 # put information about the current file into a suitable temp file
 bind ctrl-i            any "run(echo '%f\n%p' > ~/tmp/xpdf-tmp.txt)"
 # hardcoded link for xulpdftex-code

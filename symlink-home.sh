@@ -13,9 +13,8 @@ need_new_symlink ${SCRIPTPATH}/inputrc ~/.inputrc
 need_new_symlink ${SCRIPTPATH}/latexmkrc ~/.latexmkrc
 need_new_symlink ${SCRIPTPATH}/screenrc ~/.screenrc
 # empty include files
-# TODO: eventually change
-touch ~/.xbindkeys_first_personal.scm
-touch ~/.xbindkeys_second_personal.scm
+need_new_symlink /dev/null ~/.xbindkeys_first_personal.scm
+need_new_symlink /dev/null ~/.xbindkeys_second_personal.scm
 need_new_symlink ${SCRIPTPATH}/xbindkeysrc.scm ~/.xbindkeysrc
 need_new_symlink ${SCRIPTPATH}/pentadactylrc ~/.pentadactylrc
 # openbox
