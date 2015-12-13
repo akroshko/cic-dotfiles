@@ -129,7 +129,7 @@ define_key(content_buffer_normal_keymap,"C-c p","academic-localhost-proxy")
 interactive("home-localhost-proxy", "Home Localhost proxy",
     function (I) {
         server = 'localhost';
-        port=18222;
+        port=18123;
         session_pref('network.proxy.socks', server);
         session_pref('network.proxy.socks_port', port);
         session_pref('network.proxy.share_proxy_settings', true);
@@ -139,14 +139,14 @@ interactive("home-localhost-proxy", "Home Localhost proxy",
         mode_line_mode(false);
         mode_line_mode(true);
     });
-define_key(content_buffer_normal_keymap,"C-c C-p","home-localhost-proxy")
+define_key(content_buffer_normal_keymap,"C-c M-p","home-localhost-proxy")
 
 // set up a proxy
 // 3rd party proxy
 interactive("third-localhost-proxy", "Third party localhost proxy",
     function (I) {
         server = 'localhost';
-        port=18322;
+        port=18124;
         session_pref('network.proxy.socks', server);
         session_pref('network.proxy.socks_port', port);
         session_pref('network.proxy.share_proxy_settings', true);
