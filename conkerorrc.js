@@ -223,13 +223,20 @@ interactive("open-firefox", "",
                 shell_command_blind(cmd_str);
 });
 define_key(content_buffer_normal_keymap, "C-c f", "open-firefox");
+interactive("open-chromium", "",
+            function (I) {
+                var cmd_str = 'chromium "' + I.buffer.display_uri_string + '"';
+                shell_command_blind(cmd_str);
+});
+define_key(content_buffer_normal_keymap, "C-c g", "open-chromium");
 // open in gnome-web
 interactive("open-gnome-web", "",
             function (I) {
                 var cmd_str = 'epiphany --new-tab "' + I.buffer.display_uri_string + '"';
                 shell_command_blind(cmd_str);
 });
-define_key(content_buffer_normal_keymap, "C-c g", "open-gnome-web");
+define_key(content_buffer_normal_keymap, "C-c G", "open-gnome-web");
+
 interactive("open-firefox-new-window", "",
             function (I) {
                 // var cmd_str = 'cmd /C start /B firefox -new-window "' + I.buffer.display_uri_string + '"';
