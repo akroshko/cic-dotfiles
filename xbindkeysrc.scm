@@ -98,17 +98,17 @@
   ;; [
   (xbindkey-function '("c:34")
                      (lambda ()
-                       (run-command "gnome-terminal --title=\"nuke-extra\" --execute bash -c -i \"nuke-extra;read -p 'Press [Enter] to continue...'\"")
+                       (run-command "gnome-terminal --title=\"nuke-extra\" --execute bash -c \"source ~/.bash_libenv;nuke-extra;read -p 'Press [Enter] to continue...'\"")
                        (reset-first-binding)))
   ;; ]
   (xbindkey-function '("c:35")
                      (lambda ()
-                       (run-command "gnome-terminal --title=\"start-extra\" -execute bash -c -i \"start-extra;read -p 'Press [Enter] to continue...'\"")
+                       (run-command "gnome-terminal --title=\"start-extra\" -execute bash -c \"source ~/.bash_libenv;start-extra;read -p 'Press [Enter] to continue...'\"")
                        (reset-first-binding)))
   (xbindkey-function '("c:51")
                      (lambda ()
                        ;; TODO: lock then hibernate
-                       (run-command "gnome-terminal --title=\"pm-hibernate\" -execute bash -c \"sudo pm-hibernate\"")
+                       (run-command "gnome-terminal --title=\"pm-hibernate\" -execute bash -c \"source ~/.bash_libenv;sudo pm-hibernate\"")
                        (reset-first-binding)))
   ;; /
   (xbindkey-function '("c:61")
@@ -192,20 +192,20 @@
                        (reset-first-binding)))
   (xbindkey-function 'i
                      (lambda ()
-                       (run-command "gnome-terminal --title=\"SAGE\" --execute bash -i -c \"sage;read -p 'Press [Enter] to continue...'\"")
+                       (run-command "gnome-terminal --title=\"SAGE\" --execute bash -c \"source ~/.bash_libenv;sage;read -p 'Press [Enter] to continue...'\"")
                        (reset-first-binding)))
   (xbindkey-function '(alt "i")
                      (lambda ()
-                       (run-command "gnome-terminal --title=\"SAGE notebook\" --execute bash -i -c \"sage-notebook;read -p 'Press [Enter] to continue...'\"")
+                       (run-command "gnome-terminal --title=\"SAGE notebook\" --execute bash -c \"source ~/.bash_libenv;sage-notebook;read -p 'Press [Enter] to continue...'\"")
                        (reset-first-binding)))
   (xbindkey-function 'm
                      (lambda ()
-                       (run-command "gnome-terminal --title=\"power-managment\" --execute bash -i -c \"power-management-terminal;read -p 'Press [Enter] to continue...'\"")
+                       (run-command "gnome-terminal --title=\"power-managment\" --execute bash -c \"source ~/.bash_libenv;power-management-terminal;read -p 'Press [Enter] to continue...'\"")
                        (reset-first-binding)))
-  (xbindkey-function 's
-                     (lambda ()
-                       (run-command "import -window root ~/Docouments/screenshots/screenshot-$(date '+%Y%m%d-%H%M%S').jpg")
-                       (reset-first-binding)))
+  ;; (xbindkey-function 's
+  ;;                    (lambda ()
+  ;;                      (run-command "import -window root ~/Pictures/screenshots/screenshot-$(date '+%Y%m%d-%H%M%S').jpg")
+  ;;                      (reset-first-binding)))
   (xbindkey-function '(alt "s")
                      (lambda ()
                        (run-command "conkeror-clipboard.sh scholar")
