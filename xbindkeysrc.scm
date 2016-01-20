@@ -127,10 +127,10 @@
                        (reset-first-binding)))
   ;; not sure if these bindings are permanant
   ;; alt-/
-  (xbindkey-function '(alt "c:61")
-                     (lambda ()
-                       (run-command "nautilus ~/Dropbox")
-                       (reset-first-binding)))
+  ;; (xbindkey-function '(alt "c:61")
+  ;;                    (lambda ()
+  ;;                      (run-command "nautilus ~/Dropbox")
+  ;;                      (reset-first-binding)))
   ;; pause/play key
   (xbindkey-function '("c:172")
                      (lambda ()
