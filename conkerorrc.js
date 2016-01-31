@@ -101,6 +101,98 @@ function focusblock (buffer) {
 }
 add_hook('content_buffer_progress_change_hook', focusblock);
 
+define_webjump("alternativeto","https://alternativeto.net/software/%s",$alternative="https://alternativeto.net");
+define_webjump("amazon", "https://www.amazon.com/exec/obidos/external-search/?field-keywords=%s&mode=blended", $alternative="https://amazon.com");
+define_webjump("amazonca","https://www.amazon.ca/exec/obidos/external-search/?field-keywords=%s&mode=blended", $alternative="https://amazon.ca");
+define_webjump("archwiki","https://wiki.archlinux.org/index.php?title=Special%3ASearch&search=%s&go=Go", $alternative="https://wiki.archlinux.org");
+define_webjump("books", "https://www.google.com/search?q=%s&tbm=bks", $alternative = "https://books.google.com/");
+define_webjump("budget-bytes", "http://www.budgetbytes.com");
+// TODO: add some non-search things here
+define_webjump("ctan-all", "https://www.ctan.org/search/?search=%s&search_type=description&search_type=filename&search_type=id",$alternative="https://www.ctan.org");
+define_webjump("ctan-description", "https://www.ctan.org/search/?search=%s&search_type=description",$alternative="https://www.ctan.org");
+define_webjump("ctan-filename", "https://www.ctan.org/search/?search=%s&search_type=filename",$alternative="https://www.ctan.org");
+define_webjump("ctan-package", "https://www.ctan.org/search/?search=%s&search_type=id",$alternative="https://www.ctan.org");
+define_webjump("dictionary","http://dictionary.reference.com/browse/%s");
+define_webjump("duckduckgo","https://duckduckgo.com/?q=%s",$alternative="https://duckduckgo.com");
+define_webjump("emacswiki",
+    "https://www.google.com/cse?cx=004774160799092323420%3A6-ff2s0o6yi"+
+        "&q=%s&sa=Search&siteurl=emacswiki.org%2F",
+    $alternative="https://www.emacswiki.org/");
+// TODO: uses invalid security certificate
+define_webjump("encyclopedia","http://www.reference.com/browse/%s",$alternative="http://www.reference.com");
+define_webjump("epicurious","https://www.epicurious.com/tools/searchresults?search=%s",$alternative="https://www.epicurious.com");
+define_webjump("facebook","https://www.facebook.com/search/results.php?q=%s&init=quick",$alternative="https://www.facebook.com");
+define_webjump("flickr", "https://www.flickr.com/search/?q=%s", $alternative="https://www.flickr.com");
+define_webjump("flotrack","http://www.flotrack.org");
+define_webjump("github", "https://github.com/");
+define_webjump("gmail", "https://mail.google.com/");
+define_webjump("googleimages", "http://www.google.com/images?q=%s&safe=off", $alternative = "https://www.google.com/imghp?as_q=&safe=off");
+define_webjump("googlescholar", "http://scholar.google.com/scholar?q=%s", $alternative = "https://scholar.google.com");
+define_webjump("hackaday", "https://hackaday.com/");
+// does not appear to have acceptable webjump
+define_webjump("instagram", "https://instagram.com/");
+define_webjump("letsrun","http://letsrun.com");
+define_webjump("linuxtoday","http://linuxtoday.com");
+define_webjump("lwn","https://lwn.net");
+define_webjump("lxer","http://lxer.com");
+define_webjump("matplotlib","http://matplotlib.org/search.html?q=%s&check_keywords=yes&area=default",$alternative="http://matplotlib.org");
+define_webjump("ncix","http://www.ncix.com/search/?categoryid=0&q=%s",$alternative="http://www.ncix.com");
+// TODO: uses invalid security certificate
+define_webjump("newegg","http://www.newegg.ca/Product/ProductList.aspx?Submit=ENE&DEPA=0&Order=BESTMATCH&Description=%s",$alternative="http://newegg.ca");
+define_webjump("ohloh", "https://www.ohloh.net/p?query=%s",$alternative="https://www.ohloh.net");
+define_webjump("otv", "https://otvtech.ca");
+define_webjump("phoronix", "https://phoronix.com");
+define_webjump("plus","https://plus.google.com/");
+define_webjump("pypi","https://pypi.python.org/pypi?%3Aaction=search&term=%s&submit=search",$alternative="https://pypi.python.org");
+define_webjump("python", "https://docs.python.org/2.7/search.html?q=%s",$alternative="https://docs.python.org/2.7/");
+define_webjump("skyandtelescope","http://www.skyandtelescope.com");
+// TODO: uses invalid security certificate
+define_webjump("slashdot","http://www.slashdot.com");
+define_webjump("stackoverflow","https://stackoverflow.com/search?q=%s", $alternative="https://stackoverflow.com");
+define_webjump("startpage","https://startpage.com/do/%s",$alternative="https://startpage.com");
+define_webjump("strategypage","https://strategypage.com");
+define_webjump("stackexchange-math","https://math.stackexchange.com/search?q=%s",$alternative="https://math.stackexchange.com");
+define_webjump("stackexchange-superuser","https://superuser.com/search?q=%s",$alternative="https://superuser.com/");
+define_webjump("stackexchange-tex","https://tex.stackexchange.com/search?q=%s",$alternative="https://tex.stackexchange.com");
+define_webjump("stackexchange-unix","https://unix.stackexchange.com/search?q=%s",$alternative="https://unix.stackexchange.com");
+define_webjump("thesaurus","http://thesaurus.reference.com/browse/%s",$alternative="http://thesaurus.reference.com");
+define_webjump("tigerdirect","http://www.tigerdirect.ca/applications/SearchTools/search.asp?keywords=%s",$alternative="http://www.tigerdirect.ca");
+define_webjump("twitter","https://twitter.com/search?q=%s&src=typd",$alternative="https://twitter.com");
+define_webjump("universetoday", "https://www.universetoday.com");
+define_webjump("orgmode","https://www.google.com/cse?cx=002987994228320350715%3Az4glpcrritm&q=%s&sa=Search&siteurl=orgmode.org%2Fworg",$alternative="http://orgmode.org/worg/");
+define_webjump("youtube", "https://www.youtube.com/results?search_query=%s&search=Search",$alternative="https://www.youtube.com/feed/subscriptions");
+define_webjump("youtube-user", "https://youtube.com/profile_videos?user=%s",$alternative="https://www.youtube.com/feed/subscriptions");
+// TODO: set up search
+define_webjump("webofscience","https://apps.webofknowledge.com/");
+
+// local stuff here because it's useful
+define_webjump("library-usask","https://sundog.usask.ca/search/a?searchtype=Y&SORT=D&searcharg=%s&searchscope=8&called_from=catalogue_home_tab",$alternative="https://library.usask.ca/");
+define_webjump("library-saskatoon","http://www.saskatoonlibrary.ca/");
+
+define_webjump("calgary-timeanddate","https://www.timeanddate.com/worldclock/city.html?n=55");
+define_webjump("calgary-weathernetwork","http://www.theweathernetwork.com/weather/canada/alberta/calgary");
+define_webjump("calgary-weatheroffice","http://www.weatheroffice.gc.ca/city/pages/ab-52_metric_e.html");
+define_webjump("sundre-weatheroffice","http://www.weatheroffice.gc.ca/city/pages/ab-53_metric_e.html");
+define_webjump("sundre-weathernetwork","http://www.theweathernetwork.com/weather/canada/alberta/sundre");
+define_webjump("saskatoon-timeanddate","https://www.timeanddate.com/worldclock/city.html?n=1227");
+define_webjump("saskatoon-weathernetwork","http://www.theweathernetwork.com/weather/canada/saskatchewan/saskatoon");
+define_webjump("saskatoon-weatheroffice","http://www.weatheroffice.gc.ca/city/pages/sk-40_metric_e.html");
+define_webjump("weathernetwork","http://www.theweathernetwork.com/");
+define_webjump("weathernetwork-calgary","http://www.theweathernetwork.com/weather/canada/alberta/calgary");
+define_webjump("weathernetwork-saskatoon","http://www.theweathernetwork.com/weather/canada/saskatchewan/saskatoon");
+define_webjump("weathernetwork-sundre","http://www.theweathernetwork.com/weather/canada/alberta/sundre");
+define_webjump("weatheroffice","http://www.weatheroffice.gc.ca/canada_e.html");
+define_webjump("weatheroffice-calgary","http://www.weatheroffice.gc.ca/city/pages/ab-52_metric_e.html");
+define_webjump("weatheroffice-saskatoon","http://www.weatheroffice.gc.ca/city/pages/sk-40_metric_e.html");
+define_webjump("weatheroffice-sundre","http://www.weatheroffice.gc.ca/city/pages/ab-53_metric_e.html");
+define_webjump("timeanddate","https://www.timeanddate.com/search/results.html?query=%s");
+define_webjump("timeanddate-calgary","https://www.timeanddate.com/worldclock/city.html?n=55");
+define_webjump("timeanddate-saskatoon","https://www.timeanddate.com/worldclock/city.html?n=1227");
+
+// use your web browser for system admin
+define_webjump("router", "https://192.168.0.1");
+define_webjump("cups", "http://localhost:631");
+
 ////////////////////////////////////////////////////////////////////////////////
 // proxies
 // I use port localhost:18122 as a proxy to my University for accademic journals

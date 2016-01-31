@@ -7,7 +7,7 @@
 ;; Author: Andrew Kroshko
 ;; Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com>
 ;; Created: Sun Sep 20, 2015
-;; Version: 20150920
+;; Version: 20160130
 ;; URL: https://github.com/akroshko/emacs-stdlib
 ;;
 ;; This program is free software; you can redistribute it and/or
@@ -221,6 +221,10 @@
   (xbindkey-function 'v
                      (lambda ()
                        (run-command "virtualbox")
+                       (reset-first-binding)))
+  (xbindkey-function 'x
+                     (lambda ()
+                       (run-command "firefox -private")
                        (reset-first-binding)))
   (when (not (check-de))
         (xbindkey-function 'z
