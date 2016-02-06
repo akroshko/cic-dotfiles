@@ -105,6 +105,7 @@ define_webjump("alternativeto","https://alternativeto.net/software/%s",$alternat
 define_webjump("amazon", "https://www.amazon.com/exec/obidos/external-search/?field-keywords=%s&mode=blended", $alternative="https://amazon.com");
 define_webjump("amazonca","https://www.amazon.ca/exec/obidos/external-search/?field-keywords=%s&mode=blended", $alternative="https://amazon.ca");
 define_webjump("archwiki","https://wiki.archlinux.org/index.php?title=Special%3ASearch&search=%s&go=Go", $alternative="https://wiki.archlinux.org");
+define_webjump("bee","http://www.be-electronics.com/");
 define_webjump("books", "https://www.google.com/search?q=%s&tbm=bks", $alternative = "https://books.google.com/");
 define_webjump("budget-bytes", "http://www.budgetbytes.com");
 // TODO: add some non-search things here
@@ -146,6 +147,8 @@ define_webjump("plus","https://plus.google.com/");
 define_webjump("pypi","https://pypi.python.org/pypi?%3Aaction=search&term=%s&submit=search",$alternative="https://pypi.python.org");
 define_webjump("python", "https://docs.python.org/2.7/search.html?q=%s",$alternative="https://docs.python.org/2.7/");
 define_webjump("skyandtelescope","http://www.skyandtelescope.com");
+define_webjump("sage","http://sagemath.org")
+define_webjump("sage-sym","http://doc.sagemath.org/html/en/reference/calculus/sage/symbolic/expression.html")
 // TODO: uses invalid security certificate
 define_webjump("slashdot","http://www.slashdot.com");
 define_webjump("stackoverflow","https://stackoverflow.com/search?q=%s", $alternative="https://stackoverflow.com");
@@ -312,30 +315,36 @@ define_key(content_buffer_normal_keymap,"C-c V","fetch-video-as-audio");
 define_key(default_global_keymap, "C-c r", "reload-config");
 // open in firefox
 interactive("open-firefox", "",
-            function (I) {
-                var cmd_str = 'firefox -new-tab "' + I.buffer.display_uri_string + '"';
-                shell_command_blind(cmd_str);
+    function (I) {
+        var cmd_str = 'firefox -new-tab "' + I.buffer.display_uri_string + '"';
+        shell_command_blind(cmd_str);
 });
 define_key(content_buffer_normal_keymap, "C-c f", "open-firefox");
+// open in firefox private
+interactive("open-firefox-private", "",
+    function (I) {
+        var cmd_str = 'firefox -private -new-tab "' + I.buffer.display_uri_string + '"';
+        shell_command_blind(cmd_str);
+});
+define_key(content_buffer_normal_keymap, "C-c x", "open-firefox-private");
 interactive("open-chromium", "",
-            function (I) {
-                var cmd_str = 'chromium "' + I.buffer.display_uri_string + '"';
-                shell_command_blind(cmd_str);
+    function (I) {
+        var cmd_str = 'chromium "' + I.buffer.display_uri_string + '"';
+        shell_command_blind(cmd_str);
 });
 define_key(content_buffer_normal_keymap, "C-c g", "open-chromium");
 // open in gnome-web
 interactive("open-gnome-web", "",
-            function (I) {
-                var cmd_str = 'epiphany --new-tab "' + I.buffer.display_uri_string + '"';
-                shell_command_blind(cmd_str);
+    function (I) {
+        var cmd_str = 'epiphany --new-tab "' + I.buffer.display_uri_string + '"';
+        shell_command_blind(cmd_str);
 });
 define_key(content_buffer_normal_keymap, "C-c G", "open-gnome-web");
 
 interactive("open-firefox-new-window", "",
-            function (I) {
-                // var cmd_str = 'cmd /C start /B firefox -new-window "' + I.buffer.display_uri_string + '"';
-                var cmd_str = 'firefox -new-window "' + I.buffer.display_uri_string + '"';
-                shell_command_blind(cmd_str);
+    function (I) {
+        var cmd_str = 'firefox -new-window "' + I.buffer.display_uri_string + '"';
+        shell_command_blind(cmd_str);
 });
 // TODO is this the best way to do C-u?
 define_key(content_buffer_normal_keymap, "C-u C-c f", "open-firefox-new-window");

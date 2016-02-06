@@ -40,12 +40,13 @@
   "First binding."
   ;; control-backtick as a prefix key
   (xbindkey-function '(control "c:49") second-binding)
-  (xbindkey-function '(control "b:7")
-                     (lambda ()
-                       (run-command "conkeror-clipboard.sh google")))
-  (xbindkey-function '(alt "b:7")
-                     (lambda ()
-                       (run-command "conkeror-clipboard.sh scholar")))
+  (xbindkey-function '(mod4 "c:49") second-binding-super)
+  ;; (xbindkey-function '(control "b:7")
+  ;;                    (lambda ()
+  ;;                      (run-command "conkeror-clipboard.sh google")))
+  ;; (xbindkey-function '(alt "b:7")
+  ;;                    (lambda ()
+  ;;                      (run-command "conkeror-clipboard.sh scholar")))
   ;; Super-arrow keys to the do mouse wheel
   (xbindkey-function '(mod4 "c:111")
                      (lambda ()
@@ -177,46 +178,35 @@
                      (lambda ()
                        (run-command "firefox")
                        (reset-first-binding)))
-  (xbindkey-function '(alt "f")
-                     (lambda ()
-                       (run-command "firefox -private")
-                       (reset-first-binding)))
   (xbindkey-function 'g
                      (lambda ()
                        ;; XXXX: only on debian with the google earth pacakge maker
                        (run-command "googleearth")
                        (reset-first-binding)))
-  (xbindkey-function '(alt "g")
-                     (lambda ()
-                       (run-command "conkeror-clipboard.sh google")
-                       (reset-first-binding)))
+  ;; TODO: these functions need to be released
   (xbindkey-function 'i
                      (lambda ()
-                       (run-command "gnome-terminal --title=\"SAGE\" --execute bash -c \"source ~/.bash_libenv;sage;read -p 'Press [Enter] to continue...'\"")
+                       (run-command "gnome-terminal --title=\"SAGE notebook\" --execute bash -c \"source ~/.bash_libenv;sage-notebook;read -p 'Press [Enter] to continue...'\"")
                        (reset-first-binding)))
   (xbindkey-function '(alt "i")
                      (lambda ()
-                       (run-command "gnome-terminal --title=\"SAGE notebook\" --execute bash -c \"source ~/.bash_libenv;sage-notebook;read -p 'Press [Enter] to continue...'\"")
+                       (run-command "gnome-terminal --title=\"iPython notebook\" --execute bash -c \"source ~/.bash_libenv;sage-ipython-notebook;read -p 'Press [Enter] to continue...'\"")
                        (reset-first-binding)))
   (xbindkey-function 'm
                      (lambda ()
                        (run-command "gnome-terminal --title=\"power-managment\" --execute bash -c \"source ~/.bash_libenv;power-management-terminal;read -p 'Press [Enter] to continue...'\"")
                        (reset-first-binding)))
-  ;; (xbindkey-function 's
-  ;;                    (lambda ()
-  ;;                      (run-command "import -window root ~/Pictures/screenshots/screenshot-$(date '+%Y%m%d-%H%M%S').jpg")
-  ;;                      (reset-first-binding)))
-  (xbindkey-function '(alt "s")
+  (xbindkey-function 'r
                      (lambda ()
-                       (run-command "conkeror-clipboard.sh scholar")
+                       (run-command "gnome-terminal --title=\"SAGE repl\" --execute bash -c \"source ~/.bash_libenv;sage;read -p 'Press [Enter] to continue...'\"")
+                       (reset-first-binding)))
+  (xbindkey-function '(alt "r")
+                     (lambda ()
+                       (run-command "gnome-terminal --title=\"iPython repl\" --execute bash -c \"source ~/.bash_libenv;sage -ipython;read -p 'Press [Enter] to continue...'\"")
                        (reset-first-binding)))
   (xbindkey-function 't
                      (lambda ()
                        (run-command "gnome-terminal")
-                       (reset-first-binding)))
-  (xbindkey-function '(alt "w")
-                     (lambda ()
-                       (run-command "conkeror-clipboard.sh wikipedia")
                        (reset-first-binding)))
   (xbindkey-function 'v
                      (lambda ()
@@ -250,6 +240,29 @@
                        (run-command "launch-emacsclient noframe --eval \"(calc)\"")
                        (reset-first-binding)))
   (include "/home/akroshko/.xbindkeys_second_personal.scm")
+  (grab-all-keys))
+
+(define (second-binding-super)
+  "Second binding."
+  ;; TODO: what else do I want here?
+  ;;       grab a backtrace from terminal
+  ;;       dictionary?
+  ;;       other reference sources? possibly???
+  ;;       put number into calculator
+  (ungrab-all-keys)
+  (remove-all-keys)
+  (xbindkey-function 'g
+                     (lambda ()
+                       (run-command "conkeror-clipboard.sh google")
+                       (reset-first-binding)))
+  (xbindkey-function 's
+                     (lambda ()
+                       (run-command "conkeror-clipboard.sh scholar")
+                       (reset-first-binding))
+  (xbindkey-function 'w
+                     (lambda ()
+                       (run-command "conkeror-clipboard.sh wikipedia")
+                       (reset-first-binding))))
   (grab-all-keys))
 
 (first-binding)
