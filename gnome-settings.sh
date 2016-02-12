@@ -1,5 +1,9 @@
 #!/bin/bash
 main () {
+    # set some default apps
+    xdg-mime default ebook-viewer.desktop application/epub+zip
+    xdg-mime default vlc.desktop video/mp4
+    xdg-mime default vlc.desktop video/x-flv
     # TODO: move ones without problematic default bindings into comments
     # use dconf-editor to find these
     # also see /usr/share/glib-2.0/schemas
