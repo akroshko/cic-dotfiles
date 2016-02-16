@@ -101,9 +101,13 @@ function focusblock (buffer) {
 }
 add_hook('content_buffer_progress_change_hook', focusblock);
 
+define_webjump("abebooks","https://www.abebooks.com/Canada/");
 define_webjump("alternativeto","https://alternativeto.net/software/%s",$alternative="https://alternativeto.net");
 define_webjump("amazon", "https://www.amazon.com/exec/obidos/external-search/?field-keywords=%s&mode=blended", $alternative="https://amazon.com");
 define_webjump("amazonca","https://www.amazon.ca/exec/obidos/external-search/?field-keywords=%s&mode=blended", $alternative="https://amazon.ca");
+define_webjump("amsaut","http://www.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=%s&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=ALLF&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=html&Submit=Search", $alternative="http://www.ams.org/mathscinet/");
+define_webjump("amskey","http://www.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=ALLF&s7=%s&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=html&Submit=Search",$alternative="http://www.ams.org/mathscinet/");
+define_webjump("amstit","http://www.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=&co4=AND&pg5=TI&s5=%s&co5=AND&pg6=PC&s6=&co6=AND&pg7=ALLF&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=html&Submit=Search",$alternative="http://www.ams.org/mathscinet/");
 define_webjump("archwiki","https://wiki.archlinux.org/index.php?title=Special%3ASearch&search=%s&go=Go", $alternative="https://wiki.archlinux.org");
 define_webjump("bee","http://www.be-electronics.com/");
 define_webjump("books", "https://www.google.com/search?q=%s&tbm=bks", $alternative = "https://books.google.com/");
