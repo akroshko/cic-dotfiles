@@ -258,11 +258,11 @@
   (xbindkey-function 's
                      (lambda ()
                        (run-command "conkeror-clipboard.sh scholar")
-                       (reset-first-binding))
+                       (reset-first-binding)))
   (xbindkey-function 'w
                      (lambda ()
                        (run-command "conkeror-clipboard.sh wikipedia")
-                       (reset-first-binding))))
+                       (reset-first-binding)))
   (grab-all-keys))
 
 (first-binding)
