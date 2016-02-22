@@ -41,6 +41,11 @@
   ;; control-backtick as a prefix key
   (xbindkey-function '(control "c:49") second-binding)
   (xbindkey-function '(mod4 "c:49") second-binding-super)
+  ;; meta-alt-x focuses an Emacs window
+  ;; TODO: focus conkeror
+  (xbindkey-function '(alt mod4 "x")
+                     (lambda ()
+                       (run-command "bash -c \"source ~/.bash_libenv;focus-emacs-window\"")))
   ;; (xbindkey-function '(control "b:7")
   ;;                    (lambda ()
   ;;                      (run-command "conkeror-clipboard.sh google")))
@@ -79,6 +84,14 @@
                      (lambda ()
                        ;; TODO: doesn't work everywhere
                        (run-command "xdotool getwindowfocus key --window %1 click 2")))
+  ;; f12
+  (xbindkey-function '("c:96")
+                     (lambda ()
+                       (run-command "bash -c \"source ~/.bash_libenv;master-boss-key\"")))
+  ;; alt-f12 undo boss key
+  (xbindkey-function '(alt "c:96")
+                     (lambda ()
+                       (run-command "bash -c \"source ~/.bash_libenv;master-unboss-key\"")))
   (include "/home/akroshko/.xbindkeys_first_personal.scm"))
 
 (define (reset-first-binding)
