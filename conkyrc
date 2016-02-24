@@ -75,6 +75,8 @@ xftfont Terminus:size=10
 TEXT
 $nodename - $sysname $kernel on $machine $alignr${time %b/%a/%d} ${time %k:%M:%S}
 $hr
+${color}${execi 1800 weather-update.py CAXX0442}
+$hr
 ${if_match "${nodename}" == "akroshko-netbook"}\
 ${color grey}Battery:${color} ${battery_percent}% ${battery_bar 5}
 ${color grey}Uptime:$color $uptime${color grey} Load:$color $loadavg\
@@ -144,5 +146,3 @@ ${if_match "${nodename}" == "akroshko-main"}\
 $hr
 ${exec cat /proc/mdstat | sed -n '/^md\|^[[:space:]]*\[\|blocks/p'}\
 ${endif}
-$hr
-${color}${execi 1800 weather-update.py CAXX0442}
