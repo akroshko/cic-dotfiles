@@ -43,7 +43,7 @@
   (xbindkey-function '(mod4 "c:49") second-binding-super)
   ;; meta-alt-x focuses an Emacs window
   ;; TODO: focus conkeror
-  (xbindkey-function '(alt mod4 "x")
+  (xbindkey-function '(control mod4 "x")
                      (lambda ()
                        (run-command "bash -c \"source ~/.bash_libenv;focus-emacs-window\"")))
   ;; (xbindkey-function '(control "b:7")

@@ -35,8 +35,8 @@ main () {
     gsettings set org.gnome.desktop.thumbnail-cache maximum-age 7
     # applets
     # [org/gnome/shell]
-    gsettings set org.gnome.shell enabled-extensions "['alternative-status-menu@gnome-shell-extensions.gcampax.github.com', 'openweather-extension@jenslody.de', 'window-list@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com']"
-    # [org/gnome/shell/extensions/openweather]
+    gsettings set org.gnome.shell enabled-extensions "['alternative-status-menu@gnome-shell-extensions.gcampax.github.com', 'window-list@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com']"
+    # [org/gnome/shell/extensions/openweather, 'openweather-extension@jenslody.de',]
     gsettings set org.gnome.shell.extensions.openweather show-comment-in-panel true
     gsettings set org.gnome.shell.extensions.openweather center-forecast false
     gsettings set org.gnome.shell.extensions.openweather use-text-on-buttons false
