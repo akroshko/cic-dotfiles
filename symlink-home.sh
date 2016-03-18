@@ -14,8 +14,9 @@ main () {
     need_new_symlink ${SCRIPTPATH}/latexmkrc ${HOME}/.latexmkrc
     need_new_symlink ${SCRIPTPATH}/screenrc ${HOME}/.screenrc
     # empty include files
-    need_new_symlink /dev/null ${HOME}/.xbindkeys_first_personal.scm
-    need_new_symlink /dev/null ${HOME}/.xbindkeys_second_personal.scm
+    # set this up better, want this to not go first
+    # need_new_symlink /dev/null ${HOME}/.xbindkeys_first_personal.scm
+    # need_new_symlink /dev/null ${HOME}/.xbindkeys_second_personal.scm
     need_new_symlink ${SCRIPTPATH}/xbindkeysrc.scm ${HOME}/.xbindkeysrc
     need_new_symlink ${SCRIPTPATH}/pentadactylrc ${HOME}/.pentadactylrc
     # openbox

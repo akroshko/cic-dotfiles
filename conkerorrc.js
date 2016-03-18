@@ -1,10 +1,10 @@
 // https://github.com/vedang/conkeror-rc/blob/master/README
 homepage = "http://conkeror.org/";
 load_paths.unshift("chrome://conkeror-contrib/content/");
+// TODO: uncomment?
 // require('block-content-focus-change.js');
 // hinting
 hint_digits="abcdefghijklmnopqrstuvwxyz";
-// hint_digits="asdfghjkl;";
 register_user_stylesheet(
     "data:text/css," +
         escape(
@@ -15,6 +15,16 @@ register_user_stylesheet(
             "}"));
 // standard keys
 define_key(content_buffer_normal_keymap, "C-[", "unfocus");
+// TODO: try to do this in single key
+define_key(content_buffer_normal_keymap, "s-a",
+           "browser-object-relationship-next",
+           $repeat = "follow-unfocus")
+interactive("follow-unfocus","Follow and unfocus.",
+    function (I) {
+        yield follow(I, OPEN_CURRENT_BUFFER);
+        unfocus(I.window, I.buffer);
+    });
+
 define_key(content_buffer_normal_keymap, "s-z", "unfocus");
 // define_key(content_buffer_normal_keymap, "s-f", "follow-new-buffer");
 define_key(content_buffer_normal_keymap, "s-l f", "follow-new-buffer");

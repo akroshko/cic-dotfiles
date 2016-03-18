@@ -97,8 +97,16 @@ main () {
     gsettings set org.gnome.shell.keybindings toggle-message-tray "[]"
     gsettings set org.gnome.shell.keybindings toggle-overview "[]"
     # settings daemon
-    gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver "[]"
-    gsettings set org.gnome.settings-daemon.plugins.media-keys video-out "[]"
+    # XXXX: disable all builtin screenshot keys
+    gsettings set org.gnome.settings-daemon.plugins.media-keys screenshot             "[]"
+    gsettings set org.gnome.settings-daemon.plugins.media-keys screenshot-clip        "[]"
+    gsettings set org.gnome.settings-daemon.plugins.media-keys area-screenshot-clip   "[]"
+    gsettings set org.gnome.settings-daemon.plugins.media-keys window-screenshot-clip "[]"
+    gsettings set org.gnome.settings-daemon.plugins.media-keys window-screenshot      "[]"
+    gsettings set org.gnome.settings-daemon.plugins.media-keys screencast             "[]"
+    gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver            "[]"
+    gsettings set org.gnome.settings-daemon.plugins.media-keys screenreader           "[]"
+    gsettings set org.gnome.settings-daemon.plugins.media-keys video-out              "[]"
     # window change
     gsettings set org.gnome.desktop.wm.keybindings cycle-windows "@as []"
     gsettings set org.gnome.desktop.wm.keybindings maximize "@as []"
