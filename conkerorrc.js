@@ -29,6 +29,7 @@ define_key(content_buffer_normal_keymap, "s-z", "unfocus");
 // define_key(content_buffer_normal_keymap, "s-f", "follow-new-buffer");
 define_key(content_buffer_normal_keymap, "s-l f", "follow-new-buffer");
 define_key(content_buffer_normal_keymap, "s-l B", "back");
+define_key(content_buffer_normal_keymap, "s-s", "back");
 // define_key(content_buffer_normal_keymap, "s-B", "back");
 // define_key(content_buffer_normal_keymap, "s-l", "back");
 // define_key(content_buffer_normal_keymap, "s-g", "find-url");

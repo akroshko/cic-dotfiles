@@ -40,6 +40,7 @@
   "First binding."
   ;; control-backtick as a prefix key
   (xbindkey-function '(control "c:49") second-binding)
+  ;; super-tacktick as a search key
   (xbindkey-function '(mod4 "c:49") second-binding-super)
   ;; meta-alt-x focuses an Emacs window
   ;; TODO: focus conkeror
@@ -193,7 +194,7 @@
                        (reset-first-binding)))
   (xbindkey-function 'g
                      (lambda ()
-                       ;; XXXX: only on debian with the google earth pacakge maker
+                       ;; XXXX: only on debian with the google earth package maker
                        (run-command "googleearth")
                        (reset-first-binding)))
   ;; TODO: these functions need to be released
@@ -215,7 +216,9 @@
                        (reset-first-binding)))
   (xbindkey-function '(alt "r")
                      (lambda ()
-                       (run-command "gnome-terminal --title=\"iPython repl\" --execute bash -c \"source ~/.bash_libenv;sage -ipython;read -p 'Press [Enter] to continue...'\"")
+                       ;; TODO: make sage load
+                       ;; (run-command "gnome-terminal --title=\"iPython repl\" --execute bash -c \"source ~/.bash_libenv;sage -ipython;read -p 'Press [Enter] to continue...'\"")
+                       (run-command "gnome-terminal --title=\"iPython repl\" --execute bash -c \"source ~/.bash_libenv;ipython;read -p 'Press [Enter] to continue...'\"")
                        (reset-first-binding)))
   (xbindkey-function 't
                      (lambda ()
