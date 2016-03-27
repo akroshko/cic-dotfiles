@@ -197,29 +197,10 @@
                        ;; XXXX: only on debian with the google earth package maker
                        (run-command "googleearth")
                        (reset-first-binding)))
-  ;; TODO: these functions need to be released
-  (xbindkey-function 'i
-                     (lambda ()
-                       (run-command "gnome-terminal --title=\"SAGE notebook\" --execute bash -c \"source ~/.bash_libenv;sage-notebook;read -p 'Press [Enter] to continue...'\"")
-                       (reset-first-binding)))
-  (xbindkey-function '(alt "i")
-                     (lambda ()
-                       (run-command "gnome-terminal --title=\"iPython notebook\" --execute bash -c \"source ~/.bash_libenv;sage-ipython-notebook;read -p 'Press [Enter] to continue...'\"")
-                       (reset-first-binding)))
-  (xbindkey-function 'm
-                     (lambda ()
-                       (run-command "gnome-terminal --title=\"power-managment\" --execute bash -c \"source ~/.bash_libenv;power-management-terminal;read -p 'Press [Enter] to continue...'\"")
-                       (reset-first-binding)))
-  (xbindkey-function 'r
-                     (lambda ()
-                       (run-command "gnome-terminal --title=\"SAGE repl\" --execute bash -c \"source ~/.bash_libenv;sage;read -p 'Press [Enter] to continue...'\"")
-                       (reset-first-binding)))
-  (xbindkey-function '(alt "r")
-                     (lambda ()
-                       ;; TODO: make sage load
-                       ;; (run-command "gnome-terminal --title=\"iPython repl\" --execute bash -c \"source ~/.bash_libenv;sage -ipython;read -p 'Press [Enter] to continue...'\"")
-                       (run-command "gnome-terminal --title=\"iPython repl\" --execute bash -c \"source ~/.bash_libenv;ipython;read -p 'Press [Enter] to continue...'\"")
-                       (reset-first-binding)))
+  ;; (xbindkey-function 'm
+  ;;                    (lambda ()
+  ;;                      (run-command "gnome-terminal --title=\"power-managment\" --execute bash -c \"source ~/.bash_libenv;power-management-terminal;read -p 'Press [Enter] to continue...'\"")
+  ;;                      (reset-first-binding)))
   (xbindkey-function 't
                      (lambda ()
                        (run-command "gnome-terminal")
@@ -265,12 +246,38 @@
   ;;       dictionary?
   ;;       other reference sources? possibly???
   ;;       put number into calculator
+  ;; TODO: put my repl and notebooks here
+  ;;       i for ipython
+  ;;       j for jupyter
+  ;;       l for lisp
+  ;;       m for sage
+  ;;       q for sql
   (ungrab-all-keys)
   (remove-all-keys)
   (xbindkey-function 'g
                      (lambda ()
                        (run-command "conkeror-clipboard.sh google")
                        (reset-first-binding)))
+  ;; TODO: these functions need to be released
+  (xbindkey-function 'i
+                     (lambda ()
+                       ;; TODO: make sage load
+                       ;; (run-command "gnome-terminal --title=\"iPython repl\" --execute bash -c \"source ~/.bash_libenv;sage -ipython;read -p 'Press [Enter] to continue...'\"")
+                       (run-command "gnome-terminal --title=\"iPython repl\" --execute bash -c \"source ~/.bash_libenv;ipython;read -p 'Press [Enter] to continue...'\"")
+                       (reset-first-binding)))
+  (xbindkey-function 'j
+                     (lambda ()
+                       (run-command "gnome-terminal --title=\"iPython notebook\" --execute bash -c \"source ~/.bash_libenv;sage-ipython-notebook;read -p 'Press [Enter] to continue...'\"")
+                       (reset-first-binding)))
+  (xbindkey-function 'm
+                     (lambda ()
+                       (run-command "gnome-terminal --title=\"SAGE repl\" --execute bash -c \"source ~/.bash_libenv;sage;read -p 'Press [Enter] to continue...'\"")
+                       (reset-first-binding)))
+  (xbindkey-function 'n
+                     (lambda ()
+                       (run-command "gnome-terminal --title=\"SAGE notebook\" --execute bash -c \"source ~/.bash_libenv;sage-notebook;read -p 'Press [Enter] to continue...'\"")
+                       (reset-first-binding)))
+  ;; TODO: possibly change a little...., something other than s for scholar
   (xbindkey-function 's
                      (lambda ()
                        (run-command "conkeror-clipboard.sh scholar")
