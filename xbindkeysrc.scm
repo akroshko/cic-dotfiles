@@ -254,6 +254,11 @@
   ;;       q for sql
   (ungrab-all-keys)
   (remove-all-keys)
+  ;; a == accademic search
+  (xbindkey-function 'a
+                     (lambda ()
+                       (run-command "conkeror-clipboard.sh scholar")
+                       (reset-first-binding)))
   (xbindkey-function 'g
                      (lambda ()
                        (run-command "conkeror-clipboard.sh google")
@@ -269,23 +274,22 @@
                      (lambda ()
                        (run-command "gnome-terminal --title=\"iPython notebook\" --execute bash -c \"source ~/.bash_libenv;sage-ipython-notebook;read -p 'Press [Enter] to continue...'\"")
                        (reset-first-binding)))
-  (xbindkey-function 'm
-                     (lambda ()
-                       (run-command "gnome-terminal --title=\"SAGE repl\" --execute bash -c \"source ~/.bash_libenv;sage;read -p 'Press [Enter] to continue...'\"")
-                       (reset-first-binding)))
+
   (xbindkey-function 'n
                      (lambda ()
                        (run-command "gnome-terminal --title=\"SAGE notebook\" --execute bash -c \"source ~/.bash_libenv;sage-notebook;read -p 'Press [Enter] to continue...'\"")
                        (reset-first-binding)))
-  ;; TODO: possibly change a little...., something other than s for scholar
+  (xbindkey-function 'q
+                     (lambda ()
+                       (run-command "gnome-terminal --title=\"pgsql akroshkodb\" --execute bash -c \"source ~/.bash_libenv;psql akroshkodb;read -p 'Press [Enter] to continue...'\"")
+                       (reset-first-binding)))
   (xbindkey-function 's
                      (lambda ()
-                       (run-command "conkeror-clipboard.sh scholar")
+                       (run-command ") gnome-terminal --title=\"SAGE repl\" --execute bash -c \"source ~/.bash_libenv ;sage;read -p 'Press [Enter] to continue...'\"")
                        (reset-first-binding)))
   (xbindkey-function 'w
                      (lambda ()
                        (run-command "conkeror-clipboard.sh wikipedia")
                        (reset-first-binding)))
   (grab-all-keys))
-
 (first-binding)
