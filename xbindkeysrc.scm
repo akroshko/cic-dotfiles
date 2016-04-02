@@ -40,8 +40,11 @@
   "First binding."
   ;; control-backtick as a prefix key
   (xbindkey-function '(control "c:49") second-binding)
-  ;; super-tacktick as a search key
-  (xbindkey-function '(mod4 "c:49") second-binding-super)
+  ;; TODO: seperate repl and search key
+  ;; control-shift-backtick as a search key
+  (xbindkey-function '(control shift "c:49") second-repl-binding)
+  ;; control-tab as a repl key
+  (xbindkey-function '(control "c:23") second-search-binding)
   ;; meta-alt-x focuses an Emacs window
   ;; TODO: focus conkeror
   (xbindkey-function '(control mod4 "x")
@@ -239,8 +242,8 @@
   (include "/home/akroshko/.xbindkeys_second_personal.scm")
   (grab-all-keys))
 
-(define (second-binding-super)
-  "Second binding."
+(define (second-repl-binding)
+  "Third binding."
   ;; TODO: what else do I want here?
   ;;       grab a backtrace from terminal
   ;;       dictionary?
@@ -255,18 +258,10 @@
   (ungrab-all-keys)
   (remove-all-keys)
   ;; a == accademic search
-  (xbindkey-function 'a
-                     (lambda ()
-                       (run-command "conkeror-clipboard.sh scholar")
-                       (reset-first-binding)))
-  (xbindkey-function 'g
-                     (lambda ()
-                       (run-command "conkeror-clipboard.sh google")
-                       (reset-first-binding)))
   ;; TODO: these functions need to be released
   (xbindkey-function 'i
                      (lambda ()
-                       ;; TODO: make sage load
+                       ;; TODO: make sage load ipython
                        ;; (run-command "gnome-terminal --title=\"iPython repl\" --execute bash -c \"source ~/.bash_libenv;sage -ipython;read -p 'Press [Enter] to continue...'\"")
                        (run-command "gnome-terminal --title=\"iPython repl\" --execute bash -c \"source ~/.bash_libenv;ipython;read -p 'Press [Enter] to continue...'\"")
                        (reset-first-binding)))
@@ -274,7 +269,6 @@
                      (lambda ()
                        (run-command "gnome-terminal --title=\"iPython notebook\" --execute bash -c \"source ~/.bash_libenv;sage-ipython-notebook;read -p 'Press [Enter] to continue...'\"")
                        (reset-first-binding)))
-
   (xbindkey-function 'n
                      (lambda ()
                        (run-command "gnome-terminal --title=\"SAGE notebook\" --execute bash -c \"source ~/.bash_libenv;sage-notebook;read -p 'Press [Enter] to continue...'\"")
@@ -285,11 +279,35 @@
                        (reset-first-binding)))
   (xbindkey-function 's
                      (lambda ()
-                       (run-command ") gnome-terminal --title=\"SAGE repl\" --execute bash -c \"source ~/.bash_libenv ;sage;read -p 'Press [Enter] to continue...'\"")
+                       (run-command "gnome-terminal --title=\"SAGE repl\" --execute bash -c \"source ~/.bash_libenv ;sage;read -p 'Press [Enter] to continue...'\"")
+                       (reset-first-binding)))
+  (grab-all-keys))
+
+;; TODO: add dictionaries and encyclopedias
+(define (second-search-binding)
+  "Fourth binding."
+  (ungrab-all-keys)
+  (remove-all-keys)
+  (xbindkey-function 'd
+                     (lambda ()
+                       (run-command "conkeror-clipboard.sh dictionary")
+                       (reset-first-binding)))
+  (xbindkey-function 'g
+                     (lambda ()
+                       (run-command "conkeror-clipboard.sh google")
+                       (reset-first-binding)))
+  (xbindkey-function 's
+                     (lambda ()
+                       (run-command "conkeror-clipboard.sh scholar")
+                       (reset-first-binding)))
+  (xbindkey-function 't
+                     (lambda ()
+                       (run-command "conkeror-clipboard.sh thesaurus")
                        (reset-first-binding)))
   (xbindkey-function 'w
                      (lambda ()
                        (run-command "conkeror-clipboard.sh wikipedia")
                        (reset-first-binding)))
   (grab-all-keys))
+
 (first-binding)
