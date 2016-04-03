@@ -64,6 +64,7 @@ session_pref("browser.history_expire_days",1);
 // TODO do any of these actually work?
 session_pref("browser.display.show_image_placeholders",false);
 session_pref("browser.formfill.enable",false);
+session_pref("full-screen-api.enabled",true);
 session_pref("gfx.font_rendering.directwrite.enabled",true);
 session_pref("mozilla.widget.render-mode",6);
 session_pref("network.prefetch-next",true);
@@ -81,6 +82,9 @@ session_pref("privacy.clearOnShutdown.passwords",true);
 session_pref("privacy.clearOnShutdown.sessions",true);
 session_pref("privacy.clearOnShutdown.siteSettings",true);
 session_pref("privacy.sanitize.sanitizeOnShutdown",true);
+
+// deactivate page modes
+page_mode_deactivate(youtube_player_mode);
 
 // Adblock Plus
 // http://conkeror.org/AdblockPlus
