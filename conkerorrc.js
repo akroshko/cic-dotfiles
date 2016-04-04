@@ -377,6 +377,42 @@ interactive("reload-config", "reload conkerorrc",
        }
     );
 
+// Youtube
+interactive("youtube-pause",
+    "Pause Youtube videos. (as opposed to pause/play of other thing)",
+    function (I) {
+        src = "https://www.youtube.com/iframe_api";
+        var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
+        player.pauseVideo()
+        // I.window.minibuffer.message(player.getDuration())
+    });
+
+interactive("youtube-play",
+    "Pause Youtube videos. (as opposed to pause/play of other thing)",
+    function (I) {
+        src = "https://www.youtube.com/iframe_api";
+        var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
+        player.playVideo()
+        // I.window.minibuffer.message(player.getDuration())
+    });
+
+var youtube_location=''
+
+interactive("youtube-seek",
+    "Seek to a youtube location;",
+    function youtube_seek_location (I) {
+        src = "https://www.youtube.com/iframe_api";
+        var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
+        player.seekTo(parseFloat(youtube_location))
+    });
+
+// get youtube time
+function youtube_get_currenttime (I) {
+        src = "https://www.youtube.com/iframe_api";
+        var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
+        return player.getCurrentTime()
+};
+
 /*
  * Copyright (c) 2010 Nick Galbreath
  * http://code.google.com/p/stringencoders/source/browse/#svn/trunk/javascript

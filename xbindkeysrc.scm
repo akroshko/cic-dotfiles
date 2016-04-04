@@ -88,6 +88,13 @@
                      (lambda ()
                        ;; TODO: doesn't work everywhere
                        (run-command "xdotool getwindowfocus key --window %1 click 2")))
+  ;; f11
+  (xbindkey-function '("c:95")
+                     (lambda ()
+                       (run-command "bash -c \"source ~/.bash_libenv;youtube-pause\"")))
+  (xbindkey-function '(alt "c:95")
+                     (lambda ()
+                       (run-command "bash -c \"source ~/.bash_libenv;youtube-restore\"")))
   ;; f12
   (xbindkey-function '("c:96")
                      (lambda ()
