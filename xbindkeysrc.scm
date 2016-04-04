@@ -215,6 +215,12 @@
                      (lambda ()
                        (run-command "gnome-terminal")
                        (reset-first-binding)))
+  ;; a backup terminal, gnome-terminal has broken before
+  (xbindkey-function '(alt "t")
+                     (lambda ()
+                       (run-command "rxvt-unicode")
+                       (reset-first-binding)))
+
   (xbindkey-function 'v
                      (lambda ()
                        (run-command "virtualbox")

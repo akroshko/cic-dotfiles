@@ -396,14 +396,14 @@ interactive("youtube-play",
         // I.window.minibuffer.message(player.getDuration())
     });
 
-var youtube_location=''
-
 interactive("youtube-seek",
     "Seek to a youtube location;",
     function youtube_seek_location (I) {
         src = "https://www.youtube.com/iframe_api";
         var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
-        player.seekTo(parseFloat(youtube_location))
+        var seek_location = parseFloat(read_from_clipboard())
+        I.window.minibuffer.message("Seeking to: "+seek_location);
+        player.seekTo(seek_location)
     });
 
 // get youtube time
