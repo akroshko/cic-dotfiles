@@ -181,6 +181,16 @@
                      (lambda ()
                        (run-command "launch-emacsclient noframe --eval \"(cic:emms-volume-lower)\"")
                        (reset-first-binding)))
+  ;; multi-media prev key "<"
+  (xbindkey-function '(shift "c:59")
+                     (lambda ()
+                       (run-command "bash -c \"source ~/.bash_libenv;youtube-previous\"")
+                       (reset-first-binding)))
+  ;; multi-media next key ">"
+  (xbindkey-function '(shift "c:60")
+                     (lambda ()
+                       (run-command "bash -c \"source ~/.bash_libenv;youtube-next\"")
+                       (reset-first-binding)))
   ;; volume up key
   (xbindkey-function '("c:123")
                      (lambda ()

@@ -379,7 +379,7 @@ interactive("reload-config", "reload conkerorrc",
 
 // Youtube
 interactive("youtube-pause",
-    "Pause Youtube videos. (as opposed to pause/play of other thing)",
+    "Pause Youtube videos (as opposed to pause/play of other thing).",
     function (I) {
         src = "https://www.youtube.com/iframe_api";
         var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
@@ -388,7 +388,7 @@ interactive("youtube-pause",
     });
 
 interactive("youtube-play",
-    "Pause Youtube videos. (as opposed to pause/play of other thing)",
+    "Pause Youtube videos (as opposed to pause/play of other thing).",
     function (I) {
         src = "https://www.youtube.com/iframe_api";
         var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
@@ -397,13 +397,29 @@ interactive("youtube-play",
     });
 
 interactive("youtube-seek",
-    "Seek to a youtube location;",
-    function youtube_seek_location (I) {
+    "Seek to a youtube location.",
+    function (I) {
         src = "https://www.youtube.com/iframe_api";
         var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
         var seek_location = parseFloat(read_from_clipboard())
         I.window.minibuffer.message("Seeking to: "+seek_location);
         player.seekTo(seek_location)
+    });
+
+interactive("youtube-previous",
+    "Previous in a youtube playlist.",
+    function (I) {
+        src = "https://www.youtube.com/iframe_api";
+        var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
+        player.previousVideo()
+    });
+
+interactive("youtube-next",
+    "Next in youtube playlist.",
+    function (I) {
+        src = "https://www.youtube.com/iframe_api";
+        var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
+        player.nextVideo()
     });
 
 // get youtube time
