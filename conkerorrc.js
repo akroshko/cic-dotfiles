@@ -22,7 +22,8 @@ define_key(content_buffer_normal_keymap, "s-a",
 interactive("follow-unfocus","Follow and unfocus.",
     function (I) {
         yield follow(I, OPEN_CURRENT_BUFFER);
-        unfocus(I.window, I.buffer);
+        // removing this for now
+        // unfocus(I.window, I.buffer);
     });
 
 define_key(content_buffer_normal_keymap, "s-z", "unfocus");
