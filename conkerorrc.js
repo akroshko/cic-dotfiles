@@ -27,19 +27,14 @@ interactive("follow-unfocus","Follow and unfocus.",
     });
 
 define_key(content_buffer_normal_keymap, "s-z", "unfocus");
-// define_key(content_buffer_normal_keymap, "s-f", "follow-new-buffer");
-define_key(content_buffer_normal_keymap, "s-l f", "follow-new-buffer");
-define_key(content_buffer_normal_keymap, "s-l B", "back");
-define_key(content_buffer_normal_keymap, "s-s", "back");
-// define_key(content_buffer_normal_keymap, "s-B", "back");
-// define_key(content_buffer_normal_keymap, "s-l", "back");
-// define_key(content_buffer_normal_keymap, "s-g", "find-url");
-define_key(content_buffer_normal_keymap, "s-l g", "find-url");
+define_key(content_buffer_normal_keymap, "s-f", "follow-new-buffer");
+define_key(content_buffer_normal_keymap, "s-b", "back");
+define_key(content_buffer_normal_keymap, "s-c", "back");
+define_key(content_buffer_normal_keymap, "s-l", "back");
+// define_key(content_buffer_normal_keymap, "s-g",   "find-url");
+// define_key(content_buffer_normal_keymap, "s-l g", "find-url");
 define_key(content_buffer_normal_keymap, "s-space", "cmd_scrollPageDown");
-// TODO: do I still want this?
-define_key(content_buffer_normal_keymap, "C-u f", "follow-new-buffer");
 define_key(content_buffer_normal_keymap, "b", "follow-new-buffer-background");
-define_key(content_buffer_normal_keymap, "s-b", "follow-new-buffer-background");
 // emergency key to kill buffer quickly
 define_key(content_buffer_normal_keymap, "f4", "kill-buffer");
 // key redefines
