@@ -23,7 +23,7 @@ interactive("follow-unfocus","Follow and unfocus.",
     function (I) {
         yield follow(I, OPEN_CURRENT_BUFFER);
         // removing this for now
-        // unfocus(I.window, I.buffer);
+        unfocus(I.window, I.buffer);
     });
 
 define_key(content_buffer_normal_keymap, "s-z", "unfocus");
