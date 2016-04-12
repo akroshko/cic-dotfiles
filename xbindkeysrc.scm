@@ -286,23 +286,23 @@
                      (lambda ()
                        ;; TODO: make sage load ipython
                        ;; (run-command "gnome-terminal --title=\"iPython repl\" --execute bash -c \"source ~/.bash_libenv;sage -ipython;read -p 'Press [Enter] to continue...'\"")
-                       (run-command "gnome-terminal --title=\"iPython repl\" --execute bash -c \"source ~/.bash_libenv;ipython;read -p 'Press [Enter] to continue...'\"")
+                       (run-command "gnome-terminal --title=\"iPython repl\" --execute bash -c \"source ~/.bash_libenv;repl-restartable ipython\"")
                        (reset-first-binding)))
   (xbindkey-function 'j
                      (lambda ()
-                       (run-command "gnome-terminal --title=\"iPython notebook\" --execute bash -c \"source ~/.bash_libenv;sage-ipython-notebook;read -p 'Press [Enter] to continue...'\"")
+                       (run-command "gnome-terminal --title=\"iPython notebook\" --execute bash -c \"source ~/.bash_libenv;repl-restartable sage-ipython-notebook\"")
                        (reset-first-binding)))
   (xbindkey-function 'n
                      (lambda ()
-                       (run-command "gnome-terminal --title=\"SAGE notebook\" --execute bash -c \"source ~/.bash_libenv;sage-notebook;read -p 'Press [Enter] to continue...'\"")
+                       (run-command "gnome-terminal --title=\"SAGE notebook\" --execute bash -c \"source ~/.bash_libenv;repl-restartable sage-notebook\"")
                        (reset-first-binding)))
   (xbindkey-function 'q
                      (lambda ()
-                       (run-command "gnome-terminal --title=\"pgsql akroshkodb\" --execute bash -c \"source ~/.bash_libenv;psql akroshkodb;read -p 'Press [Enter] to continue...'\"")
+                       (run-command "gnome-terminal --title=\"pgsql akroshkodb\" --execute bash -c \"source ~/.bash_libenv;repl-restartable 'psql akroshkodb'\"")
                        (reset-first-binding)))
   (xbindkey-function 's
                      (lambda ()
-                       (run-command "gnome-terminal --title=\"SAGE repl\" --execute bash -c \"source ~/.bash_libenv ;sage;read -p 'Press [Enter] to continue...'\"")
+                       (run-command "gnome-terminal --title=\"SAGE repl\" --execute bash -c \"source ~/.bash_libenv;repl-restartable sage;\"")
                        (reset-first-binding)))
   (grab-all-keys))
 
