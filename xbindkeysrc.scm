@@ -196,10 +196,11 @@
                      (lambda ()
                        (run-command "launch-emacsclient noframe --eval \"(cic:emms-volume-raise)\"")
                        (reset-first-binding)))
-  (xbindkey-function 'a
-                     (lambda ()
-                       (run-command "stellarium")
-                       (reset-first-binding)))
+  ;; TODO: replaced by something else and I do not use much
+  ;; (xbindkey-function 'a
+  ;;                    (lambda ()
+  ;;                      (run-command "stellarium")
+  ;;                      (reset-first-binding)))
   (xbindkey-function 'c
                      (lambda ()
                        (run-command "conkeror")
@@ -230,11 +231,11 @@
                      (lambda ()
                        (run-command "rxvt-unicode")
                        (reset-first-binding)))
-
-  (xbindkey-function 'v
-                     (lambda ()
-                       (run-command "virtualbox")
-                       (reset-first-binding)))
+  ;; TODO: replaced by something else and I do not use much
+  ;; (xbindkey-function 'v
+  ;;                    (lambda ()
+  ;;                      (run-command "virtualbox")
+  ;;                      (reset-first-binding)))
   (xbindkey-function 'x
                      (lambda ()
                        (run-command "firefox -private")
