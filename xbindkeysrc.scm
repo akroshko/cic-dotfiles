@@ -2,7 +2,7 @@
 ;;; shortcuts, using either plain keyboard shortcuts or with a prefix
 ;;; key.
 ;;
-;; Copyright (C) 2015, Andrew Kroshko, all rights reserved.
+;; Copyright (C) 2015-2016, Andrew Kroshko, all rights reserved.
 ;;
 ;; Author: Andrew Kroshko
 ;; Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com>
