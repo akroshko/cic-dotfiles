@@ -169,6 +169,7 @@ define_webjump("slashdot","http://www.slashdot.com");
 define_webjump("stackoverflow","https://stackoverflow.com/search?q=%s", $alternative="https://stackoverflow.com");
 define_webjump("startpage","https://startpage.com/do/%s",$alternative="https://startpage.com");
 define_webjump("strategypage","https://strategypage.com");
+define_webjump("strava","https://strava.com");
 define_webjump("stackexchange-math","https://math.stackexchange.com/search?q=%s",$alternative="https://math.stackexchange.com");
 define_webjump("stackexchange-superuser","https://superuser.com/search?q=%s",$alternative="https://superuser.com/");
 define_webjump("stackexchange-tex","https://tex.stackexchange.com/search?q=%s",$alternative="https://tex.stackexchange.com");
