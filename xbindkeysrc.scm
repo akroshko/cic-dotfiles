@@ -215,13 +215,19 @@
                        (reset-first-binding)))
   (xbindkey-function 'g
                      (lambda ()
-                       ;; XXXX: only on debian with the google earth package maker
-                       (run-command "googleearth")
+                       (run-command "chromium")
                        (reset-first-binding)))
+
   ;; (xbindkey-function 'm
   ;;                    (lambda ()
   ;;                      (run-command "gnome-terminal --title=\"power-managment\" --execute bash -c \"source ~/.bash_libenv;power-management-terminal;read -p 'Press [Enter] to continue...'\"")
   ;;                      (reset-first-binding)))
+  ;;TODO:  openstreetmap mapp with alt
+  (xbindkey-function 'm
+                     (lambda ()
+                       ;; XXXX: only on debian with the google earth package maker
+                       (run-command "googleearth")
+                       (reset-first-binding)))
   (xbindkey-function 't
                      (lambda ()
                        (run-command "gnome-terminal")

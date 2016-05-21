@@ -33,6 +33,8 @@ main () {
     # privacy and security
     gsettings set org.gnome.desktop.privacy remember-recent-files false
     gsettings set org.gnome.desktop.thumbnail-cache maximum-age 7
+    # interface?
+    gsettings set org.gnome.desktop.interface clock-show-date true
     # applets
     # [org/gnome/shell]
     gsettings set org.gnome.shell enabled-extensions "['alternative-status-menu@gnome-shell-extensions.gcampax.github.com', 'window-list@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com']"
