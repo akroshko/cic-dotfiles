@@ -160,12 +160,14 @@ define_webjump("newegg","http://www.newegg.ca/Product/ProductList.aspx?Submit=EN
 define_webjump("ohloh", "https://www.ohloh.net/p?query=%s",$alternative="https://www.ohloh.net");
 define_webjump("otv", "https://otvtech.ca");
 define_webjump("phoronix", "https://phoronix.com");
+define_webjump("physorg", "http://phys.org");
 define_webjump("plus","https://plus.google.com/");
 define_webjump("pypi","https://pypi.python.org/pypi?%3Aaction=search&term=%s&submit=search",$alternative="https://pypi.python.org");
 define_webjump("python", "https://docs.python.org/2.7/search.html?q=%s",$alternative="https://docs.python.org/2.7/");
 define_webjump("skyandtelescope","http://www.skyandtelescope.com");
 define_webjump("sage","http://sagemath.org")
 define_webjump("sage-sym","http://doc.sagemath.org/html/en/reference/calculus/sage/symbolic/expression.html")
+define_webjump("sciencedaily","http://sciencedaily.com")
 // TODO: uses invalid security certificate
 define_webjump("slashdot","http://www.slashdot.com");
 define_webjump("stackoverflow","https://stackoverflow.com/search?q=%s", $alternative="https://stackoverflow.com");
