@@ -1,6 +1,9 @@
 #!/bin/bash
+# XXXX: I'm using gnome less now as opposed to openbox, so this package will probably become depricated
+# TODO: move some of these commands elsewhere
 main () {
     # set some default apps
+    # TODO: like these commands
     xdg-mime default ebook-viewer.desktop application/epub+zip
     xdg-mime default vlc.desktop video/mp4
     xdg-mime default vlc.desktop video/x-flv

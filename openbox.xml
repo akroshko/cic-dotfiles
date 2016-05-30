@@ -6,7 +6,7 @@
       <action name="ToggleFullscreen"/>
     </keybind>
     <keybind key="M-W-m">
-      <action name="Maximize"/>
+      <action name="ToggleMaximize"/>
     </keybind>
     <keybind key="M-W-l">
       <action name="Iconify"/>
@@ -27,12 +27,16 @@
       </action>
       <action name="MoveToEdge"><direction>east</direction></action>
     </keybind>
-    <keybind key="M-W-x">
-      <action name="PreviousWindow"/>
-    </keybind>
-    <keybind key="M-W-c">
+    <!-- May wish to change -->
+    <keybind key="W-x">
       <action name="NextWindow"/>
     </keybind>
+    <keybind key="W-X">
+      <action name="PreviousWindow"/>
+    </keybind>
+    <!-- <keybind key="M-W-c"> -->
+    <!--   <action name="NextWindow"/> -->
+    <!-- </keybind> -->
     <keybind key="M-W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>

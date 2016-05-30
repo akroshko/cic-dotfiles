@@ -84,10 +84,16 @@
   ;; (xbindkey-function '(control shift "f")
   ;;                    (lambda ()
   ;;                      (run-command "sleep 0.1; xdotool key space")))
-  (xbindkey-function '(control shift "v")
-                     (lambda ()
-                       ;; TODO: doesn't work everywhere
-                       (run-command "xdotool getwindowfocus key --window %1 click 2")))
+  ;; overroad in emacs
+  ;; (xbindkey-function '(control shift "v")
+  ;;                    (lambda ()
+  ;;                      ;; TODO: doesn't work everywhere
+  ;;                      (run-command "xdotool getwindowfocus key --window %1 click 2")))
+  ;; doesn't really work, detects mouse down in emacs
+  ;; (xbindkey-function '(mod4 alt "v")
+  ;;                    (lambda ()
+  ;;                      ;; TODO: doesn't work everywhere
+  ;;                      (run-command "xdotool getwindowfocus key --window %1 click 2")))
   ;; f11
   (xbindkey-function '("c:95")
                      (lambda ()
@@ -123,17 +129,17 @@
   ;; [
   (xbindkey-function '("c:34")
                      (lambda ()
-                       (run-command "gnome-terminal --title=\"nuke-extra\" --execute bash -c \"source ~/.bash_libenv;nuke-extra;read -p 'Press [Enter] to continue...'\"")
+                       (run-command "rxvt-unicode -title \"nuke-extra\" -x bash -c \"source ~/.bash_libenv;nuke-extra;read -p 'Press [Enter] to continue...'\"")
                        (reset-first-binding)))
   ;; ]
   (xbindkey-function '("c:35")
                      (lambda ()
-                       (run-command "gnome-terminal --title=\"start-extra\" -execute bash -c \"source ~/.bash_libenv;start-extra;read -p 'Press [Enter] to continue...'\"")
+                       (run-command "rxvt-unicode -title \"start-extra\" -x bash -c \"source ~/.bash_libenv;start-extra;read -p 'Press [Enter] to continue...'\"")
                        (reset-first-binding)))
   (xbindkey-function '("c:51")
                      (lambda ()
                        ;; TODO: lock then hibernate
-                       (run-command "gnome-terminal --title=\"pm-hibernate\" -execute bash -c \"source ~/.bash_libenv;sudo pm-hibernate\"")
+                       (run-command "rxvt-unicode -title \"pm-hibernate\" -e bash -c \"source ~/.bash_libenv;sudo pm-hibernate\"")
                        (reset-first-binding)))
   ;; /
   (xbindkey-function '("c:61")
@@ -230,12 +236,11 @@
                        (reset-first-binding)))
   (xbindkey-function 't
                      (lambda ()
-                       (run-command "gnome-terminal")
+                       (run-command "rxvt-unicode")
                        (reset-first-binding)))
-  ;; a backup terminal, gnome-terminal has broken before
   (xbindkey-function '(alt "t")
                      (lambda ()
-                       (run-command "rxvt-unicode")
+                       (run-command "gnome-terminal")
                        (reset-first-binding)))
   ;; TODO: replaced by something else and I do not use much
   ;; (xbindkey-function 'v
@@ -293,23 +298,23 @@
                      (lambda ()
                        ;; TODO: make sage load ipython
                        ;; (run-command "gnome-terminal --title=\"iPython repl\" --execute bash -c \"source ~/.bash_libenv;sage -ipython;read -p 'Press [Enter] to continue...'\"")
-                       (run-command "gnome-terminal --title=\"iPython repl\" --execute bash -c \"source ~/.bash_libenv;repl-restartable ipython\"")
+                       (run-command "rxvt-unicode -title \"iPython repl\" -e bash -c \"source ~/.bash_libenv;repl-restartable ipython\"")
                        (reset-first-binding)))
   (xbindkey-function 'j
                      (lambda ()
-                       (run-command "gnome-terminal --title=\"iPython notebook\" --execute bash -c \"source ~/.bash_libenv;repl-restartable sage-ipython-notebook\"")
+                       (run-command "rxvt-unicode -title \"iPython notebook\" -e bash -c \"source ~/.bash_libenv;repl-restartable sage-ipython-notebook\"")
                        (reset-first-binding)))
   (xbindkey-function 'n
                      (lambda ()
-                       (run-command "gnome-terminal --title=\"SAGE notebook\" --execute bash -c \"source ~/.bash_libenv;repl-restartable sage-notebook\"")
+                       (run-command "rxvt-unicode -title \"SAGE notebook\" -e bash -c \"source ~/.bash_libenv;repl-restartable sage-notebook\"")
                        (reset-first-binding)))
   (xbindkey-function 'q
                      (lambda ()
-                       (run-command "gnome-terminal --title=\"pgsql akroshkodb\" --execute bash -c \"source ~/.bash_libenv;repl-restartable 'psql akroshkodb'\"")
+                       (run-command "rxvt-unicode -title \"pgsql akroshkodb\" -e bash -c \"source ~/.bash_libenv;repl-restartable 'psql akroshkodb'\"")
                        (reset-first-binding)))
   (xbindkey-function 's
                      (lambda ()
-                       (run-command "gnome-terminal --title=\"SAGE repl\" --execute bash -c \"source ~/.bash_libenv;repl-restartable sage;\"")
+                       (run-command "rxvt-unicode -title \"SAGE repl\" -e bash -c \"source ~/.bash_libenv;repl-restartable sage;\"")
                        (reset-first-binding)))
   (grab-all-keys))
 
