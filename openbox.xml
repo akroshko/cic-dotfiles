@@ -11,6 +11,7 @@
     <keybind key="M-W-l">
       <action name="Iconify"/>
     </keybind>
+    <!-- snap left -->
     <keybind key="M-W-b">
       <action name="UnmaximizeFull"/>
       <action name="MaximizeVert"/>
@@ -19,6 +20,7 @@
       </action>
       <action name="MoveToEdge"><direction>west</direction></action>
     </keybind>
+    <!-- snap right -->
     <keybind key="M-W-f">
       <action name="UnmaximizeFull"/>
       <action name="MaximizeVert"/>
@@ -26,6 +28,23 @@
         <width>50%</width>
       </action>
       <action name="MoveToEdge"><direction>east</direction></action>
+    </keybind>
+    <!-- other screen -->
+    <keybind key="M-W-o">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+      </action>
+      <action name="MoveToEdge"><direction>west</direction></action>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+      </action>
+      <action name="MoveToEdge"><direction>west</direction></action>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+      </action>
+      <action name="MoveToEdge"><direction>west</direction></action>
+      <action name="ToggleMaximize"/>
     </keybind>
     <!-- May wish to change -->
     <keybind key="W-x">

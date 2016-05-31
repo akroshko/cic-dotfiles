@@ -7,6 +7,9 @@ main () {
     xdg-mime default ebook-viewer.desktop application/epub+zip
     xdg-mime default vlc.desktop video/mp4
     xdg-mime default vlc.desktop video/x-flv
+    xdg-mime default geeqie.desktop image/jpeg
+    xdg-mime default geeqie.desktop image/png
+    xdg-mime default evince.desktop application/pdf
     # TODO: move ones without problematic default bindings into comments
     # use dconf-editor to find these
     # also see /usr/share/glib-2.0/schemas

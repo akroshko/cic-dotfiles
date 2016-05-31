@@ -27,19 +27,41 @@ interactive("follow-unfocus","Follow and unfocus.",
     });
 
 define_key(content_buffer_normal_keymap, "s-z", "unfocus");
+// TODO: not sure if this is best
 define_key(content_buffer_normal_keymap, "s-f", "follow-new-buffer");
+// TODO: back without keycord?
 define_key(content_buffer_normal_keymap, "s-b", "back");
 define_key(content_buffer_normal_keymap, "s-c", "back");
 define_key(content_buffer_normal_keymap, "s-l", "back");
 // define_key(content_buffer_normal_keymap, "s-g",   "find-url");
 // define_key(content_buffer_normal_keymap, "s-l g", "find-url");
-define_key(content_buffer_normal_keymap, "s-space", "cmd_scrollPageDown");
 define_key(content_buffer_normal_keymap, "b", "follow-new-buffer-background");
 // emergency key to kill buffer quickly
 define_key(content_buffer_normal_keymap, "f4", "kill-buffer");
 // key redefines
 define_key(content_buffer_normal_keymap, "s-]", "buffer-next");
 define_key(content_buffer_normal_keymap, "s-[", "buffer-previous");
+// duplicate buffer
+interactive("duplicate-buffer", "Duplicate buffer",
+            function (I) {
+                browser_object_follow(I.buffer, OPEN_NEW_BUFFER, I.buffer.current_uri.spec);
+            });
+define_key(content_buffer_normal_keymap, "d",   "duplicate-buffer");
+define_key(content_buffer_normal_keymap, "M-d", "duplicate-buffer");
+// copy and paste
+// TODO: should be copy-url sometimes too
+define_key(content_buffer_form_keymap,   "M-c", "kill-ring-save");
+define_key(content_buffer_text_keymap,   "M-c", "kill-ring-save");
+define_key(content_buffer_normal_keymap, "M-c", "copy_cmd");
+
+// TODO: should be paste-url sometimes too
+define_key(content_buffer_form_keymap,   "M-v", "yank");
+define_key(content_buffer_text_keymap,   "M-v", "yank");
+define_key(content_buffer_normal_keymap, "M-v", "paste-url");
+
+// scroll
+define_key(content_buffer_normal_keymap, "s-v", "cmd_scrollPageUp");
+define_key(content_buffer_normal_keymap, "s-space", "cmd_scrollPageDown");
 
 // url
 url_completion_use_bookmarks = false;
@@ -85,14 +107,6 @@ page_mode_deactivate(youtube_player_mode);
 // Adblock Plus
 // http://conkeror.org/AdblockPlus
 require("extensions/adblockplus.js");
-
-// duplicate buffer
-interactive("duplicate-buffer", "Duplicate buffer",
-            function (I) {
-                browser_object_follow(I.buffer, OPEN_NEW_BUFFER, I.buffer.current_uri.spec);
-            });
-define_key(content_buffer_normal_keymap, "d", "duplicate-buffer");
-define_key(content_buffer_normal_keymap, "M-d", "duplicate-buffer");
 
 // http://conkeror.org/Focus
 function focusblock (buffer) {

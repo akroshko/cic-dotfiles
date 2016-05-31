@@ -45,11 +45,20 @@ URxvt*color12: RoyalBlue
 URxvt*scrollBar: true
 URxvt*scrollBar_right: false
 URxvt*scrollstyle: rxvt
+! see https://bbs.archlinux.org/viewtopic.php?id=149470
+! a really good thing, for some of my keys
 ! from archwiki
 URxvt.perl-ext-common: default,clipboard
-URxvt.iso14755: False
-URxvt.iconFile:  ~/.urxvt.svg
-! URxvt.keysym.Shift-Control-C: perl:clipboard:copy
-! URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.iso14755:     False
+URxvt.iconFile:     /home/akroshko/.urxvt/terminal.svg
+URxvt.keysym.M-c:   perl:clipboard:copy
+URxvt.keysym.M-v:   perl:clipboard:paste
+URxvt.clipboard.copycmd:  xclip -i -selection clipboard
+URxvt.clipboard.pastecmd: xclip -o -selection clipboard
 ! URxvt.clipboard.copycmd:  xsel -ib
 ! URxvt.clipboard.pastecmd: xsel -ob
+! URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+! URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+! URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+! URxvt.clipboard.copycmd:  bash -c "xsel -ip | xargs"
+! URxvt.cLipboard.pastecmd: bash -c "xsel -op | xargs"
