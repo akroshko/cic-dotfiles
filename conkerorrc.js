@@ -52,7 +52,7 @@ define_key(content_buffer_normal_keymap, "M-d", "duplicate-buffer");
 // TODO: should be copy-url sometimes too
 define_key(content_buffer_form_keymap,   "M-c", "kill-ring-save");
 define_key(content_buffer_text_keymap,   "M-c", "kill-ring-save");
-define_key(content_buffer_normal_keymap, "M-c", "copy_cmd");
+define_key(content_buffer_normal_keymap, "M-c", "cmd_copy");
 
 // TODO: should be paste-url sometimes too
 define_key(content_buffer_form_keymap,   "M-v", "yank");
