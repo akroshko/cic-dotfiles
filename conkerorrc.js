@@ -60,10 +60,10 @@ define_key(content_buffer_text_keymap,   "M-v", "yank");
 define_key(content_buffer_normal_keymap, "M-v", "paste-url");
 
 // scroll
-// define_key(content_buffer_normal_keymap, "s-v", "cmd_scrollPageUp");
-// define_key(content_buffer_normal_keymap, "s-space", "cmd_scrollPageDown");
-define_key(content_buffer_normal_keymap, "C-,", "cmd_scrollPageUp");
-define_key(content_buffer_normal_keymap, "C-.", "cmd_scrollPageDown");
+define_key(content_buffer_normal_keymap, "C-,",   "cmd_scrollPageUp");
+define_key(content_buffer_normal_keymap, "C-.",   "cmd_scrollPageDown");
+define_key(content_buffer_normal_keymap, "s-S-x", "cmd_scrollPageUp");
+define_key(content_buffer_normal_keymap, "s-x",   "cmd_scrollPageDown");
 
 // url
 url_completion_use_bookmarks = false;

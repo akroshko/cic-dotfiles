@@ -52,12 +52,12 @@
       <action name="NextWindow"/>
     </keybind>
     <!-- May wish to change -->
-    <keybind key="W-x">
-      <action name="NextWindow"/>
-    </keybind>
-    <keybind key="W-X">
-      <action name="PreviousWindow"/>
-    </keybind>
+    <!-- <keybind key="W-x"> -->
+    <!--   <action name="NextWindow"/> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="W-X"> -->
+    <!--   <action name="PreviousWindow"/> -->
+    <!-- </keybind> -->
     <!-- <keybind key="M-W-c"> -->
     <!--   <action name="NextWindow"/> -->
     <!-- </keybind> -->
