@@ -3,7 +3,7 @@
 # TODO: move some of these commands elsewhere
 main () {
     # set some default apps
-    # TODO: like these commands
+    # TODO: change these, I don't like these commands anymore
     xdg-mime default ebook-viewer.desktop application/epub+zip
     xdg-mime default vlc.desktop video/mp4
     xdg-mime default vlc.desktop video/x-flv

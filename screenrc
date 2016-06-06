@@ -6,6 +6,10 @@
 # bindkey "^[[" command
 # use c-o as escape key
 escape ^oO
+# see http://blog.nguyenvq.com/blog/2011/11/26/log-output-for-screen/
+logfile /home/akroshko/tmp/screen-%H-%Y%m%d-%c-%S-%n.log
+# log on by default
+deflog on
 # Yes, we want this!
 autodetach on
 startup_message off
@@ -34,7 +38,11 @@ bind K kill
 bind b select
 bind ^b windowlist
 bind ^f screen
-bind ^j copy
+# TODO: want to bind next window to something emacs-like
+bind ' ' copy
+# TODO: change this so I can use full copy mode
+# TODO: don't like half-page stuff
+markkeys ^U=^P:^D=^N
 bind o focus
 bind n next
 bind p prev
@@ -51,4 +59,4 @@ bind _ resize max
 # hardstatus alwayslastline
 # copy mode
 # https://gist.github.com/paxan/4666544
-markkeys =:=V:h=:l=:0=:$=:/=:?=
+# markkeys =:=V:h=:l=:0=:$=:/=:?=

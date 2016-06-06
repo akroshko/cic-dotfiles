@@ -45,6 +45,21 @@
   (xbindkey-function '(control shift "c:49") second-repl-binding)
   ;; control-tab as a repl key
   (xbindkey-function '(control "c:23") second-search-binding)
+  ;; deal with the fact terminals don't have C-, and C-.
+  ;; TODO: still want apps to support other things, just in case xbindkeys not installed
+  ;; M- most convienient for laptop, control most convienient for touch typing
+  (xbindkey-function '(alt "c:59")
+                     (lambda ()
+                       (run-command "xvkbd -xsendevent -text \"\\[Prior]\"")))
+  (xbindkey-function '(alt "c:60")
+                     (lambda ()
+                       (run-command "xvkbd -xsendevent -text \"\\[Next]\"")))
+  (xbindkey-function '(control "c:59")
+                     (lambda ()
+                       (run-command "xvkbd -xsendevent -text \"\\[Prior]\"")))
+  (xbindkey-function '(control "c:60")
+                     (lambda ()
+                       (run-command "xvkbd -xsendevent -text \"\\[Next]\"")))
   ;; meta-alt-x focuses an Emacs window
   ;; TODO: focus conkeror
   (xbindkey-function '(control mod4 "x")
@@ -80,11 +95,8 @@
   (xbindkey-function '(control shift "c")
                      (lambda ()
                        (run-command "xclip -o -selection primary | xclip -i -selection clipboard")))
-  ;; TODO: does not work that well to replace space key
-  ;; (xbindkey-function '(control shift "f")
-  ;;                    (lambda ()
-  ;;                      (run-command "sleep 0.1; xdotool key space")))
-  ;; overroad in emacs
+  ;; overrode in emacs
+  ;; see if I want to do this
   ;; (xbindkey-function '(control shift "v")
   ;;                    (lambda ()
   ;;                      ;; TODO: doesn't work everywhere

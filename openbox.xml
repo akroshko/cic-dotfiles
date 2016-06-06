@@ -46,6 +46,11 @@
       <action name="MoveToEdge"><direction>west</direction></action>
       <action name="ToggleMaximize"/>
     </keybind>
+    <!-- Rather like this, for when super keys are no available, or needed for applications -->
+    <!-- C-Z works just fine for terminals -->
+    <keybind key="C-z">
+      <action name="NextWindow"/>
+    </keybind>
     <!-- May wish to change -->
     <keybind key="W-x">
       <action name="NextWindow"/>

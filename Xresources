@@ -22,7 +22,7 @@ URxvt*transparent: true
 URxvt*tintColor: Black
 ! URxvt*tintColor: Blue
 ! URxvt*shading: 40
-URxvt*saveLines: 12000
+URxvt*saveLines: 65535
 URxvt*foreground: White
 ! URxvt*background: Blue
 URxvt*background: Black
@@ -48,11 +48,20 @@ URxvt*scrollstyle: rxvt
 ! see https://bbs.archlinux.org/viewtopic.php?id=149470
 ! a really good thing, for some of my keys
 ! from archwiki
-URxvt.perl-ext-common: default,clipboard
-URxvt.iso14755:     False
-URxvt.iconFile:     /home/akroshko/.urxvt/terminal.svg
-URxvt.keysym.M-c:   perl:clipboard:copy
-URxvt.keysym.M-v:   perl:clipboard:paste
+URxvt.perl-ext-common:    default,clipboard
+! TODO: change all names to .pl
+URxvt.perl-ext:           scrollback.pl
+URxvt.iso14755:           False
+URxvt.iconFile:           /home/akroshko/.urxvt/terminal.svg
+URxvt.keysym.M-c:         perl:clipboard:copy
+URxvt.keysym.M-v:         perl:clipboard:paste
+! see https://ubuntuforums.org/archive/index.php/t-783096.html
+! keep this, useful
+URxvt.keysym.Shift-Up:                  command:\033]720;1\007
+URxvt.keysym.Shift-Down:                command:\033]721;1\007
+URxvt.keysym.Control-less:              perl:pageup
+URxvt.keysym.Control-greater:           perl:pagedown
+! clipboard
 URxvt.clipboard.copycmd:  xclip -i -selection clipboard
 URxvt.clipboard.pastecmd: xclip -o -selection clipboard
 ! URxvt.clipboard.copycmd:  xsel -ib
@@ -60,5 +69,3 @@ URxvt.clipboard.pastecmd: xclip -o -selection clipboard
 ! URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 ! URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 ! URxvt.keysym.Shift-Control-V: perl:clipboard:paste
-! URxvt.clipboard.copycmd:  bash -c "xsel -ip | xargs"
-! URxvt.cLipboard.pastecmd: bash -c "xsel -op | xargs"
