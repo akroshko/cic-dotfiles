@@ -1,3 +1,29 @@
-xscreensaver -nosplash &
+# Copyright (C) 2016, Andrew Kroshko, all rights reserved.
+#
+# Author: Andrew Kroshko
+# Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com>
+# Created: Wed June 08, 2016
+# Version: 20160526
+# URL: https://github.com/akroshko/cic-external
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or (at
+# your option) any later version.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see http://www.gnu.org/licenses/.
+
+if [[ $HOSTNAME == "akroshko-main" ]]; then
+    xrandr --auto --output VGA-0 --left-of DVI-0
+    xrandr --output DVI-0 --mode 1920x1080
+fi
+# XXXX: actually put this in my ~/.bash_profile (which is sourced from ~/.profile) file
+# nohup xscreensaver -nosplash &
 gnome-panel &
 rxvt-unicode -e bash -c "source ~/.profile" &

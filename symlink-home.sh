@@ -23,8 +23,13 @@ main () {
     need_new_directory ${HOME}/.config
     need_new_directory ${HOME}/.config/openbox
     need_new_directory ${HOME}/.config/autostart
-    need_new_symlink ${SCRIPTPATH}/openbox.xml ${HOME}/.config/openbox/rc.xml
+    need_new_directory ${HOME}/.themes
+    need_new_directory ${HOME}/.themes/MyClearlooks/
+    need_new_directory ${HOME}/.themes/MyClearlooks/openbox-3/
+    need_new_symlink ${SCRIPTPATH}/openbox.xml       ${HOME}/.config/openbox/rc.xml
+    need_new_symlink ${SCRIPTPATH}/openbox-menu.xml  ${HOME}/.config/openbox/menu.xml
     need_new_symlink ${SCRIPTPATH}/openbox-autostart ${HOME}/.config/openbox/autostart
+    need_new_symlink ${SCRIPTPATH}/openbox-myclearlooks.themerc ${HOME}/.themes/MyClearlooks/openbox-3/themerc
     # X11
     need_new_symlink ${SCRIPTPATH}/xmodmap ${HOME}/.xmodmap
     need_new_symlink ${SCRIPTPATH}/xpdfrc ${HOME}/.xpdfrc
