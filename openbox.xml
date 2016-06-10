@@ -49,16 +49,16 @@
   </focus>
 
   <placement>
-    <policy>Smart</policy>
+    <policy>UnderMouse</policy>
     <!-- 'Smart' or 'UnderMouse' -->
     <center>yes</center>
     <!-- whether to place windows in the center of the free area found or
          the top left corner -->
-    <monitor>Primary</monitor>
+    <monitor>Any</monitor>
     <!-- with Smart placement on a multi-monitor system, try to place new windows
          on: 'Any' - any monitor, 'Mouse' - where the mouse is, 'Active' - where
          the active window is, 'Primary' - only on the primary monitor -->
-    <primaryMonitor>1</primaryMonitor>
+    <primaryMonitor>Mouse</primaryMonitor>
     <!-- The monitor where Openbox should place popup dialogs such as the
          focus cycling popup, or the desktop switch popup.  It can be an index
          from 1, specifying a particular monitor.  Or it can be one of the
@@ -261,6 +261,20 @@
         <raise>yes</raise>
       </action>
     </keybind>
+    <!-- Keybindings for window switching with the arrow keys -->
+    <keybind key="M-W-period">
+      <action name="DirectionalCycleWindows">
+        <direction>right</direction>
+        <raise>yes</raise>
+      </action>
+    </keybind>
+    <keybind key="M-W-comma">
+      <action name="DirectionalCycleWindows">
+        <direction>left</direction>
+        <raise>yes</raise>
+      </action>
+    </keybind>
+    <!-- Desktop keys -->
     <keybind key="M-W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
@@ -610,10 +624,9 @@
   <menu>
     <!-- You can specify more than one menu file in here and they are all loaded,
          just don't make menu ids clash or, well, it'll be kind of pointless -->
-
-    <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
     <!-- system menu files on Debian systems -->
-    <!-- <file>/var/lib/openbox/debian-menu.xml</file> -->
+    <file>/var/lib/openbox/debian-menu.xml</file>
+    <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
     <file>menu.xml</file>
     <hideDelay>200</hideDelay>
     <!-- if a press-release lasts longer than this setting (in milliseconds), the

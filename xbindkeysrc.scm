@@ -148,12 +148,12 @@
   ;; [
   (xbindkey-function '("c:34")
                      (lambda ()
-                       (run-command "rxvt-unicode -title \"nuke-extra\" -x bash -c \"source ~/.bash_libenv;nuke-extra;read -p 'Press [Enter] to continue...'\"")
+                       (run-command "rxvt-unicode -title \"nuke-extra\" -x bash -i -c \"source ~/.bash_libenv;nuke-extra;read -p 'Press [Enter] to continue...'\"")
                        (reset-first-binding)))
   ;; ]
   (xbindkey-function '("c:35")
                      (lambda ()
-                       (run-command "rxvt-unicode -title \"start-extra\" -x bash -c \"source ~/.bash_libenv;start-extra;read -p 'Press [Enter] to continue...'\"")
+                       (run-command "rxvt-unicode -title \"start-extra\" -x bash -i -c \"source ~/.bash_libenv;start-extra;read -p 'Press [Enter] to continue...'\"")
                        (reset-first-binding)))
   (xbindkey-function '("c:51")
                      (lambda ()
@@ -317,23 +317,23 @@
                      (lambda ()
                        ;; TODO: make sage load ipython
                        ;; (run-command "gnome-terminal --title=\"iPython repl\" --execute bash -c \"source ~/.bash_libenv;sage -ipython;read -p 'Press [Enter] to continue...'\"")
-                       (run-command "rxvt-unicode -title \"iPython repl\" -e bash -c \"source ~/.bash_libenv;repl-restartable ipython\"")
+                       (run-command "rxvt-unicode -title \"iPython repl\" -e bash -i -c \"source ~/.bash_libenv;repl-restartable ipython\"")
                        (reset-first-binding)))
   (xbindkey-function 'j
                      (lambda ()
-                       (run-command "rxvt-unicode -title \"iPython notebook\" -e bash -c \"source ~/.bash_libenv;repl-restartable sage-ipython-notebook\"")
+                       (run-command "rxvt-unicode -title \"iPython notebook\" -e bash -i -c \"source ~/.bash_libenv;repl-restartable sage-ipython-notebook\"")
                        (reset-first-binding)))
   (xbindkey-function 'n
                      (lambda ()
-                       (run-command "rxvt-unicode -title \"SAGE notebook\" -e bash -c \"source ~/.bash_libenv;repl-restartable sage-notebook\"")
+                       (run-command "rxvt-unicode -title \"SAGE notebook\" -e bash -i -c \"source ~/.bash_libenv;repl-restartable sage-notebook\"")
                        (reset-first-binding)))
   (xbindkey-function 'q
                      (lambda ()
-                       (run-command "rxvt-unicode -title \"pgsql akroshkodb\" -e bash -c \"source ~/.bash_libenv;repl-restartable 'psql akroshkodb'\"")
+                       (run-command "rxvt-unicode -title \"pgsql akroshkodb\" -e bash -i -c \"source ~/.bash_libenv;repl-restartable 'psql akroshkodb'\"")
                        (reset-first-binding)))
   (xbindkey-function 's
                      (lambda ()
-                       (run-command "rxvt-unicode -title \"SAGE repl\" -e bash -c \"source ~/.bash_libenv;repl-restartable sage;\"")
+                       (run-command "rxvt-unicode -title \"SAGE repl\" -e bash -i -c \"source ~/.bash_libenv;repl-restartable sage;\"")
                        (reset-first-binding)))
   (grab-all-keys))
 
