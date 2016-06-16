@@ -25,5 +25,4 @@ if [[ $HOSTNAME == "akroshko-main" ]]; then
 fi
 # XXXX: actually put this in my ~/.bash_profile (which is sourced from ~/.profile) file
 # nohup xscreensaver -nosplash &
-# gnome-panel &
 rxvt-unicode -e bash -i -c "source ~/.profile" &

@@ -9,20 +9,34 @@
   <item label="Terminal emulator">
     <action name="Execute"><execute>rxvt-unicode</execute></action>
   </item>
-  <item label="Web browser">
-    <action name="Execute"><execute>conkeror</execute></action>
-  </item>
   <item label="Network">
     <action name="Execute"><execute>wicd-client</execute></action>
   </item>
-  <item label="Volume">
+  <item label="Audio controls">
     <action name="Execute"><execute>rxvt-unicode -e alsamixer</execute></action>
   </item>
+  <item label="Mute">
+    <action name="Execute"><execute>amixer set Master mute</execute></action>
+  </item>
+  <item label="Unmute">
+    <action name="Execute"><execute>amixer set Master unmute</execute></action>
+  </item>
+  <separator />
+  <item label="Web browser">
+    <action name="Execute"><execute>conkeror</execute></action>
+  </item>
+  <separator />
   <!-- This requires the presence of the 'menu' package to work -->
   <menu id="/Debian" />
   <separator />
   <menu id="client-list-menu" />
   <separator />
+  <item label="Rotate wallpaper">
+    <action name="Execute"><execute>bash -c "source ~/.bash_libenv;feh-rotate-wallpaper"</execute></action>
+  </item>
+  <item label="Lock">
+    <action name="Execute"><execute>xscreensaver-command -lock</execute></action>
+  </item>
   <item label="Restart">
     <action name="Restart" />
   </item>
@@ -31,5 +45,4 @@
     <action name="Exit" />
   </item>
 </menu>
-
 </openbox_menu>

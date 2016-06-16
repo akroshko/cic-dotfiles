@@ -34,5 +34,9 @@ main () {
     need_new_symlink ${SCRIPTPATH}/xmodmap ${HOME}/.xmodmap
     need_new_symlink ${SCRIPTPATH}/xpdfrc ${HOME}/.xpdfrc
     need_new_symlink ${SCRIPTPATH}/Xresources ${HOME}/.Xresources
+    # feh
+    need_new_directory ${HOME}/.config/feh
+    need_new_symlink ${SCRIPTPATH}/feh-buttons ${HOME}/.config/feh/buttons
+    need_new_symlink ${SCRIPTPATH}/feh-keys    ${HOME}/.config/feh/keys
 }
 main

@@ -1,4 +1,5 @@
 ! xscreensaver ---------------------------------------------------------------
+! TODO: do these overide config file
 xscreensaver.lock:                True
 xscreensaver.mode:                random
 xscreensaver.timeout:             0:55:00
@@ -18,10 +19,13 @@ xpdf*foreground:                  black
 xpdf*background:                  white
 xpdf*urlCommand:                  /usr/bin/firefox %s
 ! rxvt -----------------------------------------------------------------------
-URxvt*transparent: true
-URxvt*tintColor: Black
+! TODO: causes issues when setting wallpaper with feh
+! URxvt*transparent: false
+! URxvt*tintColor: Black
 ! URxvt*tintColor: Blue
 ! URxvt*shading: 40
+URxvt*transparent: false
+URxvt*tintColor: White
 URxvt*saveLines: 65535
 URxvt*foreground: White
 ! URxvt*background: Blue
