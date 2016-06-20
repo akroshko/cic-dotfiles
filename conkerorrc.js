@@ -19,7 +19,7 @@ define_key(content_buffer_normal_keymap, "C-[", "unfocus");
 // TODO: try to do this in single key
 define_key(content_buffer_normal_keymap, "s-a",
            "browser-object-relationship-next",
-    $repeat = "follow-unfocus")
+           $repeat = "follow-unfocus")
 interactive("follow-unfocus","Follow and unfocus.",
     function (I) {
         yield follow(I, OPEN_CURRENT_BUFFER);
