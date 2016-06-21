@@ -164,6 +164,7 @@ define_webjump("gmail", "https://mail.google.com/");
 define_webjump("googleimages", "http://www.google.com/images?q=%s&safe=off", $alternative = "https://www.google.com/imghp?as_q=&safe=off");
 define_webjump("googlescholar", "http://scholar.google.com/scholar?q=%s", $alternative = "https://scholar.google.com");
 define_webjump("hackaday", "https://hackaday.com/");
+define_webjump("hackerboards", "http://hackerboards.com");
 // does not appear to have acceptable webjump
 define_webjump("instagram", "https://instagram.com/");
 define_webjump("letsrun","http://letsrun.com");
@@ -181,6 +182,7 @@ define_webjump("physorg", "http://phys.org");
 define_webjump("plus","https://plus.google.com/");
 define_webjump("pypi","https://pypi.python.org/pypi?%3Aaction=search&term=%s&submit=search",$alternative="https://pypi.python.org");
 define_webjump("python", "https://docs.python.org/2.7/search.html?q=%s",$alternative="https://docs.python.org/2.7/");
+define_webjump("theregister","http://www.theregister.co.uk/");
 define_webjump("skyandtelescope","http://www.skyandtelescope.com");
 define_webjump("sage","http://sagemath.org")
 define_webjump("sage-sym","http://doc.sagemath.org/html/en/reference/calculus/sage/symbolic/expression.html")
