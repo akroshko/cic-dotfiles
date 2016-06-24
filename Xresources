@@ -19,12 +19,12 @@ xpdf*foreground:                  black
 xpdf*background:                  white
 xpdf*urlCommand:                  /usr/bin/firefox %s
 ! rxvt -----------------------------------------------------------------------
-! TODO: causes issues when setting wallpaper with feh
-! URxvt*transparent: false
+! TODO: causes performance issues when setting wallpaper with feh
+! URxvt*transparent: true
+! URxvt*shading: 30
+URxvt*transparent: false
 ! URxvt*tintColor: Black
 ! URxvt*tintColor: Blue
-! URxvt*shading: 40
-URxvt*transparent: false
 URxvt*tintColor: White
 URxvt*saveLines: 65535
 URxvt*foreground: White

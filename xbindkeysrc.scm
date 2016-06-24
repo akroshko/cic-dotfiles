@@ -342,7 +342,7 @@
                        (reset-first-binding)))
   (xbindkey-function 'q
                      (lambda ()
-                       (run-command "rxvt-unicode -title \"pgsql akroshkodb\" -e bash -i -c \"source ~/.bash_libenv;repl-restartable 'psql akroshkodb'\"")
+                       (run-command "rxvt-unicode -title \"psql akroshkodb\" -e bash -i -c \"source ~/.bash_libenv;repl-restartable 'psql akroshkodb'\"")
                        (reset-first-binding)))
   (xbindkey-function 's
                      (lambda ()
