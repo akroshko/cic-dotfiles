@@ -126,19 +126,40 @@
   ;;                    (lambda ()
   ;;                      ;; TODO: doesn't work everywhere
   ;;                      (run-command "xdotool getwindowfocus key --window %1 click 2")))
+  ;; f3, kill volume
+  (xbindkey-function '("c:69")
+                     (lambda ()
+                       (run-command "amixer set Master mute")))
+  (xbindkey-function '(shift "c:69")
+                     (lambda ()
+                       (run-command "amixer set Master unmute")))
+  ;; alt f3, normalize volume
+  (xbindkey-function '(alt "c:69")
+                     (lambda ()
+                       (run-command "bash -c \"source ~/.bash_libenv;normalize-volume\"")))
+  ;; f4, throttle up
+  (xbindkey-function '("c:70")
+                     (lambda ()
+                       (run-command "bash -c \"source ~/.bash_libenv;throttle-up\"")))
+  ;; shift-f4
+  (xbindkey-function '(shift "c:70")
+                     (lambda ()
+                       (run-command "bash -c \"source ~/.bash_libenv;throttle-down\"")))
+  ;; TODO: airplane mode...
   ;; f11
+  ;; TODO: maybe make f11 fullscreen, f10 or f9 youtube key
   (xbindkey-function '("c:95")
                      (lambda ()
                        (run-command "bash -c \"source ~/.bash_libenv;youtube-pause\"")))
-  (xbindkey-function '(alt "c:95")
+  (xbindkey-function '(shift "c:95")
                      (lambda ()
                        (run-command "bash -c \"source ~/.bash_libenv;youtube-restore\"")))
   ;; f12
   (xbindkey-function '("c:96")
                      (lambda ()
                        (run-command "bash -c \"source ~/.bash_libenv;master-boss-key\"")))
-  ;; alt-f12 undo boss key
-  (xbindkey-function '(alt "c:96")
+  ;; shift-f12 undo boss key
+  (xbindkey-function '(shift "c:96")
                      (lambda ()
                        (run-command "bash -c \"source ~/.bash_libenv;master-unboss-key\"")))
   (include "/home/akroshko/.xbindkeys_first_personal.scm"))

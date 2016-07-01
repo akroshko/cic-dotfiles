@@ -23,13 +23,16 @@ xpdf*urlCommand:                  /usr/bin/firefox %s
 ! URxvt*transparent: true
 ! URxvt*shading: 30
 URxvt*transparent: false
+! true transparency
+URxvt*depth: 32
+URxvt*background: rgba:0000/0000/0200/c400
 ! URxvt*tintColor: Black
 ! URxvt*tintColor: Blue
+! URxvt*background: Blue
+! URxvt*background: Black
 URxvt*tintColor: White
 URxvt*saveLines: 65535
 URxvt*foreground: White
-! URxvt*background: Blue
-URxvt*background: Black
 ! URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=12:antialias=true:hinting=true
 ! URxvt*boldFont: xft:Bitstream Vera Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
 ! URxvt*font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true

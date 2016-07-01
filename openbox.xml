@@ -209,7 +209,12 @@
 
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
-
+    <keybind key="F1">
+      <action name="ShowMenu"><menu>root-menu</menu></action>
+    </keybind>
+    <keybind key="F2">
+      <action name="ToggleShowDesktop"/>
+    </keybind>
     <keybind key="M-W-F11">
       <action name="ToggleFullscreen"/>
     </keybind>
@@ -234,6 +239,24 @@
       <action name="MaximizeVert"/>
       <action name="MoveResizeTo">
         <width>50%</width>
+      </action>
+      <action name="MoveToEdge"><direction>east</direction></action>
+    </keybind>
+    <!-- snap left -->
+    <keybind key="M-W-w">
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>40%</width>
+      </action>
+      <action name="MoveToEdge"><direction>west</direction></action>
+    </keybind>
+    <!-- snap right -->
+    <keybind key="M-W-e">
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>60%</width>
       </action>
       <action name="MoveToEdge"><direction>east</direction></action>
     </keybind>

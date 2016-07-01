@@ -432,7 +432,7 @@ interactive("youtube-previous",
     function (I) {
         src = "https://www.youtube.com/iframe_api";
         var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
-        player.previousVideo()
+        player.previousVideo();
     });
 
 interactive("youtube-next",
@@ -440,7 +440,15 @@ interactive("youtube-next",
     function (I) {
         src = "https://www.youtube.com/iframe_api";
         var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
-        player.nextVideo()
+        player.nextVideo();
+    });
+
+interactive("youtube-normalize-volume",
+    "Set volume in youtube to a nice level.",
+    function (I) {
+        src = "https://www.youtube.com/iframe_api";
+        var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
+        player.setVolume(40);
     });
 
 // get youtube time

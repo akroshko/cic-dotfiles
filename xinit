@@ -19,16 +19,4 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see http://www.gnu.org/licenses/.
 
-if [[ $HOSTNAME == "akroshko-main" ]]; then
-    xrandr --auto --output VGA-0 --left-of DVI-0
-    xrandr --output DVI-0 --mode 1920x1080
-fi
-# XXXX: actually put this in my ~/.bash_profile (which is sourced from ~/.profile) file
-# nohup xscreensaver -nosplash &
-# start up compositing manager
-# TODO: check for this
-# xcompmgr -c &
-# https://wiki.archlinux.org/index.php/xcompmgr
-# shadws are mostly gone with this
-xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
-rxvt-unicode -e bash -i -c "source ~/.profile" &
+exec openbox-session

@@ -6,5 +6,7 @@ bind shift-mousePress1 any "run(bash ~/.mouseclick.sh %f %p %j %k)"
 bind ctrl-o            any  toggleOutline
 bind ctrl-,            any  prevPage
 bind ctrl-.            any  nextPage
+bind ctrl-up           any  prevPage
+bind ctrl-down         any  nextPage
 bind alt-,             any  prevPage
 bind alt-.             any  nextPage
