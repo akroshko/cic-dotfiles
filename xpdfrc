@@ -10,3 +10,7 @@ bind ctrl-up           any  prevPage
 bind ctrl-down         any  nextPage
 bind alt-,             any  prevPage
 bind alt-.             any  nextPage
+bind alt-<             any  gotoPage(1)
+bind alt->             any  gotoLastPage
+bind ctrl-s            any  find
+bind alt-s             any  findNext
