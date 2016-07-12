@@ -197,7 +197,7 @@
   ;; /
   (xbindkey-function '("c:61")
                      (lambda ()
-                       (run-command "nautilus ~/Downloads")
+                       (run-command "pcmanfm ~/Downloads")
                        (reset-first-binding)))
   ;; eventually check DE, for backlights
   ;; get working properly with fn+f6/f7
