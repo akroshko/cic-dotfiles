@@ -112,9 +112,10 @@
   (xbindkey-function '(alt mod4 shift "c:21")
                      (lambda ()
                        (run-command "bash -c \"amixer set Master 10%+;source ~/.bash_libenv;notify-amixer-volumes\"")))
-  (xbindkey-function '(control shift "c")
-                     (lambda ()
-                       (run-command "xclip -o -selection primary | xclip -i -selection clipboard")))
+  ;; TODO: do I still want this?
+  ;; (xbindkey-function '(control shift "c")
+  ;;                    (lambda ()
+  ;;                      (run-command "xclip -o -selection primary | xclip -i -selection clipboard")))
   ;; overrode in emacs
   ;; see if I want to do this
   ;; (xbindkey-function '(control shift "v")

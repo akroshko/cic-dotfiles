@@ -1,8 +1,12 @@
 # unbind existing keys
 zoom_in
 zoom_out
+zoom_default
+zoom_fit
 prev_img
 next_img
+flip
+action_0
 action_6
 ########################################
 # good keys for using on a laptop
@@ -16,8 +20,10 @@ scroll_down_page  S-Down
 scroll_left_page  S-Left
 scroll_right_page S-Right
 # bind new keys for zoom
-zoom_in           C-Up
-zoom_out          C-Down
+zoom_in           C-Up plus
+zoom_out          C-Down minus
+zoom_default      0
+zoom_fit          underscore
 prev_img          p
 next_img          n
 # hack to give g for gimp-edit along with feh-open-browse sh script

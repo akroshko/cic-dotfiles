@@ -14,3 +14,9 @@ bind alt-<             any  gotoPage(1)
 bind alt->             any  gotoLastPage
 bind ctrl-s            any  find
 bind alt-s             any  findNext
+bind _                 any  zoomFitPage
+bind =                 any  zoomFitWidth
+# TODO: don't work after using above two, need to chain commands
+bind 0                 any  zoomPercent(125)
+bind +                 any  zoomIn
+bind -                 any  zoomOut
