@@ -12,6 +12,8 @@ bind alt-,             any  prevPage
 bind alt-.             any  nextPage
 bind alt-<             any  gotoPage(1)
 bind alt->             any  gotoLastPage
+bind ctrl-{            any  "run(bash ~/.xpdfprevfile.sh '%f')"
+bind ctrl-}            any  "run(bash ~/.xpdfnextfile.sh '%f')"
 bind ctrl-s            any  find
 bind alt-s             any  findNext
 bind _                 any  zoomFitPage
