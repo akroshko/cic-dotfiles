@@ -98,8 +98,11 @@ ${else}\
 ${color grey}CPU:$color${execi 8 sensors | grep 'temp1' | sed -n 1p | cut -c14-19 | sed '/^$/d'}°C ${color grey}MB:$color${execi 8 sensors | grep 'temp1' | sed -n 2p | cut -c14-19 | sed '/^$/d'}°C ${color grey}CPUTIN:$color${execi 8 sensors | grep 'CPUTIN' | sed -n 1p | cut -c24-29 | sed '/^$/d'}°C
 ${color grey}Fan 1:$color${execi 8 sensors | grep 'fan1' | sed -n 1p | cut -c23-27}rpm ${color grey}Fan 2:$color${execi 8 sensors | grep 'fan2' | sed -n 1p | cut -c23-27}rpm ${color grey}Fan 3:$color${execi 8 sensors | grep 'fan3' | sed -n 1p | cut -c23-27}rpm\
 ${endif}
-${color grey}RAM Usage:$color $mem/$memmax $memperc% ${membar 4}
-${color grey}Swap Usage:$color $swap/$swapmax $swapperc% ${swapbar 4}
+${color grey}RAM  Usage:$color $mem/$memmax $memperc% ${membar 4}
+${color grey}Swap Usage:$color $swap/$swapmax $swapperc%  ${swapbar 4}
+${color grey}/tmp Usage:$color ${fs_used /tmp}/${fs_size /tmp} ${fs_used_perc /tmp}% ${fs_bar_free /tmp 4}
+${color grey}/    Usage:$color ${fs_used /}/${fs_size /} ${fs_used_perc /}% ${fs_bar_free / 4}
+
 ${if_match "${nodename}" == "akroshko-laptop"}\
 ${color grey}Sound:$color ${exec amixer get Master | grep Front.*Playback | tr "\\n" " " | sed -e 's/Front//g' -e 's/Playback//g' -e 's/\s[0-9]\+//g' -e 's/  */ /g'}\
 ${color grey}Backlight:$color ${exec echo "`cat /sys/class/backlight/intel_backlight/brightness`*100/`cat /sys/class/backlight/intel_backlight/max_brightness`" | bc -l | xargs printf "%1.0f\n"}\

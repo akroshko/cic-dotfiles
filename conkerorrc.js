@@ -51,11 +51,16 @@ define_key(content_buffer_normal_keymap, "d",   "duplicate-buffer");
 define_key(content_buffer_normal_keymap, "M-d", "duplicate-buffer");
 // copy and paste
 // TODO: should be copy-url sometimes too
+// TODO: not sure about default_global_keymap
+define_key(default_global_keymap,        "M-c", "kill-ring-save");
+define_key(minibuffer_keymap,            "M-c", "kill-ring-save");
 define_key(content_buffer_form_keymap,   "M-c", "kill-ring-save");
 define_key(content_buffer_text_keymap,   "M-c", "kill-ring-save");
 define_key(content_buffer_normal_keymap, "M-c", "cmd_copy");
 
 // TODO: should be paste-url sometimes too
+define_key(default_global_keymap,        "M-v", "yank");
+define_key(minibuffer_keymap,            "M-v", "yank");
 define_key(content_buffer_form_keymap,   "M-v", "yank");
 define_key(content_buffer_text_keymap,   "M-v", "yank");
 define_key(content_buffer_normal_keymap, "M-v", "paste-url");
@@ -293,6 +298,7 @@ interactive("third-localhost-proxy", "Third party localhost proxy",
     });
 define_key(content_buffer_normal_keymap,"C-u C-c p","third-localhost-proxy")
 
+
 // remove proxy
 // set up a proxy
 interactive("remove-proxy", "Localhost proxy",
@@ -324,6 +330,24 @@ proxy_widget.prototype = {
         this.view.text = current_conkeror_proxy;
     }
 };
+
+////////////////////////////////////////////////////////////////////////////////
+// misc
+
+// copy all urls to clipboard as list
+// TODO: and/or save to temp file
+// generally meant to move to other programs
+interactive("copy-all-urls", "Copy all URLs",
+    function (I) {
+        var urls="";
+        for (var i = 0, nbuffers = I.window.buffers.count; i < nbuffers; i++ ) {
+            urls = urls + "\n" + "[[" + I.window.buffers.get_buffer(i).display_uri_string + "]] -- " + I.window.buffers.get_buffer(i).document.title;
+        }
+        urls = urls + "\n";
+        // I.window.minibuffer.message(urls);
+        var gClipboardHelper = Cc["@mozilla.org/widget/clipboardhelper;1"].getService(Ci.nsIClipboardHelper);
+        gClipboardHelper.copyString(urls);
+    });
 
 // add to mode line hook during initialization, is there a more robust way?
 if (!current_conkeror_proxy_init) {
