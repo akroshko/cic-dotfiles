@@ -22,8 +22,21 @@
     <action name="Execute"><execute>amixer set Master unmute</execute></action>
   </item>
   <separator />
-  <item label="Web browser">
+  <item label="Emacs">
+    <action name="Execute"><execute>launch-emacsclient</execute></action>
+  </item>
+  <item label="Web browser (conkeror)">
     <action name="Execute"><execute>conkeror</execute></action>
+  </item>
+  <item label="Calculator">
+    <action name="Execute"><execute>xcalc</execute></action>
+  </item>
+  <separator />
+  <item label="Low backlight">
+    <action name="Execute"><execute>xbacklight -set 20</execute></action>
+  </item>
+  <item label="High backlight">
+    <action name="Execute"><execute>xbacklight -set 100</execute></action>
   </item>
   <separator />
   <!-- This requires the presence of the 'menu' package to work -->

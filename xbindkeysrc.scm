@@ -87,15 +87,19 @@
                        (run-command "xdotool getwindowfocus key --window %1 click 5")))
   ;; multi-media app keys are normally handled by DE
   (when (not (check-de))
+        ;; volume down key
         (xbindkey-function '("c:122")
                            (lambda ()
                              (run-command "bash -c \"amixer set Master 10%-;source ~/.bash_libenv;notify-amixer-volumes\"")))
+        ;; volume up key
         (xbindkey-function '("c:123")
                            (lambda ()
                              (run-command "bash -c \"amixer set Master 10%+;source ~/.bash_libenv;notify-amixer-volumes\"")))
+        ;; mute key
         (xbindkey-function '("c:121")
                            (lambda ()
                              (run-command "amixer sset Master toggle")))
+        ;; calculator key
         (xbindkey-function '("c:148")
                            (lambda ()
                              (run-command "xcalc"))))
@@ -201,15 +205,16 @@
                        (run-command "pcmanfm ~/Downloads")
                        (reset-first-binding)))
   ;; eventually check DE, for backlights
+  ;; TODO: removed, in openbox menu now
   ;; get working properly with fn+f6/f7
-  (xbindkey-function '("c:71")
-                     (lambda ()
-                       (run-command "xbacklight -set 20")
-                       (reset-first-binding)))
-  (xbindkey-function '("c:72")
-                     (lambda ()
-                       (run-command "xbacklight -set 100")
-                       (reset-first-binding)))
+  ;; (xbindkey-function '("c:71")
+  ;;                    (lambda ()
+  ;;                      (run-command "xbacklight -set 20")
+  ;;                      (reset-first-binding)))
+  ;; (xbindkey-function '("c:72")
+  ;;                    (lambda ()
+  ;;                      (run-command "xbacklight -set 100")
+  ;;                      (reset-first-binding)))
   ;; not sure if these bindings are permanant
   ;; alt-/
   ;; (xbindkey-function '(alt "c:61")
@@ -292,19 +297,20 @@
                      (lambda ()
                        (run-command "rxvt-unicode")
                        (reset-first-binding)))
-  (xbindkey-function '(alt "t")
-                     (lambda ()
-                       (run-command "gnome-terminal")
-                       (reset-first-binding)))
+  ;; (xbindkey-function '(alt "t")
+  ;;                    (lambda ()
+  ;;                      (run-command "gnome-terminal")
+  ;;                      (reset-first-binding)))
   ;; TODO: replaced by something else and I do not use much
   ;; (xbindkey-function 'v
   ;;                    (lambda ()
   ;;                      (run-command "virtualbox")
   ;;                      (reset-first-binding)))
-  (xbindkey-function 'x
-                     (lambda ()
-                       (run-command "firefox -private")
-                       (reset-first-binding)))
+  ;; XXXX: unneeded anymore (see crypt-profiles repo)
+  ;; (xbindkey-function 'x
+  ;;                    (lambda ()
+  ;;                      (run-command "firefox -private")
+  ;;                      (reset-first-binding)))
   (when (not (check-de))
         (xbindkey-function 'z
                            (lambda ()

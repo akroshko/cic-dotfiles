@@ -212,6 +212,9 @@
     <keybind key="F1">
       <action name="ShowMenu"><menu>root-menu</menu></action>
     </keybind>
+    <keybind key="M-W-semicolon">
+      <action name="ShowMenu"><menu>root-menu</menu></action>
+    </keybind>
     <keybind key="F2">
       <action name="ToggleShowDesktop"/>
     </keybind>
@@ -223,6 +226,10 @@
     </keybind>
     <keybind key="M-W-l">
       <action name="Iconify"/>
+    </keybind>
+    <!--  TODO: maybe wish to make this easier/harder/more intuitive, maybe use shift instead for crappy laptop keyboards -->
+    <keybind key="M-W-k">
+      <action name="Close"/>
     </keybind>
     <!-- snap left -->
     <keybind key="M-W-b">
@@ -277,6 +284,20 @@
       <action name="MoveToEdge"><direction>west</direction></action>
       <action name="ToggleMaximize"/>
     </keybind>
+    <!-- directional -->
+    <!-- TODO: do I really need these -->
+    <!-- <keybind key="C-W-f"> -->
+    <!--   <action name="DirectionalTargetWindow"><direction>east</direction></action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="C-W-b"> -->
+    <!--   <action name="DirectionalTargetWindow"><direction>west</direction></action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="C-W-p"> -->
+    <!--   <action name="DirectionalTargetWindow"><direction>north</direction></action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="C-W-n"> -->
+    <!--   <action name="DirectionalTargetWindow"><direction>south</direction></action> -->
+    <!-- </keybind> -->
     <!-- Rather like this, for when super keys are no available, or needed for applications -->
     <!-- C-shift-z works just fine for terminals -->
     <keybind key="C-z">
@@ -299,6 +320,9 @@
     </keybind>
     <!-- Desktop keys -->
     <keybind key="M-W-d">
+      <action name="ToggleShowDesktop"/>
+    </keybind>
+    <keybind key="W-z">
       <action name="ToggleShowDesktop"/>
     </keybind>
     <keybind key="M-W-1">
@@ -325,13 +349,13 @@
     <keybind key="C-W-4">
       <action name="GoToDesktop"><to>4</to></action>
     </keybind>
-    <keybind key="C-W-b">
+    <keybind key="C-W-comma">
       <action name="GoToDesktop">
         <to>previous</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="C-W-f">
+    <keybind key="C-W-period">
       <action name="GoToDesktop">
         <to>next</to>
         <wrap>no</wrap>

@@ -22,3 +22,6 @@ bind =                 any  zoomFitWidth
 bind 0                 any  zoomPercent(125)
 bind +                 any  zoomIn
 bind -                 any  zoomOut
+# TODO: decide if I really want this
+# bind mousePress4       any  zoomIn
+# bind mousePress5       any  zoomOut

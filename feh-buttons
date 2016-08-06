@@ -1,3 +1,6 @@
+# TODO: disable button 1 pan now, until I modify feh
+pan
+# add new buttons
 zoom_in  4
 zoom_out 5
 prev     6
