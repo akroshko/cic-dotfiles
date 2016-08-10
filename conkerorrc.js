@@ -205,6 +205,7 @@ define_webjump("stackexchange-math","https://math.stackexchange.com/search?q=%s"
 define_webjump("stackexchange-superuser","https://superuser.com/search?q=%s",$alternative="https://superuser.com/");
 define_webjump("stackexchange-tex","https://tex.stackexchange.com/search?q=%s",$alternative="https://tex.stackexchange.com");
 define_webjump("stackexchange-unix","https://unix.stackexchange.com/search?q=%s",$alternative="https://unix.stackexchange.com");
+define_webjump("runningfree","http://www.runningfree.com/");
 define_webjump("thesaurus","http://thesaurus.reference.com/browse/%s",$alternative="http://thesaurus.reference.com");
 define_webjump("tigerdirect","http://www.tigerdirect.ca/applications/SearchTools/search.asp?keywords=%s",$alternative="http://www.tigerdirect.ca");
 define_webjump("twitter","https://twitter.com/search?q=%s&src=typd",$alternative="https://twitter.com");

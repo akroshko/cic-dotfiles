@@ -43,6 +43,8 @@ URxvt*foreground: White
 ! URxvt*boldFont: xft:terminus:bold:pixelsize=10
 ! URxvt.font:     xft:bitstream vera sans mono:size=12:antialias=true
 ! URxvt.boldFont: xft:bitstream vera sans mono:bold:size=12:antialias=true
+! TODO: does not seem to work that well
+URxvt.print-pipe: cat > $HOME/tmp/urxvt-$(date +%Y%m%d%H%M%S)
 URxvt*font:-*-courier-medium-r-normal-*-12-*-*-*-*-*-iso8859-1
 URxvt*boldFont:-*-courier-bold-r-normal-*-12-*-*-*-*-*-iso8859-1
 URxvt*color4: RoyalBlue

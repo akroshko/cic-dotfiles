@@ -47,13 +47,13 @@
   (xbindkey-function '(control "c:23") second-search-binding)
   ;; deal with the fact terminals don't have C-, and C-.
   ;; TODO: still want apps to support other things, just in case xbindkeys not installed
-  ;; M- most convienient for laptop, control most convienient for touch typing
-  (xbindkey-function '(alt "c:59")
-                     (lambda ()
-                       (run-command "xvkbd -xsendevent -text \"\\[Prior]\"")))
-  (xbindkey-function '(alt "c:60")
-                     (lambda ()
-                       (run-command "xvkbd -xsendevent -text \"\\[Next]\"")))
+  ;; TODO: disabled, M- most convienient for laptop, control most convienient for touch typing
+  ;; (xbindkey-function '(alt "c:59")
+  ;;                    (lambda ()
+  ;;                      (run-command "xvkbd -xsendevent -text \"\\[Prior]\"")))
+  ;; (xbindkey-function '(alt "c:60")
+  ;;                    (lambda ()
+  ;;                      (run-command "xvkbd -xsendevent -text \"\\[Next]\"")))
   (xbindkey-function '(control "c:59")
                      (lambda ()
                        (run-command "xvkbd -xsendevent -text \"\\[Prior]\"")))
@@ -135,28 +135,27 @@
   (xbindkey-function '("c:69")
                      (lambda ()
                        (run-command "amixer set Master mute")))
-  (xbindkey-function '(shift "c:69")
+  (xbindkey-function '(control "c:69")
                      (lambda ()
                        (run-command "amixer set Master unmute")))
   ;; alt f3, normalize volume
   (xbindkey-function '(alt "c:69")
                      (lambda ()
                        (run-command "bash -c \"source ~/.bash_libenv;normalize-volume\"")))
+  ;; TODO: airplane mode here too
   ;; f4, throttle up
   (xbindkey-function '("c:70")
                      (lambda ()
                        (run-command "bash -c \"source ~/.bash_libenv;throttle-up\"")))
-  ;; shift-f4
-  (xbindkey-function '(shift "c:70")
+  ;; control-f4
+  (xbindkey-function '(control "c:70")
                      (lambda ()
                        (run-command "bash -c \"source ~/.bash_libenv;throttle-down\"")))
-  ;; TODO: airplane mode...
-  ;; f11
-  ;; TODO: maybe make f11 fullscreen, f10 or f9 youtube key
-  (xbindkey-function '("c:95")
+  ;; f10
+  (xbindkey-function '("c:76")
                      (lambda ()
                        (run-command "bash -c \"source ~/.bash_libenv;youtube-pause\"")))
-  (xbindkey-function '(shift "c:95")
+  (xbindkey-function '(control "c:76")
                      (lambda ()
                        (run-command "bash -c \"source ~/.bash_libenv;youtube-restore\"")))
   ;; f12
@@ -164,10 +163,48 @@
                      (lambda ()
                        (run-command "bash -c \"source ~/.bash_libenv;master-boss-key\"")))
   ;; shift-f12 undo boss key
-  (xbindkey-function '(shift "c:96")
+  (xbindkey-function '(control "c:96")
                      (lambda ()
                        (run-command "bash -c \"source ~/.bash_libenv;master-unboss-key\"")))
-  (include "/home/akroshko/.xbindkeys_first_personal.scm"))
+  (include "/home/akroshko/.xbindkeys_first_personal.scm")
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; shift function keys up to f9
+  (xbindkey-function '(shift "c:67")
+                     (lambda ()
+                       (run-command "xdotool getwindowfocus key F1")))
+  (xbindkey-function '(shift "c:68")
+                     (lambda ()
+                       (run-command "xdotool getwindowfocus key F2")))
+  (xbindkey-function '(shift "c:69")
+                     (lambda ()
+                       (run-command "xdotool getwindowfocus key F3")))
+  (xbindkey-function '(shift "c:70")
+                     (lambda ()
+                       (run-command "xdotool getwindowfocus key F4")))
+  (xbindkey-function '(shift "c:71")
+                     (lambda ()
+                       (run-command "xdotool getwindowfocus key F5")))
+  (xbindkey-function '(shift "c:72")
+                     (lambda ()
+                       (run-command "xdotool getwindowfocus key F6")))
+  (xbindkey-function '(shift "c:73")
+                     (lambda ()
+                       (run-command "xdotool getwindowfocus key F7")))
+  (xbindkey-function '(shift "c:74")
+                     (lambda ()
+                       (run-command "xdotool getwindowfocus key F8")))
+  (xbindkey-function '(shift "c:75")
+                     (lambda ()
+                       (run-command "xdotool getwindowfocus key F9")))
+  (xbindkey-function '(shift "c:76")
+                     (lambda ()
+                       (run-command "xdotool getwindowfocus key F10")))
+  (xbindkey-function '(shift "c:95")
+                     (lambda ()
+                       (run-command "xdotool getwindowfocus key F11")))
+  (xbindkey-function '(shift "c:96")
+                     (lambda ()
+                       (run-command "xdotool getwindowfocus key F12"))))
 
 (define (reset-first-binding)
     "Reset the first binding."
