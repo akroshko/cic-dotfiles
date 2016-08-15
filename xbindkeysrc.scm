@@ -151,19 +151,19 @@
   (xbindkey-function '(control "c:70")
                      (lambda ()
                        (run-command "bash -c \"source ~/.bash_libenv;throttle-down\"")))
+  ;; f9
+  (xbindkey-function '("c:75")
+                     (lambda ()
+                       (run-command "bash -c \"source ~/.bash_libenv;youtube-pause\"")))
+  (xbindkey-function '(control "c:75")
+                     (lambda ()
+                       (run-command "bash -c \"source ~/.bash_libenv;youtube-restore\"")))
   ;; f10
   (xbindkey-function '("c:76")
                      (lambda ()
-                       (run-command "bash -c \"source ~/.bash_libenv;youtube-pause\"")))
-  (xbindkey-function '(control "c:76")
-                     (lambda ()
-                       (run-command "bash -c \"source ~/.bash_libenv;youtube-restore\"")))
-  ;; f12
-  (xbindkey-function '("c:96")
-                     (lambda ()
                        (run-command "bash -c \"source ~/.bash_libenv;master-boss-key\"")))
-  ;; shift-f12 undo boss key
-  (xbindkey-function '(control "c:96")
+  ;; shift-f10 undo boss key
+  (xbindkey-function '(control "c:76")
                      (lambda ()
                        (run-command "bash -c \"source ~/.bash_libenv;master-unboss-key\"")))
   (include "/home/akroshko/.xbindkeys_first_personal.scm")
