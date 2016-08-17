@@ -144,13 +144,16 @@
                        (run-command "bash -c \"source ~/.bash_libenv;normalize-volume\"")))
   ;; TODO: airplane mode here too
   ;; f4, throttle up
+  ;; TODO: should be
   (xbindkey-function '("c:70")
                      (lambda ()
-                       (run-command "bash -c \"source ~/.bash_libenv;throttle-up\"")))
+                       (run-command "bash -c \"source ~/.bash_libenv;throttle-down\"")))
   ;; control-f4
   (xbindkey-function '(control "c:70")
                      (lambda ()
-                       (run-command "bash -c \"source ~/.bash_libenv;throttle-down\"")))
+                       (run-command "bash -c \"source ~/.bash_libenv;throttle-up\"")))
+  ;; TODO: have a throttle normal as alt-f4
+  ;; TODO:
   ;; f9
   (xbindkey-function '("c:75")
                      (lambda ()

@@ -8,7 +8,7 @@
 escape ^oO
 # see http://blog.nguyenvq.com/blog/2011/11/26/log-output-for-screen/
 # TODO: make more general
-logfile /home/akroshko/tmp/screen-%H-%Y%m%d-%c-%S-%n.log
+logfile /home/akroshko/tmp/collect/screen-%H-%Y%m%d-%c-%S-%n.log
 # log on by default
 deflog on
 # Yes, we want this!
