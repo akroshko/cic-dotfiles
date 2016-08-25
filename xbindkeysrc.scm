@@ -152,6 +152,16 @@
   (xbindkey-function '(control "c:70")
                      (lambda ()
                        (run-command "bash -c \"source ~/.bash_libenv;throttle-up\"")))
+  ;; alt-f4
+  (xbindkey-function '(alt "c:70")
+                     (lambda ()
+                       (run-command "bash -c \"source ~/.bash_libenv;throttle-normal\"")))
+  ;; f7 to google
+  ;; TODO: alternative to google
+  (xbindkey-function '("c:73")
+                     (lambda ()
+                       ;; search in conkeror
+                       (run-command "bash -c \"~/bin/conkeror -f clipboard-search-google\"")))
   ;; TODO: have a throttle normal as alt-f4
   ;; TODO:
   ;; f9

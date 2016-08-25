@@ -29,7 +29,7 @@ interactive("follow-unfocus","Follow and unfocus.",
 
 // TODO: trying both of these for now
 define_key(content_buffer_normal_keymap, "M-z", "unfocus");
-define_key(content_buffer_normal_keymap, "s-s", "unfocus");
+define_key(content_buffer_normal_keymap, "s-v", "unfocus");
 // TODO: not sure if this is best
 define_key(content_buffer_normal_keymap, "s-f", "follow-new-buffer");
 // TODO: back without keycord?
@@ -40,7 +40,8 @@ define_key(content_buffer_normal_keymap, "s-l", "back");
 // define_key(content_buffer_normal_keymap, "s-l g", "find-url");
 define_key(content_buffer_normal_keymap, "b", "follow-new-buffer-background");
 // emergency key to kill buffer quickly
-define_key(content_buffer_normal_keymap, "f4", "kill-buffer");
+// TODO: used for other things
+// define_key(content_buffer_normal_keymap, "f4", "kill-buffer");
 // key redefines
 define_key(content_buffer_normal_keymap, "s-]", "buffer-next");
 define_key(content_buffer_normal_keymap, "s-[", "buffer-previous");
@@ -334,6 +335,41 @@ proxy_widget.prototype = {
         this.view.text = current_conkeror_proxy;
     }
 };
+
+////////////////////////////////////////////////////////////////////////////////
+// find highlighted in google
+// see http://conkeror.org/Tips#Selection_Searches
+interactive("selection-search-google","Use current selection and search on Google.",
+    "find-url-new-buffer",
+    $browser_object = function (I) {
+        return "google " + I.buffer.top_frame.getSelection();
+    });
+define_key(content_buffer_normal_keymap, "s-g", "selection-search-google")
+
+interactive("selection-search-scholar","Use current selection and search on Google Scholar.",
+    "find-url-new-buffer",
+    $browser_object = function (I) {
+        return "scholar " + I.buffer.top_frame.getSelection();
+    });
+define_key(content_buffer_normal_keymap, "s-s", "selection-search-scholar")
+
+interactive("selection-search-wikipedia","Use current selection and search on Wikipedia.",
+    "find-url-new-buffer",
+    $browser_object = function (I) {
+        return "wikipedia " + I.buffer.top_frame.getSelection();
+    });
+define_key(content_buffer_normal_keymap, "s-w", "selection-search-wikipedia")
+
+////////////////////////////////////////////////////////////////////////////////
+// find clipboard in google
+interactive("clipboard-search-google","Use current clipboard and search on Google.",
+    "find-url-new-buffer",
+    $browser_object = function (I) {
+        return "google " + read_from_clipboard();
+    });
+define_key(content_buffer_normal_keymap, "s-G", "clipboard-search-google")
+
+// TODO: add others
 
 ////////////////////////////////////////////////////////////////////////////////
 // misc
