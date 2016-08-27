@@ -144,6 +144,7 @@ define_webjump("amazonca","https://www.amazon.ca/exec/obidos/external-search/?fi
 define_webjump("amsaut","http://www.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=%s&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=ALLF&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=html&Submit=Search", $alternative="http://www.ams.org/mathscinet/");
 define_webjump("amskey","http://www.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=ALLF&s7=%s&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=html&Submit=Search",$alternative="http://www.ams.org/mathscinet/");
 define_webjump("amstit","http://www.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=&co4=AND&pg5=TI&s5=%s&co5=AND&pg6=PC&s6=&co6=AND&pg7=ALLF&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=html&Submit=Search",$alternative="http://www.ams.org/mathscinet/");
+define_webjump("anandtech","http://www.anandtech.com/");
 define_webjump("archwiki","https://wiki.archlinux.org/index.php?title=Special%3ASearch&search=%s&go=Go", $alternative="https://wiki.archlinux.org");
 define_webjump("arstechnica","https://arstechnica.com");
 define_webjump("bc-firehazard","http://www2.gov.bc.ca/gov/content/safety/wildfire-status/fire-danger");
@@ -157,6 +158,7 @@ define_webjump("ctan-description", "https://www.ctan.org/search/?search=%s&searc
 define_webjump("ctan-filename", "https://www.ctan.org/search/?search=%s&search_type=filename",$alternative="https://www.ctan.org");
 define_webjump("ctan-package", "https://www.ctan.org/search/?search=%s&search_type=id",$alternative="https://www.ctan.org");
 define_webjump("dictionary","http://dictionary.reference.com/browse/%s");
+define_webjump("digikey","http://www.digikey.ca/");
 define_webjump("duckduckgo","https://duckduckgo.com/?q=%s",$alternative="https://duckduckgo.com");
 define_webjump("emacswiki",
     "https://www.google.com/cse?cx=004774160799092323420%3A6-ff2s0o6yi"+

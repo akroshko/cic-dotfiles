@@ -305,6 +305,9 @@
         <raise>yes</raise>
       </action>
     </keybind>
+    <keybind key="W-z">
+      <action name="NextWindow"/>
+    </keybind>
     <!-- Keybindings for window switching with the arrow keys -->
     <keybind key="M-W-period">
       <action name="DirectionalCycleWindows">
@@ -320,9 +323,6 @@
     </keybind>
     <!-- Desktop keys -->
     <keybind key="M-W-d">
-      <action name="ToggleShowDesktop"/>
-    </keybind>
-    <keybind key="W-z">
       <action name="ToggleShowDesktop"/>
     </keybind>
     <keybind key="M-W-1">
