@@ -68,7 +68,7 @@
 
   <theme>
     <name>MyClearlooks</name>
-    <titleLayout>NLIMC</titleLayout>
+    <titleLayout>NLCIMS</titleLayout>
     <!--
         available characters are NDSLIMC, each can occur at most once.
         N: window icon
@@ -227,7 +227,6 @@
     <keybind key="M-W-l">
       <action name="Iconify"/>
     </keybind>
-    <!--  TODO: maybe wish to make this easier/harder/more intuitive, maybe use shift instead for crappy laptop keyboards -->
     <keybind key="M-W-k">
       <action name="Close"/>
     </keybind>
@@ -267,8 +266,34 @@
       </action>
       <action name="MoveToEdge"><direction>east</direction></action>
     </keybind>
+    <!-- this screen -->
+    <!-- TODO might conflict? -->
+    <keybind key="M-W-bracketright">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+      </action>
+      <action name="MoveToEdge"><direction>east</direction></action>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+      </action>
+      <action name="MoveToEdge"><direction>east</direction></action>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+      </action>
+      <action name="MoveToEdge"><direction>east</direction></action>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+      </action>
+      <action name="MoveToEdge"><direction>east</direction></action>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+      </action>
+      <action name="MoveToEdge"><direction>east</direction></action>
+      <action name="ToggleMaximize"/>
+    </keybind>
     <!-- other screen -->
-    <keybind key="M-W-o">
+    <keybind key="M-W-bracketleft">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <width>50%</width>
