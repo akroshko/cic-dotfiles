@@ -68,7 +68,7 @@
 
   <theme>
     <name>MyClearlooks</name>
-    <titleLayout>NLCIMS</titleLayout>
+    <titleLayout>NLCSMI</titleLayout>
     <!--
         available characters are NDSLIMC, each can occur at most once.
         N: window icon

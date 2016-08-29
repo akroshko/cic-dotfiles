@@ -162,6 +162,15 @@
                      (lambda ()
                        ;; search in conkeror
                        (run-command "bash -c \"~/bin/conkeror -f clipboard-search-google\"")))
+  ;; F8
+  (xbindkey-function '("c:74")
+                     (lambda ()
+                       ;; copy primary to clipboard
+                       ;; TODO: implement this elsewhere
+                       ;; TODO: do I really need the sleep?
+                       (run-command "bash -c \"xclip -o -selection p | xclip -i -selection c;sleep 0.2\"")
+                       ;; open in Collection with clipboard
+                       (run-command "launch-emacsclient noframe --eval \"(cic:create-open-collection-other-window)\"")))
   ;; TODO: have a throttle normal as alt-f4
   ;; TODO:
   ;; f9
@@ -180,7 +189,7 @@
                      (lambda ()
                        (run-command "bash -c \"source ~/.bash_libenv;master-unboss-key\"")))
   (include "/home/akroshko/.xbindkeys_first_personal.scm")
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; shift function keys up to f9
   (xbindkey-function '(shift "c:67")
                      (lambda ()
