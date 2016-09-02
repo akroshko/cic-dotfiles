@@ -1,6 +1,9 @@
-# TODO: disable button 1 pan now, until I modify feh
+blur
+# TODO: disable button 1 pan now, until I modify feh so I don't accidently next
 pan
 # add new buttons
+# TODO: shift?
+pan      C-1
 zoom_in  4
 zoom_out 5
 prev     6
