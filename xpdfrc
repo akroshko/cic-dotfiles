@@ -18,6 +18,7 @@ bind ctrl-{            any  "run(bash ~/.xpdfprevfile.sh '%f')"
 bind ctrl-}            any  "run(bash ~/.xpdfnextfile.sh '%f')"
 bind ctrl-s            any  find
 bind alt-s             any  findNext
+# TODO: not sure I really want this, almost should be other way
 bind _                 any  zoomFitPage
 bind =                 any  zoomFitWidth
 # TODO: don't work after using above two, need to chain commands

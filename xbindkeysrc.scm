@@ -170,7 +170,13 @@
                        ;; TODO: do I really need the sleep?
                        (run-command "bash -c \"xclip -o -selection p | xclip -i -selection c;sleep 0.2\"")
                        ;; open in Collection with clipboard
-                       (run-command "launch-emacsclient noframe --eval \"(cic:create-open-collection-other-window)\"")))
+                       (run-command "launch-emacsclient noframe --eval \"(cic:create-open-paste-collection)\"")))
+  ;; TODO: not sure if consistent
+  (xbindkey-function '(control "c:74")
+                     (lambda ()
+                       ;; open in Collection with clipboard
+                       (run-command "launch-emacsclient noframe --eval \"(cic:create-open-collection-frame)\"")))
+
   ;; TODO: have a throttle normal as alt-f4
   ;; TODO:
   ;; f9
