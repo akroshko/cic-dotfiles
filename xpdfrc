@@ -2,7 +2,8 @@ continuousView yes
 # put information about the current file into a suitable temp file
 bind ctrl-i            any "run(echo '%f\n%p' > ~/tmp/xpdf-tmp.txt)"
 # hardcoded link for xulpdftex-code
-bind shift-mousePress1 any "run(python ~/.mouseclick.py %f %p %j %k)"
+# bind shift-mousePress1 any "run(python ~/.mouseclick.py %f %p %j %k)"
+bind shift-mousePress1 any "run(~/.mouseclick.sh %f %p %j %k)"
 bind ctrl-o            any  toggleOutline
 # TODO: experiment with both
 bind i                 any  toggleOutline
