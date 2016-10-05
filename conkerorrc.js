@@ -169,15 +169,19 @@ define_webjump("emacswiki",
 // TODO: uses invalid security certificate
 define_webjump("encyclopedia","http://www.reference.com/browse/%s",$alternative="http://www.reference.com");
 define_webjump("epicurious","https://www.epicurious.com/tools/searchresults?search=%s",$alternative="https://www.epicurious.com");
+define_webjump("extremetech","http://extremetech.com");
 define_webjump("facebook","https://www.facebook.com/search/results.php?q=%s&init=quick",$alternative="https://www.facebook.com");
+define_webjump("fivethirtyeight","http://fivethirtyeight.com");
 define_webjump("flickr", "https://www.flickr.com/search/?q=%s", $alternative="https://www.flickr.com");
 define_webjump("flotrack","http://www.flotrack.org");
 define_webjump("github", "https://github.com/");
 define_webjump("gmail", "https://mail.google.com/");
+define_webjump("gnuplot", "http://www.gnuplot.info");
 define_webjump("googleimages", "http://www.google.com/images?q=%s&safe=off", $alternative = "https://www.google.com/imghp?as_q=&safe=off");
 define_webjump("googlescholar", "http://scholar.google.com/scholar?q=%s", $alternative = "https://scholar.google.com");
 define_webjump("hackaday", "https://hackaday.com/");
 define_webjump("hackerboards", "http://hackerboards.com");
+define_webjump("hothardware","http://hothardware.com");
 // does not appear to have acceptable webjump
 define_webjump("instagram", "https://instagram.com/");
 define_webjump("letsrun","http://letsrun.com");
@@ -216,15 +220,15 @@ define_webjump("tigerdirect","http://www.tigerdirect.ca/applications/SearchTools
 define_webjump("twitter","https://twitter.com/search?q=%s&src=typd",$alternative="https://twitter.com");
 define_webjump("universetoday", "https://www.universetoday.com");
 define_webjump("orgmode","https://www.google.com/cse?cx=002987994228320350715%3Az4glpcrritm&q=%s&sa=Search&siteurl=orgmode.org%2Fworg",$alternative="http://orgmode.org/worg/");
+// TODO: set up search
+define_webjump("bsdnow","https://bsdnow.tv");
+define_webjump("undeadly","http://undeadly.org");
+define_webjump("webofscience","https://apps.webofknowledge.com/");
 define_webjump("youtube", "https://www.youtube.com/results?search_query=%s&search=Search",$alternative="https://www.youtube.com/feed/subscriptions");
 define_webjump("youtube-user", "https://youtube.com/profile_videos?user=%s",$alternative="https://www.youtube.com/feed/subscriptions");
-// TODO: set up search
-define_webjump("webofscience","https://apps.webofknowledge.com/");
-
 // local stuff here because it's useful
 define_webjump("library-usask","https://sundog.usask.ca/search/a?searchtype=Y&SORT=D&searcharg=%s&searchscope=8&called_from=catalogue_home_tab",$alternative="https://library.usask.ca/");
 define_webjump("library-saskatoon","http://www.saskatoonlibrary.ca/");
-
 define_webjump("calgary-timeanddate","https://www.timeanddate.com/worldclock/city.html?n=55");
 define_webjump("calgary-weathernetwork","http://www.theweathernetwork.com/weather/canada/alberta/calgary");
 define_webjump("calgary-weatheroffice","http://www.weatheroffice.gc.ca/city/pages/ab-52_metric_e.html");
