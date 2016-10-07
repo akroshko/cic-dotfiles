@@ -431,7 +431,7 @@
                        (reset-first-binding)))
   (xbindkey-function 'j
                      (lambda ()
-                       (run-command "rxvt-unicode -title \"iPython notebook\" -e bash -i -c \"source ~/.bash_libenv;repl-restartable sage-ipython-notebook\"")
+                       (run-command "rxvt-unicode -title \"iPython notebook\" -e bash -i -c \"source ~/.bash_libenv;repl-restartable sage-jupyter-notebook\"")
                        (reset-first-binding)))
   (xbindkey-function 'n
                      (lambda ()
