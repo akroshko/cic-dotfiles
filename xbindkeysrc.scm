@@ -61,12 +61,13 @@
                      (lambda ()
                        (run-command "xvkbd -xsendevent -text \"\\[Next]\"")))
   ;; super-shift-X is page up now, super-x is page down now
-  (xbindkey-function '(shift mod4 "x")
-                     (lambda ()
-                       (run-command "xvkbd -xsendevent -text \"\\[Prior]\"")))
-  (xbindkey-function '(mod4 "x")
-                     (lambda ()
-                       (run-command "xvkbd -xsendevent -text \"\\[Next]\"")))
+  ;; TODO: can I find something else?
+  ;; (xbindkey-function '(shift mod4 "x")
+  ;;                    (lambda ()
+  ;;                      (run-command "xvkbd -xsendevent -text \"\\[Prior]\"")))
+  ;; (xbindkey-function '(mod4 "x")
+  ;;                    (lambda ()
+  ;;                      (run-command "xvkbd -xsendevent -text \"\\[Next]\"")))
   ;; meta-alt-x focuses an Emacs window
   ;; TODO: focus conkeror
   (xbindkey-function '(control mod4 "x")

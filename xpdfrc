@@ -3,6 +3,9 @@ continuousView yes
 bind ctrl-i            any "run(echo '%f\n%p' > ~/tmp/xpdf-tmp.txt)"
 # hardcoded link for xulpdftex-code
 # bind shift-mousePress1 any "run(python ~/.mouseclick.py %f %p %j %k)"
+# create attachment
+# TODO: make sure this works
+bind ctrl-]            any "run(~/.attachment-xpdf.sh %f %p)"
 bind shift-mousePress1 any "run(~/.mouseclick.sh %f %p %j %k)"
 bind ctrl-o            any  toggleOutline
 # TODO: experiment with both
@@ -27,5 +30,5 @@ bind 0                 any  zoomPercent(125)
 bind +                 any  zoomIn
 bind -                 any  zoomOut
 # TODO: decide if I really want this
-# bind mousePress4       any  zoomIn
-# bind mousePress5       any  zoomOut
+# bind mousePress4     any  zoomIn
+# bind mousePress5     any  zoomOut

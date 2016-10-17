@@ -27,6 +27,23 @@ interactive("follow-unfocus","Follow and unfocus.",
         unfocus(I.window, I.buffer);
     });
 
+////////////////////////////////////////
+// capture page with keyboard shortcut
+// TODO: change timeouts to not be stupid
+interactive("local-print-buffer",
+    "Print the currently loaded page.",
+    function (I) {
+        // only a copy, should not take long
+        session_pref("print.always_print_silent", true);
+        I.window.setTimeout(function() {
+            I.buffer.top_frame.print();
+        },1000);
+        // TODO: use a callback on print instead if possible
+        I.window.setTimeout(function() {
+            session_pref("print.always_print_silent", false);
+        },2000);
+    });
+define_key(content_buffer_normal_keymap, "C-]", "local-print-buffer");
 // TODO: trying both of these for now
 define_key(content_buffer_normal_keymap, "M-z", "unfocus");
 define_key(content_buffer_normal_keymap, "s-v", "unfocus");
@@ -113,7 +130,21 @@ session_pref("privacy.clearOnShutdown.passwords",true);
 session_pref("privacy.clearOnShutdown.sessions",true);
 session_pref("privacy.clearOnShutdown.siteSettings",true);
 session_pref("privacy.sanitize.sanitizeOnShutdown",true);
-
+// printer stuff
+session_pref("print.print_headercenter","");
+session_pref("print.print_headerleft","");
+session_pref("print.print_headerright","");
+session_pref("print.print_footercenter","");
+session_pref("print.print_footerleft","");
+session_pref("print.print_footerright","");
+// print to PDF by default
+session_pref("print.print_printer","");
+session_pref("print.print_shrink_to_fit",true);
+session_pref("print.shrink_to_fit.scale-limit-percent",50);
+// this actually works!!! can impose options on conkeror!
+// session_pref("print.always_print_silent", true);
+// session_pref("print.print_to_file","");
+// session_pref("print.print_to_filename","");
 // deactivate page modes
 page_mode_deactivate(youtube_player_mode);
 
@@ -218,7 +249,7 @@ define_webjump("runningfree","http://www.runningfree.com/");
 define_webjump("thesaurus","http://thesaurus.reference.com/browse/%s",$alternative="http://thesaurus.reference.com");
 define_webjump("tigerdirect","http://www.tigerdirect.ca/applications/SearchTools/search.asp?keywords=%s",$alternative="http://www.tigerdirect.ca");
 define_webjump("twitter","https://twitter.com/search?q=%s&src=typd",$alternative="https://twitter.com");
-define_webjump("universetoday", "https://www.universetoday.com");
+define_webjump("universetoday", "http://www.universetoday.com");
 define_webjump("orgmode","https://www.google.com/cse?cx=002987994228320350715%3Az4glpcrritm&q=%s&sa=Search&siteurl=orgmode.org%2Fworg",$alternative="http://orgmode.org/worg/");
 // TODO: set up search
 define_webjump("bsdnow","https://bsdnow.tv");
