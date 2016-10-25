@@ -69,10 +69,16 @@
   ;;                    (lambda ()
   ;;                      (run-command "xvkbd -xsendevent -text \"\\[Next]\"")))
   ;; meta-alt-x focuses an Emacs window
-  ;; TODO: focus conkeror
-  (xbindkey-function '(control mod4 "x")
+  ;; TODO: focus conkeror or xpdf?
+  ;; echo "" | base64 --wrap=0
+  (xbindkey-function '(release mod4 "c:61")
                      (lambda ()
-                       (run-command "bash -c \"source ~/.bash_libenv;focus-emacs-window\"")))
+                       ;; TODO: do this in openbox, doing it this way to avoid sourcing, same as focus-emacs-window, much more responsive
+                       (run-command "~/.switch-to-emacs-or-passthrough.sh")))
+  (xbindkey-function '(release mod4 "z")
+                     (lambda ()
+                       ;; TODO: do this in openbox, doing it this way to avoid sourcing, same as focus-emacs-window, much more responsive
+                       (run-command "~/.switch-to-emacs-or-passthrough.sh")))
   ;; (xbindkey-function '(control "b:7")
   ;;                    (lambda ()
   ;;                      (run-command "conkeror-clipboard.sh google")))

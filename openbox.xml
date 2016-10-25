@@ -330,9 +330,10 @@
         <raise>yes</raise>
       </action>
     </keybind>
-    <keybind key="W-z">
-      <action name="NextWindow"/>
-    </keybind>
+    <!-- focus emacs instead -->
+    <!-- <keybind key="W-z"> -->
+    <!--   <action name="NextWindow"/> -->
+    <!-- </keybind> -->
     <!-- Keybindings for window switching with the arrow keys -->
     <keybind key="M-W-period">
       <action name="DirectionalCycleWindows">
