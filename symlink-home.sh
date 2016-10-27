@@ -29,6 +29,8 @@ main () {
     need_new_directory ${HOME}/.themes/MyClearlooks/
     need_new_directory ${HOME}/.themes/MyClearlooks/openbox-3/
     need_new_symlink ${SCRIPTPATH}/openbox.xml       ${HOME}/.config/openbox/rc.xml
+    # TODO: unify eventually?
+    need_new_symlink ${SCRIPTPATH}/lxde-pi-rc.xml    ${HOME}/.config/openbox/lxde-pi-rc.xml
     need_new_symlink ${SCRIPTPATH}/openbox-menu.xml  ${HOME}/.config/openbox/menu.xml
     need_new_symlink ${SCRIPTPATH}/openbox-autostart ${HOME}/.config/openbox/autostart
     need_new_symlink ${SCRIPTPATH}/openbox-myclearlooks.themerc ${HOME}/.themes/MyClearlooks/openbox-3/themerc

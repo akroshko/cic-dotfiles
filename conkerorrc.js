@@ -282,8 +282,9 @@ define_webjump("timeanddate-calgary","https://www.timeanddate.com/worldclock/cit
 define_webjump("timeanddate-saskatoon","https://www.timeanddate.com/worldclock/city.html?n=1227");
 
 // use your web browser for system admin
-define_webjump("router", "https://192.168.0.1");
-define_webjump("cups", "http://localhost:631");
+// TODO: may need to be https for some people
+define_webjump("local-router", "http://192.168.0.1");
+define_webjump("local-cups",   "http://localhost:631");
 
 ////////////////////////////////////////////////////////////////////////////////
 // proxies
