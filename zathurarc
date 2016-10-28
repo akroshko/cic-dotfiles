@@ -1,1 +1,3 @@
 set render-loading    false
+set scroll-page-aware true
+set pages-per-row     2
