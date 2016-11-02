@@ -36,6 +36,7 @@ main () {
     need_new_symlink ${SCRIPTPATH}/openbox-myclearlooks.themerc ${HOME}/.themes/MyClearlooks/openbox-3/themerc
     # pcmanfm
     # XXXX: overwrite to avoid my git repo being edited by program
+    need_new_directory ${HOME}/.config/pcmanfm/default
     \cp ${SCRIPTPATH}/pcmanfm.conf ${HOME}/.config/pcmanfm/default/pcmanfm.conf
     # X11
     need_new_symlink ${SCRIPTPATH}/xmodmap ${HOME}/.xmodmap

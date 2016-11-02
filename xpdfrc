@@ -6,10 +6,15 @@ bind ctrl-i            any "run(echo '%f\n%p' > ~/tmp/xpdf-tmp.txt)"
 # create attachment
 # TODO: make sure this works
 bind ctrl-]            any "run(~/.attachment-xpdf.sh %f %p)"
+# TODO: might want control-click to be consistent with ???
 bind shift-mousePress1 any "run(~/.mouseclick.sh %f %p %j %k)"
 bind ctrl-o            any  toggleOutline
 # TODO: experiment with both
 bind i                 any  toggleOutline
+bind b                 any  prevPage
+bind space             any  nextPage
+bind ,                 any  prevPage
+bind .                 any  nextPage
 bind ctrl-,            any  prevPage
 bind ctrl-.            any  nextPage
 bind ctrl-up           any  prevPage
@@ -20,8 +25,10 @@ bind alt-<             any  gotoPage(1)
 bind alt->             any  gotoLastPage
 bind ctrl-{            any  "run(bash ~/.xpdfprevfile.sh '%f')"
 bind ctrl-}            any  "run(bash ~/.xpdfnextfile.sh '%f')"
+
 bind ctrl-s            any  find
 bind alt-s             any  findNext
+bind s                 any  findNext
 # TODO: not sure I really want this, almost should be other way
 bind _                 any  zoomFitPage
 bind =                 any  zoomFitWidth

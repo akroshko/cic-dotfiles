@@ -75,7 +75,7 @@
                      (lambda ()
                        ;; TODO: do this in openbox, doing it this way to avoid sourcing, same as focus-emacs-window, much more responsive
                        (run-command "~/.switch-to-emacs-or-passthrough.sh")))
-  (xbindkey-function '(release mod4 "z")
+  (xbindkey-function '(release mod4 "x")
                      (lambda ()
                        ;; TODO: do this in openbox, doing it this way to avoid sourcing, same as focus-emacs-window, much more responsive
                        (run-command "~/.switch-to-emacs-or-passthrough.sh")))

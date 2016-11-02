@@ -1,3 +1,23 @@
 set render-loading    false
 set scroll-page-aware true
 set pages-per-row     2
+# TODO: would love to get command period working here
+map b                 navigate previous
+map <Space>           navigate next
+map ,                 navigate previous
+map .                 navigate next
+# better way of doing this?
+map s                 search next
+map <C-s>             focus_inputbar /
+# TODO: map equals
+map _                 adjust_window best-fit
+map =                 adjust_window width
+# emacs keys
+map \< goto top
+map \> goto bottom
+map <C-g> abort
+map <C-n> scroll down
+map <C-p> scroll up
+# things don't seem to work
+map <C-,>             navigate previous
+map <C-.>             navigate next
