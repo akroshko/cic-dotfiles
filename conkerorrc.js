@@ -81,14 +81,14 @@ define_key(content_buffer_normal_keymap, "W",   "find-url-new-window");
 // TODO: should be copy-url sometimes too
 // TODO: not sure about default_global_keymap
 define_key(default_global_keymap,        "M-c", "kill-ring-save");
-define_key(minibuffer_base_keymap,            "M-c", "kill-ring-save");
+define_key(minibuffer_base_keymap,       "M-c", "kill-ring-save");
 define_key(content_buffer_form_keymap,   "M-c", "kill-ring-save");
 define_key(content_buffer_text_keymap,   "M-c", "kill-ring-save");
 define_key(content_buffer_normal_keymap, "M-c", "cmd_copy");
 
 // TODO: should be paste-url sometimes too
 define_key(default_global_keymap,        "M-v", "yank");
-define_key(minibuffer_base_keymap,            "M-v", "yank");
+define_key(minibuffer_base_keymap,       "M-v", "yank");
 define_key(content_buffer_form_keymap,   "M-v", "yank");
 define_key(content_buffer_text_keymap,   "M-v", "yank");
 define_key(content_buffer_normal_keymap, "M-v", "paste-url");
