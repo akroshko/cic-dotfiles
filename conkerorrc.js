@@ -67,20 +67,28 @@ interactive("duplicate-buffer", "Duplicate buffer",
             function (I) {
                 browser_object_follow(I.buffer, OPEN_NEW_BUFFER, I.buffer.current_uri.spec);
             });
+interactive("duplicate-buffer-new-window", "Duplicate buffer in new window",
+            function (I) {
+                browser_object_follow(I.buffer, OPEN_NEW_WINDOW, I.buffer.current_uri.spec);
+            });
+// TODO: something slightly more consistent
 define_key(content_buffer_normal_keymap, "d",   "duplicate-buffer");
 define_key(content_buffer_normal_keymap, "M-d", "duplicate-buffer");
+// new window
+define_key(content_buffer_normal_keymap, "w",   "duplicate-buffer-new-window");
+define_key(content_buffer_normal_keymap, "W",   "find-url-new-window");
 // copy and paste
 // TODO: should be copy-url sometimes too
 // TODO: not sure about default_global_keymap
 define_key(default_global_keymap,        "M-c", "kill-ring-save");
-define_key(minibuffer_keymap,            "M-c", "kill-ring-save");
+define_key(minibuffer_base_keymap,            "M-c", "kill-ring-save");
 define_key(content_buffer_form_keymap,   "M-c", "kill-ring-save");
 define_key(content_buffer_text_keymap,   "M-c", "kill-ring-save");
 define_key(content_buffer_normal_keymap, "M-c", "cmd_copy");
 
 // TODO: should be paste-url sometimes too
 define_key(default_global_keymap,        "M-v", "yank");
-define_key(minibuffer_keymap,            "M-v", "yank");
+define_key(minibuffer_base_keymap,            "M-v", "yank");
 define_key(content_buffer_form_keymap,   "M-v", "yank");
 define_key(content_buffer_text_keymap,   "M-v", "yank");
 define_key(content_buffer_normal_keymap, "M-v", "paste-url");
