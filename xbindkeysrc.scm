@@ -355,10 +355,6 @@
                      (lambda ()
                        (run-command "chromium")
                        (reset-first-binding)))
-  (xbindkey-function 'k
-                     (lambda ()
-                       (run-command "kicad")
-                       (reset-first-binding)))
   ;; (xbindkey-function 'm
   ;;                    (lambda ()
   ;;                      (run-command "gnome-terminal --title=\"power-managment\" --execute bash -c \"source ~/.bash_libenv;power-management-terminal;read -p 'Press [Enter] to continue...'\"")
