@@ -202,8 +202,9 @@
   (xbindkey-function '(control "c:76")
                      (lambda ()
                        (run-command "bash -c \"source ~/.bash_libenv;master-unboss-key\"")))
-  (include "/home/akroshko/.xbindkeys_first_personal.scm")
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  (when (file-exists? (string-concatenate (list (getenv "HOME") "/.xbindkeys_first_personal.scm")))
+        (load (string-concatenate (list (getenv "HOME") "/.xbindkeys_first_personal.scm"))))
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; shift function keys up to f9
   (xbindkey-function '(shift "c:67")
                      (lambda ()
@@ -406,7 +407,8 @@
                      (lambda ()
                        (run-command "launch-emacsclient noframe --eval \"(calc)\"")
                        (reset-first-binding)))
-  (include "/home/akroshko/.xbindkeys_second_personal.scm")
+  (when (file-exists? (string-concatenate (list (getenv "HOME") "/.xbindkeys_second_personal.scm")))
+        (load (string-concatenate (list (getenv "HOME") "/.xbindkeys_second_personal.scm"))))
   (grab-all-keys))
 
 (define (second-repl-binding)
