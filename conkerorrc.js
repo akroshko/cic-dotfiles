@@ -98,7 +98,17 @@ define_key(content_buffer_normal_keymap, "C-,",   "cmd_scrollPageUp");
 define_key(content_buffer_normal_keymap, "C-.",   "cmd_scrollPageDown");
 define_key(content_buffer_normal_keymap, "M-,",   "cmd_scrollPageUp");
 define_key(content_buffer_normal_keymap, "M-.",   "cmd_scrollPageDown");
-define_key(content_buffer_normal_keymap, "s-S-z", "cmd_scrollPageUp");
+// this is pageup that works as expected everywhere
+define_key(default_global_keymap,        "s-Z",   "cmd_scrollPageUp");
+define_key(minibuffer_base_keymap,       "s-Z",   "cmd_scrollPageUp");
+define_key(content_buffer_form_keymap,   "s-Z",   "unfocus", $repeat = "cmd_scrollPageUp");
+define_key(content_buffer_text_keymap,   "s-Z",   "unfocus", $repeat = "cmd_scrollPageUp");
+define_key(content_buffer_normal_keymap, "s-Z",   "cmd_scrollPageUp");
+// this is pagedown that works as expected everywhere
+define_key(default_global_keymap,        "s-z",   "cmd_scrollPageDown");
+define_key(minibuffer_base_keymap,       "s-z",   "cmd_scrollPageDown");
+define_key(content_buffer_form_keymap,   "s-z",   "unfocus", $repeat = "cmd_scrollPageDown");
+define_key(content_buffer_text_keymap,   "s-z",   "unfocus", $repeat = "cmd_scrollPageDown");
 define_key(content_buffer_normal_keymap, "s-z",   "cmd_scrollPageDown");
 
 // url
