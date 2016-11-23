@@ -44,9 +44,7 @@ interactive("local-print-buffer",
         },2000);
     });
 define_key(content_buffer_normal_keymap, "C-]", "local-print-buffer");
-// TODO: trying both of these for now
 define_key(content_buffer_normal_keymap, "M-z", "unfocus");
-define_key(content_buffer_normal_keymap, "s-v", "unfocus");
 // TODO: not sure if this is best
 define_key(content_buffer_normal_keymap, "s-f", "follow-new-buffer");
 // TODO: back without keycord?
@@ -105,12 +103,16 @@ define_key(content_buffer_form_keymap,   "s-Z",   "unfocus", $repeat = "cmd_scro
 define_key(content_buffer_text_keymap,   "s-Z",   "unfocus", $repeat = "cmd_scrollPageUp");
 define_key(content_buffer_normal_keymap, "s-Z",   "cmd_scrollPageUp");
 // this is pagedown that works as expected everywhere
+// TODO: just v?
 define_key(default_global_keymap,        "s-z",   "cmd_scrollPageDown");
 define_key(minibuffer_base_keymap,       "s-z",   "cmd_scrollPageDown");
 define_key(content_buffer_form_keymap,   "s-z",   "unfocus", $repeat = "cmd_scrollPageDown");
 define_key(content_buffer_text_keymap,   "s-z",   "unfocus", $repeat = "cmd_scrollPageDown");
 define_key(content_buffer_normal_keymap, "s-z",   "cmd_scrollPageDown");
-
+// scroll
+// TODO: do with "v" as well? change page back to "b", something else for background?
+define_key(content_buffer_normal_keymap, "s-V", "cmd_scrollLineUp");
+define_key(content_buffer_normal_keymap, "s-v", "cmd_scrollLineDown");
 // url
 url_completion_use_bookmarks = false;
 url_completion_use_history = false;

@@ -5,8 +5,10 @@ bind ctrl-i            any "run(echo '%f\n%p' > ~/tmp/xpdf-tmp.txt)"
 # TODO: not sure I want to ditch hand-coded yet?
 # bind ctrl-mousePress1 any "run(python ~/.mouseclick.py %f %p %j %k)"
 # create attachment
+# TODO: key for continuous mode
 # TODO: make sure this works
 bind ctrl-]            any "run(~/.attachment-xpdf.sh %f %p)"
+# TODO: becoming obsolete due to zathura
 bind ctrl-mousePress1  any "run(~/.mouseclick.sh %f %p %j %k)"
 bind ctrl-o            any  toggleOutline
 # TODO: experiment with both
@@ -25,6 +27,9 @@ bind alt-<             any  gotoPage(1)
 bind alt->             any  gotoLastPage
 bind ctrl-{            any  "run(bash ~/.xpdfprevfile.sh '%f')"
 bind ctrl-}            any  "run(bash ~/.xpdfnextfile.sh '%f')"
+# scrolling
+bind V                 any  scrollUp(16)
+bind v                 any  scrollDown(16)
 
 bind ctrl-s            any  find
 bind alt-s             any  findNext

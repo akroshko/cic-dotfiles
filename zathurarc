@@ -2,22 +2,42 @@ set render-loading    false
 set scroll-page-aware true
 set pages-per-row     2
 # TODO: would love to get command period working here
-map b                 navigate previous
-map <Space>           navigate next
-map ,                 navigate previous
-map .                 navigate next
+map [normal]     b        navigate previous
+map [fullscreen] b        navigate previous
+map [normal]     <Space>  navigate next
+map [fullscreen] <Space>  navigate next
+map [normal] ,            navigate previous
+map [fullscreen] ,        navigate previous
+map [normal] .            navigate next
+map [fullscreen] .        navigate next
 # better way of doing this?
-map s                 search next
-map <C-s>             focus_inputbar /
+map [normal]     s        search next
+map [fullscreen] s        search next
+map [normal]     <C-s>    focus_inputbar /
+map [fullscreen] <C-s>    focus_inputbar /
 # TODO: map equals
-map _                 adjust_window best-fit
-map =                 adjust_window width
+map [normal]     _        adjust_window best-fit
+map [fullscreen] _        adjust_window best-fit
+map [normal]     =        adjust_window width
+map [fullscreen] =        adjust_window width
 # emacs keys
-map \< goto top
-map \> goto bottom
-map <C-g> abort
-map <C-n> scroll down
-map <C-p> scroll up
+map [normal]     \<       goto top
+map [fullscreen] \<       goto top
+map [normal]     \>       goto bottom
+map [fullscreen] \>       goto bottom
+map [normal]     <C-g>    abort
+map [fullscreen] <C-g>    abort
+map [normal]     <C-n>    scroll down
+map [fullscreen] <C-n>    scroll down
+map [normal]     <C-p>    scroll up
+map [fullscreen] <C-p>    scroll up
 # things don't seem to work
-map <C-,>             navigate previous
-map <C-.>             navigate next
+map [normal]     <C-,>    navigate previous
+map [fullscreen] <C-,>    navigate previous
+map [normal]     <C-.>    navigate next
+map [fullscreen] <C-.>    navigate next
+# scroll easily
+map [normal]     V        scroll up
+map [fullscreen] V        scroll up
+map [normal]     v        scroll down
+map [fullscreen] v        scroll down
