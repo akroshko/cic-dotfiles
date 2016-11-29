@@ -204,6 +204,7 @@ define_webjump("bc-firehazard","http://www2.gov.bc.ca/gov/content/safety/wildfir
 define_webjump("bee","http://www.be-electronics.com/");
 define_webjump("books", "https://www.google.com/search?q=%s&tbm=bks", $alternative = "https://books.google.com/");
 define_webjump("budget-bytes", "http://www.budgetbytes.com");
+define_webjump("buyapi", "https://www.buyapi.ca");
 // TODO: add some non-search things here
 define_webjump("canada-firehazard","http://cwfis.cfs.nrcan.gc.ca/maps/fw");
 define_webjump("ctan-all", "https://www.ctan.org/search/?search=%s&search_type=description&search_type=filename&search_type=id",$alternative="https://www.ctan.org");
