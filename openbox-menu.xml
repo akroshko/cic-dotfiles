@@ -44,6 +44,9 @@
   <separator />
   <menu id="client-list-menu" />
   <separator />
+  <item label="Refresh local settings">
+    <action name="Execute"><execute>rxvt-unicode -e bash -i -c "source ~/.bash_libenv;harm-bash;while read -r -t 0;do read -r; done;read -p 'Press [Enter] to continue...'"</execute></action>
+  </item>
   <item label="Rotate wallpaper">
     <action name="Execute"><execute>bash -c "source ~/.bash_libenv;feh-rotate-wallpaper"</execute></action>
   </item>
