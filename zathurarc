@@ -2,14 +2,15 @@ set render-loading    false
 set scroll-page-aware true
 set pages-per-row     2
 # TODO: would love to get command period working here
-map [normal]     b        navigate previous
-map [fullscreen] b        navigate previous
-map [normal]     <Space>  navigate next
-map [fullscreen] <Space>  navigate next
-map [normal] ,            navigate previous
-map [fullscreen] ,        navigate previous
-map [normal] .            navigate next
-map [fullscreen] .        navigate next
+# change from navigate previous, navigate next
+map [normal]     b        scroll full-up
+map [fullscreen] b        scroll full-up
+map [normal]     <Space>  scroll full-down
+map [fullscreen] <Space>  scroll full-down
+map [normal] ,            scroll full-up
+map [fullscreen] ,        scroll full-up
+map [normal] .            scroll full-down
+map [fullscreen] .        scroll full-down
 # better way of doing this?
 map [normal]     s        search next
 map [fullscreen] s        search next
@@ -27,10 +28,10 @@ map [normal]     \>       goto bottom
 map [fullscreen] \>       goto bottom
 map [normal]     <C-g>    abort
 map [fullscreen] <C-g>    abort
-map [normal]     <C-n>    scroll down
-map [fullscreen] <C-n>    scroll down
 map [normal]     <C-p>    scroll up
 map [fullscreen] <C-p>    scroll up
+map [normal]     <C-n>    scroll down
+map [fullscreen] <C-n>    scroll down
 # things don't seem to work
 map [normal]     <C-,>    navigate previous
 map [fullscreen] <C-,>    navigate previous
