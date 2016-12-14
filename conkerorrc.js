@@ -200,6 +200,7 @@ define_webjump("amstit","http://www.ams.org/mathscinet/search/publications.html?
 define_webjump("anandtech","http://www.anandtech.com/");
 define_webjump("archwiki","https://wiki.archlinux.org/index.php?title=Special%3ASearch&search=%s&go=Go", $alternative="https://wiki.archlinux.org");
 define_webjump("arstechnica","https://arstechnica.com");
+define_webjump("allaboutcircuits","http://www.allaboutcircuits.com/");
 define_webjump("bc-firehazard","http://www2.gov.bc.ca/gov/content/safety/wildfire-status/fire-danger");
 define_webjump("bee","http://www.be-electronics.com/");
 define_webjump("books", "https://www.google.com/search?q=%s&tbm=bks", $alternative = "https://books.google.com/");
@@ -218,6 +219,7 @@ define_webjump("emacswiki",
     "https://www.google.com/cse?cx=004774160799092323420%3A6-ff2s0o6yi"+
         "&q=%s&sa=Search&siteurl=emacswiki.org%2F",
     $alternative="https://www.emacswiki.org/");
+define_webjump("electronicstutorials","http://www.electronics-tutorials.ws/");
 // TODO: uses invalid security certificate
 define_webjump("encyclopedia","http://www.reference.com/browse/%s",$alternative="http://www.reference.com");
 define_webjump("epicurious","https://www.epicurious.com/tools/searchresults?search=%s",$alternative="https://www.epicurious.com");
@@ -241,6 +243,7 @@ define_webjump("linuxtoday","http://linuxtoday.com");
 define_webjump("lwn","https://lwn.net");
 define_webjump("lxer","http://lxer.com");
 define_webjump("matplotlib","http://matplotlib.org/search.html?q=%s&check_keywords=yes&area=default",$alternative="http://matplotlib.org");
+define_webjump("mouser","http://ca.mouser.com/");
 define_webjump("ncix","http://www.ncix.com/search/?categoryid=0&q=%s",$alternative="http://www.ncix.com");
 // TODO: uses invalid security certificate
 define_webjump("newegg","http://www.newegg.ca/Product/ProductList.aspx?Submit=ENE&DEPA=0&Order=BESTMATCH&Description=%s",$alternative="http://newegg.ca");
@@ -266,6 +269,7 @@ define_webjump("stackexchange-math","https://math.stackexchange.com/search?q=%s"
 define_webjump("stackexchange-superuser","https://superuser.com/search?q=%s",$alternative="https://superuser.com/");
 define_webjump("stackexchange-tex","https://tex.stackexchange.com/search?q=%s",$alternative="https://tex.stackexchange.com");
 define_webjump("stackexchange-unix","https://unix.stackexchange.com/search?q=%s",$alternative="https://unix.stackexchange.com");
+define_webjump("radioelectronics","http://www.radio-electronics.com/");
 define_webjump("runningfree","http://www.runningfree.com/");
 define_webjump("thesaurus","http://thesaurus.reference.com/browse/%s",$alternative="http://thesaurus.reference.com");
 define_webjump("tigerdirect","http://www.tigerdirect.ca/applications/SearchTools/search.asp?keywords=%s",$alternative="http://www.tigerdirect.ca");
