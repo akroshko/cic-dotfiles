@@ -282,6 +282,8 @@ define_webjump("undeadly","http://undeadly.org");
 define_webjump("webofscience","https://apps.webofknowledge.com/");
 define_webjump("youtube", "https://www.youtube.com/results?search_query=%s&search=Search",$alternative="https://www.youtube.com/feed/subscriptions");
 define_webjump("youtube-user", "https://youtube.com/profile_videos?user=%s",$alternative="https://www.youtube.com/feed/subscriptions");
+define_webjump("xpdf","http://www.foolabs.com/xpdf/");
+define_webjump("zathura","https://pwmt.org/projects/zathura/");
 // local stuff here because it's useful
 define_webjump("library-usask","https://sundog.usask.ca/search/a?searchtype=Y&SORT=D&searcharg=%s&searchscope=8&called_from=catalogue_home_tab",$alternative="https://library.usask.ca/");
 define_webjump("library-saskatoon","http://www.saskatoonlibrary.ca/");
