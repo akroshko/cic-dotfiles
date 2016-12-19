@@ -25,8 +25,9 @@
   <item label="Emacs">
     <action name="Execute"><execute>launch-emacsclient</execute></action>
   </item>
+  <!-- This requires a script in ~/bin for conkeror-->
   <item label="Web browser (conkeror)">
-    <action name="Execute"><execute>conkeror</execute></action>
+    <action name="Execute"><execute>bash -c "~/bin/conkeror"</execute></action>
   </item>
   <item label="Calculator">
     <action name="Execute"><execute>xcalc</execute></action>
