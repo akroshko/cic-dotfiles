@@ -212,11 +212,15 @@
     <keybind key="F1">
       <action name="ShowMenu"><menu>root-menu</menu></action>
     </keybind>
+    <!-- TODO: do I want this?-->
     <keybind key="M-W-semicolon">
       <action name="ShowMenu"><menu>root-menu</menu></action>
     </keybind>
     <keybind key="F2">
       <action name="ToggleShowDesktop"/>
+    </keybind>
+    <keybind key="F5">
+      <action name="Execute"><execute>rxvt-unicode -e bash -i -c "source ~/.bash_libenv;harm-bash;sleep 5"</execute></action>
     </keybind>
     <keybind key="M-W-F11">
       <action name="ToggleFullscreen"/>
