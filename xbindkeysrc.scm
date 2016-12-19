@@ -186,12 +186,11 @@
                        (run-command "launch-emacsclient noframe --eval \"(cic:create-open-collection-frame)\"")))
 
   ;; TODO: have a throttle normal as alt-f4
-  ;; TODO:
   ;; f9
   (xbindkey-function '("c:75")
                      (lambda ()
                        (run-command "bash -c \"source ~/.bash_libenv;youtube-pause\"")))
-  (xbindkey-function '(control "c:75")
+  (xbindkey-function '(alt "c:75")
                      (lambda ()
                        (run-command "bash -c \"source ~/.bash_libenv;youtube-restore\"")))
   ;; f10
@@ -199,7 +198,7 @@
                      (lambda ()
                        (run-command "bash -c \"source ~/.bash_libenv;master-boss-key\"")))
   ;; shift-f10 undo boss key
-  (xbindkey-function '(control "c:76")
+  (xbindkey-function '(alt "c:76")
                      (lambda ()
                        (run-command "bash -c \"source ~/.bash_libenv;master-unboss-key\"")))
   (when (file-exists? (string-concatenate (list (getenv "HOME") "/.xbindkeys_first_personal.scm")))
