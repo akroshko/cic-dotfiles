@@ -202,7 +202,8 @@ define_webjump("archwiki","https://wiki.archlinux.org/index.php?title=Special%3A
 define_webjump("arstechnica","https://arstechnica.com");
 define_webjump("allaboutcircuits","http://www.allaboutcircuits.com/");
 define_webjump("bc-firehazard","http://www2.gov.bc.ca/gov/content/safety/wildfire-status/fire-danger");
-define_webjump("bee","http://www.be-electronics.com/");
+define_webjump("bee",           "http://www.be-electronics.com/");
+define_webjump("be-electronics","http://www.be-electronics.com/");
 define_webjump("books", "https://www.google.com/search?q=%s&tbm=bks", $alternative = "https://books.google.com/");
 define_webjump("budget-bytes", "http://www.budgetbytes.com");
 define_webjump("buyapi", "https://www.buyapi.ca");
@@ -308,10 +309,12 @@ define_webjump("timeanddate","https://www.timeanddate.com/search/results.html?qu
 define_webjump("timeanddate-calgary","https://www.timeanddate.com/worldclock/city.html?n=55");
 define_webjump("timeanddate-saskatoon","https://www.timeanddate.com/worldclock/city.html?n=1227");
 
-// use your web browser for system admin
+// use web browser for system admin
 // TODO: may need to be https for some people
 define_webjump("local-router", "http://192.168.0.1");
+define_webjump("router-local", "http://192.168.0.1");
 define_webjump("local-cups",   "http://localhost:631");
+define_webjump("cups-local",   "http://localhost:631");
 
 ////////////////////////////////////////////////////////////////////////////////
 // proxies
