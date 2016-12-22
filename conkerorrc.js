@@ -47,13 +47,10 @@ define_key(content_buffer_normal_keymap, "C-]", "local-print-buffer");
 define_key(content_buffer_normal_keymap, "M-z", "unfocus");
 // TODO: not sure if this is best
 define_key(content_buffer_normal_keymap, "s-f", "follow-new-buffer");
-// TODO: back without keycord?
-define_key(content_buffer_normal_keymap, "s-b", "back");
 define_key(content_buffer_normal_keymap, "s-c", "back");
 define_key(content_buffer_normal_keymap, "s-l", "back");
 // define_key(content_buffer_normal_keymap, "s-g",   "find-url");
 // define_key(content_buffer_normal_keymap, "s-l g", "find-url");
-define_key(content_buffer_normal_keymap, "b", "follow-new-buffer-background");
 // emergency key to kill buffer quickly
 // TODO: used for other things
 // define_key(content_buffer_normal_keymap, "f4", "kill-buffer");
@@ -72,6 +69,8 @@ interactive("duplicate-buffer-new-window", "Duplicate buffer in new window",
 // TODO: something slightly more consistent
 define_key(content_buffer_normal_keymap, "d",   "duplicate-buffer");
 define_key(content_buffer_normal_keymap, "M-d", "duplicate-buffer");
+// TODO: not great, but not bad either, maybe b will free up some day
+define_key(content_buffer_normal_keymap, "D", "follow-new-buffer-background");
 // new window
 define_key(content_buffer_normal_keymap, "w",   "duplicate-buffer-new-window");
 define_key(content_buffer_normal_keymap, "W",   "find-url-new-window");
@@ -90,8 +89,8 @@ define_key(minibuffer_base_keymap,       "M-v", "yank");
 define_key(content_buffer_form_keymap,   "M-v", "yank");
 define_key(content_buffer_text_keymap,   "M-v", "yank");
 define_key(content_buffer_normal_keymap, "M-v", "paste-url");
-
 // scroll
+define_key(content_buffer_normal_keymap, "b",     "cmd_scrollPageUp");
 define_key(content_buffer_normal_keymap, "C-,",   "cmd_scrollPageUp");
 define_key(content_buffer_normal_keymap, "C-.",   "cmd_scrollPageDown");
 define_key(content_buffer_normal_keymap, "M-,",   "cmd_scrollPageUp");
@@ -113,6 +112,9 @@ define_key(content_buffer_normal_keymap, "s-z",   "cmd_scrollPageDown");
 // TODO: do with "v" as well? change page back to "b", something else for background?
 define_key(content_buffer_normal_keymap, "s-V", "cmd_scrollLineUp");
 define_key(content_buffer_normal_keymap, "s-v", "cmd_scrollLineDown");
+// TODO: replace standard view with something else
+define_key(content_buffer_normal_keymap, "V",   "cmd_scrollLineUp");
+define_key(content_buffer_normal_keymap, "v",   "cmd_scrollLineDown");
 // url
 url_completion_use_bookmarks = false;
 url_completion_use_history = false;

@@ -222,6 +222,19 @@
     <keybind key="F5">
       <action name="Execute"><execute>rxvt-unicode -e bash -i -c "source ~/.bash_libenv;harm-bash;sleep 5"</execute></action>
     </keybind>
+    <!-- complicated source to save execution time, ensures my path to conkeror is set -->
+    <keybind key="F9">
+      <action name="Execute"><execute>bash -c "export PATH=\"${PATH}:~/bin\";source ~/.bash_library.d/bash_functions_stdlib;youtube-pause"</execute></action>
+    </keybind>
+    <keybind key="M-F9">
+      <action name="Execute"><execute>bash -c "export PATH=\"${PATH}:~/bin\";source ~/.bash_library.d/bash_functions_stdlib;youtube-restore"</execute></action>
+    </keybind>
+    <keybind key="F10">
+      <action name="Execute"><execute>bash -c "export PATH=\"${PATH}:~/bin\";source ~/.bash_library.d/bash_functions_stdlib;master-boss-key"</execute></action>
+    </keybind>
+    <keybind key="M-F10">
+      <action name="Execute"><execute>bash -c "export PATH=\"${PATH}:~/bin\";source ~/.bash_library.d/bash_functions_stdlib;master-unboss-key"</execute></action>
+    </keybind>
     <keybind key="M-W-F11">
       <action name="ToggleFullscreen"/>
     </keybind>

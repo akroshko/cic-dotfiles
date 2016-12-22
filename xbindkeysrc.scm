@@ -85,24 +85,23 @@
   ;; (xbindkey-function '(alt "b:7")
   ;;                    (lambda ()
   ;;                      (run-command "conkeror-clipboard.sh scholar")))
-  ;; Super-arrow keys to the do mouse wheel
-  ;; TODO: find something else to do this
-  ;; (xbindkey-function '(mod4 "c:111")
-  ;;                    (lambda ()
-  ;;                      (run-command "xdotool getwindowfocus key --window %1 click 4")))
-  ;; (xbindkey-function '(mod4 "c:116")
-  ;;                    (lambda ()
-  ;;                      (run-command "xdotool getwindowfocus key --window %1 click 5")))
+  ;; shift-arrow keys to simulate mouse wheel, really useful on laptop
+  (xbindkey-function '(shift "c:111")
+                     (lambda ()
+                       (run-command "xdotool getwindowfocus key --window %1 click 4")))
+  (xbindkey-function '(shift "c:116")
+                     (lambda ()
+                       (run-command "xdotool getwindowfocus key --window %1 click 5")))
   ;; multi-media app keys are normally handled by DE
   (when (not (check-de))
         ;; volume down key
         (xbindkey-function '("c:122")
                            (lambda ()
-                             (run-command "bash -c \"amixer set Master 10%-;source ~/.bash_libenv;notify-amixer-volumes\"")))
+                             (run-command "bash -c \"amixer set Master 10%-;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes\"")))
         ;; volume up key
         (xbindkey-function '("c:123")
                            (lambda ()
-                             (run-command "bash -c \"amixer set Master 10%+;source ~/.bash_libenv;notify-amixer-volumes\"")))
+                             (run-command "bash -c \"amixer set Master 10%+;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes\"")))
         ;; mute key
         (xbindkey-function '("c:121")
                            (lambda ()
@@ -119,11 +118,11 @@
   ;; minus key
   (xbindkey-function '(alt mod4 "c:20")
                      (lambda ()
-                       (run-command "bash -c \"amixer set Master 10%-;source ~/.bash_libenv;notify-amixer-volumes\"")))
+                       (run-command "bash -c \"amixer set Master 10%-;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes\"")))
   ;; plus key
   (xbindkey-function '(alt mod4 shift "c:21")
                      (lambda ()
-                       (run-command "bash -c \"amixer set Master 10%+;source ~/.bash_libenv;notify-amixer-volumes\"")))
+                       (run-command "bash -c \"amixer set Master 10%+;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes\"")))
   ;; TODO: do I still want this?
   ;; (xbindkey-function '(control shift "c")
   ;;                    (lambda ()
@@ -149,21 +148,21 @@
   ;; alt f3, normalize volume
   (xbindkey-function '(alt "c:69")
                      (lambda ()
-                       (run-command "bash -c \"source ~/.bash_libenv;normalize-volume\"")))
+                       (run-command "bash -c \"source ~/.bash_library.d/bash_functions_stdlib;normalize-volume\"")))
   ;; TODO: airplane mode here too
   ;; f4, throttle up
   ;; TODO: should be
   (xbindkey-function '("c:70")
                      (lambda ()
-                       (run-command "bash -c \"source ~/.bash_libenv;throttle-down\"")))
+                       (run-command "bash -c \"source ~/.bash_library.d/bash_functions_stdlib;throttle-down\"")))
   ;; control-f4
   (xbindkey-function '(control "c:70")
                      (lambda ()
-                       (run-command "bash -c \"source ~/.bash_libenv;throttle-up\"")))
+                       (run-command "bash -c \"source ~/.bash_library.d/bash_functions_stdlib;throttle-up\"")))
   ;; alt-f4
   (xbindkey-function '(alt "c:70")
                      (lambda ()
-                       (run-command "bash -c \"source ~/.bash_libenv;throttle-normal\"")))
+                       (run-command "bash -c \"source ~/.bash_library.d/bash_functions_stdlib;throttle-normal\"")))
   ;; f7 to google
   ;; TODO: alternative to google
   (xbindkey-function '("c:73")
@@ -184,23 +183,6 @@
                      (lambda ()
                        ;; open in Collection with clipboard
                        (run-command "launch-emacsclient noframe --eval \"(cic:create-open-collection-frame)\"")))
-
-  ;; TODO: have a throttle normal as alt-f4
-  ;; f9
-  (xbindkey-function '("c:75")
-                     (lambda ()
-                       (run-command "bash -c \"source ~/.bash_libenv;youtube-pause\"")))
-  (xbindkey-function '(alt "c:75")
-                     (lambda ()
-                       (run-command "bash -c \"source ~/.bash_libenv;youtube-restore\"")))
-  ;; f10
-  (xbindkey-function '("c:76")
-                     (lambda ()
-                       (run-command "bash -c \"source ~/.bash_libenv;master-boss-key\"")))
-  ;; shift-f10 undo boss key
-  (xbindkey-function '(alt "c:76")
-                     (lambda ()
-                       (run-command "bash -c \"source ~/.bash_libenv;master-unboss-key\"")))
   (when (file-exists? (string-concatenate (list (getenv "HOME") "/.xbindkeys_first_personal.scm")))
         (load (string-concatenate (list (getenv "HOME") "/.xbindkeys_first_personal.scm"))))
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -355,10 +337,6 @@
                      (lambda ()
                        (run-command "chromium")
                        (reset-first-binding)))
-  ;; (xbindkey-function 'm
-  ;;                    (lambda ()
-  ;;                      (run-command "gnome-terminal --title=\"power-managment\" --execute bash -c \"source ~/.bash_libenv;power-management-terminal;read -p 'Press [Enter] to continue...'\"")
-  ;;                      (reset-first-binding)))
   ;;TODO:  openstreetmap mapp with alt
   (xbindkey-function 'm
                      (lambda ()
