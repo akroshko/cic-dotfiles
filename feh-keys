@@ -24,8 +24,8 @@ zoom_in           C-Up plus
 zoom_out          C-Down minus
 zoom_default      0
 zoom_fit          underscore
-prev_img          p
-next_img          n
+prev_img          p b
+next_img          n space
 # hack to give g for gimp-edit along with feh-open-browse sh script
 action_6          g
 # I only hit these accidentaly
