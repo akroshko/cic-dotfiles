@@ -260,7 +260,9 @@ define_webjump("python", "https://docs.python.org/2.7/search.html?q=%s",$alterna
 define_webjump("theregister","http://www.theregister.co.uk/");
 define_webjump("skyandtelescope","http://www.skyandtelescope.com");
 define_webjump("sage","http://sagemath.org")
+define_webjump("sagemath","http://sagemath.org")
 define_webjump("sage-sym","http://doc.sagemath.org/html/en/reference/calculus/sage/symbolic/expression.html")
+define_webjump("sagemath-sym","http://doc.sagemath.org/html/en/reference/calculus/sage/symbolic/expression.html")
 define_webjump("sciencedaily","http://sciencedaily.com")
 // TODO: uses invalid security certificate
 define_webjump("slashdot","http://www.slashdot.com");

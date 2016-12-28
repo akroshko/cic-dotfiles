@@ -6,9 +6,6 @@
 # bindkey "^[[" command
 # use c-o as escape key
 escape ^oO
-# see http://blog.nguyenvq.com/blog/2011/11/26/log-output-for-screen/
-# TODO: make more general
-logfile /home/akroshko/tmp/collect/screen-%H-%Y%m%d-%c-%S-%n.log
 # log on by default
 deflog on
 # Yes, we want this!
@@ -69,4 +66,11 @@ bind _ resize max
 # http://aperiodic.net/screen/appearance
 # original
 # caption always "%?%F%{-b bc}%:%{-b bb}%?%C|%D|%M %d|%H%?%F%{+u wb}%? %L=%-Lw%45>%{+b by}%n%f*%t%{-}%+Lw%-0<"
-caption always "%?%F%{-b kg}%:%{-b kr}%?%?%F%{+u kg}%? %L=%-w%45>%{+b by}%n %t%{-}%+w%-0<"
+# XXXX: %? is a ternary operation with : being else part
+# get pid for backtick command
+backtick 1 0 0 /bin/bash -c "echo $PID"
+caption always "[session: %1`.%S] %?%F%{-b kg}%:%{-b kr}%?%?%F%{+u kg}%? %L=%-w%45>%{+b by}%n %t%{-}%+w%-0<"
+# see http://blog.nguyenvq.com/blog/2011/11/26/log-output-for-screen/
+# TODO: make more general, can I sub variables
+# think this needs to be at the end for some reason
+logfile /home/akroshko/tmp/collect/screen-%H-%Y%m%d-%c-$PID-%S-%n.log

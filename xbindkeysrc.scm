@@ -376,6 +376,8 @@
                      (lambda ()
                        (run-command "launch-emacsclient --eval \"(org-agenda)\"")
                        (reset-first-binding)))
+  ;; TODO: toggle loud whitenosie
+  ;; TODO: toggle thorugh whitenoises (random order?)
   (xbindkey-function "4"
                      (lambda ()
                        (run-command "whitenoise.sh")
