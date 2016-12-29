@@ -1,5 +1,5 @@
 #!/bin/bash
-SCRIPTPATH=$(dirname "$0")
+SCRIPTPATH=$(dirname $(readlink -f "$0"))
 main () {
     # requires https://github.com/akroshko/bash-stdlib
     source ${HOME}/.bash_library
@@ -37,9 +37,10 @@ main () {
     # pcmanfm
     # XXXX: overwrite to avoid my git repo being edited by program
     need_new_directory ${HOME}/.config/pcmanfm/default
-    \cp ${SCRIPTPATH}/pcmanfm.conf ${HOME}/.config/pcmanfm/default/pcmanfm.conf
+    # XXXX: using backslash in front of cp does not work well on some systems I have for unknown reasons
+    command cp ${SCRIPTPATH}/pcmanfm.conf ${HOME}/.config/pcmanfm/default/pcmanfm.conf
     # X11
-    need_new_symlink ${SCRIPTPATH}/xmodmap ${HOME}/.xmodmap
+    need_new_symlink ${SCRIPTPATH}/xmodmaprc ${HOME}/.xmodmaprc
     need_new_symlink ${SCRIPTPATH}/xpdfrc ${HOME}/.xpdfrc
     need_new_symlink ${SCRIPTPATH}/Xresources ${HOME}/.Xresources
     # feh
