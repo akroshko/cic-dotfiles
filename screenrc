@@ -69,8 +69,8 @@ bind _ resize max
 # XXXX: %? is a ternary operation with : being else part
 # get pid for backtick command
 backtick 1 0 0 /bin/bash -c "echo $PID"
+backtick 2 0 0 /bin/date +%Y%m%dT%H%M%S
 caption always "[session: %1`.%S] %?%F%{-b kg}%:%{-b kr}%?%?%F%{+u kg}%? %L=%-w%45>%{+b by}%n %t%{-}%+w%-0<"
 # see http://blog.nguyenvq.com/blog/2011/11/26/log-output-for-screen/
-# TODO: make more general, can I sub variables
-# think this needs to be at the end for some reason
-logfile /home/akroshko/tmp/collect/screen-%H-%Y%m%d-%c-$PID-%S-%n.log
+# XXXX: I think this needs to be at the end for some reason
+logfile $HOME/tmp/collect/screen-%H-%Y%m%d-%c-$PID-%S-%n.log
