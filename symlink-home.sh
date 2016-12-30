@@ -9,7 +9,6 @@ main () {
     need_new_symlink ${SCRIPTPATH}/gitconfig ${HOME}/.gitconfig
     need_new_symlink ${SCRIPTPATH}/gitignore ${HOME}/.gitignore
     need_new_symlink ${SCRIPTPATH}/guile ${HOME}/.guile
-    need_new_symlink ${SCRIPTPATH}/hgpersonal ${HOME}/.hgpersonal
     need_new_symlink ${SCRIPTPATH}/inputrc ${HOME}/.inputrc
     need_new_symlink ${SCRIPTPATH}/latexmkrc ${HOME}/.latexmkrc
     need_new_symlink ${SCRIPTPATH}/screenrc ${HOME}/.screenrc
