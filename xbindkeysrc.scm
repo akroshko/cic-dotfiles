@@ -138,17 +138,22 @@
   ;;                    (lambda ()
   ;;                      ;; TODO: doesn't work everywhere
   ;;                      (run-command "xdotool getwindowfocus key --window %1 click 2")))
-  ;; f3, kill volume
-  (xbindkey-function '("c:69")
+  ;; f2, kill volume
+  (xbindkey-function '("c:68")
                      (lambda ()
                        (run-command "amixer set Master mute")))
-  (xbindkey-function '(control "c:69")
+  (xbindkey-function '(control "c:68")
                      (lambda ()
                        (run-command "amixer set Master unmute")))
-  ;; alt f3, normalize volume
-  (xbindkey-function '(alt "c:69")
+  ;; alt f2, normalize volume
+  (xbindkey-function '(alt "c:68")
                      (lambda ()
                        (run-command "bash -c \"source ~/.bash_library.d/bash_functions_stdlib;normalize-volume\"")))
+  ;; f3, white noise
+  ;; TODO: control toggles the good loud noises
+  (xbindkey-function '("c:69")
+                     (lambda ()
+                       (run-command "whitenoise.sh")))
   ;; TODO: airplane mode here too
   ;; f4, throttle up
   ;; TODO: should be
