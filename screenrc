@@ -73,4 +73,4 @@ backtick 2 0 0 /bin/date +%Y%m%dT%H%M%S
 caption always "[session: %1`.%S] %?%F%{-b kg}%:%{-b kr}%?%?%F%{+u kg}%? %L=%-w%45>%{+b by}%n %t%{-}%+w%-0<"
 # see http://blog.nguyenvq.com/blog/2011/11/26/log-output-for-screen/
 # XXXX: I think this needs to be at the end for some reason
-logfile $HOME/tmp/collect/screen-%H-%Y%m%d-%c-$PID-%S-%n.log
+logfile $HOME/tmp/collect/screen-%H-%S-%Y%m%d-%c-$PID-%n.log

@@ -301,6 +301,7 @@ define_webjump("saskatchewan-firehazard","http://www.environment.gov.sk.ca/fire"
 define_webjump("saskatoon-timeanddate","https://www.timeanddate.com/worldclock/city.html?n=1227");
 define_webjump("saskatoon-weathernetwork","http://www.theweathernetwork.com/weather/canada/saskatchewan/saskatoon");
 define_webjump("saskatoon-weatheroffice","http://www.weatheroffice.gc.ca/city/pages/sk-40_metric_e.html");
+define_webjump("wayback","https://archive.org/web/")
 define_webjump("weathernetwork","http://www.theweathernetwork.com/");
 define_webjump("weathernetwork-calgary","http://www.theweathernetwork.com/weather/canada/alberta/calgary");
 define_webjump("weathernetwork-saskatoon","http://www.theweathernetwork.com/weather/canada/saskatchewan/saskatoon");

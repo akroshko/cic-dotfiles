@@ -42,3 +42,9 @@ map [normal]     V        scroll up
 map [fullscreen] V        scroll up
 map [normal]     v        scroll down
 map [fullscreen] v        scroll down
+# back
+map [normal]     l        jumplist backward
+map [fullscreen] l        jumplist backward
+# index
+map [normal]     i        toggle_index
+map [fullscreen] i        toggle_index
