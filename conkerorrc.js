@@ -191,8 +191,15 @@ function focusblock (buffer) {
         s);
 }
 add_hook('content_buffer_progress_change_hook', focusblock);
+// really quick ones
+// TODO: highlight following
+define_opensearch_webjump("d", "duckduckgo.xml");
+define_opensearch_webjump("g", "google.xml");
+define_webjump(           "y", "https://www.youtube.com/results?search_query=%s&search=Search",$alternative="https://www.youtube.com/feed/subscriptions");
+// slower ones
 define_webjump("abebooks","https://www.abebooks.com/Canada/");
 define_webjump("alberta-firehazard","http://wildfire.alberta.ca/fire-danger-forecasts/images/firehaz.gif");
+define_webjump("alliexpress","https://www.aliexpress.com/");
 define_webjump("alternativeto","https://alternativeto.net/software/%s",$alternative="https://alternativeto.net");
 define_webjump("amazon", "https://www.amazon.com/exec/obidos/external-search/?field-keywords=%s&mode=blended", $alternative="https://amazon.com");
 define_webjump("amazonca","https://www.amazon.ca/exec/obidos/external-search/?field-keywords=%s&mode=blended", $alternative="https://amazon.ca");
@@ -217,7 +224,9 @@ define_webjump("ctan-filename", "https://www.ctan.org/search/?search=%s&search_t
 define_webjump("ctan-package", "https://www.ctan.org/search/?search=%s&search_type=id",$alternative="https://www.ctan.org");
 define_webjump("dictionary","http://dictionary.reference.com/browse/%s");
 define_webjump("digikey","http://www.digikey.ca/");
-define_webjump("duckduckgo","https://duckduckgo.com/?q=%s",$alternative="https://duckduckgo.com");
+define_opensearch_webjump("d", "duckduckgo.xml");
+// define_webjump("duckduckgo","https://duckduckgo.com/?q=%s",$alternative="https://duckduckgo.com");
+define_webjump("ebay","https://ebay.ca");
 define_webjump("emacswiki",
     "https://www.google.com/cse?cx=004774160799092323420%3A6-ff2s0o6yi"+
         "&q=%s&sa=Search&siteurl=emacswiki.org%2F",
@@ -241,6 +250,7 @@ define_webjump("hackerboards", "http://hackerboards.com");
 define_webjump("hothardware","http://hothardware.com");
 // does not appear to have acceptable webjump
 define_webjump("instagram", "https://instagram.com/");
+define_webjump("jameco", "https://www.jameco.com");
 define_webjump("letsrun","http://letsrun.com");
 define_webjump("linuxtoday","http://linuxtoday.com");
 define_webjump("lwn","https://lwn.net");
@@ -266,6 +276,7 @@ define_webjump("sagemath-sym","http://doc.sagemath.org/html/en/reference/calculu
 define_webjump("sciencedaily","http://sciencedaily.com")
 // TODO: uses invalid security certificate
 define_webjump("slashdot","http://www.slashdot.com");
+define_webjump("sparkfun","http://www.sparkfun.com");
 define_webjump("stackoverflow","https://stackoverflow.com/search?q=%s", $alternative="https://stackoverflow.com");
 define_webjump("startpage","https://startpage.com/do/%s",$alternative="https://startpage.com");
 define_webjump("strategypage","https://strategypage.com");

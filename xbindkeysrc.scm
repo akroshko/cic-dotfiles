@@ -85,13 +85,15 @@
   ;; (xbindkey-function '(alt "b:7")
   ;;                    (lambda ()
   ;;                      (run-command "conkeror-clipboard.sh scholar")))
-  ;; shift-arrow keys to simulate mouse wheel, really useful on laptop
-  (xbindkey-function '(shift "c:111")
+  ;; alt-,/. to simulate mouse wheel, really useful on laptop
+  ;; comma
+  (xbindkey-function '(alt "c:59")
                      (lambda ()
-                       (run-command "xdotool getwindowfocus key --window %1 click 4")))
-  (xbindkey-function '(shift "c:116")
+                       (run-command "xdotool getwindowfocus key --window %1 click --clearmodifiers 4")))
+  ;; period
+  (xbindkey-function '(alt "c:60")
                      (lambda ()
-                       (run-command "xdotool getwindowfocus key --window %1 click 5")))
+                       (run-command "xdotool getwindowfocus key --window %1 click --clearmodifiers 5")))
   ;; multi-media app keys are normally handled by DE
   (when (not (check-de))
         ;; volume down key
@@ -188,6 +190,17 @@
                      (lambda ()
                        ;; open in Collection with clipboard
                        (run-command "launch-emacsclient noframe --eval \"(cic:create-open-collection-frame)\"")))
+  ;; TODO: dummy for now
+  (xbindkey-function '(alt shift "1")
+                     (lambda ()
+                       ;; copy primary to clipboard
+                       ;; TODO: implement this elsewhere
+                       ;; TODO: do I really need the sleep?
+                       (run-command "bash -c \"xclip -o -selection p | xclip -i -selection c;sleep 0.2\"")
+                       ;; open in Collection with clipboard
+                       ;; TODO: does this focus this, how about ?
+                       (run-command "launch-emacsclient noframe --eval \"(cic:ansi-term-ipython t)\"")))
+  ;; TODO: should this be moved down
   (when (file-exists? (string-concatenate (list (getenv "HOME") "/.xbindkeys_first_personal.scm")))
         (load (string-concatenate (list (getenv "HOME") "/.xbindkeys_first_personal.scm"))))
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

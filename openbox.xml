@@ -392,18 +392,19 @@
     <keybind key="C-W-4">
       <action name="GoToDesktop"><to>4</to></action>
     </keybind>
-    <keybind key="C-W-comma">
-      <action name="GoToDesktop">
-        <to>previous</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="C-W-period">
-      <action name="GoToDesktop">
-        <to>next</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
+  <!--   TODO: These interfere -->
+  <!--   <keybind key="C-W-comma"> -->
+  <!--     <action name="GoToDesktop"> -->
+  <!--       <to>previous</to> -->
+  <!--       <wrap>no</wrap> -->
+  <!--     </action> -->
+  <!--   </keybind> -->
+  <!--   <keybind key="C-W-period"> -->
+  <!--     <action name="GoToDesktop"> -->
+  <!--       <to>next</to> -->
+  <!--       <wrap>no</wrap> -->
+  <!--     </action> -->
+  <!--   </keybind> -->
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
@@ -444,25 +445,25 @@
         <action name="FocusToBottom"/>
         <action name="Unfocus"/>
       </mousebind>
-
-      <mousebind button="A-Up" action="Click">
-        <action name="GoToDesktop"><to>previous</to></action>
-      </mousebind>
-      <mousebind button="A-Down" action="Click">
-        <action name="GoToDesktop"><to>next</to></action>
-      </mousebind>
-      <mousebind button="C-A-Up" action="Click">
-        <action name="GoToDesktop"><to>previous</to></action>
-      </mousebind>
-      <mousebind button="C-A-Down" action="Click">
-        <action name="GoToDesktop"><to>next</to></action>
-      </mousebind>
-      <mousebind button="A-S-Up" action="Click">
-        <action name="SendToDesktop"><to>previous</to></action>
-      </mousebind>
-      <mousebind button="A-S-Down" action="Click">
-        <action name="SendToDesktop"><to>next</to></action>
-      </mousebind>
+      <!-- TODO: these interfere with some of my stuff and I don't use them -->
+      <!-- <mousebind button="A-Up" action="Click"> -->
+      <!--   <action name="GoToDesktop"><to>previous</to></action> -->
+      <!-- </mousebind> -->
+      <!-- <mousebind button="A-Down" action="Click"> -->
+      <!--   <action name="GoToDesktop"><to>next</to></action> -->
+      <!-- </mousebind> -->
+      <!-- <mousebind button="C-A-Up" action="Click"> -->
+      <!--   <action name="GoToDesktop"><to>previous</to></action> -->
+      <!-- </mousebind> -->
+      <!-- <mousebind button="C-A-Down" action="Click"> -->
+      <!--   <action name="GoToDesktop"><to>next</to></action> -->
+      <!-- </mousebind> -->
+      <!-- <mousebind button="A-S-Up" action="Click"> -->
+      <!--   <action name="SendToDesktop"><to>previous</to></action> -->
+      <!-- </mousebind> -->
+      <!-- <mousebind button="A-S-Down" action="Click"> -->
+      <!--   <action name="SendToDesktop"><to>next</to></action> -->
+      <!-- </mousebind> -->
     </context>
 
     <context name="Titlebar">
