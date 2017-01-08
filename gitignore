@@ -1,6 +1,7 @@
 .#*
 *.pyc
 *.sage.py
+*.elc
 _region_.*
 *.aux
 *.bbl

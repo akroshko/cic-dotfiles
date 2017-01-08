@@ -143,10 +143,11 @@
   ;; f2, kill volume
   (xbindkey-function '("c:68")
                      (lambda ()
-                       (run-command "amixer set Master mute")))
+                       (run-command "amixer set Master mute;notify-send \"Mute\" \"$(date +%Y%m%d%H%M%S)\" -t 5000")))
+  ;; TODO: unmute and start increasing
   (xbindkey-function '(control "c:68")
                      (lambda ()
-                       (run-command "amixer set Master unmute")))
+                       (run-command "amixer set Master unmute;notify-send \"Unmute\" \"$(date +%Y%m%d%H%M%S)\" -t 5000")))
   ;; alt f2, normalize volume
   (xbindkey-function '(alt "c:68")
                      (lambda ()
@@ -157,19 +158,19 @@
                      (lambda ()
                        (run-command "whitenoise.sh")))
   ;; TODO: airplane mode here too
-  ;; f4, throttle up
-  ;; TODO: should be
+  ;; f4, throttle down
+  ;; TODO: right thing that is quicker response than libenv
   (xbindkey-function '("c:70")
                      (lambda ()
-                       (run-command "bash -c \"source ~/.bash_library.d/bash_functions_stdlib;throttle-down\"")))
-  ;; control-f4
+                       (run-command "bash -c \"source ~/.bash_libenv;throttle-down\"")))
+  ;; control-f4, throttle up
   (xbindkey-function '(control "c:70")
                      (lambda ()
-                       (run-command "bash -c \"source ~/.bash_library.d/bash_functions_stdlib;throttle-up\"")))
+                       (run-command "bash -c \"source ~/.bash_libenv;throttle-up\"")))
   ;; alt-f4
   (xbindkey-function '(alt "c:70")
                      (lambda ()
-                       (run-command "bash -c \"source ~/.bash_library.d/bash_functions_stdlib;throttle-normal\"")))
+                       (run-command "bash -c \"source ~/.bash_libenv;throttle-normal\"")))
   ;; f7 to google
   ;; TODO: alternative to google
   (xbindkey-function '("c:73")
@@ -190,7 +191,7 @@
                      (lambda ()
                        ;; open in Collection with clipboard
                        (run-command "launch-emacsclient noframe --eval \"(cic:create-open-collection-frame)\"")))
-  ;; TODO: dummy for now
+  ;; TODO: might not want this, but not sure
   (xbindkey-function '(alt shift "1")
                      (lambda ()
                        ;; copy primary to clipboard
@@ -203,7 +204,50 @@
   ;; TODO: should this be moved down
   (when (file-exists? (string-concatenate (list (getenv "HOME") "/.xbindkeys_first_personal.scm")))
         (load (string-concatenate (list (getenv "HOME") "/.xbindkeys_first_personal.scm"))))
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; TODO: some new experimental keys
+;;;;;;;;;;;;;;;;;;;;
+  ;; standard things
+  (xbindkey-function '(alt shift "c")
+                     (lambda ()
+                       (run-command "conkeror")
+                       (reset-first-binding)))
+  (xbindkey-function '(alt shift "e")
+                     (lambda ()
+                       ;; TODO: do this in openbox, doing it this way to avoid sourcing, same as focus-emacs-window, much more responsive
+                       (run-command "~/.switch-to-emacs-or-passthrough.sh")))
+  (xbindkey-function '(alt shift "f")
+                     (lambda ()
+                       (run-command "firefox")
+                       (reset-first-binding)))
+  (xbindkey-function '(alt shift "g")
+                     (lambda ()
+                       (run-command "chromium")
+                       (reset-first-binding)))
+  (xbindkey-function '(alt shift "i")
+                     (lambda ()
+                       ;; copy primary to clipboard
+                       ;; TODO: implement this elsewhere
+                       ;; TODO: do I really need the sleep?
+                       (run-command "bash -c \"xclip -o -selection p | xclip -i -selection c;sleep 0.2\"")
+                       ;; open in Collection with clipboard
+                       ;; TODO: does this focus this, how about ?
+                       (run-command "launch-emacsclient noframe --eval \"(cic:ansi-term-ipython t)\"")))
+  (xbindkey-function '(alt shift "t")
+                     (lambda ()
+                       (run-command "rxvt-unicode")
+                       (reset-first-binding)))
+  (xbindkey-function '(alt shift "v")
+                     (lambda ()
+                       ;; TODO: add q to quit
+                       (run-command "rxvt-unicode -title \"alsamixer\" -e bash -c alsamixer")
+                       (reset-first-binding)))
+;;;;;;;;;;;;;;;;;;;;
+  ;; extra things
+  (xbindkey-function '(control alt shift "w")
+                     (lambda ()
+                       (run-command "conkeror https://www.theweathernetwork.com/ca/weather/saskatchewan/saskatoon")))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; shift function keys up to f9
   (xbindkey-function '(shift "c:67")
                      (lambda ()
@@ -346,10 +390,6 @@
   (xbindkey-function 'e
                      (lambda ()
                        (run-command "launch-emacsclient")
-                       (reset-first-binding)))
-  (xbindkey-function 'f
-                     (lambda ()
-                       (run-command "firefox")
                        (reset-first-binding)))
   (xbindkey-function 'g
                      (lambda ()
