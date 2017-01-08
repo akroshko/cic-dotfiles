@@ -153,10 +153,14 @@
                      (lambda ()
                        (run-command "bash -c \"source ~/.bash_library.d/bash_functions_stdlib;normalize-volume\"")))
   ;; f3, white noise
-  ;; TODO: control toggles the good loud noises
+  ;; start and/or use pause
   (xbindkey-function '("c:69")
                      (lambda ()
                        (run-command "whitenoise.sh")))
+  ;; start at second in playlist and/or one
+  (xbindkey-function '(control "c:69")
+                     (lambda ()
+                       (run-command "whitenoise.sh --next")))
   ;; TODO: airplane mode here too
   ;; f4, throttle down
   ;; TODO: right thing that is quicker response than libenv
