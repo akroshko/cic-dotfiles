@@ -217,6 +217,7 @@ define_webjump("budget-bytes", "http://www.budgetbytes.com");
 define_webjump("buyapi", "https://www.buyapi.ca");
 // TODO: add some non-search things here
 define_webjump("canada-firehazard","http://cwfis.cfs.nrcan.gc.ca/maps/fw");
+define_webjump("clonezilla","http://clonezilla.org/downloads.php");
 define_webjump("ctan-all", "https://www.ctan.org/search/?search=%s&search_type=description&search_type=filename&search_type=id",$alternative="https://www.ctan.org");
 define_webjump("ctan-description", "https://www.ctan.org/search/?search=%s&search_type=description",$alternative="https://www.ctan.org");
 define_webjump("ctan-filename", "https://www.ctan.org/search/?search=%s&search_type=filename",$alternative="https://www.ctan.org");
@@ -264,6 +265,7 @@ define_webjump("otv", "https://otvtech.ca");
 define_webjump("phoronix", "https://phoronix.com");
 define_webjump("physorg", "http://phys.org");
 define_webjump("plus","https://plus.google.com/");
+define_webjump("pwmt","https://pwmt.org/");
 define_webjump("pypi","https://pypi.python.org/pypi?%3Aaction=search&term=%s&submit=search",$alternative="https://pypi.python.org");
 define_webjump("python", "https://docs.python.org/2.7/search.html?q=%s",$alternative="https://docs.python.org/2.7/");
 define_webjump("theregister","http://www.theregister.co.uk/");

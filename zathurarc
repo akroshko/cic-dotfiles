@@ -1,6 +1,11 @@
-set render-loading    false
-set scroll-page-aware true
-set pages-per-row     2
+set render-loading      false
+set scroll-page-aware   true
+set scroll-full-overlap true
+set window-title-page   true
+set pages-per-row       2
+# TODO: temporary, change for different machines
+set window-width        1920
+set window-height       1080
 # TODO: would love to get command period working here
 # change from navigate previous, navigate next
 map [normal]     b        scroll full-up
