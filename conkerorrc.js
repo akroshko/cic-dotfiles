@@ -163,16 +163,43 @@ session_pref("print.print_footerright","");
 session_pref("print.print_printer","");
 session_pref("print.print_shrink_to_fit",true);
 session_pref("print.shrink_to_fit.scale-limit-percent",50);
+// javascript by default
 // this actually works!!! can impose options on conkeror!
 // session_pref("print.always_print_silent", true);
 // session_pref("print.print_to_file","");
 // session_pref("print.print_to_filename","");
 // deactivate page modes
+session_pref("javascript.enabled",true);
 page_mode_deactivate(youtube_player_mode);
 
 // Adblock Plus
 // http://conkeror.org/AdblockPlus
 require("extensions/adblockplus.js");
+
+// TODO: does not seem to work
+// interactive("toggle-adblockplus","Toggle adblockplus.",
+//     function (I) {
+//         if (get_pref("extensions.adblockplus.enabled")) {
+//             I.window.minibuffer.message("Disabling adblockplus!!!");
+//             session_pref("extensions.adblockplus.enabled",false);
+//         } else {
+//             I.window.minibuffer.message("Enabling adblockplus!!!");
+//             session_pref("extensions.adblockplus.enabled",true);
+//         }
+//     });
+// define_key(content_buffer_normal_keymap,"s-b","toggle-adblockplus");
+
+interactive("toggle-javascript","Toggle javascript.",
+    function (I) {
+        if (get_pref("javascript.enabled")) {
+            I.window.minibuffer.message("Disabling javascript!!!");
+            session_pref("javascript.enabled",false);
+        } else {
+            I.window.minibuffer.message("Enabling javascript!!!");
+            session_pref("javascript.enabled",true);
+        }
+    });
+define_key(content_buffer_normal_keymap,"s-n","toggle-javascript");
 
 // http://conkeror.org/Focus
 function focusblock (buffer) {
@@ -315,13 +342,16 @@ define_webjump("saskatoon-weathernetwork","http://www.theweathernetwork.com/weat
 define_webjump("saskatoon-weatheroffice","http://www.weatheroffice.gc.ca/city/pages/sk-40_metric_e.html");
 define_webjump("wayback","https://archive.org/web/")
 define_webjump("weathernetwork","http://www.theweathernetwork.com/");
+define_webjump("wn-saskatoon","http://www.theweathernetwork.com/weather/canada/saskatchewan/saskatoon");
 define_webjump("weathernetwork-calgary","http://www.theweathernetwork.com/weather/canada/alberta/calgary");
 define_webjump("weathernetwork-saskatoon","http://www.theweathernetwork.com/weather/canada/saskatchewan/saskatoon");
 define_webjump("weathernetwork-sundre","http://www.theweathernetwork.com/weather/canada/alberta/sundre");
 define_webjump("weatheroffice","http://www.weatheroffice.gc.ca/canada_e.html");
+define_webjump("wo-saskatoon","http://www.weatheroffice.gc.ca/city/pages/sk-40_metric_e.html");
 define_webjump("weatheroffice-calgary","http://www.weatheroffice.gc.ca/city/pages/ab-52_metric_e.html");
 define_webjump("weatheroffice-saskatoon","http://www.weatheroffice.gc.ca/city/pages/sk-40_metric_e.html");
 define_webjump("weatheroffice-sundre","http://www.weatheroffice.gc.ca/city/pages/ab-53_metric_e.html");
+define_webjump("wu-saskatoon","https://www.wunderground.com/cgi-bin/findweather/getForecast?query=saskatoon");
 define_webjump("timeanddate","https://www.timeanddate.com/search/results.html?query=%s");
 define_webjump("timeanddate-calgary","https://www.timeanddate.com/worldclock/city.html?n=55");
 define_webjump("timeanddate-saskatoon","https://www.timeanddate.com/worldclock/city.html?n=1227");

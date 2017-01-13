@@ -1,7 +1,8 @@
 set render-loading      false
-set scroll-page-aware   true
+set scroll-page-aware   false
 set scroll-full-overlap true
 set window-title-page   true
+# TODO: still need a halfpage scroll
 set pages-per-row       2
 # TODO: temporary, change for different machines
 set window-width        1920
