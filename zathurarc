@@ -8,6 +8,9 @@ set pages-per-row       2
 set window-width        1920
 set window-height       1080
 # TODO: would love to get command period working here
+# map reload
+map [normal]     5        reload
+map [fullscreen] 5        reload
 # change from navigate previous, navigate next
 map [normal]     b        scroll full-up
 map [fullscreen] b        scroll full-up
