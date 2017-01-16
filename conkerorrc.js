@@ -225,6 +225,7 @@ define_opensearch_webjump("g", "google.xml");
 define_webjump(           "y", "https://www.youtube.com/results?search_query=%s&search=Search",$alternative="https://www.youtube.com/feed/subscriptions");
 // slower ones
 define_webjump("abebooks","https://www.abebooks.com/Canada/");
+define_webjump("adblockplus","https://adblockplus.org");
 define_webjump("alberta-firehazard","http://wildfire.alberta.ca/fire-danger-forecasts/images/firehaz.gif");
 define_webjump("alliexpress","https://www.aliexpress.com/");
 define_webjump("alternativeto","https://alternativeto.net/software/%s",$alternative="https://alternativeto.net");

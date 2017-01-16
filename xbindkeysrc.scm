@@ -395,6 +395,10 @@
                      (lambda ()
                        (run-command "launch-emacsclient")
                        (reset-first-binding)))
+  (xbindkey-function 'f
+                     (lambda ()
+                       (run-command "firefox")
+                       (reset-first-binding)))
   (xbindkey-function 'g
                      (lambda ()
                        (run-command "chromium")
