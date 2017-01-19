@@ -23,7 +23,7 @@
   </item>
   <separator />
   <item label="Emacs">
-    <action name="Execute"><execute>launch-emacsclient</execute></action>
+    <action name="Execute"><execute>bash -c "source ~/.bash_libenv;launch-emacsclient"</execute></action>
   </item>
   <!-- This requires a script in ~/bin for conkeror-->
   <item label="Web browser (conkeror)">

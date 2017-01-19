@@ -250,6 +250,7 @@ define_webjump("ctan-all", "https://www.ctan.org/search/?search=%s&search_type=d
 define_webjump("ctan-description", "https://www.ctan.org/search/?search=%s&search_type=description",$alternative="https://www.ctan.org");
 define_webjump("ctan-filename", "https://www.ctan.org/search/?search=%s&search_type=filename",$alternative="https://www.ctan.org");
 define_webjump("ctan-package", "https://www.ctan.org/search/?search=%s&search_type=id",$alternative="https://www.ctan.org");
+define_webjump("deal-extreme","https://www.dx.com/");
 define_webjump("dictionary","http://dictionary.reference.com/browse/%s");
 define_webjump("digikey","http://www.digikey.ca/");
 define_opensearch_webjump("d", "duckduckgo.xml");
