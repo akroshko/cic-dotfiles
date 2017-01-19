@@ -57,3 +57,8 @@ map [fullscreen] l        jumplist backward
 # index
 map [normal]     i        toggle_index
 map [fullscreen] i        toggle_index
+# TODO: find out if these were defaults for anything
+map [normal]     }        feedkeys ":exec zathura-next-file.py $FILE<Return>"
+map [normal]     ]        feedkeys ":exec zathura-next-file.py $FILE --bytime<Return>"
+map [normal]     {        feedkeys ":exec zathura-next-file.py $FILE --previous<Return>"
+map [normal]     [        feedkeys ":exec zathura-next-file.py $FILE --bytime --previous<Return>"

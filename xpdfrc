@@ -25,8 +25,6 @@ bind alt-,             any  prevPage
 bind alt-.             any  nextPage
 bind alt-<             any  gotoPage(1)
 bind alt->             any  gotoLastPage
-bind ctrl-{            any  "run(bash ~/.xpdfprevfile.sh '%f')"
-bind ctrl-}            any  "run(bash ~/.xpdfnextfile.sh '%f')"
 # scrolling
 bind V                 any  scrollUp(16)
 bind v                 any  scrollDown(16)
