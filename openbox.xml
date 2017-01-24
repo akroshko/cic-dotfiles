@@ -244,7 +244,6 @@
     <keybind key="S-F12">
       <action name="Execute"><execute>xdotool getwindowfocus key F12</execute></action>
     </keybind>
-
     <!-- TODO: do I want this?-->
     <!-- TODO: do I want this?-->
     <keybind key="M-W-semicolon">
@@ -301,6 +300,18 @@
     </keybind>
     <keybind key="M-W-m">
       <action name="ToggleMaximize"/>
+    </keybind>
+    <keybind key="Print">
+      <action name="Execute"><execute>bash -c "source ~/.bash_library.d/bash_functions_stdlib;source ~/.bash_library.d/bashrc_functions_external;source ~/.bash_library.d/bash_library_std;capture-screen"</execute></action>
+    </keybind>
+    <keybind key="S-Print">
+      <action name="Execute"><execute>bash -c "source ~/.bash_library.d/bash_functions_stdlib;source ~/.bash_library.d/bashrc_functions_external;source ~/.bash_library.d/bash_library_std;capture-window"</execute></action>
+    </keybind>
+    <keybind key="M-Print">
+      <action name="Execute"><execute>bash -c "source ~/.bash_library.d/bash_functions_stdlib;source ~/.bash_library.d/bashrc_functions_external;source ~/.bash_library.d/bash_library_std;crypt-capture-screen"</execute></action>
+    </keybind>
+    <keybind key="C-Print">
+      <action name="Execute"><execute>bash -c "source ~/.bash_library.d/bash_functions_stdlib;source ~/.bash_library.d/bashrc_functions_external;source ~/.bash_library.d/bash_library_std;capture-window-fullscreen"</execute></action>
     </keybind>
     <keybind key="M-W-l">
       <action name="Iconify"/>
@@ -510,7 +521,9 @@
     <keybind key="M-S-s">
       <action name="Execute"><execute>rxvt-unicode -title "SAGE repl" -e bash -i -c "source ~/.bash_libenv;repl-restartable sage;"</execute></action>
     </keybind>
-    <xi:include href="openbox-second.xml" xmlns:xi="http://www.w3.org/2003/XInclude"/>
+    <!-- need fallbacks and sync up properly with dotfiles -->
+    <xi:include href="openbox-second.xml"/>
+    <xi:include href="openbox-second-f8.xml"/>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
