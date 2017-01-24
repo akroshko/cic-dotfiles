@@ -187,7 +187,6 @@
     <left>0</left>
     <right>0</right>
   </margins>
-
   <dock>
     <position>TopLeft</position>
     <!-- (Top|Bottom)(Left|Right|)|Top|Bottom|Left|Right|Floating -->
@@ -206,9 +205,47 @@
     <moveButton>Middle</moveButton>
     <!-- 'Left', 'Middle', 'Right' -->
   </dock>
-
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
+    <!-- override f-keys -->
+    <keybind key="S-F1">
+      <action name="Execute"><execute>xdotool getwindowfocus key F1</execute></action>
+    </keybind>
+    <keybind key="S-F2">
+      <action name="Execute"><execute>xdotool getwindowfocus key F2</execute></action>
+    </keybind>
+    <keybind key="S-F3">
+      <action name="Execute"><execute>xdotool getwindowfocus key F3</execute></action>
+    </keybind>
+    <keybind key="S-F4">
+      <action name="Execute"><execute>xdotool getwindowfocus key F4</execute></action>
+    </keybind>
+    <keybind key="S-F5">
+      <action name="Execute"><execute>xdotool getwindowfocus key F5</execute></action>
+    </keybind>
+    <keybind key="S-F6">
+      <action name="Execute"><execute>xdotool getwindowfocus key F6</execute></action>
+    </keybind>
+    <keybind key="S-F7">
+      <action name="Execute"><execute>xdotool getwindowfocus key F7</execute></action>
+    </keybind>
+    <keybind key="S-F8">
+      <action name="Execute"><execute>xdotool getwindowfocus key F8</execute></action>
+    </keybind>
+    <keybind key="S-F9">
+      <action name="Execute"><execute>xdotool getwindowfocus key F9</execute></action>
+    </keybind>
+    <keybind key="S-F10">
+      <action name="Execute"><execute>xdotool getwindowfocus key F10</execute></action>
+    </keybind>
+    <keybind key="S-F11">
+      <action name="Execute"><execute>xdotool getwindowfocus key F11</execute></action>
+    </keybind>
+    <keybind key="S-F12">
+      <action name="Execute"><execute>xdotool getwindowfocus key F12</execute></action>
+    </keybind>
+
+    <!-- TODO: do I want this?-->
     <!-- TODO: do I want this?-->
     <keybind key="M-W-semicolon">
       <action name="ShowMenu"><menu>root-menu</menu></action>
@@ -218,6 +255,30 @@
     </keybind>
     <keybind key="M-F1">
       <action name="ShowMenu"><menu>root-menu</menu></action>
+    </keybind>
+    <keybind key="F2">
+      <action name="Execute"><execute>bash -c "amixer set Master mute;notify-send \"Mute\" \"$(date +%Y%m%d%H%M%S)\" -t 5000"</execute></action>
+    </keybind>
+    <keybind key="C-F2">
+      <action name="Execute"><execute>bash -c "amixer set Master unmute;notify-send \"Unmute\" \"$(date +%Y%m%d%H%M%S)\" -t 5000"</execute></action>
+    </keybind>
+    <keybind key="M-F2">
+      <action name="Execute"><execute>bash -c "source ~/.bash_library.d/bash_functions_stdlib;normalize-volume"</execute></action>
+    </keybind>
+    <keybind key="F3">
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;whitenoise.sh"</execute></action>
+    </keybind>
+    <keybind key="C-F3">
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;whitenoise.sh --next"</execute></action>
+    </keybind>
+    <keybind key="F4">
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;throttle-down"</execute></action>
+    </keybind>
+    <keybind key="C-F4">
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;throttle-up"</execute></action>
+    </keybind>
+    <keybind key="M-F4">
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;throttle-normal"</execute></action>
     </keybind>
     <keybind key="F5">
       <action name="Execute"><execute>rxvt-unicode -e bash -i -c "source ~/.bash_libenv;harm-bash;sleep 5"</execute></action>
@@ -342,16 +403,16 @@
     <!-- </keybind> -->
     <!-- Rather like this, for when super keys are no available, or needed for applications -->
     <!-- C-shift-z works just fine for terminals -->
-    <keybind key="C-z">
-      <action name="NextWindow">
-        <raise>yes</raise>
-      </action>
-    </keybind>
     <!-- focus emacs instead -->
     <!-- <keybind key="W-z"> -->
     <!--   <action name="NextWindow"/> -->
     <!-- </keybind> -->
     <!-- Keybindings for window switching with the arrow keys -->
+    <keybind key="C-z">
+      <action name="NextWindow">
+        <raise>yes</raise>
+      </action>
+    </keybind>
     <keybind key="M-W-period">
       <action name="DirectionalCycleWindows">
         <direction>right</direction>
@@ -363,6 +424,30 @@
         <direction>left</direction>
         <raise>yes</raise>
       </action>
+    </keybind>
+    <keybind key="C-comma">
+      <action name="Execute"><execute>xvkbd -xsendevent -text "\\[Prior]"</execute></action>
+    </keybind>
+    <keybind key="C-period">
+      <action name="Execute"><execute>xvkbd -xsendevent -text "\\[Next]"</execute></action>
+    </keybind>
+    <keybind key="M-comma">
+      <action name="Execute"><execute>xdotool getwindowfocus key --window %1 click --clearmodifiers 4</execute></action>
+    </keybind>
+    <keybind key="M-period">
+      <action name="Execute"><execute>xdotool getwindowfocus key --window %1 click --clearmodifiers 5</execute></action>
+    </keybind>
+    <keybind key="XF86Calculator">
+      <action name="Execute"><execute>xcalc</execute></action>
+    </keybind>
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute"><execute>bash -c "amixer set Master 10%-;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
+    </keybind>
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute"><execute>bash -c "amixer set Master 10%+;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
+    </keybind>
+    <keybind key="XF86AudioMute">
+      <action name="Execute"><execute>amixer sset Master toggle</execute></action>
     </keybind>
     <!-- Desktop keys -->
     <keybind key="M-W-d">
@@ -392,19 +477,40 @@
     <keybind key="C-W-4">
       <action name="GoToDesktop"><to>4</to></action>
     </keybind>
-  <!--   TODO: These interfere -->
-  <!--   <keybind key="C-W-comma"> -->
-  <!--     <action name="GoToDesktop"> -->
-  <!--       <to>previous</to> -->
-  <!--       <wrap>no</wrap> -->
-  <!--     </action> -->
-  <!--   </keybind> -->
-  <!--   <keybind key="C-W-period"> -->
-  <!--     <action name="GoToDesktop"> -->
-  <!--       <to>next</to> -->
-  <!--       <wrap>no</wrap> -->
-  <!--     </action> -->
-  <!--   </keybind> -->
+    <!--   TODO: These interfere -->
+    <!--   <keybind key="C-W-comma"> -->
+    <!--     <action name="GoToDesktop"> -->
+    <!--       <to>previous</to> -->
+    <!--       <wrap>no</wrap> -->
+    <!--     </action> -->
+    <!--   </keybind> -->
+    <!--   <keybind key="C-W-period"> -->
+    <!--     <action name="GoToDesktop"> -->
+    <!--       <to>next</to> -->
+    <!--       <wrap>no</wrap> -->
+    <!--     </action> -->
+    <!--   </keybind> -->
+    <!--   Moving over from xbindkeys -->
+    <keybind key="M-9">
+      <!--   Sourcing bash_libenv is necessary for launching emacs client -->
+      <action name="Execute"><execute>bash -c "xclip -o -selection p | xclip -i -selection c;source ~/.bash_libenv;sleep 0.2;launch-emacsclient noframe --eval \"(cic:create-open-paste-collection)\""</execute></action>
+    </keybind>
+    <keybind key="M-S-i">
+      <action name="Execute"><execute>rxvt-unicode -title "iPython repl" -e bash -i -c "source ~/.bash_libenv;repl-restartable ipython"</execute></action>
+    </keybind>
+    <keybind key="M-S-j">
+      <action name="Execute"><execute>rxvt-unicode -title "iPython notebook" -e bash -i -c "source ~/.bash_libenv;repl-restartable sage-jupyter-notebook"</execute></action>
+    </keybind>
+    <keybind key="M-S-n">
+      <action name="Execute"><execute>rxvt-unicode -title "SAGE notebook" -e bash -i -c "source ~/.bash_libenv;repl-restartable sage-notebook"</execute></action>
+    </keybind>
+    <keybind key="M-S-q">
+      <action name="Execute"><execute>rxvt-unicode -title "psql akroshkodb" -e bash -i -c "source ~/.bash_libenv;repl-restartable 'psql akroshkodb'"</execute></action>
+    </keybind>
+    <keybind key="M-S-s">
+      <action name="Execute"><execute>rxvt-unicode -title "SAGE repl" -e bash -i -c "source ~/.bash_libenv;repl-restartable sage;"</execute></action>
+    </keybind>
+    <xi:include href="openbox-second.xml" xmlns:xi="http://www.w3.org/2003/XInclude"/>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
@@ -418,7 +524,6 @@
     <screenEdgeWarpMouse>false</screenEdgeWarpMouse>
     <!-- Set this to TRUE to move the mouse pointer across the desktop when
          switching due to hitting the edge of the screen -->
-
     <context name="Frame">
       <mousebind button="A-Left" action="Press">
         <action name="Focus"/>

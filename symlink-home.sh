@@ -13,7 +13,6 @@ main () {
     need_new_symlink ${SCRIPTPATH}/latexmkrc ${HOME}/.latexmkrc
     need_new_symlink ${SCRIPTPATH}/screenrc ${HOME}/.screenrc
     need_new_symlink ${SCRIPTPATH}/zile ${HOME}/.zile
-    need_new_symlink ${SCRIPTPATH}/xbindkeysrc.scm ${HOME}/.xbindkeysrc
     need_new_symlink ${SCRIPTPATH}/pentadactylrc ${HOME}/.pentadactylrc
     # .config
     need_new_directory ${HOME}/.config
