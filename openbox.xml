@@ -508,8 +508,11 @@
     </keybind>
     <!-- need fallbacks and sync up properly with dotfiles -->
     <!-- <xi:include href="openbox-second.xml"/> -->
-    <xi:include href="openbox-second-f8.xml"/>
+    <!-- <xi:include href="openbox-second-f8.xml"/> -->
     <keybind key="M-z">
+      <action name="ShowMenu"><menu>prog</menu></action>
+    </keybind>
+    <keybind key="F8">
       <action name="ShowMenu"><menu>prog</menu></action>
     </keybind>
   </keyboard>
