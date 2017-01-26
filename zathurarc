@@ -1,4 +1,5 @@
 set render-loading      false
+# default not
 set scroll-page-aware   false
 set scroll-full-overlap true
 set window-title-page   true
@@ -62,3 +63,7 @@ map [normal]     }        feedkeys ":exec zathura-switch-file.py $FILE<Return>"
 map [normal]     ]        feedkeys ":exec zathura-switch-file.py $FILE --bytime<Return>"
 map [normal]     {        feedkeys ":exec zathura-switch-file.py $FILE --previous<Return>"
 map [normal]     [        feedkeys ":exec zathura-switch-file.py $FILE --bytime --previous<Return>"
+# good thing to use, c means toggle-continuous....
+# TODO: possibly hook into other (fit-page-like ?) commands and test
+map [normal]     c        set scroll-page-aware
+map [fullscreen] c        set scroll-page-aware
