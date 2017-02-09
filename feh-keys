@@ -8,22 +8,28 @@ next_img
 flip
 action_0
 action_6
+# things for esdf, these should be replaced
+# TODO: want a more universal metadata key
+toggle_exif
+save_image
+toggle_filenames
+save_filelist
 ########################################
 # good keys for using on a laptop
 # bind new keys for movement
-scroll_up         Up
-scroll_down       Down
-scroll_left       Left
-scroll_right      Right
+scroll_up         Up    e
+scroll_down       Down  d
+scroll_left       Left  s
+scroll_right      Right f
 scroll_up_page    S-Up
 scroll_down_page  S-Down
 scroll_left_page  S-Left
 scroll_right_page S-Right
 # bind new keys for zoom
-zoom_in           C-Up plus
-zoom_out          C-Down minus
-zoom_default      0
-zoom_fit          underscore
+zoom_in           C-Up   plus  E
+zoom_out          C-Down minus D
+zoom_default      0            S
+zoom_fit          underscore   F
 prev_img          p b
 next_img          n space
 # hack to give g for gimp-edit along with feh-open-browse sh script

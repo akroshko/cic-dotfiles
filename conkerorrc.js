@@ -5,7 +5,8 @@ load_paths.unshift("chrome://conkeror-contrib/content/");
 // require('block-content-focus-change.js');
 // hinting
 
-hint_digits="abcdefghijklmnopqrstuvwxyz";
+// hint_digits="abcdefghijklmnopqrstuvwxyz";
+hint_digits="asdfgqwertzxcvb";
 register_user_stylesheet(
     "data:text/css," +
         escape(
@@ -17,7 +18,7 @@ register_user_stylesheet(
 // standard keys
 define_key(content_buffer_normal_keymap, "C-[", "unfocus");
 // TODO: try to do this in single key
-define_key(content_buffer_normal_keymap, "s-a",
+define_key(content_buffer_normal_keymap, "s-v",
            "browser-object-relationship-next",
            $repeat = "follow-unfocus")
 interactive("follow-unfocus","Follow and unfocus.",
@@ -43,10 +44,26 @@ interactive("local-print-buffer",
             session_pref("print.always_print_silent", false);
         },2000);
     });
+////////////////////////////////////////
+// esdf keys, experimental
+// TODO: need new 10x, need new back
+define_key(content_buffer_normal_keymap, "a",   "follow");
+define_key(content_buffer_normal_keymap, "s-a", "follow-new-buffer");
+define_key(content_buffer_normal_keymap, "e",   "cmd_scrollLineUp");
+define_key(content_buffer_normal_keymap, "s",   "cmd_scrollLeft");
+define_key(content_buffer_normal_keymap, "d",   "cmd_scrollLineDown");
+define_key(content_buffer_normal_keymap, "f",   "cmd_scrollRight");
+define_key(content_buffer_normal_keymap, "m",   "duplicate-buffer");
+define_key(content_buffer_normal_keymap, "M",   "follow-new-buffer-background");
+define_key(content_buffer_normal_keymap, "/",   "save");
+// / for download/save
+// m for mirror/duplicate
+// best ones are....
+// ???
+
 define_key(content_buffer_normal_keymap, "C-]", "local-print-buffer");
 define_key(content_buffer_normal_keymap, "M-z", "unfocus");
 // TODO: not sure if this is best
-define_key(content_buffer_normal_keymap, "s-f", "follow-new-buffer");
 define_key(content_buffer_normal_keymap, "s-c", "back");
 define_key(content_buffer_normal_keymap, "s-l", "back");
 // define_key(content_buffer_normal_keymap, "s-g",   "find-url");
@@ -66,11 +83,11 @@ interactive("duplicate-buffer-new-window", "Duplicate buffer in new window",
             function (I) {
                 browser_object_follow(I.buffer, OPEN_NEW_WINDOW, I.buffer.current_uri.spec);
             });
+define_key(content_buffer_normal_keymap, "5",   "reload");
 // TODO: something slightly more consistent
-define_key(content_buffer_normal_keymap, "d",   "duplicate-buffer");
-define_key(content_buffer_normal_keymap, "M-d", "duplicate-buffer");
+// define_key(content_buffer_normal_keymap, "d",   "duplicate-buffer");
 // TODO: not great, but not bad either, maybe b will free up some day
-define_key(content_buffer_normal_keymap, "D", "follow-new-buffer-background");
+// define_key(content_buffer_normal_keymap, "D", "follow-new-buffer-background");
 // new window
 define_key(content_buffer_normal_keymap, "w",   "duplicate-buffer-new-window");
 define_key(content_buffer_normal_keymap, "W",   "find-url-new-window");
@@ -109,12 +126,13 @@ define_key(content_buffer_form_keymap,   "s-z",   "unfocus", $repeat = "cmd_scro
 define_key(content_buffer_text_keymap,   "s-z",   "unfocus", $repeat = "cmd_scrollPageDown");
 define_key(content_buffer_normal_keymap, "s-z",   "cmd_scrollPageDown");
 // scroll
+// TODO: replace by asdf keys
 // TODO: do with "v" as well? change page back to "b", something else for background?
-define_key(content_buffer_normal_keymap, "s-V", "cmd_scrollLineUp");
-define_key(content_buffer_normal_keymap, "s-v", "cmd_scrollLineDown");
+// define_key(content_buffer_normal_keymap, "s-V", "cmd_scrollLineUp");
+// define_key(content_buffer_normal_keymap, "s-v", "cmd_scrollLineDown");
 // TODO: replace standard view with something else
-define_key(content_buffer_normal_keymap, "V",   "cmd_scrollLineUp");
-define_key(content_buffer_normal_keymap, "v",   "cmd_scrollLineDown");
+// define_key(content_buffer_normal_keymap, "V",   "cmd_scrollLineUp");
+// define_key(content_buffer_normal_keymap, "v",   "cmd_scrollLineDown");
 // url
 url_completion_use_bookmarks = false;
 url_completion_use_history = false;
