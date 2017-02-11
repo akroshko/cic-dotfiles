@@ -18,7 +18,7 @@ register_user_stylesheet(
 // standard keys
 define_key(content_buffer_normal_keymap, "C-[", "unfocus");
 // TODO: try to do this in single key
-define_key(content_buffer_normal_keymap, "s-v",
+define_key(content_buffer_normal_keymap, "s-x",
            "browser-object-relationship-next",
            $repeat = "follow-unfocus")
 interactive("follow-unfocus","Follow and unfocus.",
@@ -283,6 +283,7 @@ define_webjump("electronicstutorials","http://www.electronics-tutorials.ws/");
 define_webjump("encyclopedia","http://www.reference.com/browse/%s",$alternative="http://www.reference.com");
 define_webjump("epicurious","https://www.epicurious.com/tools/searchresults?search=%s",$alternative="https://www.epicurious.com");
 define_webjump("extremetech","http://extremetech.com");
+define_webjump("electronic-goldmine","http://www.goldmine-elec-products.com/");
 define_webjump("facebook","https://www.facebook.com/search/results.php?q=%s&init=quick",$alternative="https://www.facebook.com");
 define_webjump("fivethirtyeight","http://fivethirtyeight.com");
 define_webjump("flickr", "https://www.flickr.com/search/?q=%s", $alternative="https://www.flickr.com");
