@@ -451,6 +451,12 @@
     <keybind key="XF86AudioMute">
       <action name="Execute"><execute>amixer sset Master toggle</execute></action>
     </keybind>
+    <keybind key="M-W-minus">
+      <action name="Execute"><execute>bash -c "amixer set Master 10%-;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
+    </keybind>
+    <keybind key="M-S-W-plus">
+      <action name="Execute"><execute>bash -c "amixer set Master 10%+;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
+    </keybind>
     <!-- Desktop keys -->
     <keybind key="M-W-d">
       <action name="ToggleShowDesktop"/>
