@@ -510,10 +510,16 @@
     <keybind key="M-1">
       <action name="ShowMenu"><menu>maintenance</menu></action>
     </keybind>
+    <keybind key="F6">
+      <action name="ShowMenu"><menu>maintenance</menu></action>
+    </keybind>
     <keybind key="M-Print">
       <action name="ShowMenu"><menu>screen-capture</menu></action>
     </keybind>
     <keybind key="M-2">
+      <action name="ShowMenu"><menu>screen-capture</menu></action>
+    </keybind>
+    <keybind key="F7">
       <action name="ShowMenu"><menu>screen-capture</menu></action>
     </keybind>
     <keybind key="M-a">
