@@ -254,6 +254,7 @@ define_webjump("amskey","http://www.ams.org/mathscinet/search/publications.html?
 define_webjump("amstit","http://www.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=&co4=AND&pg5=TI&s5=%s&co5=AND&pg6=PC&s6=&co6=AND&pg7=ALLF&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=html&Submit=Search",$alternative="http://www.ams.org/mathscinet/");
 define_webjump("anandtech","http://www.anandtech.com/");
 define_webjump("archwiki","https://wiki.archlinux.org/index.php?title=Special%3ASearch&search=%s&go=Go", $alternative="https://wiki.archlinux.org");
+define_webjump("arch-applications","https://wiki.archlinux.org/index.php/list_of_applications");
 define_webjump("arstechnica","https://arstechnica.com");
 define_webjump("allaboutcircuits","http://www.allaboutcircuits.com/");
 define_webjump("bc-firehazard","http://www2.gov.bc.ca/gov/content/safety/wildfire-status/fire-danger");
