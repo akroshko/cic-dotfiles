@@ -10,7 +10,7 @@
     <action name="Execute"><execute>rxvt-unicode</execute></action>
   </item>
   <item label="Network">
-    <action name="Execute"><execute>wicd-client</execute></action>
+    <action name="Execute"><execute>rxvt-unicode -e bash -i -c nmtui-connect</execute></action>
   </item>
   <item label="Audio controls">
     <action name="Execute"><execute>rxvt-unicode -e alsamixer</execute></action>
