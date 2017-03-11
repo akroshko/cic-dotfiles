@@ -6,37 +6,37 @@
                 file:///usr/share/openbox/menu.xsd">
 
 <menu id="root-menu" label="Openbox 3">
-  <item label="Terminal emulator">
+  <item label="_Terminal emulator">
     <action name="Execute"><execute>rxvt-unicode</execute></action>
   </item>
-  <item label="Network">
+  <item label="_Network">
     <action name="Execute"><execute>rxvt-unicode -e bash -i -c nmtui-connect</execute></action>
   </item>
-  <item label="Audio controls">
+  <item label="_Volume controls">
     <action name="Execute"><execute>rxvt-unicode -e alsamixer</execute></action>
   </item>
-  <item label="Mute">
+  <item label="_Mute">
     <action name="Execute"><execute>amixer set Master mute</execute></action>
   </item>
-  <item label="Unmute">
+  <item label="_Unmute">
     <action name="Execute"><execute>amixer set Master unmute</execute></action>
   </item>
   <separator />
-  <item label="Emacs">
+  <item label="_Emacs">
     <action name="Execute"><execute>bash -c "source ~/.bash_libenv;launch-emacsclient"</execute></action>
   </item>
   <!-- This requires a script in ~/bin for conkeror-->
-  <item label="Web browser (conkeror)">
+  <item label="Web browser (_conkeror)">
     <action name="Execute"><execute>bash -c "~/bin/conkeror"</execute></action>
   </item>
-  <item label="Calculator">
+  <item label="Calculator (_xcalc)">
     <action name="Execute"><execute>xcalc</execute></action>
   </item>
   <separator />
-  <item label="Low backlight">
+  <item label="Low _backlight">
     <action name="Execute"><execute>xbacklight -set 20</execute></action>
   </item>
-  <item label="High backlight">
+  <item label="High _backlight">
     <action name="Execute"><execute>xbacklight -set 100</execute></action>
   </item>
   <separator />
@@ -52,14 +52,14 @@
   <item label="Rotate wallpaper">
     <action name="Execute"><execute>bash -c "source ~/.bash_libenv;feh-rotate-wallpaper"</execute></action>
   </item>
-  <item label="Lock">
+  <item label="_Lock">
     <action name="Execute"><execute>xscreensaver-command -lock</execute></action>
   </item>
-  <item label="Restart">
+  <item label="_Restart">
     <action name="Restart" />
   </item>
   <separator />
-  <item label="Exit">
+  <item label="_Quit">
     <action name="Exit" />
   </item>
 </menu>
