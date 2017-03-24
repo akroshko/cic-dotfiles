@@ -250,25 +250,19 @@
       <action name="ShowMenu"><menu>root-menu</menu></action>
     </keybind>
     <keybind key="F1">
-      <action name="ToggleShowDesktop"/>
-    </keybind>
-    <keybind key="M-F1">
       <action name="ShowMenu"><menu>root-menu</menu></action>
     </keybind>
     <keybind key="F2">
-      <action name="Execute"><execute>bash -c "amixer set Master mute;notify-send \"Mute\" \"$(date +%Y%m%d%H%M%S)\" -t 5000"</execute></action>
-    </keybind>
-    <!-- <keybind key="C-F2"> -->
-    <!--   <action name="Execute"><execute>bash -c "amixer set Master unmute;notify-send \"Unmute\" \"$(date +%Y%m%d%H%M%S)\" -t 5000"</execute></action> -->
-    <!-- </keybind> -->
-    <keybind key="M-F2">
-      <action name="ShowMenu"><menu>volume-menu</menu></action>
+      <action name="ToggleShowDesktop"/>
     </keybind>
     <keybind key="F3">
-      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;whitenoise.sh"</execute></action>
+      <action name="Execute"><execute>bash -c "amixer set Master mute;notify-send \"Mute\" \"$(date +%Y%m%d%H%M%S)\" -t 5000"</execute></action>
     </keybind>
     <keybind key="C-F3">
-      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;whitenoise.sh --next"</execute></action>
+      <action name="Execute"><execute>bash -c "amixer set Master unmute;notify-send \"Unmute\" \"$(date +%Y%m%d%H%M%S)\" -t 5000"</execute></action>
+    </keybind>
+    <keybind key="M-F3">
+      <action name="ShowMenu"><menu>volume-menu</menu></action>
     </keybind>
     <keybind key="F4">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;throttle-down"</execute></action>
@@ -306,6 +300,13 @@
     </keybind>
     <keybind key="Print">
       <action name="Execute"><execute>bash -c "source ~/.bash_library.d/bash_functions_stdlib;source ~/.bash_library.d/bashrc_functions_external;source ~/.bash_library.d/bash_library_std;capture-screen"</execute></action>
+    </keybind>
+    <!-- temporary... -->
+    <keybind key="s-M-/">
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;whitenoise.sh"</execute></action>
+    </keybind>
+    <keybind key="C-s-M-/">
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;whitenoise.sh --next"</execute></action>
     </keybind>
     <keybind key="M-W-l">
       <action name="Iconify"/>
