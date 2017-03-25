@@ -258,6 +258,7 @@
     <keybind key="F3">
       <action name="Execute"><execute>bash -c "amixer set Master mute;notify-send \"Mute\" \"$(date +%Y%m%d%H%M%S)\" -t 5000"</execute></action>
     </keybind>
+    <!-- should be normalize??? -->
     <keybind key="C-F3">
       <action name="Execute"><execute>bash -c "amixer set Master unmute;notify-send \"Unmute\" \"$(date +%Y%m%d%H%M%S)\" -t 5000"</execute></action>
     </keybind>
@@ -538,10 +539,10 @@
     <!-- TODO: these will be be deleted very shortly, just here for convienience -->
     <!-- TODO: add notifications -->
     <keybind key="M-8">
-      <action name="Execute">python /home/akroshko/cic-vcs/cic-external/capture-bib.py</action>
+      <action name="Execute"><execute>python /home/akroshko/cic-vcs/cic-external/capture-bib.py</execute></action>
     </keybind>
     <keybind key="M-9">
-      <action name="Execute">launch-emacsclient noframe --eval "(cic:insert-collection)"</action>
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;launch-emacsclient noframe --eval \"(cic:insert-collection)\""</execute></action>
     </keybind>
   </keyboard>
   <mouse>

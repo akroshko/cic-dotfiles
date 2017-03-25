@@ -23,8 +23,8 @@ map [normal] .            scroll full-down
 map [fullscreen] .        scroll full-down
 # better way of doing this?
 # TODO: fix this so I can search next without interferring with esdf keys
-# map [normal]     s        search next
-# map [fullscreen] s        search next
+map [normal]     <M-s>    search next
+map [fullscreen] <M-s>    search next
 map [normal]     <C-s>    focus_inputbar /
 map [fullscreen] <C-s>    focus_inputbar /
 # TODO: map equals
