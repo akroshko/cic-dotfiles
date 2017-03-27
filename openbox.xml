@@ -303,10 +303,10 @@
       <action name="Execute"><execute>bash -c "source ~/.bash_library.d/bash_functions_stdlib;source ~/.bash_library.d/bashrc_functions_external;source ~/.bash_library.d/bash_library_std;capture-screen"</execute></action>
     </keybind>
     <!-- temporary... -->
-    <keybind key="s-M-/">
+    <keybind key="M-W-slash">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;whitenoise.sh"</execute></action>
     </keybind>
-    <keybind key="C-s-M-/">
+    <keybind key="C-M-W-slash">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;whitenoise.sh --next"</execute></action>
     </keybind>
     <keybind key="M-W-l">
