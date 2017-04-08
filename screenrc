@@ -1,9 +1,4 @@
 # https://bugs.launchpad.net/ubuntu/+source/vte/+bug/29787
-# Control-^ (usually Control-Shift-6) is traditional and the only key not used by emacs
-# escape ^^^^
-# binds both M-[ and C-^ as command
-# escape ^^^^
-# bindkey "^[[" command
 # use c-o as escape key
 escape ^oO
 # log on by default
@@ -54,19 +49,6 @@ bind = resize =
 bind + resize +1
 bind - resize -1
 bind _ resize max
-# hardstatus
-# hardstatus on
-# hardstatus alwayslastline
-# copy mode
-# https://gist.github.com/paxan/4666544
-# markkeys =:=V:h=:l=:0=:$=:/=:?=
-#
-# https://wiki.archlinux.org/index.php/GNU_Screen
-# hardstatus string "screen (%n: %t)"
-# http://aperiodic.net/screen/appearance
-# original
-# caption always "%?%F%{-b bc}%:%{-b bb}%?%C|%D|%M %d|%H%?%F%{+u wb}%? %L=%-Lw%45>%{+b by}%n%f*%t%{-}%+Lw%-0<"
-# XXXX: %? is a ternary operation with : being else part
 # get pid for backtick command
 backtick 1 0 0 /bin/bash -c "echo $PID"
 backtick 2 0 0 /bin/date +%Y%m%dT%H%M%S
