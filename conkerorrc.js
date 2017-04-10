@@ -170,6 +170,28 @@ session_pref("privacy.clearOnShutdown.passwords",true);
 session_pref("privacy.clearOnShutdown.sessions",true);
 session_pref("privacy.clearOnShutdown.siteSettings",true);
 session_pref("privacy.sanitize.sanitizeOnShutdown",true);
+// TODO: want to do this to avoid stupid warnings, but messes up google homepage
+// session_pref("general.useragent.compatMode.firefox", true);
+// security stuff
+// TODO: will have to change by firefox 48
+// https://vikingvpn.com/cybersecurity-wiki/browser-security/guide-hardening-mozilla-firefox-for-privacy-and-security
+session_pref("xpinstall.signatures.required",false);
+session_pref("security.ssl3.ecdhe_ecdsa_rc4_128_sha",false);
+session_pref("security.ssl3.ecdhe_rsa_rc4_128_sha",false);
+session_pref("security.ssl3.rsa_rc4_128_md5",false);
+session_pref("security.ssl3.rsa_rc4_128_sha",false);
+session_pref("security.ssl3.rsa_des_ede3_sha",false);
+// TODO: change in future when I don't need to connect to certain unsafe websites
+// session_pref("security.ssl.require_safe_negotiation",true);
+// session_pref("security.ssl.treat_unsafe_negotiation_as_broken",true);
+// TODO: I never use this
+session_pref("browser.formfill.enable",false);
+// TODO: I clear cache, but never cache ssl
+session_pref("browser.cache.disk_cache_ssl",false);
+session_pref("browser.cache.offline.enable",false);
+session_pref("geo.enabled",false);
+session_pref("plugin.scan.plid.all",false);
+// TODO:
 // printer stuff
 session_pref("print.print_headercenter","");
 session_pref("print.print_headerleft","");
