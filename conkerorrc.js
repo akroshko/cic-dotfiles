@@ -345,6 +345,8 @@ define_webjump("sage","http://sagemath.org")
 define_webjump("sagemath","http://sagemath.org")
 define_webjump("sage-sym","http://doc.sagemath.org/html/en/reference/calculus/sage/symbolic/expression.html")
 define_webjump("sagemath-sym","http://doc.sagemath.org/html/en/reference/calculus/sage/symbolic/expression.html")
+define_webjump("sage-plot","http://doc.sagemath.org/html/en/reference/plotting/sage/plot/plot.html")
+define_webjump("sagemath-plot","http://doc.sagemath.org/html/en/reference/plotting/sage/plot/plot.html")
 define_webjump("sciencedaily","http://sciencedaily.com")
 // TODO: uses invalid security certificate
 define_webjump("slashdot","http://www.slashdot.com");
