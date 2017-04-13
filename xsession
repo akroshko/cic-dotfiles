@@ -4,7 +4,7 @@
 # Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com>
 # Created: Wed June 08, 2016
 # Version: 20160526
-# URL: https://github.com/akroshko/cic-external
+# URL: https://github.com/akroshko/cic-groups
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
