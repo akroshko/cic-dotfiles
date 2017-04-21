@@ -327,6 +327,7 @@ define_webjump("linuxtoday","http://linuxtoday.com");
 define_webjump("lwn","https://lwn.net");
 define_webjump("lxer","http://lxer.com");
 define_webjump("matplotlib","http://matplotlib.org/search.html?q=%s&check_keywords=yes&area=default",$alternative="http://matplotlib.org");
+define_webjump("mathscinet","http://www.ams.org/mathscinet");
 define_webjump("mouser","http://ca.mouser.com/");
 define_webjump("ncix","http://www.ncix.com/search/?categoryid=0&q=%s",$alternative="http://www.ncix.com");
 // TODO: uses invalid security certificate
