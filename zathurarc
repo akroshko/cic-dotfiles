@@ -12,84 +12,84 @@ set window-height       1080
 set selection-clipboard clipboard
 # TODO: would love to get command period working here
 # map reload
-map [normal]     5        reload
-map [fullscreen] 5        reload
+map [normal]       %       reload
+map [fullscreen]   %       reload
 # change from navigate previous, navigate next
-map [normal]     b        scroll full-up
-map [fullscreen] b        scroll full-up
-map [normal]     <Space>  scroll full-down
-map [fullscreen] <Space>  scroll full-down
-map [normal] ,            scroll full-up
-map [fullscreen] ,        scroll full-up
-map [normal] .            scroll full-down
-map [fullscreen] .        scroll full-down
+map [normal]       b       scroll full-up
+map [fullscreen]   b       scroll full-up
+map [normal]       <Space> scroll full-down
+map [fullscreen]   <Space> scroll full-down
+map [normal] ,             scroll full-up
+map [fullscreen]   ,       scroll full-up
+map [normal] .             scroll full-down
+map [fullscreen]   .       scroll full-down
 # better way of doing this?
 # TODO: fix this so I can search next without interferring with esdf keys
-# map [normal]     s        search next
-# map [fullscreen] s        search next
-map [normal]     <C-s>    focus_inputbar /
-map [fullscreen] <C-s>    focus_inputbar /
+# map [normal]     s       search next
+# map [fullscreen] s       search next
+map [normal]       <C-s>   focus_inputbar /
+map [fullscreen]   <C-s>   focus_inputbar /
 # TODO: map equals
-map [normal]     _        adjust_window best-fit
-map [fullscreen] _        adjust_window best-fit
-map [normal]     =        adjust_window width
-map [fullscreen] =        adjust_window width
+map [normal]       _       adjust_window best-fit
+map [fullscreen]   _       adjust_window best-fit
+map [normal]       =       adjust_window width
+map [fullscreen]   =       adjust_window width
 # emacs keys
-map [normal]     \<       goto top
-map [fullscreen] \<       goto top
-map [normal]     \>       goto bottom
-map [fullscreen] \>       goto bottom
-map [normal]     <C-g>    abort
-map [fullscreen] <C-g>    abort
-map [normal]     <C-p>    scroll up
-map [fullscreen] <C-p>    scroll up
-map [normal]     <C-n>    scroll down
-map [fullscreen] <C-n>    scroll down
+map [normal]       \<      goto top
+map [fullscreen]   \<      goto top
+map [normal]       \>      goto bottom
+map [fullscreen]   \>      goto bottom
+map [normal]       <C-g>   abort
+map [fullscreen]   <C-g>   abort
+map [normal]       <C-p>   scroll up
+map [fullscreen]   <C-p>   scroll up
+map [normal]       <C-n>   scroll down
+map [fullscreen]   <C-n>   scroll down
 # esdf keys with a as follow
 # TODO: overwrites: a, s   Adjust window in best-fit or width mode
-map [normal]     a        follow
-map [fullscreen] a        follow
-map [normal]     w        toggle_page_mode
-map [fullscreen] w        toggle_page_mode
-map [normal]     e        scroll up
-map [fullscreen] e        scroll up
-map [normal]     s        scroll left
-map [fullscreen] s        scroll left
-map [normal]     d        scroll down
-map [fullscreen] d        scroll down
-map [normal]     f        scroll right
-map [fullscreen] f        scroll right
-map [normal]     E        zoom in
-map [fullscreen] E        zoom in
-map [normal]     D        zoom out
-map [fullscreen] D        zoom out
-map [normal]     W        adjust_window width
-map [fullscreen] W        adjust_window width
-map [normal]     F        adjust_window fit
-map [fullscreen] F        adjust_window fit
+map [normal]       a        follow
+map [fullscreen]   a        follow
+map [normal]       w        toggle_page_mode
+map [fullscreen]   w        toggle_page_mode
+map [normal]       e        scroll up
+map [fullscreen]   e        scroll up
+map [normal]       s        scroll left
+map [fullscreen]   s        scroll left
+map [normal]       d        scroll down
+map [fullscreen]   d        scroll down
+map [normal]       f        scroll right
+map [fullscreen]   f        scroll right
+map [normal]       E        zoom in
+map [fullscreen]   E        zoom in
+map [normal]       D        zoom out
+map [fullscreen]   D        zoom out
+map [normal]       W        adjust_window width
+map [fullscreen]   W        adjust_window width
+map [normal]       F        adjust_window fit
+map [fullscreen]   F        adjust_window fit
 # TODO: need a capital letter for fit
 # things don't seem to work
-map [normal]     <C-,>    navigate previous
-map [fullscreen] <C-,>    navigate previous
-map [normal]     <C-.>    navigate next
-map [fullscreen] <C-.>    navigate next
+map [normal]       <C-,>    navigate previous
+map [fullscreen]   <C-,>    navigate previous
+map [normal]       <C-.>    navigate next
+map [fullscreen]   <C-.>    navigate next
 # scroll easily
-map [normal]     V        scroll up
-map [fullscreen] V        scroll up
-map [normal]     v        scroll down
-map [fullscreen] v        scroll down
+map [normal]       V        scroll up
+map [fullscreen]   V        scroll up
+map [normal]       v        scroll down
+map [fullscreen]   v        scroll down
 # back
-map [normal]     l        jumplist backward
-map [fullscreen] l        jumplist backward
+map [normal]       l        jumplist backward
+map [fullscreen]   l        jumplist backward
 # index
-map [normal]     i        toggle_index
-map [fullscreen] i        toggle_index
+map [normal]       i        toggle_index
+map [fullscreen]   i        toggle_index
 # TODO: find out if these were defaults for anything
-map [normal]     }        feedkeys ":exec zathura-switch-file.py $FILE<Return>"
-map [normal]     ]        feedkeys ":exec zathura-switch-file.py $FILE --bytime<Return>"
-map [normal]     {        feedkeys ":exec zathura-switch-file.py $FILE --previous<Return>"
-map [normal]     [        feedkeys ":exec zathura-switch-file.py $FILE --bytime --previous<Return>"
+map [normal]       }        feedkeys ":exec zathura-switch-file.py $FILE<Return>"
+map [normal]       ]        feedkeys ":exec zathura-switch-file.py $FILE --bytime<Return>"
+map [normal]       {        feedkeys ":exec zathura-switch-file.py $FILE --previous<Return>"
+map [normal]       [        feedkeys ":exec zathura-switch-file.py $FILE --bytime --previous<Return>"
 # good thing to use, c means toggle-continuous....
 # TODO: possibly hook into other (fit-page-like ?) commands and test
-map [normal]     c        set scroll-page-aware
-map [fullscreen] c        set scroll-page-aware
+map [normal]       c        set scroll-page-aware
+map [fullscreen]   c        set scroll-page-aware

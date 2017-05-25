@@ -83,7 +83,8 @@ interactive("duplicate-buffer-new-window", "Duplicate buffer in new window",
             function (I) {
                 browser_object_follow(I.buffer, OPEN_NEW_WINDOW, I.buffer.current_uri.spec);
             });
-define_key(content_buffer_normal_keymap, "5",   "reload");
+// define_key(content_buffer_normal_keymap, "5",   "reload");
+define_key(content_buffer_normal_keymap, "%",   "reload");
 // TODO: something slightly more consistent
 // define_key(content_buffer_normal_keymap, "d",   "duplicate-buffer");
 // TODO: not great, but not bad either, maybe b will free up some day
