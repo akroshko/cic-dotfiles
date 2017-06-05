@@ -521,8 +521,13 @@
     <keybind key="M-1">
       <action name="ShowMenu"><menu>maintenance</menu></action>
     </keybind>
+    <!-- TODO: just using M-1 for now -->
+    <!-- <keybind key="F6"> -->
+    <!--   <action name="ShowMenu"><menu>maintenance</menu></action> -->
+    <!-- </keybind> -->
+    <!-- Quickly sync things out to mobile and pull things in -->
     <keybind key="F6">
-      <action name="ShowMenu"><menu>maintenance</menu></action>
+      <action name="Execute"><execute>rxvt-unicode -e bash -i -c "source ~/.bash_libenv;pull-push-mobile-org;sleep 5"</execute></action>
     </keybind>
     <keybind key="M-Print">
       <action name="ShowMenu"><menu>screen-capture</menu></action>
