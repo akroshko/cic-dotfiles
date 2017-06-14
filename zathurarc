@@ -14,6 +14,8 @@ set selection-clipboard clipboard
 # map reload
 map [normal]       %       reload
 map [fullscreen]   %       reload
+map [normal]       `       reload
+map [fullscreen]   `       reload
 # change from navigate previous, navigate next
 map [normal]       b       scroll full-up
 map [fullscreen]   b       scroll full-up
