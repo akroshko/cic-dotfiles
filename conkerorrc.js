@@ -403,6 +403,9 @@ define_webjump("wu-saskatoon","https://www.wunderground.com/cgi-bin/findweather/
 define_webjump("timeanddate","https://www.timeanddate.com/search/results.html?query=%s");
 define_webjump("timeanddate-calgary","https://www.timeanddate.com/worldclock/city.html?n=55");
 define_webjump("timeanddate-saskatoon","https://www.timeanddate.com/worldclock/city.html?n=1227");
+define_webjump("trails-banff", "http://www.pc.gc.ca/apps/tcond/cond_e.asp?oPark=100092");
+define_webjump("trails-jasper","http://www.pc.gc.ca/apps/tcond/cond_e.asp?oPark=100244");
+
 
 // use web browser for system admin
 // TODO: may need to be https for some people
