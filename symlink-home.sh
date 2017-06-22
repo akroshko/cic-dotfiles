@@ -45,5 +45,11 @@ main () {
     need_new_directory ${HOME}/.config/feh
     need_new_symlink ${SCRIPTPATH}/feh-buttons ${HOME}/.config/feh/buttons
     need_new_symlink ${SCRIPTPATH}/feh-keys    ${HOME}/.config/feh/keys
+    # calibre
+    # TODO: copying to avoid settings overwriting.... need to suppress this script if experimenting
+    [[ -e ${HOME}/.config/calibre/shortcuts/viewer.plist ]] && rm ${HOME}/.config/calibre/shortcuts/viewer.plist
+    cp ${SCRIPTPATH}/calibre-viewer.plist ${HOME}/.config/calibre/shortcuts/viewer.plist
+    [[ -e ${HOME}/.config/calibre/viewer.py ]] && rm ${HOME}/.config/calibre/viewer.py
+    cp ${SCRIPTPATH}/calibre-viewer.py ${HOME}/.config/calibre/viewer.py
 }
 main

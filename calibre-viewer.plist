@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Down</key>
+	<array>
+		<string>J</string>
+	</array>
+	<key>Find next</key>
+	<array>
+		<string>Ctrl+T</string>
+	</array>
+	<key>Left</key>
+	<array>
+		<string>H</string>
+	</array>
+	<key>Next Page</key>
+	<array>
+		<string>Right</string>
+		<string>Space</string>
+	</array>
+	<key>Next Section</key>
+	<array>
+		<string>Ctrl+PgDown</string>
+		<string>Down</string>
+	</array>
+	<key>Previous Page</key>
+	<array>
+		<string>Left</string>
+		<string>B</string>
+	</array>
+	<key>Previous Section</key>
+	<array>
+		<string>Ctrl+PgUp</string>
+		<string>Up</string>
+	</array>
+	<key>Right</key>
+	<array>
+		<string>L</string>
+	</array>
+	<key>Up</key>
+	<array>
+		<string>K</string>
+	</array>
+</dict>
+</plist>
