@@ -9,6 +9,9 @@ flip
 action_0
 action_6
 reload_image
+orient_3
+orient_1
+render
 # figure this out
 # rotate
 # things for esdf, these should be replaced
