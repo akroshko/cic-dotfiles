@@ -288,6 +288,7 @@ define_webjump("buyapi", "https://www.buyapi.ca");
 // TODO: add some non-search things here
 define_webjump("canada-firehazard","http://cwfis.cfs.nrcan.gc.ca/maps/fw");
 define_webjump("clonezilla","http://clonezilla.org/downloads.php");
+define_webjump("clubtread","http://forums.clubtread.com/");
 define_webjump("ctan-all", "https://www.ctan.org/search/?search=%s&search_type=description&search_type=filename&search_type=id",$alternative="https://www.ctan.org");
 define_webjump("ctan-description", "https://www.ctan.org/search/?search=%s&search_type=description",$alternative="https://www.ctan.org");
 define_webjump("ctan-filename", "https://www.ctan.org/search/?search=%s&search_type=filename",$alternative="https://www.ctan.org");

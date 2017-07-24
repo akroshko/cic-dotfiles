@@ -8,6 +8,9 @@ next_img
 flip
 action_0
 action_6
+reload_image
+# figure this out
+# rotate
 # things for esdf, these should be replaced
 # TODO: want a more universal metadata key
 toggle_exif
@@ -32,6 +35,10 @@ zoom_default      0            S
 zoom_fit          underscore   F
 prev_img          p b
 next_img          n space
+reload_image      grave
+# TODO: should I use < >, or what should they be for?
+orient_3          R
+orient_1          r
 # hack to give g for gimp-edit along with feh-open-browse sh script
 action_6          g
 # I only hit these accidentaly
