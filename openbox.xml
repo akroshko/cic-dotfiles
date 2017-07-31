@@ -294,7 +294,7 @@
       <action name="Execute"><execute>bash -c "export PATH=\"${PATH}:~/bin\";source ~/.bash_library.d/bash_functions_stdlib;master-unboss-key"</execute></action>
     </keybind>
     <!-- emergency (or normal) hibernate, assume pm-hibernate is in sudoers -->
-    <!-- TODO: want other key for this? -->
+    <!-- TODO: want other key for this for small keyboards? actually make just enter work for accept -->
     <keybind key="M-S-F10">
       <action name="Execute"><execute>rxvt-unicode -e bash -i -c "while read -r -t 0;do read -r; done;IFS= read -n 1 -p 'Press [Enter] to hibernate or [Space] to abort... ' TRYAGAIN;if [[ ${TRYAGAIN} == ' ' ]];then echo '';echo 'Aborting hibernate!!!';sleep 5;else echo 'Hibernating...';sudo pm-hibernate;sleep 15;fi;"</execute></action>
     </keybind>
