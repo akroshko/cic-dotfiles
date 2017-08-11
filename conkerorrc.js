@@ -126,6 +126,12 @@ define_key(minibuffer_base_keymap,       "s-z",   "cmd_scrollPageDown");
 define_key(content_buffer_form_keymap,   "s-z",   "unfocus", $repeat = "cmd_scrollPageDown");
 define_key(content_buffer_text_keymap,   "s-z",   "unfocus", $repeat = "cmd_scrollPageDown");
 define_key(content_buffer_normal_keymap, "s-z",   "cmd_scrollPageDown");
+// scroll a bit
+define_key(default_global_keymap,        "C-s-z", "cmd_scrollLineDown");
+define_key(minibuffer_base_keymap,       "C-s-z", "cmd_scrollLineDown");
+define_key(content_buffer_form_keymap,   "C-s-z", "cmd_scrollLineDown", $repeat = "cmd_scrollLineDown");
+define_key(content_buffer_text_keymap,   "C-s-z", "cmd_scrollLineDown", $repeat = "cmd_scrollLineDown");
+define_key(content_buffer_normal_keymap, "C-s-z", "cmd_scrollLineDown");
 // scroll
 // TODO: replace by asdf keys
 // TODO: do with "v" as well? change page back to "b", something else for background?
