@@ -280,6 +280,9 @@
     <keybind key="F5">
       <action name="Execute"><execute>rxvt-unicode -e bash -i -c "source ~/.bash_libenv;harm-bash;sleep 5"</execute></action>
     </keybind>
+    <keybind key="M-F5">
+      <action name="Execute"><execute>rxvt-unicode -e bash -i -c "source ~/.bash_libenv;pull-push-mobile-org;sleep 5"</execute></action>
+    </keybind>
     <!-- complicated source to save execution time, ensures my path to conkeror is set -->
     <keybind key="F9">
       <action name="Execute"><execute>bash -c "export PATH=\"${PATH}:~/bin\";source ~/.bash_library.d/bash_functions_stdlib;youtube-pause"</execute></action>
@@ -531,8 +534,9 @@
     <!--   <action name="ShowMenu"><menu>maintenance</menu></action> -->
     <!-- </keybind> -->
     <!-- Quickly sync things out to mobile and pull things in -->
+    <!-- f6 searches -->
     <keybind key="F6">
-      <action name="Execute"><execute>rxvt-unicode -e bash -i -c "source ~/.bash_libenv;pull-push-mobile-org;sleep 5"</execute></action>
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;xclip -o -selection p | xclip -i -selection c;sleep 0.2;launch-emacsclient noframe --eval \"(cic:candidate-document-check-other-window)\""</execute></action>
     </keybind>
     <keybind key="M-Print">
       <action name="ShowMenu"><menu>screen-capture</menu></action>
