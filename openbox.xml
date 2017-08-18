@@ -464,6 +464,18 @@
     <keybind key="XF86AudioMute">
       <action name="Execute"><execute>amixer sset Master toggle</execute></action>
     </keybind>
+    <!-- TODO: are these what I want? -->
+    <keybind key="C-W-z">
+      <action name="Execute"><execute>bash -c "amixer set Master 10%-;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
+    </keybind>
+    <keybind key="C-W-x">
+      <action name="Execute"><execute>bash -c "amixer set Master 10%+;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
+    </keybind>
+    <!-- TODO: toggle or force off? -->
+    <keybind key="C-W-c">
+      <action name="Execute"><execute>amixer sset Master toggle</execute></action>
+    </keybind>
+    <!-- TODO: is above what I want? -->
     <keybind key="M-W-minus">
       <action name="Execute"><execute>bash -c "amixer set Master 10%-;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
     </keybind>
