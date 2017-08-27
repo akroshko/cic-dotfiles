@@ -471,9 +471,15 @@
     <keybind key="C-W-x">
       <action name="Execute"><execute>bash -c "amixer set Master 10%+;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
     </keybind>
-    <!-- TODO: toggle or force off? -->
+    <!-- TODO: toggle or force off? notify?-->
     <keybind key="C-W-c">
       <action name="Execute"><execute>amixer sset Master toggle</execute></action>
+    </keybind>
+    <keybind key="C-W-v">
+      <action name="Execute"><execute>rxvt-unicode -title "alsamixer" -e bash -c alsamixer</execute></action>
+    </keybind>
+    <keybind key="C-W-s">
+      <action name="Execute"><execute>rxvt-unicode</execute></action>
     </keybind>
     <!-- TODO: is above what I want? -->
     <keybind key="M-W-minus">
