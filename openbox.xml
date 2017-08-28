@@ -465,6 +465,9 @@
       <action name="Execute"><execute>amixer sset Master toggle</execute></action>
     </keybind>
     <!-- TODO: are these what I want? -->
+    <keybind key="C-W-a">
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;apropos-clipboard"</execute></action>
+    </keybind>
     <keybind key="C-W-z">
       <action name="Execute"><execute>bash -c "amixer set Master 10%-;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
     </keybind>
