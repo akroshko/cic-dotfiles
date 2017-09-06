@@ -255,6 +255,13 @@
     <keybind key="F2">
       <action name="ToggleShowDesktop"/>
     </keybind>
+    <!-- TODO: would rather it a key without shift-->
+    <keybind key="M-S-D">
+      <action name="ToggleShowDesktop"/>
+    </keybind>
+    <keybind key="C-W-d">
+      <action name="ToggleShowDesktop"/>
+    </keybind>
     <keybind key="F3">
       <action name="Execute"><execute>bash -c "amixer set Master mute;notify-send \"Mute\" \"$(date +%Y%m%d%H%M%S)\" -t 5000"</execute></action>
     </keybind>
@@ -321,6 +328,9 @@
       <action name="Iconify"/>
     </keybind>
     <keybind key="M-W-k">
+      <action name="Close"/>
+    </keybind>
+    <keybind key="M-S-k">
       <action name="Close"/>
     </keybind>
     <!-- snap left -->
@@ -423,10 +433,14 @@
     <!--   <action name="NextWindow"/> -->
     <!-- </keybind> -->
     <!-- Keybindings for window switching with the arrow keys -->
-    <keybind key="C-z">
+    <keybind key="M-z">
       <action name="NextWindow">
         <raise>yes</raise>
       </action>
+    </keybind>
+    <!-- Switch to emacs windows, hardcoded for speed -->
+    <keybind key="M-e">
+      <action name="Execute"><execute>/home/akroshko/cic-vcs/bash-stdlib/switch-to-emacs-or-passthrough.sh</execute></action>
     </keybind>
     <keybind key="M-W-period">
       <action name="DirectionalCycleWindows">
@@ -538,7 +552,18 @@
     <!-- need fallbacks and sync up properly with dotfiles -->
     <!-- <xi:include href="openbox-second.xml"/> -->
     <!-- <xi:include href="openbox-second-f8.xml"/> -->
-    <keybind key="M-z">
+    <!-- only problem with this is other menus are control rather than meta -->
+    <keybind key="C-z">
+      <action name="NextWindow">
+        <raise>yes</raise>
+      </action>
+    </keybind>
+    <!-- TODO: experimental -->
+    <!-- <keybind key="M-apostrophe"> -->
+    <!--   <action name="ShowMenu"><menu>prog</menu></action> -->
+    <!-- </keybind> -->
+    <!-- TODO: experimental -->
+    <keybind key="M-a">
       <action name="ShowMenu"><menu>prog</menu></action>
     </keybind>
     <keybind key="F8">
@@ -571,9 +596,10 @@
     <keybind key="F7">
       <action name="ShowMenu"><menu>screen-capture</menu></action>
     </keybind>
-    <keybind key="M-a">
-      <action name="ShowMenu"><menu>apropos</menu></action>
-    </keybind>
+    <!-- TODO: change to something else -->
+    <!-- <keybind key="M-a"> -->
+    <!--   <action name="ShowMenu"><menu>apropos</menu></action> -->
+    <!-- </keybind> -->
     <!-- TODO: these will be be deleted very shortly, just here for convienience -->
     <!-- TODO: add notifications -->
     <keybind key="M-8">

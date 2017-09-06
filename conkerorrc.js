@@ -28,6 +28,27 @@ interactive("follow-unfocus","Follow and unfocus.",
         unfocus(I.window, I.buffer);
     });
 
+// TODO: append to default instead
+// currently nonfuncitonal
+browser_relationship_patterns[RELATIONSHIP_NEXT] =
+    [/^next$/i,
+     new RegExp("^>$","i"),
+     new RegExp("^(>>|»)$","i"),
+     new RegExp("^(>|»)","i"),
+     new RegExp("(>|»)$","i"),
+     // new RegExp("»","i"),
+     new RegExp("\\bnext","i"),
+     new RegExp("►","i")];
+
+browser_relationship_patterns[RELATIONSHIP_PREVIOUS] =
+    [/^(prev|previous)$/i,
+     new RegExp("^<$","i"),
+     new RegExp("^(<<|«)$","i"),
+     new RegExp("^(<|«)","i"),
+     new RegExp("(<|«)$","i"),
+     new RegExp("\\bprev|previous\\b","i"),
+     new RegExp("◄","i")];
+
 ////////////////////////////////////////
 // capture page with keyboard shortcut
 // TODO: change timeouts to not be stupid
@@ -62,7 +83,11 @@ define_key(content_buffer_normal_keymap, "/",   "save");
 // ???
 
 define_key(content_buffer_normal_keymap, "C-]", "local-print-buffer");
-define_key(content_buffer_normal_keymap, "M-z", "unfocus");
+define_key(default_global_keymap,        "M-u", "unfocus");
+define_key(text_keymap,                  "M-u", "unfocus");
+define_key(content_buffer_text_keymap,   "M-u", "unfocus");
+define_key(text_keymap,                  "M-U", "upcase-word");
+
 // TODO: not sure if this is best
 define_key(content_buffer_normal_keymap, "s-c", "back");
 define_key(content_buffer_normal_keymap, "s-l", "back");
@@ -83,6 +108,17 @@ interactive("duplicate-buffer-new-window", "Duplicate buffer in new window",
             function (I) {
                 browser_object_follow(I.buffer, OPEN_NEW_WINDOW, I.buffer.current_uri.spec);
             });
+
+define_key(default_global_keymap,        "M-?", "isearch-backward");
+define_key(content_buffer_normal_keymap, "M-?", "isearch-backward");
+define_key(isearch_keymap,               "M-?", "isearch-continue-backward");
+
+define_key(default_global_keymap,        "M-/", "isearch-forward");
+define_key(content_buffer_normal_keymap, "M-/", "isearch-forward");
+define_key(isearch_keymap,               "M-/", "isearch-continue-forward");
+// modules/bindings/default/content-buffer/normal.js:define_key(content_buffer_normal_keymap, "S", "isearch-continue-forward");
+// modules/bindings/default/content-buffer/normal.js:define_key(content_buffer_normal_keymap, "R", "isearch-continue-backward");
+
 // define_key(content_buffer_normal_keymap, "5",   "reload");
 define_key(content_buffer_normal_keymap, "%",   "reload");
 // TODO: something slightly more consistent
