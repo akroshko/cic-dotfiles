@@ -311,7 +311,11 @@
     <keybind key="M-W-F11">
       <action name="ToggleFullscreen"/>
     </keybind>
+    <!-- keep for now, but want to remove -->
     <keybind key="M-W-m">
+      <action name="ToggleMaximize"/>
+    </keybind>
+    <keybind key="M-S-x">
       <action name="ToggleMaximize"/>
     </keybind>
     <keybind key="Print">
@@ -324,7 +328,10 @@
     <keybind key="C-M-W-slash">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;whitenoise.sh --next"</execute></action>
     </keybind>
-    <keybind key="M-W-l">
+    <!-- <keybind key="M-W-l"> -->
+    <!--   <action name="Iconify"/> -->
+    <!-- </keybind> -->
+    <keybind key="M-S-m">
       <action name="Iconify"/>
     </keybind>
     <keybind key="M-W-k">
@@ -433,7 +440,12 @@
     <!--   <action name="NextWindow"/> -->
     <!-- </keybind> -->
     <!-- Keybindings for window switching with the arrow keys -->
-    <keybind key="M-z">
+    <!-- <keybind key="M-z"> -->
+    <!--   <action name="NextWindow"> -->
+    <!--     <raise>yes</raise> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
+    <keybind key="S-space">
       <action name="NextWindow">
         <raise>yes</raise>
       </action>
@@ -441,6 +453,21 @@
     <!-- Switch to emacs windows, hardcoded for speed -->
     <keybind key="M-e">
       <action name="Execute"><execute>/home/akroshko/cic-vcs/bash-stdlib/switch-to-emacs-or-passthrough.sh</execute></action>
+    </keybind>
+    <!-- TODO: same thing for now? possibly use to ditch emacs? -->
+    <keybind key="M-E">
+      <action name="Execute"><execute>/home/akroshko/cic-vcs/bash-stdlib/switch-to-emacs-or-passthrough.sh</execute></action>
+    </keybind>
+    <!-- TODO: move to more repls? move back if already at a repl? -->
+    <keybind key="M-S-q">
+      <action name="Execute"><execute> wmctrl -a "repl-restartable 'psql"</execute></action>
+    </keybind>
+    <!-- TODO: r==relation? or use for more repls -->
+    <keybind key="M-r">
+      <action name="Execute"><execute> wmctrl -a "repl-restartable 'psql"</execute></action>
+    </keybind>
+    <keybind key="M-S-r">
+      <action name="Execute"><execute> wmctrl -a "repl-restartable 'psql"</execute></action>
     </keybind>
     <keybind key="M-W-period">
       <action name="DirectionalCycleWindows">
@@ -563,7 +590,7 @@
     <!--   <action name="ShowMenu"><menu>prog</menu></action> -->
     <!-- </keybind> -->
     <!-- TODO: experimental -->
-    <keybind key="M-a">
+    <keybind key="M-z">
       <action name="ShowMenu"><menu>prog</menu></action>
     </keybind>
     <keybind key="F8">

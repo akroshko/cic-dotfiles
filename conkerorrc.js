@@ -68,25 +68,28 @@ interactive("local-print-buffer",
 ////////////////////////////////////////
 // esdf keys, experimental
 // TODO: need new 10x, need new back
-define_key(content_buffer_normal_keymap, "a",   "follow");
-define_key(content_buffer_normal_keymap, "s-a", "follow-new-buffer");
-define_key(content_buffer_normal_keymap, "e",   "cmd_scrollLineUp");
-define_key(content_buffer_normal_keymap, "s",   "cmd_scrollLeft");
-define_key(content_buffer_normal_keymap, "d",   "cmd_scrollLineDown");
-define_key(content_buffer_normal_keymap, "f",   "cmd_scrollRight");
-define_key(content_buffer_normal_keymap, "m",   "duplicate-buffer");
-define_key(content_buffer_normal_keymap, "M",   "follow-new-buffer-background");
-define_key(content_buffer_normal_keymap, "/",   "save");
+define_key(content_buffer_normal_keymap, "a",       "follow");
+define_key(content_buffer_normal_keymap, "s-a",     "follow-new-buffer");
+define_key(content_buffer_normal_keymap, "e",       "cmd_scrollLineUp");
+define_key(content_buffer_normal_keymap, "s",       "cmd_scrollLeft");
+define_key(content_buffer_normal_keymap, "d",       "cmd_scrollLineDown");
+define_key(content_buffer_normal_keymap, "f",       "cmd_scrollRight");
+define_key(content_buffer_normal_keymap, "m",       "duplicate-buffer");
+define_key(content_buffer_normal_keymap, "M",       "follow-new-buffer-background");
+define_key(content_buffer_normal_keymap, "/",       "save");
 // / for download/save
 // m for mirror/duplicate
 // best ones are....
 // ???
+// buffer switching
+define_key(content_buffer_normal_keymap, "s-space", "switch-to-buffer");
+define_key(minibuffer_keymap,            "s-space", "minibuffer-complete");
 
-define_key(content_buffer_normal_keymap, "C-]", "local-print-buffer");
-define_key(default_global_keymap,        "M-u", "unfocus");
-define_key(text_keymap,                  "M-u", "unfocus");
-define_key(content_buffer_text_keymap,   "M-u", "unfocus");
-define_key(text_keymap,                  "M-U", "upcase-word");
+define_key(content_buffer_normal_keymap, "C-]",     "local-print-buffer");
+define_key(default_global_keymap,        "M-u",     "unfocus");
+define_key(text_keymap,                  "M-u",     "unfocus");
+define_key(content_buffer_text_keymap,   "M-u",     "unfocus");
+define_key(text_keymap,                  "M-U",     "upcase-word");
 
 // TODO: not sure if this is best
 define_key(content_buffer_normal_keymap, "s-c", "back");
