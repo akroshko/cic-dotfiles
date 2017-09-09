@@ -440,16 +440,16 @@
     <!--   <action name="NextWindow"/> -->
     <!-- </keybind> -->
     <!-- Keybindings for window switching with the arrow keys -->
-    <!-- <keybind key="M-z"> -->
-    <!--   <action name="NextWindow"> -->
-    <!--     <raise>yes</raise> -->
-    <!--   </action> -->
-    <!-- </keybind> -->
-    <keybind key="S-space">
+    <keybind key="M-z">
       <action name="NextWindow">
         <raise>yes</raise>
       </action>
     </keybind>
+    <!-- <keybind key="S-space"> -->
+    <!--   <action name="NextWindow"> -->
+    <!--     <raise>yes</raise> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
     <!-- Switch to emacs windows, hardcoded for speed -->
     <keybind key="M-e">
       <action name="Execute"><execute>/home/akroshko/cic-vcs/bash-stdlib/switch-to-emacs-or-passthrough.sh</execute></action>
@@ -590,7 +590,7 @@
     <!--   <action name="ShowMenu"><menu>prog</menu></action> -->
     <!-- </keybind> -->
     <!-- TODO: experimental -->
-    <keybind key="M-z">
+    <keybind key="M-a">
       <action name="ShowMenu"><menu>prog</menu></action>
     </keybind>
     <keybind key="F8">
