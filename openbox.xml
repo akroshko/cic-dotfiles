@@ -440,16 +440,21 @@
     <!--   <action name="NextWindow"/> -->
     <!-- </keybind> -->
     <!-- Keybindings for window switching with the arrow keys -->
-    <keybind key="M-z">
-      <action name="NextWindow">
-        <raise>yes</raise>
-      </action>
-    </keybind>
-    <!-- <keybind key="S-space"> -->
+    <!-- <keybind key="M-z"> -->
     <!--   <action name="NextWindow"> -->
     <!--     <raise>yes</raise> -->
     <!--   </action> -->
     <!-- </keybind> -->
+    <keybind key="M-j">
+      <action name="NextWindow">
+        <raise>yes</raise>
+      </action>
+    </keybind>
+    <keybind key="M-S-j">
+      <action name="PreviousWindow">
+        <raise>yes</raise>
+      </action>
+    </keybind>
     <!-- Switch to emacs windows, hardcoded for speed -->
     <keybind key="M-e">
       <action name="Execute"><execute>/home/akroshko/cic-vcs/bash-stdlib/switch-to-emacs-or-passthrough.sh</execute></action>
@@ -589,8 +594,11 @@
     <!-- <keybind key="M-apostrophe"> -->
     <!--   <action name="ShowMenu"><menu>prog</menu></action> -->
     <!-- </keybind> -->
-    <!-- TODO: experimental -->
-    <keybind key="M-a">
+    <!-- TODO: must decide -->
+    <!-- <keybind key="M-a"> -->
+    <!--   <action name="ShowMenu"><menu>prog</menu></action> -->
+    <!-- </keybind> -->
+    <keybind key="M-z">
       <action name="ShowMenu"><menu>prog</menu></action>
     </keybind>
     <keybind key="F8">
@@ -617,17 +625,16 @@
     <keybind key="M-2">
       <action name="ShowMenu"><menu>screen-capture</menu></action>
     </keybind>
+    <keybind key="M-3">
+      <action name="ShowMenu"><menu>apropos</menu></action>
+    </keybind>
     <keybind key="M-4">
       <action name="ShowMenu"><menu>quick-reference</menu></action>
     </keybind>
     <keybind key="F7">
       <action name="ShowMenu"><menu>screen-capture</menu></action>
     </keybind>
-    <!-- TODO: change to something else -->
-    <!-- <keybind key="M-a"> -->
-    <!--   <action name="ShowMenu"><menu>apropos</menu></action> -->
-    <!-- </keybind> -->
-    <!-- TODO: these will be be deleted very shortly, just here for convienience -->
+    <!-- TODO: these will be be deleted very shortly, just here for convienience, or not? -->
     <!-- TODO: add notifications -->
     <keybind key="M-8">
       <action name="Execute"><execute>python /home/akroshko/cic-vcs/cic-groups/capture-bib.py</execute></action>
