@@ -265,6 +265,9 @@
     <keybind key="F3">
       <action name="Execute"><execute>bash -c "amixer set Master mute;notify-send \"Mute\" \"$(date +%Y%m%d%H%M%S)\" -t 5000"</execute></action>
     </keybind>
+    <keybind key="M-S-F3">
+      <action name="Execute"><execute>bash -c "source ~/.bash_library.d/bash_functions_stdlib;normalize-volume"</execute></action>
+    </keybind>
     <!-- should be normalize??? -->
     <keybind key="C-F3">
       <action name="Execute"><execute>bash -c "amixer set Master unmute;notify-send \"Unmute\" \"$(date +%Y%m%d%H%M%S)\" -t 5000"</execute></action>
@@ -283,6 +286,9 @@
     <!-- </keybind> -->
     <keybind key="M-F4">
       <action name="ShowMenu"><menu>power-menu</menu></action>
+    </keybind>
+    <keybind key="M-S-F4">
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;throttle-up"</execute></action>
     </keybind>
     <keybind key="F5">
       <action name="Execute"><execute>rxvt-unicode -e bash -i -c "source ~/.bash_libenv;harm-bash;sleep 5"</execute></action>
@@ -590,14 +596,6 @@
         <raise>yes</raise>
       </action>
     </keybind>
-    <!-- TODO: experimental -->
-    <!-- <keybind key="M-apostrophe"> -->
-    <!--   <action name="ShowMenu"><menu>prog</menu></action> -->
-    <!-- </keybind> -->
-    <!-- TODO: must decide -->
-    <!-- <keybind key="M-a"> -->
-    <!--   <action name="ShowMenu"><menu>prog</menu></action> -->
-    <!-- </keybind> -->
     <keybind key="M-z">
       <action name="ShowMenu"><menu>prog</menu></action>
     </keybind>

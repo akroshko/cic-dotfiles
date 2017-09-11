@@ -346,6 +346,7 @@ define_webjump("budget-bytes", "http://www.budgetbytes.com");
 define_webjump("buyapi", "https://www.buyapi.ca");
 // TODO: add some non-search things here
 define_webjump("canada-firehazard","http://cwfis.cfs.nrcan.gc.ca/maps/fw");
+define_webjump("canadiantire","http://www.canadiantire.ca/en.html");
 define_webjump("clonezilla","http://clonezilla.org/downloads.php");
 define_webjump("clubtread","http://forums.clubtread.com/");
 define_webjump("ctan-all", "https://www.ctan.org/search/?search=%s&search_type=description&search_type=filename&search_type=id",$alternative="https://www.ctan.org");
@@ -379,6 +380,7 @@ define_webjump("googleimages", "http://www.google.com/images?q=%s&safe=off", $al
 define_webjump("googlescholar", "http://scholar.google.com/scholar?q=%s", $alternative = "https://scholar.google.com");
 define_webjump("hackaday", "https://hackaday.com/");
 define_webjump("hackerboards", "http://hackerboards.com");
+define_webjump("homedepot", "https://www.homedepot.ca/en/home.html");
 define_webjump("hothardware","http://hothardware.com");
 // does not appear to have acceptable webjump
 define_webjump("instagram", "https://instagram.com/");
@@ -389,6 +391,7 @@ define_webjump("lwn","https://lwn.net");
 define_webjump("lxer","http://lxer.com");
 define_webjump("matplotlib","http://matplotlib.org/search.html?q=%s&check_keywords=yes&area=default",$alternative="http://matplotlib.org");
 define_webjump("mathscinet","http://www.ams.org/mathscinet");
+define_webjump("mec","http://www.mec.ca");
 define_webjump("mouser","http://ca.mouser.com/");
 define_webjump("ncix","http://www.ncix.com/search/?categoryid=0&q=%s",$alternative="http://www.ncix.com");
 // TODO: uses invalid security certificate
