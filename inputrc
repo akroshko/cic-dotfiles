@@ -20,6 +20,19 @@ set output-meta on
 "\M-n": history-search-forward
 # XXXX: required for sage terminal
 "\e[3~":delete-char
+########################################
+# needed for home and end keys
+# https://wiki.archlinux.org/index.php/Home_and_End_keys_not_working
+# allow the use of the Home/End keys, from default /etc/inputrc
+# "\e[1~": beginning-of-line
+# "\e[4~": end-of-line
+# $if term=rxvt
+"\e[7~": beginning-of-line
+"\e[8~": end-of-line
+# "\eOc": forward-word
+# "\eOd": backward-word
+# $endif
+
 $if Bash
     Space: magic-space
 $endif
