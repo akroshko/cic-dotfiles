@@ -68,14 +68,18 @@ interactive("local-print-buffer",
 ////////////////////////////////////////
 // esdf keys, experimental
 // TODO: need new 10x, need new back
-define_key(content_buffer_normal_keymap, "a",       "follow");
-define_key(content_buffer_normal_keymap, "s-a",     "follow-new-buffer");
+define_key(content_buffer_normal_keymap, "f",       "follow");
+define_key(content_buffer_normal_keymap, "s-f",     "follow-new-buffer");
+// define_key(content_buffer_normal_keymap, "F",       "follow-new-buffer-background");
 define_key(content_buffer_normal_keymap, "e",       "cmd_scrollLineUp");
-define_key(content_buffer_normal_keymap, "s",       "cmd_scrollLeft");
+// define_key(content_buffer_normal_keymap, "s",       "cmd_scrollLeft");
 define_key(content_buffer_normal_keymap, "d",       "cmd_scrollLineDown");
-define_key(content_buffer_normal_keymap, "f",       "cmd_scrollRight");
+// define_key(content_buffer_normal_keymap, "f",       "cmd_scrollRight");
+// define_key(content_buffer_normal_keymap, "d",       "duplicate-buffer");
+// define_key(content_buffer_normal_keymap, "s-d",     "duplicate-buffer-new-window");
 define_key(content_buffer_normal_keymap, "m",       "duplicate-buffer");
-define_key(content_buffer_normal_keymap, "M",       "follow-new-buffer-background");
+define_key(content_buffer_normal_keymap, "s-m",     "duplicate-buffer-new-window");
+define_key(content_buffer_normal_keymap, "D",       "find-url-new-window");
 define_key(content_buffer_normal_keymap, "/",       "save");
 // / for download/save
 // m for mirror/duplicate
@@ -92,6 +96,7 @@ define_key(content_buffer_text_keymap,   "M-u",     "unfocus");
 define_key(text_keymap,                  "M-U",     "upcase-word");
 
 // TODO: not sure if this is best
+define_key(content_buffer_normal_keymap, "a", "back");
 define_key(content_buffer_normal_keymap, "s-c", "back");
 define_key(content_buffer_normal_keymap, "s-l", "back");
 // define_key(content_buffer_normal_keymap, "s-g",   "find-url");
@@ -129,6 +134,7 @@ define_key(content_buffer_normal_keymap, "%",   "reload");
 // TODO: not great, but not bad either, maybe b will free up some day
 // define_key(content_buffer_normal_keymap, "D", "follow-new-buffer-background");
 // new window
+// TODO: still want these?
 define_key(content_buffer_normal_keymap, "w",   "duplicate-buffer-new-window");
 define_key(content_buffer_normal_keymap, "W",   "find-url-new-window");
 // copy and paste
@@ -373,6 +379,7 @@ define_webjump("facebook","https://www.facebook.com/search/results.php?q=%s&init
 define_webjump("fivethirtyeight","http://fivethirtyeight.com");
 define_webjump("flickr", "https://www.flickr.com/search/?q=%s", $alternative="https://www.flickr.com");
 define_webjump("flotrack","http://www.flotrack.org");
+define_webjump("fvwm","http://fvwm.org/");
 define_webjump("github", "https://github.com/");
 define_webjump("gmail", "https://mail.google.com/");
 define_webjump("gnuplot", "http://www.gnuplot.info");
@@ -397,6 +404,7 @@ define_webjump("ncix","http://www.ncix.com/search/?categoryid=0&q=%s",$alternati
 // TODO: uses invalid security certificate
 define_webjump("newegg","http://www.newegg.ca/Product/ProductList.aspx?Submit=ENE&DEPA=0&Order=BESTMATCH&Description=%s",$alternative="http://newegg.ca");
 define_webjump("ohloh", "https://www.ohloh.net/p?query=%s",$alternative="https://www.ohloh.net");
+define_webjump("openbox", "http://openbox.org/wiki/Help:Contents");
 define_webjump("otv", "https://otvtech.ca");
 define_webjump("phoronix", "https://phoronix.com");
 define_webjump("physorg", "http://phys.org");

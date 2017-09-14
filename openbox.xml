@@ -466,9 +466,9 @@
       <action name="Execute"><execute>/home/akroshko/cic-vcs/bash-stdlib/switch-to-emacs-or-passthrough.sh</execute></action>
     </keybind>
     <!-- TODO: same thing for now? possibly use to ditch emacs? -->
-    <keybind key="M-E">
-      <action name="Execute"><execute>/home/akroshko/cic-vcs/bash-stdlib/switch-to-emacs-or-passthrough.sh</execute></action>
-    </keybind>
+    <!-- <keybind key="M-E"> -->
+    <!--   <action name="Execute"><execute>/home/akroshko/cic-vcs/bash-stdlib/switch-to-emacs-or-passthrough.sh</execute></action> -->
+    <!-- </keybind> -->
     <!-- TODO: move to more repls? move back if already at a repl? -->
     <keybind key="M-S-q">
       <action name="Execute"><execute> wmctrl -a "repl-restartable 'psql"</execute></action>
