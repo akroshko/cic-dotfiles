@@ -499,10 +499,10 @@
       <action name="Execute"><execute>xvkbd -xsendevent -text "\\[Next]"</execute></action>
     </keybind>
     <keybind key="M-comma">
-      <action name="Execute"><execute>xdotool getwindowfocus key --window %1 click --clearmodifiers 4</execute></action>
+      <action name="Execute"><execute>xdotool click --clearmodifiers 4</execute></action>
     </keybind>
     <keybind key="M-period">
-      <action name="Execute"><execute>xdotool getwindowfocus key --window %1 click --clearmodifiers 5</execute></action>
+      <action name="Execute"><execute>xdotool click --clearmodifiers 5</execute></action>
     </keybind>
     <keybind key="XF86Calculator">
       <action name="Execute"><execute>xcalc</execute></action>

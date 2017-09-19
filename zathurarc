@@ -76,10 +76,16 @@ map [fullscreen]   <C-,>    navigate previous
 map [normal]       <C-.>    navigate next
 map [fullscreen]   <C-.>    navigate next
 # scroll easily
+# TODO: not sure which I'll choose
 map [normal]       V        scroll up
 map [fullscreen]   V        scroll up
 map [normal]       v        scroll down
 map [fullscreen]   v        scroll down
+# TODO: want this
+# map [normal]       N        scroll up
+# map [fullscreen]   N        scroll up
+# map [normal]       n        scroll down
+# map [fullscreen]   n        scroll down
 # back
 map [normal]       l        jumplist backward
 map [fullscreen]   l        jumplist backward

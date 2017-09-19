@@ -90,10 +90,13 @@ define_key(content_buffer_normal_keymap, "s-space", "switch-to-buffer");
 define_key(minibuffer_keymap,            "s-space", "minibuffer-complete");
 
 define_key(content_buffer_normal_keymap, "C-]",     "local-print-buffer");
-define_key(default_global_keymap,        "M-u",     "unfocus");
-define_key(text_keymap,                  "M-u",     "unfocus");
-define_key(content_buffer_text_keymap,   "M-u",     "unfocus");
-define_key(text_keymap,                  "M-U",     "upcase-word");
+// define_key(default_global_keymap,        "M-u",     "unfocus");
+// define_key(text_keymap,                  "M-u",     "unfocus");
+// define_key(content_buffer_text_keymap,   "M-u",     "unfocus");
+define_key(default_global_keymap,        "C-j",     "unfocus");
+define_key(text_keymap,                  "C-j",     "unfocus");
+define_key(content_buffer_text_keymap,   "C-j",     "unfocus");
+// define_key(text_keymap,                  "M-U",     "upcase-word");
 
 // TODO: not sure if this is best
 define_key(content_buffer_normal_keymap, "a", "back");
