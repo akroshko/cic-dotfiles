@@ -480,6 +480,7 @@
     <keybind key="M-S-r">
       <action name="Execute"><execute> wmctrl -a "repl-restartable 'psql"</execute></action>
     </keybind>
+    <!-- TODO: decide which of these is best -->
     <keybind key="M-W-period">
       <action name="DirectionalCycleWindows">
         <direction>right</direction>
@@ -487,6 +488,30 @@
       </action>
     </keybind>
     <keybind key="M-W-comma">
+      <action name="DirectionalCycleWindows">
+        <direction>left</direction>
+        <raise>yes</raise>
+      </action>
+    </keybind>
+    <keybind key="H-W-period">
+      <action name="DirectionalCycleWindows">
+        <direction>right</direction>
+        <raise>yes</raise>
+      </action>
+    </keybind>
+    <keybind key="H-W-comma">
+      <action name="DirectionalCycleWindows">
+        <direction>left</direction>
+        <raise>yes</raise>
+      </action>
+    </keybind>
+    <keybind key="H-W-f">
+      <action name="DirectionalCycleWindows">
+        <direction>right</direction>
+        <raise>yes</raise>
+      </action>
+    </keybind>
+    <keybind key="H-W-b">
       <action name="DirectionalCycleWindows">
         <direction>left</direction>
         <raise>yes</raise>
@@ -591,7 +616,13 @@
     <!-- <xi:include href="openbox-second.xml"/> -->
     <!-- <xi:include href="openbox-second-f8.xml"/> -->
     <!-- only problem with this is other menus are control rather than meta -->
+    <!-- might change this.... -->
     <keybind key="C-z">
+      <action name="NextWindow">
+        <raise>yes</raise>
+      </action>
+    </keybind>
+    <keybind key="H-z">
       <action name="NextWindow">
         <raise>yes</raise>
       </action>
