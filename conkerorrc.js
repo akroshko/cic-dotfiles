@@ -464,6 +464,7 @@ define_webjump("saskatoon-weathernetwork","http://www.theweathernetwork.com/weat
 define_webjump("saskatoon-weatheroffice","http://www.weatheroffice.gc.ca/city/pages/sk-40_metric_e.html");
 define_webjump("wayback","https://archive.org/web/")
 define_webjump("weathernetwork","http://www.theweathernetwork.com/");
+define_webjump("whatismyip","https://www.iplocation.net/find-ip-address");
 define_webjump("wn-saskatoon","http://www.theweathernetwork.com/weather/canada/saskatchewan/saskatoon");
 define_webjump("weathernetwork-calgary","http://www.theweathernetwork.com/weather/canada/alberta/calgary");
 define_webjump("weathernetwork-saskatoon","http://www.theweathernetwork.com/weather/canada/saskatchewan/saskatoon");

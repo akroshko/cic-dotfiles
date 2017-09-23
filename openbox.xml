@@ -31,8 +31,8 @@
 
   <focus>
     <focusNew>yes</focusNew>
-    <!-- always try to focus new windows when they appear. other rules do
-         apply -->
+    <!-- always try to focus new windows when they appear. other rules
+         do apply -->
     <followMouse>no</followMouse>
     <!-- move focus to a window when you move the mouse into it -->
     <focusLast>yes</focusLast>
@@ -337,8 +337,11 @@
     <!-- <keybind key="M-W-l"> -->
     <!--   <action name="Iconify"/> -->
     <!-- </keybind> -->
-    <keybind key="M-S-m">
+    <keybind key="M-S-n">
       <action name="Iconify"/>
+    </keybind>
+    <keybind key="M-S-m">
+      <action name="ToggleMaximize"/>
     </keybind>
     <keybind key="M-W-k">
       <action name="Close"/>
@@ -346,6 +349,7 @@
     <keybind key="M-S-k">
       <action name="Close"/>
     </keybind>
+    <!-- TODO: temporary, need to decide -->
     <!-- snap left -->
     <keybind key="M-W-b">
       <action name="UnmaximizeFull"/>
@@ -357,6 +361,24 @@
     </keybind>
     <!-- snap right -->
     <keybind key="M-W-f">
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+      </action>
+      <action name="MoveToEdge"><direction>east</direction></action>
+    </keybind>
+    <!-- snap left -->
+    <keybind key="M-S-b">
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+      </action>
+      <action name="MoveToEdge"><direction>west</direction></action>
+    </keybind>
+    <!-- snap right -->
+    <keybind key="M-S-f">
       <action name="UnmaximizeFull"/>
       <action name="MaximizeVert"/>
       <action name="MoveResizeTo">
@@ -493,18 +515,18 @@
         <raise>yes</raise>
       </action>
     </keybind>
-    <keybind key="H-W-period">
-      <action name="DirectionalCycleWindows">
-        <direction>right</direction>
-        <raise>yes</raise>
-      </action>
-    </keybind>
-    <keybind key="H-W-comma">
-      <action name="DirectionalCycleWindows">
-        <direction>left</direction>
-        <raise>yes</raise>
-      </action>
-    </keybind>
+    <!-- <keybind key="H-W-period"> -->
+    <!--   <action name="DirectionalCycleWindows"> -->
+    <!--     <direction>right</direction> -->
+    <!--     <raise>yes</raise> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="H-W-comma"> -->
+    <!--   <action name="DirectionalCycleWindows"> -->
+    <!--     <direction>left</direction> -->
+    <!--     <raise>yes</raise> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
     <keybind key="H-W-f">
       <action name="DirectionalCycleWindows">
         <direction>right</direction>
@@ -596,19 +618,18 @@
     <keybind key="C-W-4">
       <action name="GoToDesktop"><to>4</to></action>
     </keybind>
-    <!--   TODO: These interfere -->
-    <!--   <keybind key="C-W-comma"> -->
-    <!--     <action name="GoToDesktop"> -->
-    <!--       <to>previous</to> -->
-    <!--       <wrap>no</wrap> -->
-    <!--     </action> -->
-    <!--   </keybind> -->
-    <!--   <keybind key="C-W-period"> -->
-    <!--     <action name="GoToDesktop"> -->
-    <!--       <to>next</to> -->
-    <!--       <wrap>no</wrap> -->
-    <!--     </action> -->
-    <!--   </keybind> -->
+    <keybind key="H-W-comma">
+      <action name="GoToDesktop">
+        <to>previous</to>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
+    <keybind key="H-W-period">
+      <action name="GoToDesktop">
+        <to>next</to>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
     <!--   Moving over from xbindkeys -->
     <!--   TODO: how did I end up with duplicate keys -->
     <!-- TODO: delete -->
@@ -921,13 +942,14 @@
     </context>
 
     <context name="Desktop">
-      <mousebind button="Up" action="Click">
+      <mousebind button="Down" action="Click">
         <action name="GoToDesktop"><to>previous</to></action>
       </mousebind>
-      <mousebind button="Down" action="Click">
+      <mousebind button="Up" action="Click">
         <action name="GoToDesktop"><to>next</to></action>
       </mousebind>
 
+      <!-- No sure I want these -->
       <mousebind button="A-Up" action="Click">
         <action name="GoToDesktop"><to>previous</to></action>
       </mousebind>
@@ -1324,6 +1346,17 @@
 
     # end of the example
   -->
-  </applications>
 
+    <!-- # this is an example with comments through out. use these to make your -->
+    <!-- # own rules, but without the comments of course. -->
+    <!-- # you may use one or more of the name/class/role/title/type rules to specify -->
+    <!-- # windows to match -->
+    <!-- name="the window's _OB_APP_NAME property (see obxprop)" -->
+    <application
+        title="pythode*"
+        class="URxvt">
+      <focus>no</focus>
+      <desktop>2</desktop>
+      </application>
+    </applications>
 </openbox_config>
