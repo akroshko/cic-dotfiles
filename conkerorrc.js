@@ -70,15 +70,20 @@ interactive("local-print-buffer",
 // TODO: need new 10x, need new back
 define_key(content_buffer_normal_keymap, "f",       "follow");
 define_key(content_buffer_normal_keymap, "s-f",     "follow-new-buffer");
-// define_key(content_buffer_normal_keymap, "F",       "follow-new-buffer-background");
-define_key(content_buffer_normal_keymap, "e",       "cmd_scrollLineUp");
+define_key(content_buffer_normal_keymap, "s-F",     "follow-new-buffer-background");
+define_key(content_buffer_normal_keymap, "M-s-f",   "follow-new-window");
+// TODO: esdf keys no longer used
+// define_key(content_buffer_normal_keymap, "e",       "cmd_scrollLineUp");
 // define_key(content_buffer_normal_keymap, "s",       "cmd_scrollLeft");
-define_key(content_buffer_normal_keymap, "d",       "cmd_scrollLineDown");
+// define_key(content_buffer_normal_keymap, "d",       "cmd_scrollLineDown");
 // define_key(content_buffer_normal_keymap, "f",       "cmd_scrollRight");
+// TODO: d is too valuable
 // define_key(content_buffer_normal_keymap, "d",       "duplicate-buffer");
 // define_key(content_buffer_normal_keymap, "s-d",     "duplicate-buffer-new-window");
-define_key(content_buffer_normal_keymap, "m",       "duplicate-buffer");
-define_key(content_buffer_normal_keymap, "s-m",     "duplicate-buffer-new-window");
+// m=mirror
+define_key(content_buffer_normal_keymap, "s-m",     "duplicate-buffer");
+define_key(content_buffer_normal_keymap, "s-M",     "duplicate-buffer-background");
+define_key(content_buffer_normal_keymap, "M-s-m",   "duplicate-buffer-new-window");
 define_key(content_buffer_normal_keymap, "D",       "find-url-new-window");
 define_key(content_buffer_normal_keymap, "/",       "save");
 // / for download/save
