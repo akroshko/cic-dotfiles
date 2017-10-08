@@ -660,14 +660,11 @@
     <keybind key="M-1">
       <action name="ShowMenu"><menu>maintenance</menu></action>
     </keybind>
-    <!-- TODO: just using M-1 for now -->
-    <!-- <keybind key="F6"> -->
-    <!--   <action name="ShowMenu"><menu>maintenance</menu></action> -->
-    <!-- </keybind> -->
-    <!-- Quickly sync things out to mobile and pull things in -->
-    <!-- f6 searches -->
     <keybind key="F6">
-      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;xclip -o -selection p | xclip -i -selection c;sleep 0.2;launch-emacsclient noframe --eval \"(cic:candidate-document-check-other-window)\""</execute></action>
+      <action name="Execute"><execute>rxvt-unicode -e bash -c "source ~/.bash_libenv;pull-push-mobile-org;echo 'Done pull-push-mobile-org!';sleep 5"</execute></action>
+    </keybind>
+        <keybind key="M-F6">
+      <action name="Execute"><execute>rxvt-unicode -e bash -c "source ~/.bash_libenv;master-incoming-outgoing-android;echo 'Done master-incoming-outgoing-android!';read -n 1 -p 'Press any key to close window...'"</execute></action>
     </keybind>
     <keybind key="M-Print">
       <action name="ShowMenu"><menu>screen-capture</menu></action>

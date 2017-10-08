@@ -93,10 +93,20 @@ map [fullscreen]   l        jumplist backward
 map [normal]       i        toggle_index
 map [fullscreen]   i        toggle_index
 # TODO: find out if these were defaults for anything
+map [fullscreen]
 map [normal]       }        feedkeys ":exec zathura-switch-file.py $FILE<Return>"
+map [fullscreen]   }        feedkeys ":exec zathura-switch-file.py $FILE<Return>"
 map [normal]       ]        feedkeys ":exec zathura-switch-file.py $FILE --bytime<Return>"
+map [fullscreen]   ]        feedkeys ":exec zathura-switch-file.py $FILE --bytime<Return>"
 map [normal]       {        feedkeys ":exec zathura-switch-file.py $FILE --previous<Return>"
+map [fullscreen]   {        feedkeys ":exec zathura-switch-file.py $FILE --previous<Return>"
 map [normal]       [        feedkeys ":exec zathura-switch-file.py $FILE --bytime --previous<Return>"
+map [fullscreen]   [        feedkeys ":exec zathura-switch-file.py $FILE --bytime --previous<Return>"
+# TODO: duplicate (mirror) current file
+#       make a little harder?
+# TODO: zathura needs a $PAGE too
+map [normal]       m        feedkeys ":exec zathura $FILE<Return>"
+map [fullscreen]   m        feedkeys ":exec zathura $FILE<Return>"
 # good thing to use, c means toggle-continuous....
 # TODO: possibly hook into other (fit-page-like ?) commands and test
 map [normal]       c        set scroll-page-aware

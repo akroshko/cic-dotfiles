@@ -227,6 +227,10 @@ session_pref("browser.history_expire_days",1);
 session_pref("browser.display.show_image_placeholders",false);
 session_pref("browser.formfill.enable",false);
 session_pref("full-screen-api.enabled",true);
+// TODO: not quite yet, but maybe
+// session_pref("general.useragent.compatMode.firefox",true);
+// TODO: think this does not work anymore
+// session_pref("general.useragent.extra.conkeror"," ");
 session_pref("gfx.font_rendering.directwrite.enabled",true);
 session_pref("mozilla.widget.render-mode",6);
 session_pref("network.prefetch-next",true);
@@ -234,6 +238,7 @@ session_pref("network.http.max-persistent-connections-per-server",8);
 session_pref("network.http.pipelining",true);
 session_pref("network.http.pipelining.maxrequests",8);
 session_pref("network.dns.disableIPv6",true);
+session_pref("plugins.click_to_play",true);
 session_pref("privacy.clearOnShutdown.cache",true);
 session_pref("privacy.clearOnShutdown.cookies",true);
 session_pref("privacy.clearOnShutdown.downloads",true);
@@ -244,8 +249,9 @@ session_pref("privacy.clearOnShutdown.passwords",true);
 session_pref("privacy.clearOnShutdown.sessions",true);
 session_pref("privacy.clearOnShutdown.siteSettings",true);
 session_pref("privacy.sanitize.sanitizeOnShutdown",true);
-// TODO: want to do this to avoid stupid warnings, but messes up google homepage
+// TODO: want to do this to avoid stupid warnings, but messes up google homepage compared to what I like
 // session_pref("general.useragent.compatMode.firefox", true);
+
 // security stuff
 // TODO: will have to change by firefox 48
 // https://vikingvpn.com/cybersecurity-wiki/browser-security/guide-hardening-mozilla-firefox-for-privacy-and-security
@@ -255,16 +261,58 @@ session_pref("security.ssl3.ecdhe_rsa_rc4_128_sha",false);
 session_pref("security.ssl3.rsa_rc4_128_md5",false);
 session_pref("security.ssl3.rsa_rc4_128_sha",false);
 session_pref("security.ssl3.rsa_des_ede3_sha",false);
-// TODO: change in future when I don't need to connect to certain unsafe websites
-// session_pref("security.ssl.require_safe_negotiation",true);
-// session_pref("security.ssl.treat_unsafe_negotiation_as_broken",true);
 // TODO: I never use this
 session_pref("browser.formfill.enable",false);
 // TODO: I clear cache, but never cache ssl
 session_pref("browser.cache.disk_cache_ssl",false);
 session_pref("browser.cache.offline.enable",false);
-session_pref("geo.enabled",false);
 session_pref("plugin.scan.plid.all",false);
+
+// https://gist.github.com/haasn/69e19fc2fe0e25f3cff5
+// TODO: prefetching
+session_pref("dom.event.clipboardevents.enabled",false);
+session_pref("dom.battery.enabled",false);
+session_pref("browser.send_pings",false);
+session_pref("webgl.disabled",true);
+session_pref("media.peerconnection.enabled",false);
+session_pref("loop.enabled",false);
+//
+session_pref("browser.beacen.enabled",false);
+session_pref("geo.enabled",false);
+session_pref("geo.wifi.logging.enabled",false);
+session_pref("geo.wifi.uri","");
+session_pref("browser.safebrowsing.enabled",false);
+session_pref("browser.safebrowsing.downloads.enabled",false);
+session_pref("browser.safebrowsing.malware.enabled",false);
+session_pref("social.directories","");
+session_pref("social.whitelist","");
+session_pref("social.manifest.facebook","");
+session_pref("social.remote-install.enabled",false)
+session_pref("social.toast-notifications.enabled",false);
+session_pref("device.sensors.enabled",false);
+session_pref("camera.control.face_detection.enabled",false);
+session_pref("camera.control.autofocus_moving_callback.enabled",false);
+session_pref("privacy.trackingprotection.enabled",true);
+session_pref("datareporting.healthreport.service.enabled",false);
+session_pref("datareporting.healthreport.uploadEnabled",false);
+session_pref("toolkit.telemetry.enabled",false);
+// network.http.speculative-parallel-limit=0
+session_pref("security.tls.unrestricted_rc4_fallback",false);
+session_pref("security.tls.insecure_fallback_hosts.use_static_list",false);
+session_pref("security.tls.version.min",1);
+// TODO: change in future when I don't need to connect to certain unsafe websites
+// https://wiki.mozilla.org/Security:Renegotiation#security.ssl.require_safe_negotiation
+// session_pref("security.ssl.require_safe_negotiation",true);
+// TODO: does not seem to affect conkeror
+// session_pref("security.ssl.treat_unsafe_negotiation_as_broken",true);
+session_pref("security.ssl3.rsa_seed_sha",true);
+session_pref("security.OCSP.enabled",1);
+session_pref("security.OCSP.require",true);
+// perfect forward secrecy, but muight break many things
+// session_pref("security.ssl3.rsa_aes_256_sha",false);
+// TODO: better, but some of my websites won't work
+// session_pref("security.tls.version.min",3);
+
 // TODO:
 // printer stuff
 session_pref("print.print_headercenter","");
@@ -285,6 +333,9 @@ session_pref("print.shrink_to_fit.scale-limit-percent",50);
 // deactivate page modes
 session_pref("javascript.enabled",true);
 page_mode_deactivate(youtube_player_mode);
+
+// Firefox compatibility?
+set_user_agent("Mozilla/5.0 (X11; Linux x86_64; rv:52.9) Gecko/20100101")
 
 // Adblock Plus
 // http://conkeror.org/AdblockPlus
@@ -356,6 +407,9 @@ define_webjump("allaboutcircuits","http://www.allaboutcircuits.com/");
 define_webjump("bc-firehazard","http://www2.gov.bc.ca/gov/content/safety/wildfire-status/fire-danger");
 define_webjump("be-electronics","http://www.be-electronics.com/");
 define_webjump("books", "https://www.google.com/search?q=%s&tbm=bks", $alternative = "https://books.google.com/");
+define_webjump("browser-fingerprint-1","https://amiunique.org/");
+define_webjump("browser-fingerprint-2","https://browserprint.info/");
+define_webjump("browser-fingerprint-useragents","http://www.browser-info.net/useragents");
 define_webjump("budget-bytes", "http://www.budgetbytes.com");
 define_webjump("buyapi", "https://www.buyapi.ca");
 // TODO: add some non-search things here
@@ -485,7 +539,7 @@ define_webjump("timeanddate-calgary","https://www.timeanddate.com/worldclock/cit
 define_webjump("timeanddate-saskatoon","https://www.timeanddate.com/worldclock/city.html?n=1227");
 define_webjump("trails-banff", "http://www.pc.gc.ca/apps/tcond/cond_e.asp?oPark=100092");
 define_webjump("trails-jasper","http://www.pc.gc.ca/apps/tcond/cond_e.asp?oPark=100244");
-
+define_webjump("usask-ecommons-thesises","https://ecommons.usask.ca/handle/10388/381");
 
 // use web browser for system admin
 // TODO: may need to be https for some people
