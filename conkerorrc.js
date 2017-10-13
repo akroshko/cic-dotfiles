@@ -335,7 +335,7 @@ session_pref("javascript.enabled",true);
 page_mode_deactivate(youtube_player_mode);
 
 // Firefox compatibility?
-set_user_agent("Mozilla/5.0 (X11; Linux x86_64; rv:52.9) Gecko/20100101")
+// set_user_agent("Mozilla/5.0 (X11; Linux x86_64; rv:52.9) Gecko/20100101")
 
 // Adblock Plus
 // http://conkeror.org/AdblockPlus
