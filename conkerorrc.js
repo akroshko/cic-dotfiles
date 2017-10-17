@@ -284,6 +284,7 @@ session_pref("geo.wifi.uri","");
 session_pref("browser.safebrowsing.enabled",false);
 session_pref("browser.safebrowsing.downloads.enabled",false);
 session_pref("browser.safebrowsing.malware.enabled",false);
+session_pref("media.block-autoplay-until-in-foreground",true);
 session_pref("social.directories","");
 session_pref("social.whitelist","");
 session_pref("social.manifest.facebook","");

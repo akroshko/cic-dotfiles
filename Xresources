@@ -42,7 +42,8 @@ URxvt*foreground: White
 URxvt*font:     xft:terminus:pixelsize=10
 URxvt*boldFont: xft:terminus:bold:pixelsize=10
 ! TODO: does not seem to work that well
-URxvt.print-pipe: cat > $HOME/tmp/collect/urxvt-$(date +%Y%m%d%H%M%S)
+! TODO: also good to disable printing large scrollback by accident
+URxvt.print-pipe: cat > $HOME/tmp/collect/urxvt-$(date +%Y%m%d%H%M%S).txt
 URxvt*color4: RoyalBlue
 URxvt*color12: RoyalBlue
 ! URxvt*color4: black
@@ -53,22 +54,26 @@ URxvt*scrollstyle: rxvt
 ! see https://bbs.archlinux.org/viewtopic.php?id=149470
 ! a really good thing, for some of my keys
 ! from archwiki
-URxvt.perl-ext-common:    default,clipboard
+URxvt.perl-ext-common:          default,clipboard
 ! TODO: change all names to .pl
-URxvt.perl-ext:           scrollback.pl
-URxvt.iso14755:           False
-URxvt.iconFile:           /home/akroshko/.urxvt/terminal.svg
-URxvt.keysym.M-c:         perl:clipboard:copy
-URxvt.keysym.M-v:         perl:clipboard:paste
+URxvt.perl-ext:                 scrollback.pl,urxvt-scrollback.pl
+URxvt.iso14755:                 False
+URxvt.iconFile:                 /home/akroshko/.urxvt/terminal.svg
+URxvt.keysym.M-c:               perl:clipboard:copy
+URxvt.keysym.M-v:               perl:clipboard:paste
 ! see https://ubuntuforums.org/archive/index.php/t-783096.html
+! see man -s7 urxvt
 ! keep this, useful
-URxvt.keysym.Shift-Up:                  command:\033]720;1\007
-URxvt.keysym.Shift-Down:                command:\033]721;1\007
-URxvt.keysym.Control-less:              perl:pageup
-URxvt.keysym.Control-greater:           perl:pagedown
+URxvt.keysym.Shift-Up:          command:\033]720;1\007
+URxvt.keysym.Shift-Down:        command:\033]721;1\007
+URxvt.keysym.Control-less:      perl:pageup
+URxvt.keysym.Control-greater:   perl:pagedown
+! just prints current buffer
+URxvt.keysym.C-1:               perl:scrollback:save
+URxvt.keysym.C-2:               perl:scrollback:save_emacs
 ! clipboard
-URxvt.clipboard.copycmd:  xclip -i -selection clipboard
-URxvt.clipboard.pastecmd: xclip -o -selection clipboard
+URxvt.clipboard.copycmd:        xclip -i -selection clipboard
+URxvt.clipboard.pastecmd:       xclip -o -selection clipboard
 ! URxvt.clipboard.copycmd:  xsel -ib
 ! URxvt.clipboard.pastecmd: xsel -ob
 ! URxvt.keysym.M-C-v: perl:clipboard:paste_escaped

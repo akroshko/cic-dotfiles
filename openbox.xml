@@ -68,7 +68,7 @@
 
   <theme>
     <name>MyClearlooks</name>
-    <titleLayout>NLCSMI</titleLayout>
+    <titleLayout>NDLCSMI</titleLayout>
     <!--
         available characters are NDSLIMC, each can occur at most once.
         N: window icon
@@ -651,6 +651,9 @@
     <keybind key="M-z">
       <action name="ShowMenu"><menu>prog</menu></action>
     </keybind>
+    <keybind key="M-S-z">
+      <action name="ShowMenu"><menu>root-menu</menu></action>
+    </keybind>
     <keybind key="F8">
       <action name="ShowMenu"><menu>prog</menu></action>
     </keybind>
@@ -686,8 +689,9 @@
     <keybind key="M-8">
       <action name="Execute"><execute>python /home/akroshko/cic-vcs/cic-groups/capture-bib.py</execute></action>
     </keybind>
+    <!-- this is much faster to use a special script -->
     <keybind key="M-9">
-      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;launch-emacsclient noframe --eval \"(cic:insert-collection)\""</execute></action>
+      <action name="Execute"><execute>~/cic-vcs/bash-stdlib/xclip-primary-insert-emacs-collection.sh</execute></action>
     </keybind>
   </keyboard>
   <mouse>
