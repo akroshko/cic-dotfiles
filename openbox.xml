@@ -249,9 +249,9 @@
     <keybind key="M-W-semicolon">
       <action name="ShowMenu"><menu>root-menu</menu></action>
     </keybind>
-    <keybind key="F1">
-      <action name="ShowMenu"><menu>root-menu</menu></action>
-    </keybind>
+    <!-- <keybind key="F1"> -->
+    <!--   <action name="ShowMenu"><menu>root-menu</menu></action> -->
+    <!-- </keybind> -->
     <keybind key="F2">
       <action name="ToggleShowDesktop"/>
     </keybind>
@@ -297,17 +297,27 @@
       <action name="Execute"><execute>rxvt-unicode -e bash -i -c "source ~/.bash_libenv;pull-push-mobile-org;sleep 5"</execute></action>
     </keybind>
     <!-- complicated source to save execution time, ensures my path to conkeror is set -->
+    <!-- TODO: hardcode this to save time, then restore -->
+    <keybind key="F1">
+      <action name="Execute"><execute>bash -c "$HOME/bin/youtube-pause-toggle.sh"</execute></action>
+    </keybind>
     <keybind key="F9">
-      <action name="Execute"><execute>bash -c "export PATH=\"${PATH}:~/bin\";source ~/.bash_library.d/bash_functions_stdlib;youtube-pause"</execute></action>
+      <action name="Execute"><execute>bash -c "$HOME/bin/youtube-pause-minimize.sh"</execute></action>
     </keybind>
     <keybind key="M-F9">
-      <action name="Execute"><execute>bash -c "export PATH=\"${PATH}:~/bin\";source ~/.bash_library.d/bash_functions_stdlib;youtube-restore"</execute></action>
+      <action name="Execute"><execute>bash -c "$HOME/bin/youtube-restore.sh"</execute></action>
+    </keybind>
+    <keybind key="C-9">
+      <action name="Execute"><execute>bash -c "$HOME"/bin/youtube-pause-minimize.sh"</execute></action>
     </keybind>
     <keybind key="F10">
       <action name="Execute"><execute>bash -c "export PATH=\"${PATH}:~/bin\";source ~/.bash_library.d/bash_functions_stdlib;master-boss-key"</execute></action>
     </keybind>
     <keybind key="M-F10">
       <action name="Execute"><execute>bash -c "export PATH=\"${PATH}:~/bin\";source ~/.bash_library.d/bash_functions_stdlib;master-unboss-key"</execute></action>
+    </keybind>
+    <keybind key="C-0">
+      <action name="Execute"><execute>bash -c "export PATH=\"${PATH}:~/bin\";source ~/.bash_library.d/bash_functions_stdlib;master-boss-key"</execute></action>
     </keybind>
     <!-- emergency (or normal) hibernate, assume pm-hibernate is in sudoers -->
     <!-- TODO: want other key for this for small keyboards? actually make just enter work for accept -->

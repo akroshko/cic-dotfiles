@@ -786,6 +786,19 @@ interactive("youtube-play",
         // I.window.minibuffer.message(player.getDuration())
     });
 
+interactive("youtube-pause-toggle",
+    "Pause Youtube videos (as opposed to pause/play of other thing).",
+    function (I) {
+        src = "https://www.youtube.com/iframe_api";
+        var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
+        if (player.getPlayerState() == 1) {
+            player.pauseVideo();
+        } else {
+            player.playVideo();
+        }
+        // I.window.minibuffer.message(player.getDuration())
+    });
+
 interactive("youtube-seek",
     "Seek to a youtube location.",
     function (I) {
@@ -818,6 +831,16 @@ interactive("youtube-normalize-volume",
         src = "https://www.youtube.com/iframe_api";
         var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
         player.setVolume(40);
+    });
+
+interactive("youtube-enumerate-api",
+    "Enumerate API in youtube.  Clunky, but useful.",
+    function (I) {
+        src = "https://www.youtube.com/iframe_api";
+        var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
+        for (var p in player) {
+            I.window.alert(p);
+        }
     });
 
 // get youtube time
