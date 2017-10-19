@@ -208,6 +208,8 @@
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
     <!-- override f-keys -->
+    <!-- ================================================================================ -->
+    <!-- real F-keys by using shift -->
     <keybind key="S-F1">
       <action name="Execute"><execute>xdotool getwindowfocus key F1</execute></action>
     </keybind>
@@ -249,6 +251,13 @@
     <keybind key="M-W-semicolon">
       <action name="ShowMenu"><menu>root-menu</menu></action>
     </keybind>
+    <!-- ================================================================================ -->
+    <!-- F-keys -->
+    <!-- complicated source to save execution time, ensures my path to conkeror is set -->
+    <!-- TODO: hardcode this to save time, then restore -->
+    <keybind key="F1">
+      <action name="Execute"><execute>bash -c "$HOME/bin/youtube-pause-toggle.sh"</execute></action>
+    </keybind>
     <!-- <keybind key="F1"> -->
     <!--   <action name="ShowMenu"><menu>root-menu</menu></action> -->
     <!-- </keybind> -->
@@ -262,7 +271,11 @@
     <keybind key="C-W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
+    <!-- TODO: do I need both? -->
     <keybind key="F3">
+      <action name="Execute"><execute>bash -c "amixer set Master mute;notify-send \"Mute\" \"$(date +%Y%m%d%H%M%S)\" -t 5000"</execute></action>
+    </keybind>
+    <keybind key="C-3">
       <action name="Execute"><execute>bash -c "amixer set Master mute;notify-send \"Mute\" \"$(date +%Y%m%d%H%M%S)\" -t 5000"</execute></action>
     </keybind>
     <keybind key="M-S-F3">
@@ -275,6 +288,10 @@
     <keybind key="M-F3">
       <action name="ShowMenu"><menu>volume-menu</menu></action>
     </keybind>
+    <keybind key="M-3">
+      <action name="ShowMenu"><menu>volume-menu</menu></action>
+    </keybind>
+    <!-- TODO: just check power state instead? don't need something quite so urgent? -->
     <keybind key="F4">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;throttle-down"</execute></action>
     </keybind>
@@ -287,6 +304,9 @@
     <keybind key="M-F4">
       <action name="ShowMenu"><menu>power-menu</menu></action>
     </keybind>
+    <keybind key="M-4">
+      <action name="ShowMenu"><menu>power-menu</menu></action>
+    </keybind>
     <keybind key="M-S-F4">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;throttle-up"</execute></action>
     </keybind>
@@ -296,10 +316,14 @@
     <keybind key="M-F5">
       <action name="Execute"><execute>rxvt-unicode -e bash -i -c "source ~/.bash_libenv;pull-push-mobile-org;sleep 5"</execute></action>
     </keybind>
-    <!-- complicated source to save execution time, ensures my path to conkeror is set -->
-    <!-- TODO: hardcode this to save time, then restore -->
-    <keybind key="F1">
-      <action name="Execute"><execute>bash -c "$HOME/bin/youtube-pause-toggle.sh"</execute></action>
+    <keybind key="F6">
+      <action name="Execute"><execute>rxvt-unicode -e bash -c "source ~/.bash_libenv;pull-push-mobile-org;echo 'Done pull-push-mobile-org!';sleep 5"</execute></action>
+    </keybind>
+        <keybind key="M-F6">
+      <action name="Execute"><execute>rxvt-unicode -e bash -c "source ~/.bash_libenv;master-incoming-outgoing-android;echo 'Done master-incoming-outgoing-android!';read -n 1 -p 'Press any key to close window...'"</execute></action>
+    </keybind>
+    <keybind key="F8">
+      <action name="ShowMenu"><menu>prog</menu></action>
     </keybind>
     <keybind key="F9">
       <action name="Execute"><execute>bash -c "$HOME/bin/youtube-pause-minimize.sh"</execute></action>
@@ -664,20 +688,11 @@
     <keybind key="M-S-z">
       <action name="ShowMenu"><menu>root-menu</menu></action>
     </keybind>
-    <keybind key="F8">
-      <action name="ShowMenu"><menu>prog</menu></action>
-    </keybind>
     <keybind key="M-0">
       <action name="ShowMenu"><menu>capture</menu></action>
     </keybind>
     <keybind key="M-1">
       <action name="ShowMenu"><menu>maintenance</menu></action>
-    </keybind>
-    <keybind key="F6">
-      <action name="Execute"><execute>rxvt-unicode -e bash -c "source ~/.bash_libenv;pull-push-mobile-org;echo 'Done pull-push-mobile-org!';sleep 5"</execute></action>
-    </keybind>
-        <keybind key="M-F6">
-      <action name="Execute"><execute>rxvt-unicode -e bash -c "source ~/.bash_libenv;master-incoming-outgoing-android;echo 'Done master-incoming-outgoing-android!';read -n 1 -p 'Press any key to close window...'"</execute></action>
     </keybind>
     <keybind key="M-Print">
       <action name="ShowMenu"><menu>screen-capture</menu></action>
@@ -685,10 +700,10 @@
     <keybind key="M-2">
       <action name="ShowMenu"><menu>screen-capture</menu></action>
     </keybind>
-    <keybind key="M-3">
+    <keybind key="M-5">
       <action name="ShowMenu"><menu>apropos</menu></action>
     </keybind>
-    <keybind key="M-4">
+    <keybind key="M-6">
       <action name="ShowMenu"><menu>quick-reference</menu></action>
     </keybind>
     <keybind key="F7">
