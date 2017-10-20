@@ -332,6 +332,7 @@ session_pref("print.shrink_to_fit.scale-limit-percent",50);
 // session_pref("print.print_to_file","");
 // session_pref("print.print_to_filename","");
 // deactivate page modes
+session_pref("dom.ipc.plugins.flash.subprocess.crashreporter.enabled",false);
 session_pref("javascript.enabled",true);
 page_mode_deactivate(youtube_player_mode);
 

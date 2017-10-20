@@ -20,7 +20,7 @@
 <!-- You should have received a copy of the GNU General Public License -->
 <!-- along with this program. If not, see http://www.gnu.org/licenses/. -->
 
-<!-- XXXX: blatently lifted from debians default openbox rc.xml -->
+<!-- XXXX: blatently lifted from Debians default openbox rc.xml -->
 
 <openbox_config xmlns="http://openbox.org/3.4/rc"
                 xmlns:xi="http://www.w3.org/2001/XInclude">
@@ -310,21 +310,33 @@
     <keybind key="M-S-F4">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;throttle-up"</execute></action>
     </keybind>
+    <!-- TODO: don't like libenv -->
     <keybind key="F5">
-      <action name="Execute"><execute>rxvt-unicode -e bash -i -c "source ~/.bash_libenv;harm-bash;sleep 5"</execute></action>
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;conkeror-clipboard.sh google"</execute></action>
     </keybind>
     <keybind key="M-F5">
-      <action name="Execute"><execute>rxvt-unicode -e bash -i -c "source ~/.bash_libenv;pull-push-mobile-org;sleep 5"</execute></action>
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;conkeror-clipboard.sh wikipedia"</execute></action>
     </keybind>
+    <!-- These aren't actually secret searches, just here for convienience.  The content of the scripts changes depending on my current project/workflow.  Generally uses what is on primary to execute an action -->
     <keybind key="F6">
-      <action name="Execute"><execute>rxvt-unicode -e bash -c "source ~/.bash_libenv;pull-push-mobile-org;echo 'Done pull-push-mobile-org!';sleep 5"</execute></action>
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;${HOME}/bin/secret-search.sh"</execute></action>
     </keybind>
-        <keybind key="M-F6">
-      <action name="Execute"><execute>rxvt-unicode -e bash -c "source ~/.bash_libenv;master-incoming-outgoing-android;echo 'Done master-incoming-outgoing-android!';read -n 1 -p 'Press any key to close window...'"</execute></action>
+    <keybind key="M-F6">
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;${HOME}/bin/secret-search-alt.sh"</execute></action>
+    </keybind>
+    <keybind key="C-F6">
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;${HOME}/bin/secret-search-ctrl.sh"</execute></action>
+    </keybind>
+    <keybind key="M-8">
+      <action name="Execute"><execute>python /home/akroshko/cic-vcs/cic-groups/capture-bib.py</execute></action>
+    </keybind>
+    <keybind key="F7">
+      <action name="ShowMenu"><menu>super-power-volume</menu></action>
     </keybind>
     <keybind key="F8">
-      <action name="ShowMenu"><menu>prog</menu></action>
+      <action name="ShowMenu"><menu>super</menu></action>
     </keybind>
+    <!-- TODO: add notifications -->
     <keybind key="F9">
       <action name="Execute"><execute>bash -c "$HOME/bin/youtube-pause-minimize.sh"</execute></action>
     </keybind>
@@ -333,6 +345,10 @@
     </keybind>
     <keybind key="C-9">
       <action name="Execute"><execute>bash -c "$HOME"/bin/youtube-pause-minimize.sh"</execute></action>
+    </keybind>
+    <!-- this is much faster to use a special script -->
+    <keybind key="M-9">
+      <action name="Execute"><execute>~/cic-vcs/bash-stdlib/xclip-primary-insert-emacs-collection.sh</execute></action>
     </keybind>
     <keybind key="F10">
       <action name="Execute"><execute>bash -c "export PATH=\"${PATH}:~/bin\";source ~/.bash_library.d/bash_functions_stdlib;master-boss-key"</execute></action>
@@ -706,18 +722,6 @@
     <keybind key="M-6">
       <action name="ShowMenu"><menu>quick-reference</menu></action>
     </keybind>
-    <keybind key="F7">
-      <action name="ShowMenu"><menu>screen-capture</menu></action>
-    </keybind>
-    <!-- TODO: these will be be deleted very shortly, just here for convienience, or not? -->
-    <!-- TODO: add notifications -->
-    <keybind key="M-8">
-      <action name="Execute"><execute>python /home/akroshko/cic-vcs/cic-groups/capture-bib.py</execute></action>
-    </keybind>
-    <!-- this is much faster to use a special script -->
-    <keybind key="M-9">
-      <action name="Execute"><execute>~/cic-vcs/bash-stdlib/xclip-primary-insert-emacs-collection.sh</execute></action>
-    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
@@ -1028,234 +1032,21 @@
   <menu>
     <!-- You can specify more than one menu file in here and they are all loaded,
          just don't make menu ids clash or, well, it'll be kind of pointless -->
+    <!-- XXXX: order matters!!! that's why openbox-menu-super.xml is last!!! -->
     <!-- system menu files on Debian systems -->
     <file>/var/lib/openbox/debian-menu.xml</file>
     <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
     <file>menu.xml</file>
-    <hideDelay>200</hideDelay>
-    <!-- if a press-release lasts longer than this setting (in milliseconds), the
-         menu is hidden again -->
-    <middle>no</middle>
-    <!-- center submenus vertically about the parent entry -->
-    <submenuShowDelay>100</submenuShowDelay>
-    <!-- time to delay before showing a submenu after hovering over the parent
-         entry.
-         if this is a negative value, then the delay is infinite and the
-         submenu will not be shown until it is clicked on -->
-    <submenuHideDelay>400</submenuHideDelay>
-    <!-- time to delay before hiding a submenu when selecting another
-         entry in parent menu
-         if this is a negative value, then the delay is infinite and the
-         submenu will not be hidden until a different submenu is opened -->
-    <showIcons>yes</showIcons>
-    <!-- controls if icons appear in the client-list-(combined-)menu -->
-    <manageDesktops>yes</manageDesktops>
-    <!-- show the manage desktops section in the client-list-(combined-)menu -->
-  </menu>
-
-  <menu>
-    <!-- You can specify more than one menu file in here and they are all loaded,
-         just don't make menu ids clash or, well, it'll be kind of pointless -->
-    <!-- system menu files on Debian systems -->
     <file>/home/akroshko/.config/openbox/openbox-menu-second.xml</file>
-    <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
-    <!-- <file>menu.xml</file> -->
-    <hideDelay>200</hideDelay>
-    <!-- if a press-release lasts longer than this setting (in milliseconds), the
-         menu is hidden again -->
-    <middle>no</middle>
-    <!-- center submenus vertically about the parent entry -->
-    <submenuShowDelay>100</submenuShowDelay>
-    <!-- time to delay before showing a submenu after hovering over the parent
-         entry.
-         if this is a negative value, then the delay is infinite and the
-         submenu will not be shown until it is clicked on -->
-    <submenuHideDelay>400</submenuHideDelay>
-    <!-- time to delay before hiding a submenu when selecting another
-         entry in parent menu
-         if this is a negative value, then the delay is infinite and the
-         submenu will not be hidden until a different submenu is opened -->
-    <showIcons>yes</showIcons>
-    <!-- controls if icons appear in the client-list-(combined-)menu -->
-    <manageDesktops>yes</manageDesktops>
-    <!-- show the manage desktops section in the client-list-(combined-)menu -->
-  </menu>
-
-  <menu>
-    <!-- You can specify more than one menu file in here and they are all loaded,
-         just don't make menu ids clash or, well, it'll be kind of pointless -->
-    <!-- system menu files on Debian systems -->
     <file>/home/akroshko/.config/openbox/openbox-menu-capture.xml</file>
-    <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
-    <!-- <file>menu.xml</file> -->
-    <hideDelay>200</hideDelay>
-    <!-- if a press-release lasts longer than this setting (in milliseconds), the
-         menu is hidden again -->
-    <middle>no</middle>
-    <!-- center submenus vertically about the parent entry -->
-    <submenuShowDelay>100</submenuShowDelay>
-    <!-- time to delay before showing a submenu after hovering over the parent
-         entry.
-         if this is a negative value, then the delay is infinite and the
-         submenu will not be shown until it is clicked on -->
-    <submenuHideDelay>400</submenuHideDelay>
-    <!-- time to delay before hiding a submenu when selecting another
-         entry in parent menu
-         if this is a negative value, then the delay is infinite and the
-         submenu will not be hidden until a different submenu is opened -->
-    <showIcons>yes</showIcons>
-    <!-- controls if icons appear in the client-list-(combined-)menu -->
-    <manageDesktops>yes</manageDesktops>
-    <!-- show the manage desktops section in the client-list-(combined-)menu -->
-  </menu>
-
-  <menu>
-    <!-- You can specify more than one menu file in here and they are all loaded,
-         just don't make menu ids clash or, well, it'll be kind of pointless -->
-    <!-- system menu files on Debian systems -->
     <file>/home/akroshko/.config/openbox/openbox-menu-screencapture.xml</file>
-    <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
-    <!-- <file>menu.xml</file> -->
-    <hideDelay>200</hideDelay>
-    <!-- if a press-release lasts longer than this setting (in milliseconds), the
-         menu is hidden again -->
-    <middle>no</middle>
-    <!-- center submenus vertically about the parent entry -->
-    <submenuShowDelay>100</submenuShowDelay>
-    <!-- time to delay before showing a submenu after hovering over the parent
-         entry.
-         if this is a negative value, then the delay is infinite and the
-         submenu will not be shown until it is clicked on -->
-    <submenuHideDelay>400</submenuHideDelay>
-    <!-- time to delay before hiding a submenu when selecting another
-         entry in parent menu
-         if this is a negative value, then the delay is infinite and the
-         submenu will not be hidden until a different submenu is opened -->
-    <showIcons>yes</showIcons>
-    <!-- controls if icons appear in the client-list-(combined-)menu -->
-    <manageDesktops>yes</manageDesktops>
-    <!-- show the manage desktops section in the client-list-(combined-)menu -->
-  </menu>
-
-  <menu>
-    <!-- You can specify more than one menu file in here and they are all loaded,
-         just don't make menu ids clash or, well, it'll be kind of pointless -->
-    <!-- system menu files on Debian systems -->
     <file>/home/akroshko/.config/openbox/openbox-menu-apropos.xml</file>
-    <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
-    <!-- <file>menu.xml</file> -->
-    <hideDelay>200</hideDelay>
-    <!-- if a press-release lasts longer than this setting (in milliseconds), the
-         menu is hidden again -->
-    <middle>no</middle>
-    <!-- center submenus vertically about the parent entry -->
-    <submenuShowDelay>100</submenuShowDelay>
-    <!-- time to delay before showing a submenu after hovering over the parent
-         entry.
-         if this is a negative value, then the delay is infinite and the
-         submenu will not be shown until it is clicked on -->
-    <submenuHideDelay>400</submenuHideDelay>
-    <!-- time to delay before hiding a submenu when selecting another
-         entry in parent menu
-         if this is a negative value, then the delay is infinite and the
-         submenu will not be hidden until a different submenu is opened -->
-    <showIcons>yes</showIcons>
-    <!-- controls if icons appear in the client-list-(combined-)menu -->
-    <manageDesktops>yes</manageDesktops>
-    <!-- show the manage desktops section in the client-list-(combined-)menu -->
-  </menu>
-
-  <menu>
-    <!-- You can specify more than one menu file in here and they are all loaded,
-         just don't make menu ids clash or, well, it'll be kind of pointless -->
-    <!-- system menu files on Debian systems -->
     <file>/home/akroshko/.config/openbox/openbox-menu-maintenance.xml</file>
-    <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
-    <!-- <file>menu.xml</file> -->
-    <hideDelay>200</hideDelay>
-    <!-- if a press-release lasts longer than this setting (in milliseconds), the
-         menu is hidden again -->
-    <middle>no</middle>
-    <!-- center submenus vertically about the parent entry -->
-    <submenuShowDelay>100</submenuShowDelay>
-    <!-- time to delay before showing a submenu after hovering over the parent
-         entry.
-         if this is a negative value, then the delay is infinite and the
-         submenu will not be shown until it is clicked on -->
-    <submenuHideDelay>400</submenuHideDelay>
-    <!-- time to delay before hiding a submenu when selecting another
-         entry in parent menu
-         if this is a negative value, then the delay is infinite and the
-         submenu will not be hidden until a different submenu is opened -->
-    <showIcons>yes</showIcons>
-    <!-- controls if icons appear in the client-list-(combined-)menu -->
-    <manageDesktops>yes</manageDesktops>
-    <!-- show the manage desktops section in the client-list-(combined-)menu -->
-  </menu>
-
-  <menu>
-    <!-- You can specify more than one menu file in here and they are all loaded,
-         just don't make menu ids clash or, well, it'll be kind of pointless -->
-    <!-- system menu files on Debian systems -->
     <file>/home/akroshko/.config/openbox/openbox-menu-volume.xml</file>
-    <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
-    <!-- <file>menu.xml</file> -->
-    <hideDelay>200</hideDelay>
-    <!-- if a press-release lasts longer than this setting (in milliseconds), the
-         menu is hidden again -->
-    <middle>no</middle>
-    <!-- center submenus vertically about the parent entry -->
-    <submenuShowDelay>100</submenuShowDelay>
-    <!-- time to delay before showing a submenu after hovering over the parent
-         entry.
-         if this is a negative value, then the delay is infinite and the
-         submenu will not be shown until it is clicked on -->
-    <submenuHideDelay>400</submenuHideDelay>
-    <!-- time to delay before hiding a submenu when selecting another
-         entry in parent menu
-         if this is a negative value, then the delay is infinite and the
-         submenu will not be hidden until a different submenu is opened -->
-    <showIcons>yes</showIcons>
-    <!-- controls if icons appear in the client-list-(combined-)menu -->
-    <manageDesktops>yes</manageDesktops>
-    <!-- show the manage desktops section in the client-list-(combined-)menu -->
-  </menu>
-
-  <menu>
-    <!-- You can specify more than one menu file in here and they are all loaded,
-         just don't make menu ids clash or, well, it'll be kind of pointless -->
-    <!-- system menu files on Debian systems -->
     <file>/home/akroshko/.config/openbox/openbox-menu-power.xml</file>
-    <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
-    <!-- <file>menu.xml</file> -->
-    <hideDelay>200</hideDelay>
-    <!-- if a press-release lasts longer than this setting (in milliseconds), the
-         menu is hidden again -->
-    <middle>no</middle>
-    <!-- center submenus vertically about the parent entry -->
-    <submenuShowDelay>100</submenuShowDelay>
-    <!-- time to delay before showing a submenu after hovering over the parent
-         entry.
-         if this is a negative value, then the delay is infinite and the
-         submenu will not be shown until it is clicked on -->
-    <submenuHideDelay>400</submenuHideDelay>
-    <!-- time to delay before hiding a submenu when selecting another
-         entry in parent menu
-         if this is a negative value, then the delay is infinite and the
-         submenu will not be hidden until a different submenu is opened -->
-    <showIcons>yes</showIcons>
-    <!-- controls if icons appear in the client-list-(combined-)menu -->
-    <manageDesktops>yes</manageDesktops>
-    <!-- show the manage desktops section in the client-list-(combined-)menu -->
-  </menu>
-
-  <menu>
-    <!-- You can specify more than one menu file in here and they are all loaded,
-         just don't make menu ids clash or, well, it'll be kind of pointless -->
-    <!-- system menu files on Debian systems -->
     <file>/home/akroshko/.config/openbox/openbox-menu-quick-reference.xml</file>
-    <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
-    <!-- <file>menu.xml</file> -->
+    <file>/home/akroshko/.config/openbox/openbox-menu-super-power-volume.xml</file>
+    <file>/home/akroshko/.config/openbox/openbox-menu-super.xml</file>
     <hideDelay>200</hideDelay>
     <!-- if a press-release lasts longer than this setting (in milliseconds), the
          menu is hidden again -->
