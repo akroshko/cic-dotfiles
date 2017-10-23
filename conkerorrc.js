@@ -488,7 +488,7 @@ define_webjump("sage-plot","http://doc.sagemath.org/html/en/reference/plotting/s
 define_webjump("sagemath-plot","http://doc.sagemath.org/html/en/reference/plotting/sage/plot/plot.html")
 define_webjump("sciencedaily","http://sciencedaily.com")
 // TODO: uses invalid security certificate
-define_webjump("slashdot","http://www.slashdot.com");
+define_webjump("slashdot","https://www.slashdot.org");
 define_webjump("sparkfun","http://www.sparkfun.com");
 define_webjump("stackoverflow","https://stackoverflow.com/search?q=%s", $alternative="https://stackoverflow.com");
 define_webjump("startpage","https://startpage.com/do/%s",$alternative="https://startpage.com");
@@ -525,7 +525,10 @@ define_webjump("saskatchewan-firehazard","http://www.environment.gov.sk.ca/fire"
 define_webjump("saskatoon-timeanddate","https://www.timeanddate.com/worldclock/city.html?n=1227");
 define_webjump("saskatoon-weathernetwork","http://www.theweathernetwork.com/weather/canada/saskatchewan/saskatoon");
 define_webjump("saskatoon-weatheroffice","http://www.weatheroffice.gc.ca/city/pages/sk-40_metric_e.html");
-define_webjump("wayback","https://archive.org/web/")
+define_webjump("wayback","https://archive.org/web/");
+define_webjump("webcam-banff-trafficcam","http://banff.ca/index.aspx?NID=959")
+define_webjump("webcam-canmore","https://canmorealberta.com/webcams")
+define_webjump("webcam-radium","http://images.drivebc.ca/bchighwaycam/pub/html/www/132.html")
 define_webjump("weathernetwork","http://www.theweathernetwork.com/");
 define_webjump("whatismyip","https://www.iplocation.net/find-ip-address");
 define_webjump("wn-saskatoon","http://www.theweathernetwork.com/weather/canada/saskatchewan/saskatoon");
