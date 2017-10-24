@@ -49,18 +49,18 @@ map [normal]       <C-n>   scroll down
 map [fullscreen]   <C-n>   scroll down
 # esdf keys with a as follow
 # TODO: overwrites: a, s   Adjust window in best-fit or width mode
-map [normal]       a        follow
-map [fullscreen]   a        follow
+map [normal]       f        follow
+map [fullscreen]   f        follow
 map [normal]       w        toggle_page_mode
 map [fullscreen]   w        toggle_page_mode
-map [normal]       e        scroll up
-map [fullscreen]   e        scroll up
-map [normal]       s        scroll left
-map [fullscreen]   s        scroll left
-map [normal]       d        scroll down
-map [fullscreen]   d        scroll down
-map [normal]       f        scroll right
-map [fullscreen]   f        scroll right
+# map [normal]       e        scroll up
+# map [fullscreen]   e        scroll up
+# map [normal]       s        scroll left
+# map [fullscreen]   s        scroll left
+# map [normal]       d        scroll down
+# map [fullscreen]   d        scroll down
+# map [normal]       f        scroll right
+# map [fullscreen]   f        scroll right
 map [normal]       E        zoom in
 map [fullscreen]   E        zoom in
 map [normal]       D        zoom out
@@ -89,6 +89,8 @@ map [fullscreen]   v        scroll down
 # back
 map [normal]       l        jumplist backward
 map [fullscreen]   l        jumplist backward
+map [normal]       a        jumplist backward
+map [fullscreen]   a        jumplist backward
 # index
 map [normal]       i        toggle_index
 map [fullscreen]   i        toggle_index

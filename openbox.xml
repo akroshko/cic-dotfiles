@@ -253,91 +253,81 @@
     </keybind>
     <!-- ================================================================================ -->
     <!-- F-keys -->
-    <!-- complicated source to save execution time, ensures my path to conkeror is set -->
-    <!-- TODO: hardcode this to save time, then restore -->
+    <!-- put these beside escape to make menu select easy, plus easy to find on laptop in the dark -->
+    <!-- M- keys give a touch-typing way of getting menus -->
     <keybind key="F1">
-      <action name="Execute"><execute>bash -c "$HOME/bin/youtube-pause-toggle.sh"</execute></action>
+      <action name="ShowMenu"><menu>super</menu></action>
     </keybind>
-    <!-- <keybind key="F1"> -->
-    <!--   <action name="ShowMenu"><menu>root-menu</menu></action> -->
-    <!-- </keybind> -->
+    <keybind key="M-1">
+      <action name="ShowMenu"><menu>super</menu></action>
+    </keybind>
     <keybind key="F2">
+      <action name="ShowMenu"><menu>super-power-volume</menu></action>
+    </keybind>
+    <keybind key="M-2">
+      <action name="ShowMenu"><menu>super-power-volume</menu></action>
+    </keybind>
+    <keybind key="F3">
       <action name="ToggleShowDesktop"/>
     </keybind>
-    <!-- TODO: would rather it a key without shift-->
     <keybind key="M-S-D">
       <action name="ToggleShowDesktop"/>
     </keybind>
     <keybind key="C-W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
-    <!-- TODO: do I need both? -->
-    <keybind key="F3">
-      <action name="Execute"><execute>bash -c "amixer set Master mute;notify-send \"Mute\" \"$(date +%Y%m%d%H%M%S)\" -t 5000"</execute></action>
+    <keybind key="m-3">
+      <action name="ToggleShowDesktop"/>
     </keybind>
+    <keybind key="F4">
+      <action name="Execute"><execute>bash -c "$HOME/bin/youtube-pause-toggle.sh"</execute></action>
+    </keybind>
+    <keybind key="M-4">
+      <action name="Execute"><execute>bash -c "$HOME/bin/youtube-pause-toggle.sh"</execute></action>
+    </keybind>
+    <!-- TODO: do I need both? not sure I need nested volume menu anymore, or power menu still want a good fast mute key f7/f8? -->
+    <!-- <keybind key="F3"> -->
+    <!--   <action name="Execute"><execute>bash -c "amixer set Master mute;notify-send \"Mute\" \"$(date +%Y%m%d%H%M%S)\" -t 5000"</execute></action> -->
+    <!-- </keybind> -->
     <keybind key="C-3">
       <action name="Execute"><execute>bash -c "amixer set Master mute;notify-send \"Mute\" \"$(date +%Y%m%d%H%M%S)\" -t 5000"</execute></action>
     </keybind>
-    <keybind key="M-S-F3">
-      <action name="Execute"><execute>bash -c "source ~/.bash_library.d/bash_functions_stdlib;normalize-volume"</execute></action>
-    </keybind>
-    <!-- should be normalize??? -->
-    <keybind key="C-F3">
-      <action name="Execute"><execute>bash -c "amixer set Master unmute;notify-send \"Unmute\" \"$(date +%Y%m%d%H%M%S)\" -t 5000"</execute></action>
-    </keybind>
-    <keybind key="M-F3">
-      <action name="ShowMenu"><menu>volume-menu</menu></action>
-    </keybind>
-    <keybind key="M-3">
-      <action name="ShowMenu"><menu>volume-menu</menu></action>
-    </keybind>
-    <!-- TODO: just check power state instead? don't need something quite so urgent? -->
-    <keybind key="F4">
-      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;throttle-down"</execute></action>
-    </keybind>
-    <!-- <keybind key="C-F4"> -->
-    <!--   <action name="Execute"><execute>bash -c "source ~/.bash_libenv;throttle-up"</execute></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="M-F4"> -->
-    <!--   <action name="Execute"><execute>bash -c "source ~/.bash_libenv;throttle-normal"</execute></action> -->
-    <!-- </keybind> -->
-    <keybind key="M-F4">
-      <action name="ShowMenu"><menu>power-menu</menu></action>
-    </keybind>
-    <keybind key="M-4">
-      <action name="ShowMenu"><menu>power-menu</menu></action>
-    </keybind>
-    <keybind key="M-S-F4">
-      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;throttle-up"</execute></action>
-    </keybind>
-    <!-- TODO: don't like libenv -->
+    <!-- TODO: don't like sourcing libenv -->
     <keybind key="F5">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;conkeror-clipboard.sh google"</execute></action>
     </keybind>
-    <keybind key="M-F5">
+    <!-- TODO: might want this to be a menu -->
+    <keybind key="M-5">
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;conkeror-clipboard.sh google"</execute></action>
+    </keybind>
+    <keybind key="C-F5">
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;apropos-clipboard"</execute></action>
+    </keybind>
+    <keybind key="s-F5">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;conkeror-clipboard.sh wikipedia"</execute></action>
     </keybind>
+    <keybind key="H-F5">
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;conkeror-clipboard.sh scholar"</execute></action>
+    </keybind>
+    <!-- ================================================================================ -->
     <!-- These aren't actually secret searches, just here for convienience.  The content of the scripts changes depending on my current project/workflow.  Generally uses what is on primary to execute an action -->
     <keybind key="F6">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;${HOME}/bin/secret-search.sh"</execute></action>
     </keybind>
     <keybind key="M-F6">
-      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;${HOME}/bin/secret-search-alt.sh"</execute></action>
+      <action name="ShowMenu"><menu>secret-search</menu></action>
+    </keybind>
+    <keybind key="M-6">
+      <action name="ShowMenu"><menu>secret-search</menu></action>
     </keybind>
     <keybind key="C-F6">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;${HOME}/bin/secret-search-ctrl.sh"</execute></action>
     </keybind>
-    <keybind key="H-F6">
-      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;apropos-clipboard"</execute></action>
+    <keybind key="s-F6">
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;${HOME}/bin/secret-search-super.sh"</execute></action>
     </keybind>
     <keybind key="M-8">
       <action name="Execute"><execute>python /home/akroshko/cic-vcs/cic-groups/capture-bib.py</execute></action>
-    </keybind>
-    <keybind key="F7">
-      <action name="ShowMenu"><menu>super-power-volume</menu></action>
-    </keybind>
-    <keybind key="F8">
-      <action name="ShowMenu"><menu>super</menu></action>
     </keybind>
     <!-- TODO: add notifications -->
     <keybind key="F9">
@@ -710,21 +700,18 @@
     <keybind key="M-0">
       <action name="ShowMenu"><menu>capture</menu></action>
     </keybind>
-    <keybind key="M-1">
-      <action name="ShowMenu"><menu>maintenance</menu></action>
-    </keybind>
     <keybind key="M-Print">
       <action name="ShowMenu"><menu>screen-capture</menu></action>
     </keybind>
-    <keybind key="M-2">
-      <action name="ShowMenu"><menu>screen-capture</menu></action>
-    </keybind>
-    <keybind key="M-5">
-      <action name="ShowMenu"><menu>apropos</menu></action>
-    </keybind>
-    <keybind key="M-6">
-      <action name="ShowMenu"><menu>quick-reference</menu></action>
-    </keybind>
+    <!-- <keybind key="M-2"> -->
+    <!--   <action name="ShowMenu"><menu>screen-capture</menu></action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="M-5"> -->
+    <!--   <action name="ShowMenu"><menu>apropos</menu></action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="M-6"> -->
+    <!--   <action name="ShowMenu"><menu>quick-reference</menu></action> -->
+    <!-- </keybind> -->
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
@@ -1044,12 +1031,10 @@
     <file>/home/akroshko/.config/openbox/openbox-menu-capture.xml</file>
     <file>/home/akroshko/.config/openbox/openbox-menu-screencapture.xml</file>
     <file>/home/akroshko/.config/openbox/openbox-menu-apropos.xml</file>
-    <file>/home/akroshko/.config/openbox/openbox-menu-maintenance.xml</file>
-    <file>/home/akroshko/.config/openbox/openbox-menu-volume.xml</file>
-    <file>/home/akroshko/.config/openbox/openbox-menu-power.xml</file>
     <file>/home/akroshko/.config/openbox/openbox-menu-quick-reference.xml</file>
     <file>/home/akroshko/.config/openbox/openbox-menu-super-power-volume.xml</file>
     <file>/home/akroshko/.config/openbox/openbox-menu-super.xml</file>
+    <file>/home/akroshko/.config/openbox/openbox-menu-secret-search.xml</file>
     <hideDelay>200</hideDelay>
     <!-- if a press-release lasts longer than this setting (in milliseconds), the
          menu is hidden again -->

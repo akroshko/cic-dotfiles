@@ -160,6 +160,12 @@ define_key(minibuffer_base_keymap,       "M-v", "yank");
 define_key(content_buffer_form_keymap,   "M-v", "yank");
 define_key(content_buffer_text_keymap,   "M-v", "yank");
 define_key(content_buffer_normal_keymap, "M-v", "paste-url");
+define_key(default_global_keymap,        "s-v", "paste-x-primary-selection");
+define_key(minibuffer_base_keymap,       "s-v", "paste-x-primary-selection");
+define_key(content_buffer_form_keymap,   "s-v", "paste-x-primary-selection");
+define_key(content_buffer_text_keymap,   "s-v", "paste-x-primary-selection");
+// TODO: I'd like a paste url primary
+define_key(content_buffer_normal_keymap, "s-v", "paste-url");
 // scroll
 define_key(content_buffer_normal_keymap, "b",     "cmd_scrollPageUp");
 define_key(content_buffer_normal_keymap, "C-,",   "cmd_scrollPageUp");
@@ -186,18 +192,19 @@ define_key(content_buffer_normal_keymap, "s-z",   "cmd_scrollPageDown");
 // define_key(content_buffer_form_keymap,   "C-s-z", "cmd_scrollLineDown", $repeat = "cmd_scrollLineDown");
 // define_key(content_buffer_text_keymap,   "C-s-z", "cmd_scrollLineDown", $repeat = "cmd_scrollLineDown");
 // define_key(content_buffer_normal_keymap, "C-s-z", "cmd_scrollLineDown");
+// TODO: I replaceed this stuff
 // scroll a bit
-define_key(default_global_keymap,        "s-v",   "cmd_scrollLineDown");
-define_key(minibuffer_base_keymap,       "s-v",   "cmd_scrollLineDown");
-define_key(content_buffer_form_keymap,   "s-v",   "cmd_scrollLineDown", $repeat = "cmd_scrollLineDown");
-define_key(content_buffer_text_keymap,   "s-v",   "cmd_scrollLineDown", $repeat = "cmd_scrollLineDown");
-define_key(content_buffer_normal_keymap, "s-v",   "cmd_scrollLineDown");
-// scroll a bit
-define_key(default_global_keymap,        "s-V",   "cmd_scrollLineUp");
-define_key(minibuffer_base_keymap,       "s-V",   "cmd_scrollLineUp");
-define_key(content_buffer_form_keymap,   "s-V",   "cmd_scrollLineUp", $repeat = "cmd_scrollLineDown");
-define_key(content_buffer_text_keymap,   "s-V",   "cmd_scrollLineUp", $repeat = "cmd_scrollLineDown");
-define_key(content_buffer_normal_keymap, "s-V",   "cmd_scrollLineUp");
+// define_key(default_global_keymap,        "s-v",   "cmd_scrollLineDown");
+// define_key(minibuffer_base_keymap,       "s-v",   "cmd_scrollLineDown");
+// define_key(content_buffer_form_keymap,   "s-v",   "cmd_scrollLineDown", $repeat = "cmd_scrollLineDown");
+// define_key(content_buffer_text_keymap,   "s-v",   "cmd_scrollLineDown", $repeat = "cmd_scrollLineDown");
+// define_key(content_buffer_normal_keymap, "s-v",   "cmd_scrollLineDown");
+// // scroll a bit
+// define_key(default_global_keymap,        "s-V",   "cmd_scrollLineUp");
+// define_key(minibuffer_base_keymap,       "s-V",   "cmd_scrollLineUp");
+// define_key(content_buffer_form_keymap,   "s-V",   "cmd_scrollLineUp", $repeat = "cmd_scrollLineDown");
+// define_key(content_buffer_text_keymap,   "s-V",   "cmd_scrollLineUp", $repeat = "cmd_scrollLineDown");
+// define_key(content_buffer_normal_keymap, "s-V",   "cmd_scrollLineUp");
 
 // scroll
 // TODO: replace by asdf keys
