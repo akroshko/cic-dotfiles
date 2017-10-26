@@ -3,6 +3,7 @@ zoom_in
 zoom_out
 zoom_default
 zoom_fit
+zoom_fill
 prev_img
 next_img
 flip
@@ -36,6 +37,8 @@ zoom_in           C-Up   plus  E
 zoom_out          C-Down minus D
 zoom_default      0            S
 zoom_fit          underscore   F
+# TODO: other key for this?
+zoom_fill         equal
 prev_img          p b
 next_img          n space
 reload_image      grave

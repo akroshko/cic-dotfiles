@@ -296,6 +296,9 @@
     <keybind key="F5">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;conkeror-clipboard.sh google"</execute></action>
     </keybind>
+    <keybind key="M-F5">
+      <action name="ShowMenu"><menu>apropos</menu></action>
+    </keybind>
     <!-- TODO: might want this to be a menu -->
     <keybind key="M-5">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;conkeror-clipboard.sh google"</execute></action>
@@ -303,7 +306,7 @@
     <keybind key="C-F5">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;apropos-clipboard"</execute></action>
     </keybind>
-    <keybind key="s-F5">
+    <keybind key="W-F5">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;conkeror-clipboard.sh wikipedia"</execute></action>
     </keybind>
     <keybind key="H-F5">
@@ -323,8 +326,11 @@
     <keybind key="C-F6">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;${HOME}/bin/secret-search-ctrl.sh"</execute></action>
     </keybind>
-    <keybind key="s-F6">
+    <keybind key="W-F6">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;${HOME}/bin/secret-search-super.sh"</execute></action>
+    </keybind>
+    <keybind key="H-F6">
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;${HOME}/bin/secret-search-hyper.sh"</execute></action>
     </keybind>
     <keybind key="M-8">
       <action name="Execute"><execute>python /home/akroshko/cic-vcs/cic-groups/capture-bib.py</execute></action>
