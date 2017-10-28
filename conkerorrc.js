@@ -68,6 +68,7 @@ interactive("local-print-buffer",
 ////////////////////////////////////////
 // esdf keys, experimental
 // TODO: need new 10x, need new back
+// TODO: these could be better, exteriment
 define_key(content_buffer_normal_keymap, "f",       "follow");
 define_key(content_buffer_normal_keymap, "s-f",     "follow-new-buffer");
 define_key(content_buffer_normal_keymap, "s-F",     "follow-new-buffer-background");
@@ -86,6 +87,10 @@ define_key(content_buffer_normal_keymap, "s-M",     "duplicate-buffer-background
 define_key(content_buffer_normal_keymap, "M-s-m",   "duplicate-buffer-new-window");
 define_key(content_buffer_normal_keymap, "D",       "find-url-new-window");
 define_key(content_buffer_normal_keymap, "/",       "save");
+require("clicks-in-new-buffer.js");
+// clicks_in_new_buffer_target = OPEN_NEW_BUFFER_BACKGROUND;
+clicks_in_new_buffer_target = OPEN_NEW_WINDOW;
+clicks_in_new_buffer_button = 2;
 // / for download/save
 // m for mirror/duplicate
 // best ones are....
