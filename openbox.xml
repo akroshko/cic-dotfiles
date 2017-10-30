@@ -306,6 +306,9 @@
     <keybind key="C-F5">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;apropos-clipboard"</execute></action>
     </keybind>
+    <keybind key="C-5">
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;apropos-clipboard"</execute></action>
+    </keybind>
     <keybind key="W-F5">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;conkeror-clipboard.sh wikipedia"</execute></action>
     </keybind>
