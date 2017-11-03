@@ -528,11 +528,16 @@ define_webjump("zathura","https://pwmt.org/projects/zathura/");
 // local stuff here because it's useful
 define_webjump("library-usask","https://sundog.usask.ca/search/a?searchtype=Y&SORT=D&searcharg=%s&searchscope=8&called_from=catalogue_home_tab",$alternative="https://library.usask.ca/");
 define_webjump("library-saskatoon","http://www.saskatoonlibrary.ca/");
+// TODO: generate geographic webjumps programatically?
 define_webjump("calgary-timeanddate","https://www.timeanddate.com/worldclock/city.html?n=55");
 define_webjump("calgary-weathernetwork","http://www.theweathernetwork.com/weather/canada/alberta/calgary");
+define_webjump("canmore-weathernetwork","https://www.theweathernetwork.com/ca/weather/alberta/canmore");
+define_webjump("canmore-weatheroffice","https://weather.gc.ca/city/pages/ab-3_metric_e.html");
 define_webjump("calgary-weatheroffice","http://www.weatheroffice.gc.ca/city/pages/ab-52_metric_e.html");
 define_webjump("sundre-weatheroffice","http://www.weatheroffice.gc.ca/city/pages/ab-53_metric_e.html");
 define_webjump("sundre-weathernetwork","http://www.theweathernetwork.com/weather/canada/alberta/sundre");
+define_webjump("radium-weathernetwork","https://www.theweathernetwork.com/ca/weather/british-columbia/radium-hot-springs");
+define_webjump("radium-weatheroffice", "https://weather.gc.ca/city/pages/bc-72_metric_e.html");
 define_webjump("saskatchewan-firehazard","http://www.environment.gov.sk.ca/fire");
 define_webjump("saskatoon-timeanddate","https://www.timeanddate.com/worldclock/city.html?n=1227");
 define_webjump("saskatoon-weathernetwork","http://www.theweathernetwork.com/weather/canada/saskatchewan/saskatoon");
@@ -540,16 +545,22 @@ define_webjump("saskatoon-weatheroffice","http://www.weatheroffice.gc.ca/city/pa
 define_webjump("wayback","https://archive.org/web/");
 define_webjump("webcam-banff-trafficcam","http://banff.ca/index.aspx?NID=959")
 define_webjump("webcam-canmore","https://canmorealberta.com/webcams")
+define_webjump("canmore-webcam","https://canmorealberta.com/webcams")
 define_webjump("webcam-radium","http://images.drivebc.ca/bchighwaycam/pub/html/www/132.html")
+define_webjump("radium-webcam","http://images.drivebc.ca/bchighwaycam/pub/html/www/132.html")
 define_webjump("weathernetwork","http://www.theweathernetwork.com/");
 define_webjump("whatismyip","https://www.iplocation.net/find-ip-address");
 define_webjump("wn-saskatoon","http://www.theweathernetwork.com/weather/canada/saskatchewan/saskatoon");
 define_webjump("weathernetwork-calgary","http://www.theweathernetwork.com/weather/canada/alberta/calgary");
+define_webjump("weathernetwork-canmore","https://www.theweathernetwork.com/ca/weather/alberta/canmore");
+define_webjump("weathernetwork-radium","https://www.theweathernetwork.com/ca/weather/british-columbia/radium-hot-springs");
 define_webjump("weathernetwork-saskatoon","http://www.theweathernetwork.com/weather/canada/saskatchewan/saskatoon");
 define_webjump("weathernetwork-sundre","http://www.theweathernetwork.com/weather/canada/alberta/sundre");
 define_webjump("weatheroffice","http://www.weatheroffice.gc.ca/canada_e.html");
 define_webjump("wo-saskatoon","http://www.weatheroffice.gc.ca/city/pages/sk-40_metric_e.html");
 define_webjump("weatheroffice-calgary","http://www.weatheroffice.gc.ca/city/pages/ab-52_metric_e.html");
+define_webjump("weatheroffice-canmore","https://weather.gc.ca/city/pages/ab-3_metric_e.html");
+define_webjump("weatheroffice-radium","https://weather.gc.ca/city/pages/bc-72_metric_e.html");
 define_webjump("weatheroffice-saskatoon","http://www.weatheroffice.gc.ca/city/pages/sk-40_metric_e.html");
 define_webjump("weatheroffice-sundre","http://www.weatheroffice.gc.ca/city/pages/ab-53_metric_e.html");
 define_webjump("wu-saskatoon","https://www.wunderground.com/cgi-bin/findweather/getForecast?query=saskatoon");
