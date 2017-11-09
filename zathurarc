@@ -8,8 +8,8 @@ set pages-per-row       2
 # TODO: temporary, change for different machines
 set window-width        1920
 set window-height       1080
-# I think this is best for interaction with other programs
-set selection-clipboard clipboard
+# XXXX: I use primary for many things these days
+set selection-clipboard primary
 # TODO: would love to get command period working here
 # map reload
 map [normal]       %       reload

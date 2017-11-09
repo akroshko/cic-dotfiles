@@ -85,6 +85,7 @@ ${execi 60 bash -c "source ~/.bash_libenv;smartctl-disks"}
 ${if_match "${nodename}" == "akroshko-main"}\
 $hr
 ${execi 60 bash -c "source ~/.bash_libenv;mdstat-status"}
+# ${execi 10 bash -c "cat /proc/mdstat"}
 ${endif}
 $hr
 ${exec bash -c "source ~/.bash_libenv;dunst-notifications | tail -n 20"}

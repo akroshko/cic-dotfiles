@@ -29,6 +29,11 @@
     <screen_edge_strength>20</screen_edge_strength>
   </resistance>
 
+  <!-- <resistance> -->
+  <!--   <strength>5</strength> -->
+  <!--   <screen_edge_strength>5</screen_edge_strength> -->
+  <!-- </resistance> -->
+
   <focus>
     <focusNew>yes</focusNew>
     <!-- always try to focus new windows when they appear. other rules
@@ -727,7 +732,8 @@
     <!-- number of pixels the mouse must move before a drag begins -->
     <doubleClickTime>500</doubleClickTime>
     <!-- in milliseconds (1000 = 1 second) -->
-    <screenEdgeWarpTime>400</screenEdgeWarpTime>
+    <!-- TODO: should I make this much less? default was 400 -->
+    <screenEdgeWarpTime>200</screenEdgeWarpTime>
     <!-- Time before changing desktops when the pointer touches the edge of the
          screen while moving a window, in milliseconds (1000 = 1 second).
          Set this to 0 to disable warping -->
@@ -760,6 +766,7 @@
         <action name="FocusToBottom"/>
         <action name="Unfocus"/>
       </mousebind>
+
       <!-- TODO: these interfere with some of my stuff and I don't use them -->
       <!-- <mousebind button="A-Up" action="Click"> -->
       <!--   <action name="GoToDesktop"><to>previous</to></action> -->
@@ -779,6 +786,9 @@
       <!-- <mousebind button="A-S-Down" action="Click"> -->
       <!--   <action name="SendToDesktop"><to>next</to></action> -->
       <!-- </mousebind> -->
+      <mousebind button="W-Left" action="Press">
+        <action name="Execute"><execute>~/cic-vcs/bash-stdlib/xclip-primary-insert-emacs-collection.sh</execute></action>
+      </mousebind>
     </context>
 
     <context name="Titlebar">
