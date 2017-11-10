@@ -235,13 +235,13 @@ session_pref("font.size.variable.x-western", 11);
 session_pref("xpinstall.whitelist.required", false);
 session_pref("browser.history_expire_days",1);
 // session_pref("browser.download.manager.retention",1)
-// TODO do any of these actually work?
+// TODO do any of these actually work? some of these are broken...
 session_pref("browser.display.show_image_placeholders",false);
 session_pref("browser.formfill.enable",false);
 session_pref("full-screen-api.enabled",true);
 session_pref("gfx.font_rendering.directwrite.enabled",true);
 session_pref("mozilla.widget.render-mode",6);
-session_pref("network.prefetch-next",true);
+// session_pref("network.prefetch-next",true);
 session_pref("network.http.max-persistent-connections-per-server",8);
 session_pref("network.http.pipelining",true);
 session_pref("network.http.pipelining.maxrequests",8);
@@ -257,68 +257,6 @@ session_pref("privacy.clearOnShutdown.passwords",true);
 session_pref("privacy.clearOnShutdown.sessions",true);
 session_pref("privacy.clearOnShutdown.siteSettings",true);
 session_pref("privacy.sanitize.sanitizeOnShutdown",true);
-
-// security stuff
-// TODO: will have to change by firefox 48
-// https://vikingvpn.com/cybersecurity-wiki/browser-security/guide-hardening-mozilla-firefox-for-privacy-and-security
-session_pref("xpinstall.signatures.required",false);
-session_pref("security.ssl3.ecdhe_ecdsa_rc4_128_sha",false);
-session_pref("security.ssl3.ecdhe_rsa_rc4_128_sha",false);
-session_pref("security.ssl3.rsa_rc4_128_md5",false);
-session_pref("security.ssl3.rsa_rc4_128_sha",false);
-session_pref("security.ssl3.rsa_des_ede3_sha",false);
-// TODO: I never use this
-session_pref("browser.formfill.enable",false);
-// TODO: I clear cache, but never cache ssl
-session_pref("browser.cache.disk_cache_ssl",false);
-session_pref("browser.cache.offline.enable",false);
-session_pref("plugin.scan.plid.all",false);
-
-// https://gist.github.com/haasn/69e19fc2fe0e25f3cff5
-// TODO: prefetching
-session_pref("dom.event.clipboardevents.enabled",false);
-session_pref("dom.battery.enabled",false);
-session_pref("browser.send_pings",false);
-session_pref("webgl.disabled",true);
-session_pref("media.peerconnection.enabled",false);
-session_pref("loop.enabled",false);
-//
-session_pref("browser.beacen.enabled",false);
-session_pref("geo.enabled",false);
-session_pref("geo.wifi.logging.enabled",false);
-session_pref("geo.wifi.uri","");
-session_pref("browser.safebrowsing.enabled",false);
-session_pref("browser.safebrowsing.downloads.enabled",false);
-session_pref("browser.safebrowsing.malware.enabled",false);
-session_pref("media.block-autoplay-until-in-foreground",true);
-session_pref("social.directories","");
-session_pref("social.whitelist","");
-session_pref("social.manifest.facebook","");
-session_pref("social.remote-install.enabled",false)
-session_pref("social.toast-notifications.enabled",false);
-session_pref("device.sensors.enabled",false);
-session_pref("camera.control.face_detection.enabled",false);
-session_pref("camera.control.autofocus_moving_callback.enabled",false);
-session_pref("privacy.trackingprotection.enabled",true);
-session_pref("datareporting.healthreport.service.enabled",false);
-session_pref("datareporting.healthreport.uploadEnabled",false);
-session_pref("toolkit.telemetry.enabled",false);
-// network.http.speculative-parallel-limit=0
-session_pref("security.tls.unrestricted_rc4_fallback",false);
-session_pref("security.tls.insecure_fallback_hosts.use_static_list",false);
-session_pref("security.tls.version.min",1);
-// TODO: change in future when I don't need to connect to certain unsafe websites
-// https://wiki.mozilla.org/Security:Renegotiation#security.ssl.require_safe_negotiation
-// session_pref("security.ssl.require_safe_negotiation",true);
-// TODO: does not seem to affect conkeror
-// session_pref("security.ssl.treat_unsafe_negotiation_as_broken",true);
-session_pref("security.ssl3.rsa_seed_sha",true);
-session_pref("security.OCSP.enabled",1);
-session_pref("security.OCSP.require",true);
-// perfect forward secrecy, but muight break many things
-// session_pref("security.ssl3.rsa_aes_256_sha",false);
-// TODO: better, but some of my websites won't work
-// session_pref("security.tls.version.min",3);
 
 // TODO:
 // printer stuff
@@ -343,9 +281,6 @@ session_pref("javascript.enabled",true);
 // TODO: see if this breaks anything, add on a key
 // session_pref("media.autoplay.enabled",false);
 page_mode_deactivate(youtube_player_mode);
-
-// Firefox compatibility?
-
 
 // Adblock Plus
 // http://conkeror.org/AdblockPlus
