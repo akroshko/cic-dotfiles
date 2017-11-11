@@ -611,6 +611,7 @@
     <keybind key="XF86Calculator">
       <action name="Execute"><execute>xcalc</execute></action>
     </keybind>
+    <!-- TODO: get rid of source here for responsiveness -->
     <keybind key="XF86AudioLowerVolume">
       <action name="Execute"><execute>bash -c "amixer set Master 10%-;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
     </keybind>
@@ -618,7 +619,7 @@
       <action name="Execute"><execute>bash -c "amixer set Master 10%+;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
     </keybind>
     <keybind key="XF86AudioMute">
-      <action name="Execute"><execute>amixer sset Master toggle</execute></action>
+      <action name="Execute"><execute>bash -c "amixer sset Master toggle;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-mute"</execute></action>
     </keybind>
     <!-- TODO: are these what I want? may not want this.... f6 version better -->
     <keybind key="C-W-a">
