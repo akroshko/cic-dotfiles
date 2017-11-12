@@ -340,6 +340,10 @@
     <keybind key="H-F6">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;${HOME}/bin/secret-search-hyper.sh"</execute></action>
     </keybind>
+    <keybind key="F7">
+        <action name="ShowMenu"><menu>quick-reference</menu></action>
+      <!-- <action name="Execute"><execute>bash -c "source ~/.bash_libenv;${HOME}/bin/secret-search.sh"</execute></action> -->
+    </keybind>
     <keybind key="M-8">
       <action name="Execute"><execute>python /home/akroshko/cic-vcs/cic-groups/capture-bib.py</execute></action>
     </keybind>
@@ -388,7 +392,7 @@
     <keybind key="M-W-slash">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;whitenoise.sh"</execute></action>
     </keybind>
-    <keybind key="C-M-W-slash">
+    <keybind key="M-W-S-slash">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;whitenoise.sh --next"</execute></action>
     </keybind>
     <!-- <keybind key="M-W-l"> -->
