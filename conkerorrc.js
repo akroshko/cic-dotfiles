@@ -239,24 +239,14 @@ session_pref("browser.history_expire_days",1);
 session_pref("browser.display.show_image_placeholders",false);
 session_pref("browser.formfill.enable",false);
 session_pref("full-screen-api.enabled",true);
-session_pref("gfx.font_rendering.directwrite.enabled",true);
-session_pref("mozilla.widget.render-mode",6);
+// TODO: fix?
+// session_pref("gfx.font_rendering.directwrite.enabled",true);
+// session_pref("mozilla.widget.render-mode",6);
 // session_pref("network.prefetch-next",true);
 session_pref("network.http.max-persistent-connections-per-server",8);
 session_pref("network.http.pipelining",true);
 session_pref("network.http.pipelining.maxrequests",8);
-session_pref("network.dns.disableIPv6",true);
-session_pref("plugins.click_to_play",true);
-session_pref("privacy.clearOnShutdown.cache",true);
-session_pref("privacy.clearOnShutdown.cookies",true);
-session_pref("privacy.clearOnShutdown.downloads",true);
-session_pref("privacy.clearOnShutdown.formdata",true);
-session_pref("privacy.clearOnShutdown.history",true);
-session_pref("privacy.clearOnShutdown.offlineApps",true);
-session_pref("privacy.clearOnShutdown.passwords",true);
-session_pref("privacy.clearOnShutdown.sessions",true);
-session_pref("privacy.clearOnShutdown.siteSettings",true);
-session_pref("privacy.sanitize.sanitizeOnShutdown",true);
+// session_pref("network.dns.disableIPv6",true);
 
 // TODO:
 // printer stuff
