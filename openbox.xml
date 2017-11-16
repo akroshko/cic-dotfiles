@@ -299,10 +299,10 @@
     </keybind>
     <!-- TODO: don't like sourcing libenv -->
     <keybind key="F5">
-      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;conkeror-clipboard.sh google"</execute></action>
+      <action name="ShowMenu"><menu>apropos</menu></action>
     </keybind>
     <keybind key="M-F5">
-      <action name="ShowMenu"><menu>apropos</menu></action>
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;conkeror-clipboard.sh google"</execute></action>
     </keybind>
     <!-- TODO: might want this to be a menu -->
     <keybind key="M-5">
@@ -323,10 +323,10 @@
     <!-- ================================================================================ -->
     <!-- These aren't actually secret searches, just here for convienience.  The content of the scripts changes depending on my current project/workflow.  Generally uses what is on primary to execute an action -->
     <keybind key="F6">
-      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;${HOME}/bin/secret-search.sh"</execute></action>
+      <action name="ShowMenu"><menu>secret-search</menu></action>
     </keybind>
     <keybind key="M-F6">
-      <action name="ShowMenu"><menu>secret-search</menu></action>
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;${HOME}/bin/secret-search.sh"</execute></action>
     </keybind>
     <keybind key="M-6">
       <action name="ShowMenu"><menu>secret-search</menu></action>
