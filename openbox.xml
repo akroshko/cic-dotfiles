@@ -261,18 +261,6 @@
     <!-- put these beside escape to make menu select easy, plus easy to find on laptop in the dark -->
     <!-- M- keys give a touch-typing way of getting menus -->
     <keybind key="F1">
-      <action name="ShowMenu"><menu>super</menu></action>
-    </keybind>
-    <keybind key="M-1">
-      <action name="ShowMenu"><menu>super</menu></action>
-    </keybind>
-    <keybind key="F2">
-      <action name="ShowMenu"><menu>super-power-volume</menu></action>
-    </keybind>
-    <keybind key="M-2">
-      <action name="ShowMenu"><menu>super-power-volume</menu></action>
-    </keybind>
-    <keybind key="F3">
       <action name="ToggleShowDesktop"/>
     </keybind>
     <keybind key="M-S-D">
@@ -281,8 +269,20 @@
     <keybind key="C-W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
-    <keybind key="m-3">
+    <keybind key="m-1">
       <action name="ToggleShowDesktop"/>
+    </keybind>
+    <keybind key="F2">
+      <action name="ShowMenu"><menu>super</menu></action>
+    </keybind>
+    <keybind key="M-2">
+      <action name="ShowMenu"><menu>super</menu></action>
+    </keybind>
+    <keybind key="F3">
+      <action name="ShowMenu"><menu>super-power-volume</menu></action>
+    </keybind>
+    <keybind key="M-3">
+      <action name="ShowMenu"><menu>super-power-volume</menu></action>
     </keybind>
     <keybind key="F4">
       <action name="Execute"><execute>bash -c "$HOME/bin/youtube-pause-toggle.sh"</execute></action>
@@ -342,10 +342,19 @@
     </keybind>
     <keybind key="F7">
         <action name="ShowMenu"><menu>quick-reference</menu></action>
-      <!-- <action name="Execute"><execute>bash -c "source ~/.bash_libenv;${HOME}/bin/secret-search.sh"</execute></action> -->
     </keybind>
+    <keybind key="F8">
+        <action name="ShowMenu"><menu>capture</menu></action>
+    </keybind>
+    <keybind key="M-F8">
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;python /home/akroshko/cic-vcs/cic-groups/capture-bib.py --delay;notify-send "Captured!!!" -t 5000"</execute></action>
+    </keybind>
+
     <keybind key="M-8">
-      <action name="Execute"><execute>python /home/akroshko/cic-vcs/cic-groups/capture-bib.py</execute></action>
+      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;python /home/akroshko/cic-vcs/cic-groups/capture-bib.py --delay;notify-send "Captured!!!" -t 5000"</execute></action>
+    </keybind>
+    <keybind key="C-F8">
+      <action name="Execute"><execute>bash -c "python ~/cic-vcs/cic-groups/capture-bib.py;sleep 0.2;~/bin/launch-emacsclient noframe \"org-protocol:/capture:/X/empty/empty/empty\""</execute></action>
     </keybind>
     <!-- TODO: add notifications -->
     <keybind key="F9">
