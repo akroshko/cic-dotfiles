@@ -33,14 +33,14 @@ scroll_down_page  S-Down
 scroll_left_page  S-Left
 scroll_right_page S-Right
 # bind new keys for zoom
-zoom_in           C-Up   plus  E
-zoom_out          C-Down minus D
+zoom_in           C-Up    plus  E
+zoom_out          C-Down  minus D
+zoom_in           C-Left  prev_img b
+zoom_out          C-Right next_img space
 zoom_default      0            S
 zoom_fit          underscore   F
 # TODO: other key for this?
 zoom_fill         equal
-prev_img          p b
-next_img          n space
 reload_image      grave
 # TODO: should I use < >, or what should they be for?
 orient_3          R
