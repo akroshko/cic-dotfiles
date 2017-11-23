@@ -33,10 +33,10 @@ scroll_down_page  S-Down
 scroll_left_page  S-Left
 scroll_right_page S-Right
 # bind new keys for zoom
-zoom_in           C-Up    plus  E
-zoom_out          C-Down  minus D
-zoom_in           C-Left  prev_img b
-zoom_out          C-Right next_img space
+zoom_in           C-Up         plus
+zoom_out          C-Down       minus
+prev_img          C-Left       b
+next_img          C-Right      space
 zoom_default      0            S
 zoom_fit          underscore   F
 # TODO: other key for this?
