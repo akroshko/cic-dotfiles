@@ -193,7 +193,7 @@
     <right>0</right>
   </margins>
   <dock>
-    <position>TopLeft</position>
+    <position>TopRight</position>
     <!-- (Top|Bottom)(Left|Right|)|Top|Bottom|Left|Right|Floating -->
     <floatingX>0</floatingX>
     <floatingY>0</floatingY>
@@ -779,6 +779,19 @@
         <action name="Lower"/>
         <action name="FocusToBottom"/>
         <action name="Unfocus"/>
+      </mousebind>
+
+      <!-- TODO: maybe I want shift? -->
+      <mousebind button="W-Left" action="Press">
+        <action name="NextWindow">
+          <raise>yes</raise>
+        </action>
+      </mousebind>
+
+      <mousebind button="W-Right" action="Press">
+        <action name="PreviousWindow">
+          <raise>yes</raise>
+        </action>
       </mousebind>
 
       <!-- TODO: these interfere with some of my stuff and I don't use them -->

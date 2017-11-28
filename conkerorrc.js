@@ -87,6 +87,8 @@ define_key(content_buffer_normal_keymap, "s-M",     "duplicate-buffer-background
 define_key(content_buffer_normal_keymap, "M-s-m",   "duplicate-buffer-new-window");
 define_key(content_buffer_normal_keymap, "D",       "find-url-new-window");
 define_key(content_buffer_normal_keymap, "/",       "save");
+// TODO: best way to disable \ as viewsource... too easy and descructive
+define_key(content_buffer_normal_keymap, "\\",      "");
 require("clicks-in-new-buffer.js");
 // clicks_in_new_buffer_target = OPEN_NEW_BUFFER_BACKGROUND;
 clicks_in_new_buffer_target = OPEN_NEW_WINDOW;
@@ -355,9 +357,11 @@ define_webjump("ctan-all", "https://www.ctan.org/search/?search=%s&search_type=d
 define_webjump("ctan-description", "https://www.ctan.org/search/?search=%s&search_type=description",$alternative="https://www.ctan.org");
 define_webjump("ctan-filename", "https://www.ctan.org/search/?search=%s&search_type=filename",$alternative="https://www.ctan.org");
 define_webjump("ctan-package", "https://www.ctan.org/search/?search=%s&search_type=id",$alternative="https://www.ctan.org");
+define_webjump("daily-galaxy","http://www.dailygalaxy.com/");
 define_webjump("deal-extreme","https://www.dx.com/");
 define_webjump("dictionary","http://dictionary.reference.com/browse/%s");
 define_webjump("digikey","http://www.digikey.ca/");
+define_webjump("dockapps","http://www.dockapps.net/");
 define_opensearch_webjump("d", "duckduckgo.xml");
 // define_webjump("duckduckgo","https://duckduckgo.com/?q=%s",$alternative="https://duckduckgo.com");
 define_webjump("ebay","https://ebay.ca");
