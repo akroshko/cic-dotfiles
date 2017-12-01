@@ -1203,11 +1203,15 @@
     <!-- # you may use one or more of the name/class/role/title/type rules to specify -->
     <!-- # windows to match -->
     <!-- name="the window's _OB_APP_NAME property (see obxprop)" -->
-    <application
+      <application
         title="pythode*"
         class="URxvt">
       <focus>no</focus>
       <desktop>2</desktop>
       </application>
+      <!-- <application -->
+      <!--   class="Chromium-browser"> -->
+      <!-- <focus>no</focus> -->
+      <!-- </application> -->
     </applications>
 </openbox_config>

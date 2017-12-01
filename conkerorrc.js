@@ -687,7 +687,8 @@ interactive("open-firefox-private", "",
 define_key(content_buffer_normal_keymap, "C-c x", "open-firefox-private");
 interactive("open-chromium", "",
     function (I) {
-        var cmd_str = 'chromium "' + I.buffer.display_uri_string + '"';
+        // TODO: fix this....
+        var cmd_str = 'chromium --incognito "' + I.buffer.display_uri_string + '"';
         shell_command_blind(cmd_str);
 });
 define_key(content_buffer_normal_keymap, "C-c g", "open-chromium");

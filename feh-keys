@@ -42,9 +42,11 @@ zoom_fit          underscore   F
 # TODO: other key for this?
 zoom_fill         equal
 reload_image      grave
+render            r
 # TODO: should I use < >, or what should they be for?
-orient_3          R
-orient_1          r
+# TODO: bad...
+# orient_3          R
+# orient_1          r
 # hack to give g for gimp-edit along with feh-open-browse sh script
 action_6          g
 # I only hit these accidentaly
