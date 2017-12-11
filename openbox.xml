@@ -573,17 +573,38 @@
       <action name="Execute"><execute> wmctrl -a "repl-restartable 'psql"</execute></action>
     </keybind>
     <!-- TODO: decide which of these is best -->
-    <keybind key="M-W-period">
-      <action name="DirectionalCycleWindows">
-        <direction>right</direction>
+    <keybind key="W-period">
+      <action name="NextWindow">
         <raise>yes</raise>
+        <linear>yes</linear>
+        <interactive>no</interactive>
       </action>
+      <!-- directional cycle does not work well for me -->
+      <!-- <action name="DirectionalCycleWindows"> -->
+      <!--   <direction>right</direction> -->
+      <!--   <raise>yes</raise> -->
     </keybind>
-    <keybind key="M-W-comma">
-      <action name="DirectionalCycleWindows">
-        <direction>left</direction>
+    <keybind key="W-comma">
+      <action name="PreviousWindow">
         <raise>yes</raise>
+        <linear>yes</linear>
+        <interactive>no</interactive>
       </action>
+      <!-- <action name="DirectionalCycleWindows"> -->
+      <!--   <direction>left</direction> -->
+      <!--   <raise>yes</raise> -->
+      <!-- </action> -->
+    </keybind>
+    <keybind key="W-slash">
+      <action name="NextWindow">
+        <raise>yes</raise>
+        <linear>no</linear>
+        <interactive>no</interactive>
+      </action>
+      <!-- <action name="DirectionalCycleWindows"> -->
+      <!--   <direction>left</direction> -->
+      <!--   <raise>yes</raise> -->
+      <!-- </action> -->
     </keybind>
     <!-- <keybind key="H-W-period"> -->
     <!--   <action name="DirectionalCycleWindows"> -->
