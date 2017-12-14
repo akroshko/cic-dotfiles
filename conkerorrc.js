@@ -403,7 +403,7 @@ define_webjump("mouser","http://ca.mouser.com/");
 define_webjump("ncix","http://www.ncix.com/search/?categoryid=0&q=%s",$alternative="http://www.ncix.com");
 // TODO: uses invalid security certificate
 define_webjump("newegg","http://www.newegg.ca/Product/ProductList.aspx?Submit=ENE&DEPA=0&Order=BESTMATCH&Description=%s",$alternative="http://newegg.ca");
-define_webjump("ohloh", "https://www.ohloh.net/p?query=%s",$alternative="https://www.ohloh.net");
+define_webjump("openhub", "https://www.openhub.net/",$alternative="https://www.openhub.net/");
 define_webjump("openbox", "http://openbox.org/wiki/Help:Contents");
 define_webjump("otv", "https://otvtech.ca");
 define_webjump("phoronix", "https://phoronix.com");
@@ -412,6 +412,7 @@ define_webjump("plus","https://plus.google.com/");
 define_webjump("pwmt","https://pwmt.org/");
 define_webjump("pypi","https://pypi.python.org/pypi?%3Aaction=search&term=%s&submit=search",$alternative="https://pypi.python.org");
 define_webjump("python", "https://docs.python.org/2.7/search.html?q=%s",$alternative="https://docs.python.org/2.7/");
+define_webjump("techradar", "http://www.techradar.com/");
 define_webjump("theregister","http://www.theregister.co.uk/");
 define_webjump("skyandtelescope","http://www.skyandtelescope.com");
 define_webjump("sage","http://sagemath.org")

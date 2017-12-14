@@ -421,7 +421,7 @@
     </keybind>
     <!-- TODO: temporary, need to decide -->
     <!-- snap left -->
-    <keybind key="M-W-b">
+    <keybind key="M-W-comma">
       <action name="UnmaximizeFull"/>
       <action name="MaximizeVert"/>
       <action name="MoveResizeTo">
@@ -430,7 +430,7 @@
       <action name="MoveToEdge"><direction>west</direction></action>
     </keybind>
     <!-- snap right -->
-    <keybind key="M-W-f">
+    <keybind key="M-W-period">
       <action name="UnmaximizeFull"/>
       <action name="MaximizeVert"/>
       <action name="MoveResizeTo">
@@ -439,41 +439,41 @@
       <action name="MoveToEdge"><direction>east</direction></action>
     </keybind>
     <!-- snap left -->
-    <keybind key="M-S-b">
-      <action name="UnmaximizeFull"/>
-      <action name="MaximizeVert"/>
-      <action name="MoveResizeTo">
-        <width>50%</width>
-      </action>
-      <action name="MoveToEdge"><direction>west</direction></action>
-    </keybind>
+    <!-- <keybind key="M-S-b"> -->
+    <!--   <action name="UnmaximizeFull"/> -->
+    <!--   <action name="MaximizeVert"/> -->
+    <!--   <action name="MoveResizeTo"> -->
+    <!--     <width>50%</width> -->
+    <!--   </action> -->
+    <!--   <action name="MoveToEdge"><direction>west</direction></action> -->
+    <!-- </keybind> -->
     <!-- snap right -->
-    <keybind key="M-S-f">
-      <action name="UnmaximizeFull"/>
-      <action name="MaximizeVert"/>
-      <action name="MoveResizeTo">
-        <width>50%</width>
-      </action>
-      <action name="MoveToEdge"><direction>east</direction></action>
-    </keybind>
+    <!-- <keybind key="M-S-f"> -->
+    <!--   <action name="UnmaximizeFull"/> -->
+    <!--   <action name="MaximizeVert"/> -->
+    <!--   <action name="MoveResizeTo"> -->
+    <!--     <width>50%</width> -->
+    <!--   </action> -->
+    <!--   <action name="MoveToEdge"><direction>east</direction></action> -->
+    <!-- </keybind> -->
     <!-- snap left -->
-    <keybind key="M-W-w">
-      <action name="UnmaximizeFull"/>
-      <action name="MaximizeVert"/>
-      <action name="MoveResizeTo">
-        <width>40%</width>
-      </action>
-      <action name="MoveToEdge"><direction>west</direction></action>
-    </keybind>
+    <!-- <keybind key="M-W-w"> -->
+    <!--   <action name="UnmaximizeFull"/> -->
+    <!--   <action name="MaximizeVert"/> -->
+    <!--   <action name="MoveResizeTo"> -->
+    <!--     <width>40%</width> -->
+    <!--   </action> -->
+    <!--   <action name="MoveToEdge"><direction>west</direction></action> -->
+    <!-- </keybind> -->
     <!-- snap right -->
-    <keybind key="M-W-e">
-      <action name="UnmaximizeFull"/>
-      <action name="MaximizeVert"/>
-      <action name="MoveResizeTo">
-        <width>60%</width>
-      </action>
-      <action name="MoveToEdge"><direction>east</direction></action>
-    </keybind>
+    <!-- <keybind key="M-W-e"> -->
+    <!--   <action name="UnmaximizeFull"/> -->
+    <!--   <action name="MaximizeVert"/> -->
+    <!--   <action name="MoveResizeTo"> -->
+    <!--     <width>60%</width> -->
+    <!--   </action> -->
+    <!--   <action name="MoveToEdge"><direction>east</direction></action> -->
+    <!-- </keybind> -->
     <!-- this screen -->
     <!-- TODO might conflict? -->
     <keybind key="M-W-bracketright">
@@ -804,13 +804,13 @@
 
       <!-- TODO: maybe I want shift? -->
       <mousebind button="W-Left" action="Press">
-        <action name="NextWindow">
+        <action name="PreviousWindow">
           <raise>yes</raise>
         </action>
       </mousebind>
 
       <mousebind button="W-Right" action="Press">
-        <action name="PreviousWindow">
+        <action name="NextWindow">
           <raise>yes</raise>
         </action>
       </mousebind>
