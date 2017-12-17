@@ -409,6 +409,7 @@ define_webjump("otv", "https://otvtech.ca");
 define_webjump("phoronix", "https://phoronix.com");
 define_webjump("physorg", "http://phys.org");
 define_webjump("plus","https://plus.google.com/");
+define_webjump("psql-pev","http://tatiyants.com/pev/#/plans/new");
 define_webjump("pwmt","https://pwmt.org/");
 define_webjump("pypi","https://pypi.python.org/pypi?%3Aaction=search&term=%s&submit=search",$alternative="https://pypi.python.org");
 define_webjump("python", "https://docs.python.org/2.7/search.html?q=%s",$alternative="https://docs.python.org/2.7/");
