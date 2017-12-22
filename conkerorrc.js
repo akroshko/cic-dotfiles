@@ -228,6 +228,12 @@ url_completion_use_webjumps = true;
 url_remoting_fn = load_url_in_new_window;
 // url_remoting_fn = load_url_in_new_buffer;
 // url_remoting_fn = load_url_in_current_buffer;
+
+// // user prefs
+// user_pref("layers.acceleration.disabled", false);
+// user_pref("layers.acceleration.force-enabled", true);
+// user_pref("layers.offmainthreadcomposition.enabled", true);
+
 // session preferences
 // fonts
 session_pref("font.minimum-size.x-western", 11);
@@ -239,17 +245,16 @@ session_pref("browser.history_expire_days",1);
 // session_pref("browser.download.manager.retention",1)
 // TODO do any of these actually work? some of these are broken...
 session_pref("browser.display.show_image_placeholders",false);
-session_pref("browser.formfill.enable",false);
 session_pref("full-screen-api.enabled",true);
 // TODO: fix?
 // session_pref("gfx.font_rendering.directwrite.enabled",true);
 // session_pref("mozilla.widget.render-mode",6);
 // session_pref("network.prefetch-next",true);
+// TODO: are these still valid?
 session_pref("network.http.max-persistent-connections-per-server",8);
 session_pref("network.http.pipelining",true);
 session_pref("network.http.pipelining.maxrequests",8);
 // session_pref("network.dns.disableIPv6",true);
-
 // TODO:
 // printer stuff
 session_pref("print.print_headercenter","");
@@ -359,6 +364,9 @@ define_webjump("ctan-filename", "https://www.ctan.org/search/?search=%s&search_t
 define_webjump("ctan-package", "https://www.ctan.org/search/?search=%s&search_type=id",$alternative="https://www.ctan.org");
 define_webjump("daily-galaxy","http://www.dailygalaxy.com/");
 define_webjump("deal-extreme","https://www.dx.com/");
+define_webjump("debian-stable-announce",    "https://lists.debian.org/debian-stable-announce/");
+define_webjump("debian-stable-proposed",    "https://release.debian.org/proposed-updates/stable.html");
+define_webjump("debian-stable-proposed-old","https://release.debian.org/proposed-updates/oldstable.html");
 define_webjump("dictionary","http://dictionary.reference.com/browse/%s");
 define_webjump("digikey","http://www.digikey.ca/");
 define_webjump("dockapps","http://www.dockapps.net/");
