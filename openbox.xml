@@ -361,7 +361,7 @@
       <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-minimize.sh"</execute></action>
     </keybind>
     <keybind key="M-F9">
-      <action name="Execute"><execute>bash -c "$HOME/bin/youtube-restore.sh"</execute></action>
+      <action name="Execute"><execute>bash -c "$HOME/bin/web-video-restore.sh"</execute></action>
     </keybind>
     <keybind key="C-9">
       <action name="Execute"><execute>bash -c "$HOME"/bin/web-video-pause-minimize.sh"</execute></action>

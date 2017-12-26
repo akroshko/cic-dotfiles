@@ -752,12 +752,20 @@ interactive("web-video-pause",
         // I.window.minibuffer.message(player.getDuration())
     });
 
-interactive("youtube-play",
+interactive("web-video-play",
     "Pause Youtube videos (as opposed to pause/play of other thing).",
     function (I) {
-        // https://www.youtube.com/iframe_api
-        var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
-        player.playVideo()
+        // get url, is this the best way?
+        var theurl = load_spec_uri_string(load_spec(I.buffer.top_frame));
+        if (theurl.indexOf("www.youtube.com") != -1) {
+            // https://www.youtube.com/iframe_api
+            var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
+            player.playVideo()
+        } else if (theurl.indexOf("twitch.tv") != -1) {
+            // https://openuserjs.org/scripts/flipperbw/Twitch_Hotkeys/source
+            var player = I.buffer.document.getElementsByClassName('player-video')[0].getElementsByTagName('video')[0];
+            player.play();
+        }
         // I.window.minibuffer.message(player.getDuration())
     });
 
