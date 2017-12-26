@@ -694,35 +694,35 @@ interactive("open-firefox", "",
     function (I) {
         var cmd_str = 'firefox -new-tab "' + I.buffer.display_uri_string + '"';
         shell_command_blind(cmd_str);
-});
+    });
 define_key(content_buffer_normal_keymap, "C-c f", "open-firefox");
 // open in firefox private
 interactive("open-firefox-private", "",
     function (I) {
         var cmd_str = 'firefox -private -new-tab "' + I.buffer.display_uri_string + '"';
         shell_command_blind(cmd_str);
-});
+    });
 define_key(content_buffer_normal_keymap, "C-c x", "open-firefox-private");
 interactive("open-chromium", "",
     function (I) {
         // TODO: fix this....
         var cmd_str = 'chromium --incognito "' + I.buffer.display_uri_string + '"';
         shell_command_blind(cmd_str);
-});
+    });
 define_key(content_buffer_normal_keymap, "C-c g", "open-chromium");
 // open in gnome-web
 interactive("open-gnome-web", "",
     function (I) {
         var cmd_str = 'epiphany --new-tab "' + I.buffer.display_uri_string + '"';
         shell_command_blind(cmd_str);
-});
+    });
 define_key(content_buffer_normal_keymap, "C-c G", "open-gnome-web");
 
 interactive("open-firefox-new-window", "",
     function (I) {
         var cmd_str = 'firefox -new-window "' + I.buffer.display_uri_string + '"';
         shell_command_blind(cmd_str);
-});
+    });
 // TODO is this the best way to do C-u?
 define_key(content_buffer_normal_keymap, "C-u C-c f", "open-firefox-new-window");
 
@@ -732,8 +732,7 @@ interactive("reload-config", "reload conkerorrc",
        function(I) {
           load_rc();
           I.window.minibuffer.message("config reloaded");
-       }
-    );
+       });
 
 // web video pause only
 interactive("web-video-pause",
