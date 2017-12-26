@@ -285,10 +285,10 @@
       <action name="ShowMenu"><menu>super-power-volume</menu></action>
     </keybind>
     <keybind key="F4">
-      <action name="Execute"><execute>bash -c "$HOME/bin/youtube-pause-toggle.sh"</execute></action>
+      <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-toggle.sh"</execute></action>
     </keybind>
     <keybind key="M-4">
-      <action name="Execute"><execute>bash -c "$HOME/bin/youtube-pause-toggle.sh"</execute></action>
+      <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-toggle.sh"</execute></action>
     </keybind>
     <!-- TODO: do I need both? not sure I need nested volume menu anymore, or power menu still want a good fast mute key f7/f8? -->
     <!-- <keybind key="F3"> -->
@@ -358,13 +358,13 @@
     </keybind>
     <!-- TODO: add notifications -->
     <keybind key="F9">
-      <action name="Execute"><execute>bash -c "$HOME/bin/youtube-pause-minimize.sh"</execute></action>
+      <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-minimize.sh"</execute></action>
     </keybind>
     <keybind key="M-F9">
       <action name="Execute"><execute>bash -c "$HOME/bin/youtube-restore.sh"</execute></action>
     </keybind>
     <keybind key="C-9">
-      <action name="Execute"><execute>bash -c "$HOME"/bin/youtube-pause-minimize.sh"</execute></action>
+      <action name="Execute"><execute>bash -c "$HOME"/bin/web-video-pause-minimize.sh"</execute></action>
     </keybind>
     <!-- this is much faster to use a special script -->
     <keybind key="M-9">
@@ -390,6 +390,16 @@
     <!-- keep for now, but want to remove -->
     <keybind key="M-W-m">
       <action name="ToggleMaximize"/>
+    </keybind>
+    <keybind key="H-W-m">
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+        <monitor>1</monitor>
+        <x>0</x>
+        <y>0</y>
+        <width>3136</width>
+        <height>1024</height>
+      </action>
     </keybind>
     <keybind key="M-S-x">
       <action name="ToggleMaximize"/>

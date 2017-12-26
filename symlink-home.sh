@@ -55,8 +55,8 @@ main () {
     need_new_directory ${HOME}/bin
     # TODO: do better, works for now
     need_new_symlink ${SCRIPTPATH}/../bash-stdlib/launch-emacsclient          ${HOME}/bin/launch-emacsclient
-    need_new_symlink ${SCRIPTPATH}/../bash-stdlib/youtube-pause-minimize.sh   ${HOME}/bin/youtube-pause-minimize.sh
-    need_new_symlink ${SCRIPTPATH}/../bash-stdlib/youtube-pause-toggle.sh     ${HOME}/bin/youtube-pause-toggle.sh
+    need_new_symlink ${SCRIPTPATH}/../bash-stdlib/web-video-pause-minimize.sh ${HOME}/bin/web-video-pause-minimize.sh
+    need_new_symlink ${SCRIPTPATH}/../bash-stdlib/web-video-pause-toggle.sh   ${HOME}/bin/web-video-pause-toggle.sh
     need_new_symlink ${SCRIPTPATH}/../bash-stdlib/youtube-restore.sh          ${HOME}/bin/youtube-restore.sh
 }
 main

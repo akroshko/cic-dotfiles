@@ -330,6 +330,9 @@ add_hook('content_buffer_progress_change_hook', focusblock);
 define_opensearch_webjump("d", "duckduckgo.xml");
 define_opensearch_webjump("g", "google.xml");
 define_webjump(           "y", "https://www.youtube.com/results?search_query=%s&search=Search",$alternative="https://www.youtube.com/feed/subscriptions");
+// local stuff for completion
+define_webjump("about-config", "about:config");
+define_webjump("about-support","about:support");
 // slower ones
 define_webjump("abebooks","https://www.abebooks.com/Canada/");
 define_webjump("adblockplus","https://adblockplus.org");
@@ -399,7 +402,9 @@ define_webjump("homedepot", "https://www.homedepot.ca/en/home.html");
 define_webjump("hothardware","http://hothardware.com");
 // does not appear to have acceptable webjump
 define_webjump("instagram", "https://instagram.com/");
+define_webjump("isitdown", "http://www.isitdownrightnow.com/");
 define_webjump("jameco", "https://www.jameco.com");
+define_webjump("justme", "http://www.isitdownrightnow.com/");
 define_webjump("letsrun","http://letsrun.com");
 define_webjump("linuxtoday","http://linuxtoday.com");
 define_webjump("lwn","https://lwn.net");
@@ -458,7 +463,10 @@ define_webjump("youtube-user", "https://youtube.com/profile_videos?user=%s",$alt
 define_webjump("xpdf","http://www.foolabs.com/xpdf/");
 define_webjump("zathura","https://pwmt.org/projects/zathura/");
 // local stuff here because it's useful
-define_webjump("library-usask","https://sundog.usask.ca/search/a?searchtype=Y&SORT=D&searcharg=%s&searchscope=8&called_from=catalogue_home_tab",$alternative="https://library.usask.ca/");
+define_webjump("library-usask", "https://sundog.usask.ca/search/a?searchtype=Y&SORT=D&searcharg=%s&searchscope=8&called_from=catalogue_home_tab",$alternative="https://sundog.usask.ca/search");
+define_webjump("library-usask-usearch", "library.usask.ca");
+// TODO: do old....
+define_webjump("library-usask-old","https://sundog.usask.ca/search/a?searchtype=Y&SORT=D&searcharg=%s&searchscope=8&called_from=catalogue_home_tab",$alternative="https://old.library.usask.ca/");
 define_webjump("library-saskatoon","http://www.saskatoonlibrary.ca/");
 // TODO: generate geographic webjumps programatically?
 define_webjump("calgary-timeanddate","https://www.timeanddate.com/worldclock/city.html?n=55");
@@ -727,34 +735,54 @@ interactive("reload-config", "reload conkerorrc",
        }
     );
 
-// Youtube
-interactive("youtube-pause",
+// web video pause only
+interactive("web-video-pause",
     "Pause Youtube videos (as opposed to pause/play of other thing).",
     function (I) {
-        src = "https://www.youtube.com/iframe_api";
-        var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
-        player.pauseVideo()
+        // get url, is this the best way?
+        var theurl = load_spec_uri_string(load_spec(I.buffer.top_frame));
+        if (theurl.indexOf("www.youtube.com") != -1) {
+            // https://www.youtube.com/iframe_api
+            var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
+            player.pauseVideo()
+        } else if (theurl.indexOf("twitch.tv") != -1) {
+            // https://openuserjs.org/scripts/flipperbw/Twitch_Hotkeys/source
+            var player = I.buffer.document.getElementsByClassName('player-video')[0].getElementsByTagName('video')[0];
+            player.pause();
+        }
         // I.window.minibuffer.message(player.getDuration())
     });
 
 interactive("youtube-play",
     "Pause Youtube videos (as opposed to pause/play of other thing).",
     function (I) {
-        src = "https://www.youtube.com/iframe_api";
+        // https://www.youtube.com/iframe_api
         var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
         player.playVideo()
         // I.window.minibuffer.message(player.getDuration())
     });
 
-interactive("youtube-pause-toggle",
+interactive("web-video-pause-toggle",
     "Pause Youtube videos (as opposed to pause/play of other thing).",
     function (I) {
-        src = "https://www.youtube.com/iframe_api";
-        var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
-        if (player.getPlayerState() == 1) {
-            player.pauseVideo();
-        } else {
-            player.playVideo();
+        var theurl = load_spec_uri_string(load_spec(I.buffer.top_frame));
+        if (theurl.indexOf("www.youtube.com") != -1) {
+            // https://www.youtube.com/iframe_api
+            var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
+            if (player.getPlayerState() == 1) {
+                player.pauseVideo();
+            } else {
+                player.playVideo();
+            }
+        } else if (theurl.indexOf("twitch.tv") != -1) {
+            // https://openuserjs.org/scripts/flipperbw/Twitch_Hotkeys/source
+            var player = I.buffer.document.getElementsByClassName('player-video')[0].getElementsByTagName('video')[0];
+            var player_status = player.paused;
+            if (player_status) {
+                player.play();
+            } else {
+                player.pause();
+            }
         }
         // I.window.minibuffer.message(player.getDuration())
     });
@@ -762,7 +790,7 @@ interactive("youtube-pause-toggle",
 interactive("youtube-seek",
     "Seek to a youtube location.",
     function (I) {
-        src = "https://www.youtube.com/iframe_api";
+        // https://www.youtube.com/iframe_api
         var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
         var seek_location = parseFloat(read_from_clipboard())
         I.window.minibuffer.message("Seeking to: "+seek_location);
@@ -772,7 +800,7 @@ interactive("youtube-seek",
 interactive("youtube-previous",
     "Previous in a youtube playlist.",
     function (I) {
-        src = "https://www.youtube.com/iframe_api";
+        // https://www.youtube.com/iframe_api
         var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
         player.previousVideo();
     });
@@ -780,7 +808,7 @@ interactive("youtube-previous",
 interactive("youtube-next",
     "Next in youtube playlist.",
     function (I) {
-        src = "https://www.youtube.com/iframe_api";
+        // https://www.youtube.com/iframe_api
         var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
         player.nextVideo();
     });
@@ -788,7 +816,7 @@ interactive("youtube-next",
 interactive("youtube-normalize-volume",
     "Set volume in youtube to a nice level.",
     function (I) {
-        src = "https://www.youtube.com/iframe_api";
+        // https://www.youtube.com/iframe_api
         var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
         player.setVolume(40);
     });
@@ -796,7 +824,7 @@ interactive("youtube-normalize-volume",
 interactive("youtube-enumerate-api",
     "Enumerate API in youtube.  Clunky, but useful.",
     function (I) {
-        src = "https://www.youtube.com/iframe_api";
+        // https://www.youtube.com/iframe_api
         var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
         for (var p in player) {
             I.window.alert(p);
@@ -805,7 +833,7 @@ interactive("youtube-enumerate-api",
 
 // get youtube time
 function youtube_get_currenttime (I) {
-        src = "https://www.youtube.com/iframe_api";
+    // https://www.youtube.com/iframe_api
         var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
         return player.getCurrentTime()
 };
