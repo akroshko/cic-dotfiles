@@ -192,6 +192,19 @@ define_key(minibuffer_base_keymap,       "s-z",   "cmd_scrollPageDown");
 define_key(content_buffer_form_keymap,   "s-z",   "unfocus", $repeat = "cmd_scrollPageDown");
 define_key(content_buffer_text_keymap,   "s-z",   "unfocus", $repeat = "cmd_scrollPageDown");
 define_key(content_buffer_normal_keymap, "s-z",   "cmd_scrollPageDown");
+// this is pageup that works as expected everywhere
+define_key(default_global_keymap,        "S-up",   "cmd_scrollPageUp");
+define_key(minibuffer_base_keymap,       "S-up",   "cmd_scrollPageUp");
+define_key(content_buffer_form_keymap,   "S-up",   "unfocus", $repeat = "cmd_scrollPageUp");
+define_key(content_buffer_text_keymap,   "S-up",   "unfocus", $repeat = "cmd_scrollPageUp");
+define_key(content_buffer_normal_keymap, "S-up",   "cmd_scrollPageUp");
+// this is pagedown that works as expected everywhere
+// TODO: just v?
+define_key(default_global_keymap,        "S-down",   "cmd_scrollPageDown");
+define_key(minibuffer_base_keymap,       "S-down",   "cmd_scrollPageDown");
+define_key(content_buffer_form_keymap,   "S-down",   "unfocus", $repeat = "cmd_scrollPageDown");
+define_key(content_buffer_text_keymap,   "S-down",   "unfocus", $repeat = "cmd_scrollPageDown");
+define_key(content_buffer_normal_keymap, "S-down",   "cmd_scrollPageDown");
 // scroll a bit
 // TODO: decide if this is right, need cheatsheet
 // define_key(default_global_keymap,        "C-s-z", "cmd_scrollLineDown");
