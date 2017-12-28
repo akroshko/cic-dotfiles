@@ -65,6 +65,39 @@ interactive("local-print-buffer",
             session_pref("print.always_print_silent", false);
         },2000);
     });
+
+// http://conkeror.org/Tips#Browse_buffer_session_history
+// TODO: need hotkey for this
+interactive("browse-buffer-history",
+            "Browse the session history for the current buffer",
+            function browse_buffer_history (I) {
+                var b = check_buffer(I.buffer, content_buffer);
+                var history = b.web_navigation.sessionHistory;
+
+                if (history.count > 1) {
+                    var entries = [];
+
+                    for(var i = 0 ; i < history.count ; i += 1) {
+                        entries[i] = history.getEntryAtIndex(i, false).URI.spec;
+                    }
+
+                    var url = yield I.minibuffer.read(
+                        $prompt = "Go back or forward to:",
+                        $completer = new all_word_completer($completions = entries),
+                        $default_completion = history.index > 0 ? entries[history.index - 1] : entries[history.index + 1],
+                        $auto_complete = "url",
+                        $auto_complete_initial = true,
+                        $auto_complete_delay = 0,
+                        $require_match = true);
+
+                    b.web_navigation.gotoIndex(entries.indexOf(url));
+                } else {
+                    I.window.minibuffer.message("No history");
+                }
+            });
+// key 'h' is stolen from http://conkeror.org/History, since I don't use built-in history
+define_key(content_buffer_normal_keymap, "h", "browse-buffer-history");
+
 ////////////////////////////////////////
 // esdf keys, experimental
 // TODO: need new 10x, need new back
@@ -852,10 +885,10 @@ interactive("youtube-enumerate-api",
     });
 
 // get youtube time
-function youtube_get_currenttime (I) {
+function youtube_get_currenttime (buffer) {
     // https://www.youtube.com/iframe_api
-        var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
-        return player.getCurrentTime()
+    var player = buffer.document.getElementById('movie_player').wrappedJSObject;
+    return player.getCurrentTime()
 };
 
 /*
