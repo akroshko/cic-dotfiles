@@ -5,6 +5,8 @@ load_paths.unshift("chrome://conkeror-contrib/content/");
 // require('block-content-focus-change.js');
 // hinting
 
+// define_key(content_buffer_normal_keymap, "h", "browse-buffer-history");
+
 // hint_digits="abcdefghijklmnopqrstuvwxyz";
 hint_digits="asdfgqwertzxcvb";
 register_user_stylesheet(
@@ -66,35 +68,36 @@ interactive("local-print-buffer",
         },2000);
     });
 
+
 // http://conkeror.org/Tips#Browse_buffer_session_history
 // TODO: need hotkey for this
 interactive("browse-buffer-history",
             "Browse the session history for the current buffer",
-            function browse_buffer_history (I) {
-                var b = check_buffer(I.buffer, content_buffer);
-                var history = b.web_navigation.sessionHistory;
+    function browse_buffer_history (I) {
+        var b = check_buffer(I.buffer, content_buffer);
+        var history = b.web_navigation.sessionHistory;
 
-                if (history.count > 1) {
-                    var entries = [];
+        if (history.count > 1) {
+            var entries = [];
 
-                    for(var i = 0 ; i < history.count ; i += 1) {
-                        entries[i] = history.getEntryAtIndex(i, false).URI.spec;
-                    }
+            for(var i = 0 ; i < history.count ; i += 1) {
+                entries[i] = history.getEntryAtIndex(i, false).URI.spec;
+            }
 
-                    var url = yield I.minibuffer.read(
-                        $prompt = "Go back or forward to:",
-                        $completer = new all_word_completer($completions = entries),
-                        $default_completion = history.index > 0 ? entries[history.index - 1] : entries[history.index + 1],
-                        $auto_complete = "url",
-                        $auto_complete_initial = true,
-                        $auto_complete_delay = 0,
-                        $require_match = true);
+            var url = yield I.minibuffer.read(
+                $prompt = "Go back or forward to:",
+                $completer = new all_word_completer($completions = entries),
+                $default_completion = history.index > 0 ? entries[history.index - 1] : entries[history.index + 1],
+                $auto_complete = "url",
+                $auto_complete_initial = true,
+                $auto_complete_delay = 0,
+                $require_match = true);
 
-                    b.web_navigation.gotoIndex(entries.indexOf(url));
-                } else {
-                    I.window.minibuffer.message("No history");
-                }
-            });
+            b.web_navigation.gotoIndex(entries.indexOf(url));
+        } else {
+            I.window.minibuffer.message("No history");
+        }
+    });
 // key 'h' is stolen from http://conkeror.org/History, since I don't use built-in history
 define_key(content_buffer_normal_keymap, "h", "browse-buffer-history");
 
@@ -843,11 +846,28 @@ interactive("web-video-pause-toggle",
 interactive("youtube-seek",
     "Seek to a youtube location.",
     function (I) {
+        // TODO: do not use clipboard in future, communicate by temp file maybe
+        var seek_location = parseFloat(read_from_clipboard())
         // https://www.youtube.com/iframe_api
         var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
-        var seek_location = parseFloat(read_from_clipboard())
         I.window.minibuffer.message("Seeking to: "+seek_location);
-        player.seekTo(seek_location)
+        player.seekTo(seek_location);
+    });
+
+// TODO: need a timeout on this, this may be an excessive way to do this
+interactive("twitch-seek",
+    "Seek to a twitch location.",
+    function (I) {
+        // TODO: do not use clipboard in future, communicate by temp file maybe
+        var seek_location = parseFloat(read_from_clipboard())
+        // https://openuserjs.org/scripts/flipperbw/Twitch_Hotkeys/source
+        var player = I.buffer.document.getElementsByClassName('player-video')[0].getElementsByTagName('video')[0];
+        // player.currentTime = seek_location;
+        player.pause();
+        sleep(1000.0);
+        player.fastSeek(seek_location);
+        sleep(1000.0);
+        player.play();
     });
 
 interactive("youtube-previous",
