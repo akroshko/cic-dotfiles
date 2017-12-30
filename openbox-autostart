@@ -19,7 +19,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see http://www.gnu.org/licenses/.
 
-if [[ $HOSTNAME == "akroshko-main" ]]; then
+if [[ "${HOSTNAME}" == "akroshko-main" ]]; then
     xrandr --auto --output VGA-0 --left-of DVI-0
     xrandr --output DVI-0 --mode 1920x1080
 fi
