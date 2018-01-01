@@ -419,6 +419,8 @@ define_webjump("deal-extreme","https://www.dx.com/");
 define_webjump("debian-stable-announce",    "https://lists.debian.org/debian-stable-announce/");
 define_webjump("debian-stable-proposed",    "https://release.debian.org/proposed-updates/stable.html");
 define_webjump("debian-stable-proposed-old","https://release.debian.org/proposed-updates/oldstable.html");
+// TODO: search from command line?
+define_webjump("debian-packages", "https://packages.debian.org/search?searchon=names&keywords=%s", $alternative="https://packages.debian.org/");
 define_webjump("dictionary","http://dictionary.reference.com/browse/%s");
 define_webjump("digikey","http://www.digikey.ca/");
 define_webjump("dockapps","http://www.dockapps.net/");
