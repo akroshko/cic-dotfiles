@@ -464,10 +464,12 @@ define_webjump("matplotlib","http://matplotlib.org/search.html?q=%s&check_keywor
 define_webjump("mathscinet","http://www.ams.org/mathscinet");
 define_webjump("mec","http://www.mec.ca");
 define_webjump("mouser","http://ca.mouser.com/");
+define_webjump("matplotlib","https://matplotlib.org/users/colormaps.html");
+define_webjump("matplotlib-colormaps","https://matplotlib.org/users/colormaps.html");
 define_webjump("ncix","http://www.ncix.com/search/?categoryid=0&q=%s",$alternative="http://www.ncix.com");
 // TODO: uses invalid security certificate
 define_webjump("newegg","http://www.newegg.ca/Product/ProductList.aspx?Submit=ENE&DEPA=0&Order=BESTMATCH&Description=%s",$alternative="http://newegg.ca");
-define_webjump("openhub", "https://www.openhub.net/",$alternative="https://www.openhub.net/");
+define_webjump("openhub", "https://www.openhub.net/query=%s",$alternative="https://www.openhub.net/");
 define_webjump("openbox", "http://openbox.org/wiki/Help:Contents");
 define_webjump("otv", "https://otvtech.ca");
 define_webjump("phoronix", "https://phoronix.com");
