@@ -41,8 +41,13 @@ URxvt.secondaryScroll: 0
 ! URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
 ! URxvt*font:     xft:Liberation Mono:pixelsize=10:antialias=true:hinting=true
 ! URxvt*boldFont: xft:Liberation Mono:bold:pixelsize=10:antialias=true:hinting=true
-URxvt*font:     xft:terminus:pixelsize=10
-URxvt*boldFont: xft:terminus:bold:pixelsize=10
+! URxvt*font:     xft:terminus:pixelsize=10
+! URxvt*boldFont: xft:terminus:bold:pixelsize=10
+! XXXX this is the same as above, but lets me do standard ascii art, etc...
+URxvt*font:     -*-terminus-medium-r-*-*-12-*-*-*-*-*-iso8859-1
+URxvt*boldFont: -*-terminus-bold-r-*-*-12-*-*-*-*-*-iso8859-1
+! URxvt*font:     xft:Nimbus Mono L:pixelsize=12
+! URxvt*boldFont: xft:Nimbus Mono L:bold:pixelsize=12
 ! TODO: does not seem to work that well
 ! TODO: also good to disable printing large scrollback by accident
 ! TODO: I have better ways of doing this now I think....
