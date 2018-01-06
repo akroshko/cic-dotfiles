@@ -1,10 +1,10 @@
 #! perl -w
-# Copyright (C) 2015-2017, Andrew Kroshko, Bert Muennich, all rights reserved.
+# Copyright (C) 2017-2018, Andrew Kroshko, Bert Muennich, all rights reserved.
 #
 # Author: Andrew Kroshko
 # Maintainer: Andrew Kroshko <akroshko@gmail.com>
 # Created: Sun Nov 19, 2017
-# Version: 20171119
+# Version: 20180105
 # URL: https://github.com/akroshko/dotfiles-stdlib
 #
 # This program is free software: you can redistribute it and/or modify
@@ -63,6 +63,24 @@ sub on_start {
     ()
 }
 
+# taken from rxvt-unicode provided remote-clipboard extension that has no copyright notice
+# TODO: I need a library for this
+# TODO: it is slightly annoying to put the message in top-left corner
+#        but better for the HD-width terminals I often run
+sub msg {
+   my ($self, $msg) = @_;
+
+   # my $ov = $self->overlay (-1, 0, $self->strwidth ($msg), 1, urxvt::OVERLAY_RSTYLE, 0);
+   my $ov = $self->overlay (0, 0, $self->strwidth ($msg), 1, urxvt::OVERLAY_RSTYLE, 0);
+   $ov->set (0, 0, $msg);
+
+   $self->{msg} =
+      urxvt::timer
+              ->new
+              ->after (5)
+              ->cb (sub { delete $self->{msg}; undef $ov; });
+}
+
 # now figure out how to do scrollback
 # $topmost_scrollback_row = $term->top_row
 
@@ -102,6 +120,8 @@ sub save_scrollback {
     open(my $fh,'>',$filename);
     print $fh $scrollback;
     close $fh;
+
+    $self->msg ("Successfully captured scrollback to " . $filename);
 
     ()
 }
@@ -149,6 +169,7 @@ sub save_scrollback_emacs {
     # run shell command to read it into emacs
     my $emacs_command = $ENV{"HOME"} . "/bin/launch-emacsclient";
     system($emacs_command,"noframe","--eval","(cic:capture-rxvt-scrollback \"$filename\")");
+    $self->msg ("Successfully captured scrollback to emacs");
 
     ()
 }

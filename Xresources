@@ -33,6 +33,8 @@ URxvt*background: rgba:0000/0000/0200/c400
 URxvt*tintColor: White
 URxvt*saveLines: 65535
 URxvt*foreground: White
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
 ! URxvt*font:     xft:Bitstream Vera Sans Mono:pixelsize=12:antialias=true:hinting=true
 ! URxvt*boldFont: xft:Bitstream Vera Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
 ! URxvt*font:     xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
@@ -43,6 +45,7 @@ URxvt*font:     xft:terminus:pixelsize=10
 URxvt*boldFont: xft:terminus:bold:pixelsize=10
 ! TODO: does not seem to work that well
 ! TODO: also good to disable printing large scrollback by accident
+! TODO: I have better ways of doing this now I think....
 URxvt.print-pipe: cat > $HOME/tmp/collect/urxvt-$(date +%Y%m%d%H%M%S).txt
 URxvt*color4: RoyalBlue
 URxvt*color12: RoyalBlue
@@ -54,9 +57,10 @@ URxvt*scrollstyle: rxvt
 ! see https://bbs.archlinux.org/viewtopic.php?id=149470
 ! a really good thing, for some of my keys
 ! from archwiki
-URxvt.perl-ext-common:          default,clipboard
 ! TODO: change all names to .pl
-URxvt.perl-ext:                 scrollback.pl,urxvt-scrollback.pl
+! TODO: forget how to even use this.... scrollback.pl,
+URxvt.perl-ext-common:          default,clipboard
+URxvt.perl-ext:                 urxvt-scrollback.pl,urxvt-new-terminal.pl
 URxvt.iso14755:                 False
 URxvt.iconFile:                 /home/akroshko/.urxvt/terminal.svg
 URxvt.keysym.M-c:               perl:clipboard:copy
@@ -71,6 +75,7 @@ URxvt.keysym.Control-greater:   perl:pagedown
 ! just prints current buffer
 URxvt.keysym.C-1:               perl:scrollback:save
 URxvt.keysym.C-2:               perl:scrollback:save_emacs
+URxvt.keysym.C-5:               perl:new:terminal
 ! clipboard
 URxvt.clipboard.copycmd:        xclip -i -selection clipboard
 URxvt.clipboard.pastecmd:       xclip -o -selection clipboard

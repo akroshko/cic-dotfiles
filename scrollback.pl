@@ -1,5 +1,6 @@
 # see https://ubuntuforums.org/archive/index.php/t-783096.html
 # copyright original poster, Zed from ubuntuforums.org
+# TODO: deleting this if I don't miss it
 use List::Util qw(min max);
 
 sub on_user_command {
