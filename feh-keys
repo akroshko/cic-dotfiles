@@ -9,6 +9,7 @@ next_img
 flip
 action_0
 action_6
+action_7
 reload_image
 orient_3
 orient_1
@@ -20,6 +21,7 @@ render
 toggle_exif
 save_image
 toggle_filenames
+toggle_fixed_geometry
 save_filelist
 ########################################
 # good keys for using on a laptop
@@ -41,14 +43,16 @@ zoom_default      0            S
 zoom_fit          underscore   F
 # TODO: other key for this?
 zoom_fill         equal
+# TODO: should I switch these around?
 reload_image      grave
 render            r
-# TODO: should I use < >, or what should they be for?
+# TODO: should I use < >, but I use them for top/bottom in other apps and emacs
 # TODO: bad...
 # orient_3          R
 # orient_1          r
 # hack to give g for gimp-edit along with feh-open-browse sh script
-action_6          g
+action_6          6            g
+action_7          7
 # I only hit these accidentaly
 save_image
 save_filelist
