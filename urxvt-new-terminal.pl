@@ -59,9 +59,26 @@ sub open_new_terminal {
     my $pwd = readlink "/proc/$pid/cwd";
     # keep this here for now
     $self->msg ("Opening new terminal with working directory " . $pwd);
-    # I guess don't open up a new terminal if we don't know where
     if ($pwd) {
+        # I guess don't open up a new terminal if we don't know where
         system("rxvt-unicode -cd " . $pwd . " &");
+    }
+
+    ()
+}
+
+sub open_emacs_dired {
+    my ($self) = @_;
+    # https://www.df7cb.de/blog/2014/New_urxvt_tab_in_current_directory.html
+    # except getppid seems to be a working portable way to do this with my meagre perl skills
+    my $pid = getppid();
+    $self->msg ("Testing..." . $pid);
+    my $pwd = readlink "/proc/$pid/cwd";
+    # I guess don't open up emacs dired if we don't know where
+    if ($pwd) {
+        # keep this here for now
+        $self->msg ("Opening emacs dired with working directory " . $pwd);
+        system($ENV{"HOME"} . "/bin/launch-emacsclient nohup --eval '(dired \"" . $pwd . "\")'");
     }
 
     ()
@@ -76,6 +93,9 @@ sub on_user_command {
     my ($self, $cmd) = @_;
     if ($cmd eq "new:terminal") {
         $self->open_new_terminal;
+    }
+    if ($cmd eq "new:emacsdired") {
+        $self->open_emacs_dired;
     }
 
     ()

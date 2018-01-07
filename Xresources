@@ -81,6 +81,7 @@ URxvt.keysym.Control-greater:   perl:pagedown
 URxvt.keysym.C-1:               perl:scrollback:save
 URxvt.keysym.C-2:               perl:scrollback:save_emacs
 URxvt.keysym.C-5:               perl:new:terminal
+URxvt.keysym.C-6:               perl:new:emacsdired
 ! clipboard
 URxvt.clipboard.copycmd:        xclip -i -selection clipboard
 URxvt.clipboard.pastecmd:       xclip -o -selection clipboard
