@@ -380,6 +380,7 @@ define_opensearch_webjump("d", "duckduckgo.xml");
 define_opensearch_webjump("g", "google.xml");
 define_webjump(           "y", "https://www.youtube.com/results?search_query=%s&search=Search",$alternative="https://www.youtube.com/feed/subscriptions");
 // local stuff for completion
+define_webjump("6502-opcodes","http://www.6502.org/tutorials/6502opcodes.html");
 define_webjump("about-config", "about:config");
 define_webjump("about-support","about:support");
 // slower ones
