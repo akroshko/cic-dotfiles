@@ -7,5 +7,13 @@
 [push]
 	default = matching
 [instaweb]
-        local = true
-        httpd = apache2 -f
+    local = true
+    httpd = apache2 -f
+# TODO: look up online, not working for me
+# [color]
+#   diff = true
+#   status = true
+#   branch = true
+#   interactive = true
+#   ui = always
+#   pager = true
