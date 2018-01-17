@@ -17,7 +17,7 @@ xpdf*enableFreetype:              yes
 xpdf*antialias:                   yes
 xpdf*foreground:                  black
 xpdf*background:                  white
-xpdf*urlCommand:                  /usr/bin/firefox %s
+xpdf*urlCommand:                  /usr/bin/firefox -P default %s
 ! rxvt -----------------------------------------------------------------------
 ! TODO: causes performance issues when setting wallpaper with feh
 ! URxvt*transparent: true

@@ -18,6 +18,7 @@ set output-meta on
 # Incrementally search history with M-p/M-n
 "\M-p": history-search-backward
 "\M-n": history-search-forward
+# "\M-i": menu-complete
 # XXXX: required for sage terminal
 "\e[3~":delete-char
 ########################################

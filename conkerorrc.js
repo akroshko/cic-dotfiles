@@ -746,7 +746,7 @@ define_key(default_global_keymap, "C-c r", "reload-config");
 // open in firefox
 interactive("open-firefox", "",
     function (I) {
-        var cmd_str = 'firefox -new-tab "' + I.buffer.display_uri_string + '"';
+        var cmd_str = 'firefox -P default -new-tab "' + I.buffer.display_uri_string + '"';
         shell_command_blind(cmd_str);
     });
 define_key(content_buffer_normal_keymap, "C-c f", "open-firefox");
@@ -774,7 +774,7 @@ define_key(content_buffer_normal_keymap, "C-c G", "open-gnome-web");
 
 interactive("open-firefox-new-window", "",
     function (I) {
-        var cmd_str = 'firefox -new-window "' + I.buffer.display_uri_string + '"';
+        var cmd_str = 'firefox -P default -new-window "' + I.buffer.display_uri_string + '"';
         shell_command_blind(cmd_str);
     });
 // TODO is this the best way to do C-u?
