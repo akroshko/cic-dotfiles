@@ -743,6 +743,7 @@ define_key(content_buffer_normal_keymap,"C-c V","fetch-video-as-audio");
 
 // want C-c C-r to be restart
 define_key(default_global_keymap, "C-c r", "reload-config");
+////////////////////////////////////////
 // open in firefox
 interactive("open-firefox", "",
     function (I) {
@@ -750,6 +751,13 @@ interactive("open-firefox", "",
         shell_command_blind(cmd_str);
     });
 define_key(content_buffer_normal_keymap, "C-c f", "open-firefox");
+// TODO: figure out C-u....
+interactive("open-firefox-unsafe", "",
+    function (I) {
+        var cmd_str = 'firefox -P unsafe -new-tab "' + I.buffer.display_uri_string + '"';
+        shell_command_blind(cmd_str);
+    });
+define_key(content_buffer_normal_keymap, "C-u C-c f", "open-firefox-unsafe");
 // open in firefox private
 interactive("open-firefox-private", "",
     function (I) {
@@ -757,6 +765,8 @@ interactive("open-firefox-private", "",
         shell_command_blind(cmd_str);
     });
 define_key(content_buffer_normal_keymap, "C-c x", "open-firefox-private");
+////////////////////////////////////////
+// chromium...
 interactive("open-chromium", "",
     function (I) {
         // TODO: fix this....
