@@ -16,7 +16,10 @@ register_user_stylesheet(
             "span.__conkeror_hint {\n"+
             "  font-size: 18px !important;\n"+
             "  line-height: 18px !important;\n"+
-            "}"));
+                "}"));
+// add a line where I like it
+register_user_stylesheet(make_css_data_uri(["*, .mode-line {border-color:#000000;}"],
+                                           $namespace = XUL_NS));
 // standard keys
 define_key(content_buffer_normal_keymap, "C-[", "unfocus");
 // TODO: try to do this in single key
@@ -580,6 +583,26 @@ define_webjump("cups-local",   "http://localhost:631");
 var current_conkeror_proxy = "No proxy";
 // var current_conkeror_proxy_init=null;
 
+// TODO: make function
+// magenta=academic
+var academic_proxy_style_sheet=make_css_data_uri(["*, .mode-line {background-color: #ff99ff; -moz-appearance: none;border-color:#000000;}",
+                                                  // can I keep these at default instead?
+                                                  "#minibuffer-input, .textbox-input-box {background-color: #ffffff;}",
+                                                  "tree.completions treechildren {background-color: #ffffff;}"],
+                                                 $namespace = XUL_NS);
+// cyan=home
+var home_proxy_style_sheet=make_css_data_uri(["*, .mode-line {background-color: #99ffff; -moz-appearance: none;border-color:#000000;}",
+                                              // can I keep these at default instead?
+                                              "#minibuffer-input, .textbox-input-box {background-color: #ffffff;}",
+                                              "tree.completions treechildren {background-color: #ffffff;}"],
+                                             $namespace = XUL_NS);
+// blue=third party
+var third_proxy_style_sheet=make_css_data_uri(["*, .mode-line {background-color: #9999ff; -moz-appearance: none;border-color:#000000;}",
+                                               // can I keep these at default instead?
+                                               "#minibuffer-input, .textbox-input-box {background-color: #ffffff;}",
+                                               "tree.completions treechildren {background-color: #ffffff;}"],
+                                              $namespace = XUL_NS);
+
 // academic proxy
 interactive("academic-localhost-proxy", "Academic Localhost proxy",
     function (I) {
@@ -593,6 +616,9 @@ interactive("academic-localhost-proxy", "Academic Localhost proxy",
         current_conkeror_proxy = "Academic proxy on "+server+":"+port;
         mode_line_mode(false);
         mode_line_mode(true);
+        unregister_user_stylesheet(home_proxy_style_sheet);
+        unregister_user_stylesheet(third_proxy_style_sheet);
+        register_user_stylesheet(academic_proxy_style_sheet);
     });
 define_key(content_buffer_normal_keymap,"C-c p","academic-localhost-proxy")
 
@@ -609,6 +635,9 @@ interactive("home-localhost-proxy", "Home Localhost proxy",
         current_conkeror_proxy = "Home proxy on "+server+":"+port;
         mode_line_mode(false);
         mode_line_mode(true);
+        unregister_user_stylesheet(academic_proxy_style_sheet);
+        unregister_user_stylesheet(third_proxy_style_sheet);
+        register_user_stylesheet(home_proxy_style_sheet);
     });
 define_key(content_buffer_normal_keymap,"C-c M-p","home-localhost-proxy")
 
@@ -626,6 +655,9 @@ interactive("third-localhost-proxy", "Third party localhost proxy",
         current_conkeror_proxy = "3rd-party proxy on "+server+":"+port;
         mode_line_mode(false);
         mode_line_mode(true);
+        unregister_user_stylesheet(academic_proxy_style_sheet);
+        unregister_user_stylesheet(home_proxy_style_sheet);
+        register_user_stylesheet(third_proxy_style_sheet);
     });
 define_key(content_buffer_normal_keymap,"C-u C-c p","third-localhost-proxy")
 
@@ -640,6 +672,11 @@ interactive("remove-proxy", "Localhost proxy",
         current_conkeror_proxy = "No proxy";
         mode_line_mode(false);
         mode_line_mode(true);
+        // TODO: procedure to unregister all stylesheets
+        // TODO: not highlighted in emacs conkeror mode...
+        unregister_user_stylesheet(academic_proxy_style_sheet);
+        unregister_user_stylesheet(home_proxy_style_sheet);
+        unregister_user_stylesheet(third_proxy_style_sheet);
     });
 define_key(content_buffer_normal_keymap,"C-c P","remove-proxy")
 
