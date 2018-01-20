@@ -1240,6 +1240,36 @@
       <focus>no</focus>
       <desktop>2</desktop>
       </application>
+      <application
+        title="pythode*akroshko-main*db_solver*"
+        class="URxvt">
+        <focus>no</focus>
+        <desktop>2</desktop>
+        <monitor>2</monitor>
+        <size>
+          <width>640</width>
+          <height>50%</height>
+        </size>
+        <position force="yes">
+          <x>0</x>
+          <y>0</y>
+        </position>
+      </application>
+      <application
+        title="pythode*akroshko-server*db_solver*"
+        class="URxvt">
+        <focus>no</focus>
+        <desktop>2</desktop>
+        <monitor>2</monitor>
+        <size>
+          <width>640</width>
+          <height>50%</height>
+        </size>
+        <position force="yes">
+          <x>640</x>
+          <y>0</y>
+        </position>
+      </application>
       <!-- <application -->
       <!--   class="Chromium-browser"> -->
       <!-- <focus>no</focus> -->
