@@ -4,16 +4,17 @@ main () {
     # requires https://github.com/akroshko/bash-stdlib
     source ${HOME}/.bash_library
     need_new_directory ${HOME}/.conkerorrc
-    need_new_symlink ${SCRIPTPATH}/conkerorrc.js ${HOME}/.conkerorrc/conkerorrc.js
-    need_new_symlink ${SCRIPTPATH}/conkyrc ${HOME}/.conkyrc
-    need_new_symlink ${SCRIPTPATH}/gitconfig ${HOME}/.gitconfig
-    need_new_symlink ${SCRIPTPATH}/gitignore ${HOME}/.gitignore
-    need_new_symlink ${SCRIPTPATH}/guile ${HOME}/.guile
-    need_new_symlink ${SCRIPTPATH}/inputrc ${HOME}/.inputrc
-    need_new_symlink ${SCRIPTPATH}/latexmkrc ${HOME}/.latexmkrc
-    need_new_symlink ${SCRIPTPATH}/screenrc ${HOME}/.screenrc
-    need_new_symlink ${SCRIPTPATH}/zile ${HOME}/.zile
-    need_new_symlink ${SCRIPTPATH}/pentadactylrc ${HOME}/.pentadactylrc
+    need_new_symlink ${SCRIPTPATH}/conkerorrc.js          ${HOME}/.conkerorrc/conkerorrc.js
+    need_new_symlink ${SCRIPTPATH}/conkeror-webjumps.json ${HOME}/.conkerorrc/conkeror-webjumps.json
+    need_new_symlink ${SCRIPTPATH}/conkyrc                ${HOME}/.conkyrc
+    need_new_symlink ${SCRIPTPATH}/gitconfig              ${HOME}/.gitconfig
+    need_new_symlink ${SCRIPTPATH}/gitignore              ${HOME}/.gitignore
+    need_new_symlink ${SCRIPTPATH}/guile                  ${HOME}/.guile
+    need_new_symlink ${SCRIPTPATH}/inputrc                ${HOME}/.inputrc
+    need_new_symlink ${SCRIPTPATH}/latexmkrc              ${HOME}/.latexmkrc
+    need_new_symlink ${SCRIPTPATH}/screenrc               ${HOME}/.screenrc
+    need_new_symlink ${SCRIPTPATH}/zile                   ${HOME}/.zile
+    need_new_symlink ${SCRIPTPATH}/pentadactylrc          ${HOME}/.pentadactylrc
     # .config
     need_new_directory ${HOME}/.config
     need_new_directory ${HOME}/.config/autostart

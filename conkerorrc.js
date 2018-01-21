@@ -378,202 +378,41 @@ function focusblock (buffer) {
 }
 add_hook('content_buffer_progress_change_hook', focusblock);
 // really quick ones
+// these are here so the browser is functional even if json is not loaded
 // TODO: highlight following
 define_opensearch_webjump("d", "duckduckgo.xml");
+// define_webjump("duckduckgo","https://duckduckgo.com/?q=%s",$alternative="https://duckduckgo.com");
 define_opensearch_webjump("g", "google.xml");
 define_webjump(           "y", "https://www.youtube.com/results?search_query=%s&search=Search",$alternative="https://www.youtube.com/feed/subscriptions");
 // local stuff for completion
-define_webjump("6502-opcodes","http://www.6502.org/tutorials/6502opcodes.html");
 define_webjump("about-config", "about:config");
 define_webjump("about-support","about:support");
-// slower ones
-define_webjump("abebooks","https://www.abebooks.com/Canada/");
-define_webjump("adblockplus","https://adblockplus.org");
-define_webjump("alberta-firehazard","http://wildfire.alberta.ca/fire-danger-forecasts/images/firehaz.gif");
-define_webjump("alliexpress","https://www.aliexpress.com/");
-define_webjump("alternativeto","https://alternativeto.net/software/%s",$alternative="https://alternativeto.net");
-define_webjump("amazon", "https://www.amazon.com/exec/obidos/external-search/?field-keywords=%s&mode=blended", $alternative="https://amazon.com");
-define_webjump("amazonca","https://www.amazon.ca/exec/obidos/external-search/?field-keywords=%s&mode=blended", $alternative="https://amazon.ca");
-define_webjump("amsaut","http://www.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=%s&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=ALLF&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=html&Submit=Search", $alternative="http://www.ams.org/mathscinet/");
-define_webjump("amskey","http://www.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=ALLF&s7=%s&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=html&Submit=Search",$alternative="http://www.ams.org/mathscinet/");
-define_webjump("amstit","http://www.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=&co4=AND&pg5=TI&s5=%s&co5=AND&pg6=PC&s6=&co6=AND&pg7=ALLF&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=html&Submit=Search",$alternative="http://www.ams.org/mathscinet/");
-define_webjump("anandtech","http://www.anandtech.com/");
-define_webjump("archwiki","https://wiki.archlinux.org/index.php?title=Special%3ASearch&search=%s&go=Go", $alternative="https://wiki.archlinux.org");
-define_webjump("arch-applications","https://wiki.archlinux.org/index.php/list_of_applications");
-define_webjump("archive","https://archive.org/");
-define_webjump("archive-wayback","https://archive.org/web/");
-define_webjump("arstechnica","https://arstechnica.com");
-define_webjump("allaboutcircuits","http://www.allaboutcircuits.com/");
-define_webjump("bc-firehazard","http://www2.gov.bc.ca/gov/content/safety/wildfire-status/fire-danger");
-define_webjump("be-electronics","http://www.be-electronics.com/");
-define_webjump("books", "https://www.google.com/search?q=%s&tbm=bks", $alternative = "https://books.google.com/");
-define_webjump("budget-bytes", "http://www.budgetbytes.com");
-define_webjump("buyapi", "https://www.buyapi.ca");
-// TODO: add some non-search things here
-define_webjump("canada-firehazard","http://cwfis.cfs.nrcan.gc.ca/maps/fw");
-define_webjump("canadiantire","http://www.canadiantire.ca/en.html");
-define_webjump("clonezilla","http://clonezilla.org/downloads.php");
-define_webjump("clubtread","http://forums.clubtread.com/");
-define_webjump("ctan-all", "https://www.ctan.org/search/?search=%s&search_type=description&search_type=filename&search_type=id",$alternative="https://www.ctan.org");
-define_webjump("ctan-description", "https://www.ctan.org/search/?search=%s&search_type=description",$alternative="https://www.ctan.org");
-define_webjump("ctan-filename", "https://www.ctan.org/search/?search=%s&search_type=filename",$alternative="https://www.ctan.org");
-define_webjump("ctan-package", "https://www.ctan.org/search/?search=%s&search_type=id",$alternative="https://www.ctan.org");
-define_webjump("daily-galaxy","http://www.dailygalaxy.com/");
-define_webjump("deal-extreme","https://www.dx.com/");
-define_webjump("debian-stable-announce",    "https://lists.debian.org/debian-stable-announce/");
-define_webjump("debian-stable-proposed",    "https://release.debian.org/proposed-updates/stable.html");
-define_webjump("debian-stable-proposed-old","https://release.debian.org/proposed-updates/oldstable.html");
-// TODO: search from command line?
-define_webjump("debian-packages", "https://packages.debian.org/search?searchon=names&keywords=%s", $alternative="https://packages.debian.org/");
-define_webjump("dictionary","http://dictionary.reference.com/browse/%s");
-define_webjump("digikey","http://www.digikey.ca/");
-define_webjump("dockapps","http://www.dockapps.net/");
-define_opensearch_webjump("d", "duckduckgo.xml");
-// define_webjump("duckduckgo","https://duckduckgo.com/?q=%s",$alternative="https://duckduckgo.com");
-define_webjump("ebay","https://ebay.ca");
-define_webjump("emacswiki",
-    "https://www.google.com/cse?cx=004774160799092323420%3A6-ff2s0o6yi"+
-        "&q=%s&sa=Search&siteurl=emacswiki.org%2F",
-    $alternative="https://www.emacswiki.org/");
-define_webjump("electronicstutorials","http://www.electronics-tutorials.ws/");
-// TODO: uses invalid security certificate
-define_webjump("encyclopedia","http://www.reference.com/browse/%s",$alternative="http://www.reference.com");
-define_webjump("epicurious","https://www.epicurious.com/tools/searchresults?search=%s",$alternative="https://www.epicurious.com");
-define_webjump("extremetech","http://extremetech.com");
-define_webjump("electronic-goldmine","http://www.goldmine-elec-products.com/");
-define_webjump("facebook","https://www.facebook.com/search/results.php?q=%s&init=quick",$alternative="https://www.facebook.com");
-define_webjump("fivethirtyeight","http://fivethirtyeight.com");
-define_webjump("flickr", "https://www.flickr.com/search/?q=%s", $alternative="https://www.flickr.com");
-define_webjump("flotrack","http://www.flotrack.org");
-define_webjump("fvwm","http://fvwm.org/");
-define_webjump("github", "https://github.com/");
-define_webjump("gmail", "https://mail.google.com/");
-define_webjump("gnuplot", "http://www.gnuplot.info");
-define_webjump("googleimages", "http://www.google.com/images?q=%s&safe=off", $alternative = "https://www.google.com/imghp?as_q=&safe=off");
-define_webjump("googlescholar", "http://scholar.google.com/scholar?q=%s", $alternative = "https://scholar.google.com");
-define_webjump("hackaday", "https://hackaday.com/");
-define_webjump("hackerboards", "http://hackerboards.com");
-define_webjump("homedepot", "https://www.homedepot.ca/en/home.html");
-define_webjump("hothardware","http://hothardware.com");
-// does not appear to have acceptable webjump
-define_webjump("instagram", "https://instagram.com/");
-define_webjump("isitdown", "http://www.isitdownrightnow.com/");
-define_webjump("jameco", "https://www.jameco.com");
-define_webjump("justme", "http://www.isitdownrightnow.com/");
-define_webjump("letsrun","http://letsrun.com");
-define_webjump("linuxtoday","http://linuxtoday.com");
-define_webjump("lwn","https://lwn.net");
-define_webjump("lxer","http://lxer.com");
-define_webjump("matplotlib","http://matplotlib.org/search.html?q=%s&check_keywords=yes&area=default",$alternative="http://matplotlib.org");
-define_webjump("mathscinet","http://www.ams.org/mathscinet");
-define_webjump("mec","http://www.mec.ca");
-define_webjump("mouser","http://ca.mouser.com/");
-define_webjump("matplotlib","https://matplotlib.org/users/colormaps.html");
-define_webjump("matplotlib-colormaps","https://matplotlib.org/users/colormaps.html");
-define_webjump("ncix","http://www.ncix.com/search/?categoryid=0&q=%s",$alternative="http://www.ncix.com");
-// TODO: uses invalid security certificate
-define_webjump("newegg","http://www.newegg.ca/Product/ProductList.aspx?Submit=ENE&DEPA=0&Order=BESTMATCH&Description=%s",$alternative="http://newegg.ca");
-define_webjump("openhub", "https://www.openhub.net/query=%s",$alternative="https://www.openhub.net/");
-define_webjump("openbox", "http://openbox.org/wiki/Help:Contents");
-define_webjump("otv", "https://otvtech.ca");
-define_webjump("phoronix", "https://phoronix.com");
-define_webjump("physorg", "http://phys.org");
-define_webjump("plus","https://plus.google.com/");
-define_webjump("psql-pev","http://tatiyants.com/pev/#/plans/new");
-define_webjump("pwmt","https://pwmt.org/");
-define_webjump("pypi","https://pypi.python.org/pypi?%3Aaction=search&term=%s&submit=search",$alternative="https://pypi.python.org");
-define_webjump("python", "https://docs.python.org/2.7/search.html?q=%s",$alternative="https://docs.python.org/2.7/");
-define_webjump("techradar", "http://www.techradar.com/");
-define_webjump("theregister","http://www.theregister.co.uk/");
-define_webjump("skyandtelescope","http://www.skyandtelescope.com");
-define_webjump("sage","http://sagemath.org")
-define_webjump("sagemath","http://sagemath.org")
-define_webjump("sage-sym","http://doc.sagemath.org/html/en/reference/calculus/sage/symbolic/expression.html")
-define_webjump("sagemath-sym","http://doc.sagemath.org/html/en/reference/calculus/sage/symbolic/expression.html")
-define_webjump("sage-plot","http://doc.sagemath.org/html/en/reference/plotting/sage/plot/plot.html")
-define_webjump("sagemath-plot","http://doc.sagemath.org/html/en/reference/plotting/sage/plot/plot.html")
-define_webjump("sciencedaily","http://sciencedaily.com")
-// TODO: uses invalid security certificate
-define_webjump("slashdot","https://www.slashdot.org");
-define_webjump("sparkfun","http://www.sparkfun.com");
-define_webjump("stackoverflow","https://stackoverflow.com/search?q=%s", $alternative="https://stackoverflow.com");
-define_webjump("startpage","https://startpage.com/do/%s",$alternative="https://startpage.com");
-define_webjump("strategypage","https://strategypage.com");
-define_webjump("strava","https://strava.com");
-define_webjump("stackexchange-math","https://math.stackexchange.com/search?q=%s",$alternative="https://math.stackexchange.com");
-define_webjump("stackexchange-superuser","https://superuser.com/search?q=%s",$alternative="https://superuser.com/");
-define_webjump("stackexchange-tex","https://tex.stackexchange.com/search?q=%s",$alternative="https://tex.stackexchange.com");
-define_webjump("stackexchange-unix","https://unix.stackexchange.com/search?q=%s",$alternative="https://unix.stackexchange.com");
-define_webjump("radioelectronics","http://www.radio-electronics.com/");
-define_webjump("runningfree","http://www.runningfree.com/");
-define_webjump("thesaurus","http://thesaurus.reference.com/browse/%s",$alternative="http://thesaurus.reference.com");
-define_webjump("tigerdirect","http://www.tigerdirect.ca/applications/SearchTools/search.asp?keywords=%s",$alternative="http://www.tigerdirect.ca");
-define_webjump("twitter","https://twitter.com/search?q=%s&src=typd",$alternative="https://twitter.com");
-define_webjump("universetoday", "http://www.universetoday.com");
-define_webjump("orgmode","https://www.google.com/cse?cx=002987994228320350715%3Az4glpcrritm&q=%s&sa=Search&siteurl=orgmode.org%2Fworg",$alternative="http://orgmode.org/worg/");
-// TODO: set up search
-define_webjump("bsdnow","https://bsdnow.tv");
-define_webjump("undeadly","http://undeadly.org");
-define_webjump("webofscience","https://apps.webofknowledge.com/");
-define_webjump("youtube", "https://www.youtube.com/results?search_query=%s&search=Search",$alternative="https://www.youtube.com/feed/subscriptions");
-define_webjump("youtube-user", "https://youtube.com/profile_videos?user=%s",$alternative="https://www.youtube.com/feed/subscriptions");
-define_webjump("xpdf","http://www.foolabs.com/xpdf/");
-define_webjump("zathura","https://pwmt.org/projects/zathura/");
-// local stuff here because it's useful
-define_webjump("library-usask", "https://sundog.usask.ca/search/a?searchtype=Y&SORT=D&searcharg=%s&searchscope=8&called_from=catalogue_home_tab",$alternative="https://sundog.usask.ca/search");
-define_webjump("library-usask-usearch", "library.usask.ca");
-// TODO: do old....
-define_webjump("library-usask-old","https://sundog.usask.ca/search/a?searchtype=Y&SORT=D&searcharg=%s&searchscope=8&called_from=catalogue_home_tab",$alternative="https://old.library.usask.ca/");
-define_webjump("library-saskatoon","http://www.saskatoonlibrary.ca/");
-// TODO: generate geographic webjumps programatically?
-define_webjump("calgary-timeanddate","https://www.timeanddate.com/worldclock/city.html?n=55");
-define_webjump("calgary-weathernetwork","http://www.theweathernetwork.com/weather/canada/alberta/calgary");
-define_webjump("canmore-weathernetwork","https://www.theweathernetwork.com/ca/weather/alberta/canmore");
-define_webjump("canmore-weatheroffice","https://weather.gc.ca/city/pages/ab-3_metric_e.html");
-define_webjump("calgary-weatheroffice","http://www.weatheroffice.gc.ca/city/pages/ab-52_metric_e.html");
-define_webjump("sundre-weatheroffice","http://www.weatheroffice.gc.ca/city/pages/ab-53_metric_e.html");
-define_webjump("sundre-weathernetwork","http://www.theweathernetwork.com/weather/canada/alberta/sundre");
-define_webjump("radium-weathernetwork","https://www.theweathernetwork.com/ca/weather/british-columbia/radium-hot-springs");
-define_webjump("radium-weatheroffice", "https://weather.gc.ca/city/pages/bc-72_metric_e.html");
-define_webjump("saskatchewan-firehazard","http://www.environment.gov.sk.ca/fire");
-define_webjump("saskatoon-timeanddate","https://www.timeanddate.com/worldclock/city.html?n=1227");
-define_webjump("saskatoon-weathernetwork","http://www.theweathernetwork.com/weather/canada/saskatchewan/saskatoon");
-define_webjump("saskatoon-weatheroffice","http://www.weatheroffice.gc.ca/city/pages/sk-40_metric_e.html");
-define_webjump("wayback","https://archive.org/web/");
-define_webjump("webcam-banff-trafficcam","http://banff.ca/index.aspx?NID=959")
-define_webjump("webcam-canmore","https://canmorealberta.com/webcams")
-define_webjump("canmore-webcam","https://canmorealberta.com/webcams")
-define_webjump("webcam-radium","http://images.drivebc.ca/bchighwaycam/pub/html/www/132.html")
-define_webjump("radium-webcam","http://images.drivebc.ca/bchighwaycam/pub/html/www/132.html")
-define_webjump("weathernetwork","http://www.theweathernetwork.com/");
-define_webjump("whatismyip","https://www.iplocation.net/find-ip-address");
-define_webjump("wn-saskatoon","http://www.theweathernetwork.com/weather/canada/saskatchewan/saskatoon");
-define_webjump("weathernetwork-calgary","http://www.theweathernetwork.com/weather/canada/alberta/calgary");
-define_webjump("weathernetwork-canmore","https://www.theweathernetwork.com/ca/weather/alberta/canmore");
-define_webjump("weathernetwork-radium","https://www.theweathernetwork.com/ca/weather/british-columbia/radium-hot-springs");
-define_webjump("weathernetwork-saskatoon","http://www.theweathernetwork.com/weather/canada/saskatchewan/saskatoon");
-define_webjump("weathernetwork-sundre","http://www.theweathernetwork.com/weather/canada/alberta/sundre");
-define_webjump("weatheroffice","http://www.weatheroffice.gc.ca/canada_e.html");
-define_webjump("wo-saskatoon","http://www.weatheroffice.gc.ca/city/pages/sk-40_metric_e.html");
-define_webjump("weatheroffice-calgary","http://www.weatheroffice.gc.ca/city/pages/ab-52_metric_e.html");
-define_webjump("weatheroffice-canmore","https://weather.gc.ca/city/pages/ab-3_metric_e.html");
-define_webjump("weatheroffice-radium","https://weather.gc.ca/city/pages/bc-72_metric_e.html");
-define_webjump("weatheroffice-saskatoon","http://www.weatheroffice.gc.ca/city/pages/sk-40_metric_e.html");
-define_webjump("weatheroffice-sundre","http://www.weatheroffice.gc.ca/city/pages/ab-53_metric_e.html");
-define_webjump("wu-saskatoon","https://www.wunderground.com/cgi-bin/findweather/getForecast?query=saskatoon");
-define_webjump("timeanddate","https://www.timeanddate.com/search/results.html?query=%s");
-define_webjump("timeanddate-calgary","https://www.timeanddate.com/worldclock/city.html?n=55");
-define_webjump("timeanddate-saskatoon","https://www.timeanddate.com/worldclock/city.html?n=1227");
-define_webjump("trails-banff", "http://www.pc.gc.ca/apps/tcond/cond_e.asp?oPark=100092");
-define_webjump("trails-jasper","http://www.pc.gc.ca/apps/tcond/cond_e.asp?oPark=100244");
-define_webjump("usask-ecommons-thesises","https://ecommons.usask.ca/handle/10388/381");
-
 // use web browser for system admin
 // TODO: may need to be https for some people
 define_webjump("local-router", "http://192.168.0.1");
 define_webjump("router-local", "http://192.168.0.1");
 define_webjump("local-cups",   "http://localhost:631");
 define_webjump("cups-local",   "http://localhost:631");
+
+function load_webjumps_json (path) {
+    if (! (path instanceof Ci.nsIFile)) {
+        path = make_file(path);
+    }
+    var string_json = read_text_file(path);
+    // TODO: this was suggested by stackoverflow but I could not get it to work
+    // var rv = JSON.parse(JSON.stringify(read_text_file(path)));
+    // https://stackoverflow.com/questions/2930852/javascript-how-to-remove-line-that-contain-specific-string
+    var string_json_nocomment = string_json.replace(/^\s*\/\/.*$/mg,'');
+    var parsed_json = JSON.parse(string_json_nocomment);
+    for (entry in parsed_json) {
+        if (parsed_json[entry].length == 2) {
+            define_webjump(entry,String(parsed_json[entry][0]),$alternative=String(parsed_json[entry][1]));
+        } else {
+            define_webjump(entry,String(parsed_json[entry]));
+        }
+    }
+}
+load_webjumps_json('~/.conkerorrc/conkeror-webjumps.json');
 
 ////////////////////////////////////////////////////////////////////////////////
 // proxies

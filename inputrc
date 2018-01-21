@@ -4,6 +4,7 @@
 # https://wiki.archlinux.org/index.php/Readline
 set bell-style none
 set completion-ignore-case On
+set colored-stats On
 set echo-control-characters Off
 # TAB: menu-complete
 set show-all-if-ambiguous on
@@ -18,7 +19,12 @@ set output-meta on
 # Incrementally search history with M-p/M-n
 "\M-p": history-search-backward
 "\M-n": history-search-forward
+# TODO: experimenting with menu-complete.... can I use c-j elsewhere consistently
 # "\M-i": menu-complete
+# https://www.reddit.com/r/commandline/comments/kbeoe/you_can_make_readline_and_bash_much_more_user/
+Control-j: menu-complete
+# TODO: no!!! too confusing with emacs keys
+# Control-k: menu-complete-backward
 # XXXX: required for sage terminal
 "\e[3~":delete-char
 ########################################
