@@ -4,7 +4,8 @@ main () {
     # requires https://github.com/akroshko/bash-stdlib
     source ${HOME}/.bash_library
     need_new_directory ${HOME}/.conkerorrc
-    need_new_symlink ${SCRIPTPATH}/conkerorrc.js          ${HOME}/.conkerorrc/conkerorrc.js
+    # make sure the normal conkerorrc is loaded first
+    need_new_symlink ${SCRIPTPATH}/conkerorrc.js          ${HOME}/.conkerorrc/00conkerorrc.js
     need_new_symlink ${SCRIPTPATH}/conkeror-webjumps.json ${HOME}/.conkerorrc/conkeror-webjumps.json
     need_new_symlink ${SCRIPTPATH}/conkyrc                ${HOME}/.conkyrc
     need_new_symlink ${SCRIPTPATH}/gitconfig              ${HOME}/.gitconfig
