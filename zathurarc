@@ -41,11 +41,15 @@ map [normal]            _        adjust_window best-fit
 map [fullscreen]        _        adjust_window best-fit
 map [normal]            =        adjust_window width
 map [fullscreen]        =        adjust_window width
-# emacs keys
+# emacs and info mode keys
 map [normal]            \<       goto top
 map [fullscreen]        \<       goto top
 map [normal]            \>       goto bottom
 map [fullscreen]        \>       goto bottom
+map [normal]            <A-\<>   goto top
+map [fullscreen]        <A-\<>   goto top
+map [normal]            <A-\>>   goto bottom
+map [fullscreen]        <A-\>>   goto bottom
 map [normal]            <C-g>    abort
 map [fullscreen]        <C-g>    abort
 map [normal]            <C-p>    scroll up

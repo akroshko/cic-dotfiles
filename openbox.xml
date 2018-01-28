@@ -260,7 +260,8 @@
     <!-- F-keys -->
     <!-- put these beside escape to make menu select easy, plus easy to find on laptop in the dark -->
     <!-- M- keys give a touch-typing way of getting menus -->
-    <keybind key="F1">
+    <!-- F1 as a global help key -->
+    <keybind key="F2">
       <action name="ToggleShowDesktop"/>
     </keybind>
     <keybind key="M-S-D">
@@ -269,26 +270,20 @@
     <keybind key="C-W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
-    <keybind key="m-1">
+    <keybind key="m-2">
       <action name="ToggleShowDesktop"/>
     </keybind>
-    <keybind key="F2">
-      <action name="ShowMenu"><menu>super</menu></action>
-    </keybind>
-    <keybind key="M-2">
-      <action name="ShowMenu"><menu>super</menu></action>
-    </keybind>
     <keybind key="F3">
-      <action name="ShowMenu"><menu>super-power-volume</menu></action>
+      <action name="ShowMenu"><menu>super</menu></action>
     </keybind>
     <keybind key="M-3">
-      <action name="ShowMenu"><menu>super-power-volume</menu></action>
+      <action name="ShowMenu"><menu>super</menu></action>
     </keybind>
     <keybind key="F4">
-      <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-toggle.sh"</execute></action>
+      <action name="ShowMenu"><menu>super-power-volume</menu></action>
     </keybind>
     <keybind key="M-4">
-      <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-toggle.sh"</execute></action>
+      <action name="ShowMenu"><menu>super-power-volume</menu></action>
     </keybind>
     <!-- TODO: do I need both? not sure I need nested volume menu anymore, or power menu still want a good fast mute key f7/f8? -->
     <!-- <keybind key="F3"> -->
@@ -358,18 +353,24 @@
     </keybind>
     <!-- TODO: add notifications -->
     <keybind key="F9">
+      <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-toggle.sh"</execute></action>
+    </keybind>
+    <!-- <keybind key="M-4"> -->
+    <!--   <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-toggle.sh"</execute></action> -->
+    <!-- </keybind> -->
+    <keybind key="F10">
       <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-minimize.sh"</execute></action>
     </keybind>
-    <keybind key="M-F9">
+    <keybind key="M-F10">
       <action name="Execute"><execute>bash -c "$HOME/bin/web-video-restore.sh"</execute></action>
     </keybind>
-    <keybind key="C-9">
-      <action name="Execute"><execute>bash -c "$HOME"/bin/web-video-pause-minimize.sh"</execute></action>
-    </keybind>
+    <!-- <keybind key="C-9"> -->
+    <!--   <action name="Execute"><execute>bash -c "$HOME"/bin/web-video-pause-minimize.sh"</execute></action> -->
+    <!-- </keybind> -->
     <!-- this is much faster to use a special script -->
-    <keybind key="M-9">
-      <action name="Execute"><execute>~/cic-vcs/bash-stdlib/xclip-primary-insert-emacs-collection.sh</execute></action>
-    </keybind>
+    <!-- <keybind key="M-9"> -->
+    <!--   <action name="Execute"><execute>~/cic-vcs/bash-stdlib/xclip-primary-insert-emacs-collection.sh</execute></action> -->
+    <!-- </keybind> -->
     <keybind key="F10">
       <action name="Execute"><execute>bash -c "export PATH=\"${PATH}:~/bin\";source ~/.bash_library.d/bash_functions_stdlib;master-boss-key"</execute></action>
     </keybind>
@@ -1248,11 +1249,11 @@
         <monitor>2</monitor>
         <size>
           <width>640</width>
-          <height>50%</height>
+          <height>45%</height>
         </size>
         <position force="yes">
           <x>0</x>
-          <y>0</y>
+          <y>50</y>
         </position>
       </application>
       <application
@@ -1263,11 +1264,11 @@
         <monitor>2</monitor>
         <size>
           <width>640</width>
-          <height>50%</height>
+          <height>45%</height>
         </size>
         <position force="yes">
           <x>640</x>
-          <y>0</y>
+          <y>50</y>
         </position>
       </application>
       <!-- <application -->
