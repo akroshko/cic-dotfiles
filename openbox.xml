@@ -1271,6 +1271,17 @@
           <y>50</y>
         </position>
       </application>
+      <application
+        title="pythode*db_watcher*"
+        class="URxvt">
+        <focus>no</focus>
+        <desktop>2</desktop>
+        <monitor>2</monitor>
+        <position force="yes">
+          <x>0</x>
+          <y>600</y>
+        </position>
+      </application>
       <!-- <application -->
       <!--   class="Chromium-browser"> -->
       <!-- <focus>no</focus> -->
