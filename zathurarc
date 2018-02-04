@@ -122,3 +122,6 @@ map [fullscreen]        m        feedkeys ":exec zathura $FILE<Return>"
 # TODO: possibly hook into other (fit-page-like ?) commands and test
 map [normal]            c        set scroll-page-aware
 map [fullscreen]        c        set scroll-page-aware
+# TODO: experimental, wish I had a prompt after like emacs
+map [normal]            <A-g>    goto
+map [fullscreen]        <A-g>    goto

@@ -341,6 +341,7 @@
     <keybind key="F8">
         <action name="ShowMenu"><menu>capture</menu></action>
     </keybind>
+    <!-- TODO Decide... -->
     <keybind key="M-F8">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;python /home/akroshko/cic-vcs/cic-groups/capture-bib.py --delay;notify-send "Captured!!!" -t 5000"</execute></action>
     </keybind>
