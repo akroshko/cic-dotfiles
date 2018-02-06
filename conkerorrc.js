@@ -401,6 +401,7 @@ function load_webjumps_json (path) {
     var string_json = read_text_file(path);
     // TODO: this was suggested by stackoverflow but I could not get it to work
     // var rv = JSON.parse(JSON.stringify(read_text_file(path)));
+    // https://stackoverflow.com/questions/244777/can-comments-be-used-in-json
     // https://stackoverflow.com/questions/2930852/javascript-how-to-remove-line-that-contain-specific-string
     var string_json_nocomment = string_json.replace(/^\s*\/\/.*$/mg,'');
     var parsed_json = JSON.parse(string_json_nocomment);
