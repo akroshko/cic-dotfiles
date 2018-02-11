@@ -648,12 +648,13 @@
     <keybind key="C-period">
       <action name="Execute"><execute>xvkbd -xsendevent -text "\\[Next]"</execute></action>
     </keybind>
-    <keybind key="M-comma">
-      <action name="Execute"><execute>xdotool click --clearmodifiers 4</execute></action>
-    </keybind>
-    <keybind key="M-period">
-      <action name="Execute"><execute>xdotool click --clearmodifiers 5</execute></action>
-    </keybind>
+    <!-- TODO make these something else, xml comments do not play well with double hyphen, openbox warns about this too -->
+    <!-- <keybind key="M-comma"> -->
+    <!--   <action name="Execute"><execute>xdotool click dash-dash-clearmodifiers 4</execute></action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="M-period"> -->
+    <!--   <action name="Execute"><execute>xdotool click dash-dash-clearmodifiers 5</execute></action> -->
+    <!-- </keybind> -->
     <keybind key="XF86Calculator">
       <action name="Execute"><execute>xcalc</execute></action>
     </keybind>

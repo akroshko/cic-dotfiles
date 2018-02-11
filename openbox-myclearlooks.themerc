@@ -1,5 +1,5 @@
 !# MyClearlooks
-!# customized for my purposes Andrew Kroshko 2016
+!# customized by Andrew Kroshko 2016-2018
 
 !# Clearlooks-Evolving
 !# Clearlooks as it evolves in gnome-git...
@@ -80,6 +80,8 @@ window.*.grip.bg.color: #eaebec
 !# Active
 
 window.*.border.color: #585a5d
+!# experimental for testing by akroshko
+!# window.*.border.color: #0000ff
 
 window.active.title.separator.color: #4e76a8
 
@@ -122,7 +124,8 @@ window.active.button.hover.bg.border.color: #4A658C
 
 !# inactive
 
-!#window.inactive.border.color: #7e8285
+!# akroshko, uncommented this from original
+window.inactive.border.color: #7e8285
 window.inactive.title.separator.color: #96999d
 
 window.inactive.title.bg: Raised Gradient splitvertical
@@ -130,6 +133,12 @@ window.inactive.title.bg.color: #E3E2E0
 window.inactive.title.bg.color.splitTo: #EBEAE9
 window.inactive.title.bg.colorTo: #DEDCDA
 window.inactive.title.bg.colorTo.splitTo: #D5D3D1
+#! experimental by akroshko, for red changed E-->F and D-->E
+#! window.inactive.title.bg.color: #dd9966
+#! window.inactive.title.bg.color.splitTo: #dd9966
+#! window.inactive.title.bg.colorTo: #dd9966
+#! window.inactive.title.bg.colorTo.splitTo: #dd9966
+
 
 window.inactive.label.bg: Parentrelative
 window.inactive.label.text.color: #70747d
