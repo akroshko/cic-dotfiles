@@ -14,6 +14,7 @@ reload_image
 orient_3
 orient_1
 render
+quit
 # figure this out
 # rotate
 # things for esdf, these should be replaced
@@ -43,6 +44,8 @@ zoom_default      0            S
 zoom_fit          underscore   F
 # TODO: other key for this?
 zoom_fill         equal
+# no second key for quit, I press escape too many times accidently
+quit              q
 # TODO: should I switch these around?
 reload_image      grave
 render            r
