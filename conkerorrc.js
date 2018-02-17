@@ -762,6 +762,21 @@ interactive("twitch-seek",
         player.play();
     });
 
+interactive("twitch-enumerate-api",
+    "Enumerate API for twitch.  Clunky, but useful.",
+    function (I) {
+        // https://openuserjs.org/scripts/flipperbw/Twitch_Hotkeys/source
+        var player = I.buffer.document.getElementsByClassName('player-video')[0].getElementsByTagName('video')[0];
+        thestring = "";
+        for (var p in player) {
+            thestring+=(String(p) + " :: " + String(player[p]));
+            thestring+="\n";
+        }
+        path = make_file('/home/akroshko/conkeror-debug.txt');
+        write_text_file(path,thestring);
+        // I.window.alert(String(thelist));
+    });
+
 interactive("youtube-previous",
     "Previous in a youtube playlist.",
     function (I) {
