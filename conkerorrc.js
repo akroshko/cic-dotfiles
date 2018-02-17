@@ -685,7 +685,7 @@ interactive("web-video-pause",
             // https://www.youtube.com/iframe_api
             var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
             player.pauseVideo()
-        } else if (theurl.indexOf("twitch.tv") != -1) {
+        } else if (theurl.indexOf("twitch.tv") != -1 && theurl.indexOf("videos") != -1) {
             // https://openuserjs.org/scripts/flipperbw/Twitch_Hotkeys/source
             var player = I.buffer.document.getElementsByClassName('player-video')[0].getElementsByTagName('video')[0];
             player.pause();
@@ -702,8 +702,9 @@ interactive("web-video-play",
             // https://www.youtube.com/iframe_api
             var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
             player.playVideo()
-        } else if (theurl.indexOf("twitch.tv") != -1) {
+        } else if (theurl.indexOf("twitch.tv") != -1 && theurl.indexOf("videos") != -1) {
             // https://openuserjs.org/scripts/flipperbw/Twitch_Hotkeys/source
+            // TODO: only do for videos, live streams are only muted minimized or surfed away from
             var player = I.buffer.document.getElementsByClassName('player-video')[0].getElementsByTagName('video')[0];
             player.play();
         }
@@ -722,7 +723,7 @@ interactive("web-video-pause-toggle",
             } else {
                 player.playVideo();
             }
-        } else if (theurl.indexOf("twitch.tv") != -1) {
+        } else if (theurl.indexOf("twitch.tv") != -1  && theurl.indexOf("videos") != -1) {
             // https://openuserjs.org/scripts/flipperbw/Twitch_Hotkeys/source
             var player = I.buffer.document.getElementsByClassName('player-video')[0].getElementsByTagName('video')[0];
             var player_status = player.paused;
