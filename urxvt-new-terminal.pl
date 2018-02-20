@@ -2,7 +2,7 @@
 # Copyright (C) 2018, Andrew Kroshko, all rights reserved.
 #
 # Author: Andrew Kroshko
-# Maintainer: Andrew Kroshko <akroshko@gmail.com>
+# Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com>
 # Created: Fri Jan 5, 2018
 # Version: 20180105
 # URL: https://github.com/akroshko/dotfiles-stdlib

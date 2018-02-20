@@ -72,7 +72,7 @@ URxvt*scrollstyle: rxvt
 ! TODO: change all names to .pl
 ! TODO: forget how to even use this.... scrollback.pl,
 URxvt.perl-ext-common:          default,clipboard,-searchable-scrollback
-URxvt.perl-ext:                 urxvt-scrollback.pl,urxvt-new-terminal.pl,urxvt-searchable-scrollback.pl
+URxvt.perl-ext:                 urxvt-scrollback.pl,urxvt-new-terminal.pl,urxvt-searchable-scrollback.pl,urxvt-help.pl
 URxvt.iso14755:                 False
 URxvt.iconFile:                 /home/akroshko/.urxvt/terminal.svg
 URxvt.keysym.M-c:               perl:clipboard:copy
@@ -89,6 +89,7 @@ URxvt.keysym.C-1:               perl:scrollback:save
 URxvt.keysym.C-2:               perl:scrollback:save_emacs
 URxvt.keysym.C-5:               perl:new:terminal
 URxvt.keysym.C-6:               perl:new:emacsdired
+URxvt.keysym.F1:                perl:displayhelp:now
 ! clipboard
 URxvt.clipboard.copycmd:        xclip -i -selection clipboard
 URxvt.clipboard.pastecmd:       xclip -o -selection clipboard
