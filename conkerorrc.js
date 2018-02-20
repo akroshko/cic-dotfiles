@@ -108,6 +108,9 @@ define_key(content_buffer_normal_keymap, "h", "browse-buffer-history");
 // esdf keys, experimental
 // TODO: need new 10x, need new back
 // TODO: these could be better, exteriment
+// TODO: is this really what I want
+define_key(content_buffer_normal_keymap, "o",       "browser-object-media");
+// follow and other surfing keys
 define_key(content_buffer_normal_keymap, "f",       "follow");
 define_key(content_buffer_normal_keymap, "s-f",     "follow-new-buffer");
 define_key(content_buffer_normal_keymap, "s-F",     "follow-new-buffer-background");
@@ -121,6 +124,7 @@ define_key(content_buffer_normal_keymap, "M-s-f",   "follow-new-window");
 // define_key(content_buffer_normal_keymap, "d",       "duplicate-buffer");
 // define_key(content_buffer_normal_keymap, "s-d",     "duplicate-buffer-new-window");
 // m=mirror
+
 define_key(content_buffer_normal_keymap, "s-m",     "duplicate-buffer");
 define_key(content_buffer_normal_keymap, "s-M",     "duplicate-buffer-background");
 define_key(content_buffer_normal_keymap, "M-s-m",   "duplicate-buffer-new-window");
@@ -393,6 +397,29 @@ define_webjump("local-router", "http://192.168.0.1");
 define_webjump("router-local", "http://192.168.0.1");
 define_webjump("local-cups",   "http://localhost:631");
 define_webjump("cups-local",   "http://localhost:631");
+
+// http://conkeror.org/Tips#Selection_Searches
+// selection searches
+function create_selection_search(webjump, key) {
+    interactive(webjump+"-selection-search",
+                "Search " + webjump + " with selection contents",
+                "find-url-new-buffer",
+                $browser_object = function (I) {
+                    return webjump + " " + I.buffer.top_frame.getSelection();});
+    define_key(content_buffer_normal_keymap, key.toUpperCase(), webjump + "-selection-search");
+
+    interactive("prompted-"+webjump+"-search", null,
+                function (I) {
+                    var term = yield I.minibuffer.read_url($prompt = "Search "+webjump+":",
+                                                           $initial_value = webjump+" ",
+                                                           $select = false);
+                    browser_object_follow(I.buffer, FOLLOW_DEFAULT, term);
+                });
+    define_key(content_buffer_normal_keymap, key, "prompted-" + webjump + "-search");
+}
+create_selection_search("duckduckgo","d");
+// TODO: e is wierd for google
+create_selection_search("google","e");
 
 function load_webjumps_json (path) {
     if (! (path instanceof Ci.nsIFile)) {
