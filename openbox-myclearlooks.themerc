@@ -16,6 +16,8 @@ menu.items.font:shadow=y:shadowtint=0:shadowoffset=1
 !# general stuff
 
 border.width: 1
+!# experimental, changed by akroshko
+!# border.width: 3
 padding.width: 3
 padding.height: 2
 window.handle.width: 3
@@ -81,7 +83,7 @@ window.*.grip.bg.color: #eaebec
 
 window.*.border.color: #585a5d
 !# experimental for testing by akroshko
-!# window.*.border.color: #0000ff
+!# window.*.border.color: #00ff00
 
 window.active.title.separator.color: #4e76a8
 

@@ -4,7 +4,7 @@
 <!-- Author: Andrew Kroshko -->
 <!-- Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com> -->
 <!-- Created: Thu June 09, 2016 -->
-<!-- Version: 20180225 -->
+<!-- Version: 20180227 -->
 <!-- URL: https://github.com/akroshko/cic-groups -->
 
 <!-- This program is free software: you can redistribute it and/or modify -->
@@ -124,7 +124,7 @@
     </font>
     <font place="ActiveOnScreenDisplay">
       <name>sans</name>
-      <size>9</size>
+      <size>16</size>
       <!-- font size in points -->
       <weight>bold</weight>
       <!-- 'bold' or 'normal' -->
@@ -133,7 +133,7 @@
     </font>
     <font place="InactiveOnScreenDisplay">
       <name>sans</name>
-      <size>9</size>
+      <size>16</size>
       <!-- font size in points -->
       <weight>bold</weight>
       <!-- 'bold' or 'normal' -->
@@ -359,11 +359,30 @@
     <!-- <keybind key="M-4"> -->
     <!--   <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-toggle.sh"</execute></action> -->
     <!-- </keybind> -->
-    <keybind key="F10">
-      <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-minimize.sh"</execute></action>
-    </keybind>
-    <keybind key="M-F10">
-      <action name="Execute"><execute>bash -c "$HOME/bin/web-video-restore.sh"</execute></action>
+    <!-- <keybind key="F10"> -->
+    <!--   <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-minimize.sh"</execute></action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="M-F10"> -->
+    <!--   <action name="Execute"><execute>bash -c "$HOME/bin/web-video-restore.sh"</execute></action> -->
+    <!-- </keybind> -->
+    <!-- Experimental -->
+    <keybind key="F12" chroot="true">
+      <keybind key="Escape">
+        <action name="BreakChroot"/>
+      </keybind>
+      <!-- Put on control key too... -->
+      <keybind key="F10">
+        <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-toggle.sh"</execute></action>
+        <action name="BreakChroot"/>
+      </keybind>
+      <keybind key="F11">
+        <action name="Execute"><execute>bash -c "$HOME/bin/web-video-restore.sh"</execute></action>
+        <action name="BreakChroot"/>
+      </keybind>
+      <keybind key="F12">
+        <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-minimize.sh"</execute></action>
+        <action name="BreakChroot"/>
+      </keybind>
     </keybind>
     <!-- <keybind key="C-9"> -->
     <!--   <action name="Execute"><execute>bash -c "$HOME"/bin/web-video-pause-minimize.sh"</execute></action> -->
@@ -759,9 +778,10 @@
     <keybind key="M-S-z">
       <action name="ShowMenu"><menu>root-menu</menu></action>
     </keybind>
-    <keybind key="M-0">
-      <action name="ShowMenu"><menu>capture</menu></action>
-    </keybind>
+    <!-- using for something else -->
+    <!-- <keybind key="M-0"> -->
+    <!--   <action name="ShowMenu"><menu>capture</menu></action> -->
+    <!-- </keybind> -->
     <keybind key="M-Print">
       <action name="ShowMenu"><menu>screen-capture</menu></action>
     </keybind>
