@@ -4,7 +4,7 @@
 # Author: Andrew Kroshko
 # Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com>
 # Created: Fri Jan 5, 2018
-# Version: 20180105
+# Version: 20180302
 # URL: https://github.com/akroshko/dotfiles-stdlib
 #
 # This program is free software: you can redistribute it and/or modify
@@ -25,6 +25,8 @@
 
 use strict;
 use warnings;
+
+use Proc::ProcessTable;
 
 sub on_start {
     my ($self) = @_;
@@ -49,19 +51,37 @@ sub msg {
               ->cb (sub { delete $self->{msg}; undef $ov; });
 }
 
+sub get_shell_pid () {
+    my ($self) = @_;
+    # http://search.cpan.org/~durist/Proc-ProcessTable-0.39/ProcessTable.pm
+    # find process with the current process as parent
+    my $t = new Proc::ProcessTable( 'cache_ttys' => 1 );
+    foreach my $p ( @{$t->table} ){
+        if ($p->ppid == $$) {
+            # check if it is bash
+            if (index("bash",$p->cmndline) != -1) {
+                # just return on first bash for now
+                return $p->pid;
+            }
+        }
+    }
+    ()
+}
+
 
 sub open_new_terminal {
     my ($self) = @_;
     # https://www.df7cb.de/blog/2014/New_urxvt_tab_in_current_directory.html
-    # except getppid seems to be a working portable way to do this with my meagre perl skills
-    my $pid = getppid();
-    $self->msg ("Testing..." . $pid);
-    my $pwd = readlink "/proc/$pid/cwd";
-    # keep this here for now
-    $self->msg ("Opening new terminal with working directory " . $pwd);
+    # TODO: not fixed yet
+    my $thepid = get_shell_pid();
+    $self->msg ("Testing..." . $thepid);
+    my $pwd = readlink "/proc/$thepid/cwd";
     if ($pwd) {
+        $self->msg ("Opening new terminal with working directory for $thepid: " . $pwd);
         # I guess don't open up a new terminal if we don't know where
         system("rxvt-unicode -cd " . $pwd . " &");
+    } else {
+        $self->msg ("Could not find an appopriate working directory");
     }
 
     ()
@@ -70,15 +90,17 @@ sub open_new_terminal {
 sub open_emacs_dired {
     my ($self) = @_;
     # https://www.df7cb.de/blog/2014/New_urxvt_tab_in_current_directory.html
-    # except getppid seems to be a working portable way to do this with my meagre perl skills
-    my $pid = getppid();
-    $self->msg ("Testing..." . $pid);
-    my $pwd = readlink "/proc/$pid/cwd";
+    # TODO: not fixed yet
+    my $thepid = get_shell_pid();
+    $self->msg ("Testing..." . $thepid);
+    my $pwd = readlink "/proc/$thepid/cwd";
     # I guess don't open up emacs dired if we don't know where
     if ($pwd) {
         # keep this here for now
-        $self->msg ("Opening emacs dired with working directory " . $pwd);
+        $self->msg ("Opening emacs dired with working directory for $thepid: " . $pwd);
         system($ENV{"HOME"} . "/bin/launch-emacsclient nohup --eval '(dired \"" . $pwd . "\")'");
+    } else {
+        $self->msg ("Could not find an appopriate working directory");
     }
 
     ()

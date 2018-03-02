@@ -4,7 +4,7 @@
 # Author: Andrew Kroshko
 # Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com>
 # Created: Sun Nov 19, 2017
-# Version: 20180105
+# Version: 20180302
 # URL: https://github.com/akroshko/dotfiles-stdlib
 #
 # This program is free software: you can redistribute it and/or modify
@@ -117,10 +117,10 @@ sub save_scrollback {
     my $mon_number=$mon+1;
     my $timestamp = "$year_number$mon_number$mday$hour$min$sec";
     my $filename=$ENV{"HOME"} . "/tmp/collect/urxvt-$timestamp" . ".txt";
+    $self->msg ("Capturing scrollback to " . $filename);
     open(my $fh,'>',$filename);
     print $fh $scrollback;
     close $fh;
-
     $self->msg ("Successfully captured scrollback to " . $filename);
 
     ()
@@ -168,6 +168,7 @@ sub save_scrollback_emacs {
     # XXXX: requires launch-emacsclient script in place
     # run shell command to read it into emacs
     my $emacs_command = $ENV{"HOME"} . "/bin/launch-emacsclient";
+    $self->msg ("Capturing scrollback to emacs");
     system($emacs_command,"noframe","--eval","(cic:capture-rxvt-scrollback \"$filename\")");
     $self->msg ("Successfully captured scrollback to emacs");
 
