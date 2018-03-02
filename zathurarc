@@ -113,6 +113,8 @@ map [normal]            {        feedkeys ":exec zathura-switch-file.py $FILE --
 map [fullscreen]        {        feedkeys ":exec zathura-switch-file.py $FILE --previous<Return>"
 map [normal]            [        feedkeys ":exec zathura-switch-file.py $FILE --bytime --previous<Return>"
 map [fullscreen]        [        feedkeys ":exec zathura-switch-file.py $FILE --bytime --previous<Return>"
+map [normal]            <A-l>    feedkeys ":exec emacs-window-uid-from-filename.sh $FILE<Return>"
+map [fullscreen]        <A-l>    feedkeys ":exec emacs-window-uid-from-filename.sh $FILE<Return>"
 # TODO: duplicate (mirror) current file
 #       make a little harder?
 # TODO: zathura needs a $PAGE too
