@@ -366,21 +366,47 @@
     <!--   <action name="Execute"><execute>bash -c "$HOME/bin/web-video-restore.sh"</execute></action> -->
     <!-- </keybind> -->
     <!-- Experimental -->
+    <!-- TODO: shift f12 sends f12 -->
+    <keybind key="C-F12">
+      <action name="Execute"><execute>python /home/akroshko/bin/f12_help_panel.py</execute></action>
+    </keybind>
     <keybind key="F12" chroot="true">
       <keybind key="Escape">
+        <action name="Execute"><execute>bash -c "pkill -f f12_help_panel"</execute></action>
         <action name="BreakChroot"/>
       </keybind>
+      <keybind key="F1">
+        <action name="Execute"><execute>python /home/akroshko/bin/f12_help_panel.py</execute></action>
+      </keybind>
+      <keybind key="F5">
+        <action name="Execute"><execute>pause/play key</execute></action>
+      </keybind>
+      <keybind key="F6">
+        <action name="Execute"><execute>bash -c "amixer set Master 10%-;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
+      </keybind>
+      <keybind key="F7">
+        <action name="Execute"><execute>bash -c "amixer set Master 10%+;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
+      </keybind>
+      <keybind key="F8">
+        <action name="Execute"><execute>bash -c "amixer sset Master toggle;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-mute"</execute></action>
+      </keybind>
       <!-- Put on control key too... -->
-      <keybind key="F10">
+      <keybind key="F9">
         <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-toggle.sh"</execute></action>
+      </keybind>
+      <keybind key="F10">
+        <action name="Execute"><execute>bash -c "$HOME/bin/web-video-minimize.sh"</execute></action>
+        <action name="Execute"><execute>bash -c "pkill -f f12_help_panel"</execute></action>
         <action name="BreakChroot"/>
       </keybind>
       <keybind key="F11">
         <action name="Execute"><execute>bash -c "$HOME/bin/web-video-restore.sh"</execute></action>
+        <action name="Execute"><execute>bash -c "pkill -f f12_help_panel"</execute></action>
         <action name="BreakChroot"/>
       </keybind>
       <keybind key="F12">
         <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-minimize.sh"</execute></action>
+        <action name="Execute"><execute>bash -c "pkill -f f12_help_panel"</execute></action>
         <action name="BreakChroot"/>
       </keybind>
     </keybind>
