@@ -375,6 +375,13 @@
         <action name="Execute"><execute>bash -c "pkill -f f12_help_panel"</execute></action>
         <action name="BreakChroot"/>
       </keybind>
+      <keybind key="C-bracketleft">
+        <action name="Execute"><execute>bash -c "pkill -f f12_help_panel"</execute></action>
+        <action name="BreakChroot"/>
+      </keybind>
+      <keybind key="C-h">
+        <action name="Execute"><execute>python /home/akroshko/bin/f12_help_panel.py</execute></action>
+      </keybind>
       <keybind key="F1">
         <action name="Execute"><execute>python /home/akroshko/bin/f12_help_panel.py</execute></action>
       </keybind>

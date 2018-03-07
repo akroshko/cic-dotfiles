@@ -384,10 +384,15 @@ add_hook('content_buffer_progress_change_hook', focusblock);
 // really quick ones
 // these are here so the browser is functional even if json is not loaded
 // TODO: highlight following
-define_opensearch_webjump("d", "duckduckgo.xml");
+// define_opensearch_webjump("d", "duckduckgo.xml");
 // define_webjump("duckduckgo","https://duckduckgo.com/?q=%s",$alternative="https://duckduckgo.com");
-define_opensearch_webjump("g", "google.xml");
-define_webjump(           "y", "https://www.youtube.com/results?search_query=%s&search=Search",$alternative="https://www.youtube.com/feed/subscriptions");
+// define_opensearch_webjump("g", "google.xml");
+// TODO: single letter abbreviations too confusing... can I add a help string?
+// TODO: figure out safe search off by default in duckduckgo
+define_webjump("duckduckgo","https://duckduckgo.com/?q=%s&t=hb&ia=web",                                    $alternative="https://duckduckgo.com");
+// define_webjump("g",         "https://www.google.ca/search?q=%s&ie=utf-8&oe=utf-8&gws_rd=cr&dcr=0&safe=off",$alternative="https://www.google.ca/");
+define_webjump("google",    "https://www.google.ca/search?q=%s&ie=utf-8&oe=utf-8&gws_rd=cr&dcr=0&safe=off",$alternative="https://www.google.ca/");
+// define_webjump("y",         "https://www.youtube.com/results?search_query=%s&search=Search",               $alternative="https://www.youtube.com/feed/subscriptions");
 // local stuff for completion
 define_webjump("about-config", "about:config");
 define_webjump("about-support","about:support");
