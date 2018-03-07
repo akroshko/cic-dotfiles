@@ -261,9 +261,9 @@
     <!-- put these beside escape to make menu select easy, plus easy to find on laptop in the dark -->
     <!-- M- keys give a touch-typing way of getting menus -->
     <!-- F1 as a global help key -->
-    <keybind key="F2">
-      <action name="ToggleShowDesktop"/>
-    </keybind>
+    <!-- <keybind key="F2"> -->
+    <!--   <action name="ToggleShowDesktop"/> -->
+    <!-- </keybind> -->
     <keybind key="M-S-D">
       <action name="ToggleShowDesktop"/>
     </keybind>
@@ -273,18 +273,18 @@
     <keybind key="m-2">
       <action name="ToggleShowDesktop"/>
     </keybind>
-    <keybind key="F3">
-      <action name="ShowMenu"><menu>super</menu></action>
-    </keybind>
-    <keybind key="M-3">
-      <action name="ShowMenu"><menu>super</menu></action>
-    </keybind>
-    <keybind key="F4">
-      <action name="ShowMenu"><menu>super-power-volume</menu></action>
-    </keybind>
-    <keybind key="M-4">
-      <action name="ShowMenu"><menu>super-power-volume</menu></action>
-    </keybind>
+    <!-- <keybind key="F3"> -->
+    <!--   <action name="ShowMenu"><menu>super</menu></action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="M-3"> -->
+    <!--   <action name="ShowMenu"><menu>super</menu></action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="F4"> -->
+    <!--   <action name="ShowMenu"><menu>super-power-volume</menu></action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="M-4"> -->
+    <!--   <action name="ShowMenu"><menu>super-power-volume</menu></action> -->
+    <!-- </keybind> -->
     <!-- TODO: do I need both? not sure I need nested volume menu anymore, or power menu still want a good fast mute key f7/f8? -->
     <!-- <keybind key="F3"> -->
     <!--   <action name="Execute"><execute>bash -c "amixer set Master mute;notify-send \"Mute\" \"$(date +%Y%m%d%H%M%S)\" -t 5000"</execute></action> -->
@@ -345,7 +345,6 @@
     <keybind key="M-F8">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;python /home/akroshko/cic-vcs/cic-groups/capture-bib.py --delay;notify-send "Captured!!!" -t 5000"</execute></action>
     </keybind>
-
     <keybind key="M-8">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;python /home/akroshko/cic-vcs/cic-groups/capture-bib.py --delay;notify-send "Captured!!!" -t 5000"</execute></action>
     </keybind>
@@ -367,6 +366,39 @@
     <!-- </keybind> -->
     <!-- Experimental -->
     <!-- TODO: shift f12 sends f12 -->
+    <keybind key="M-k" chroot="true">
+      <keybind key="Escape">
+        <action name="BreakChroot"/>
+      </keybind>
+      <keybind key="C-bracketleft">
+        <action name="BreakChroot"/>
+      </keybind>
+      <keybind key="C-h">
+        <action name="BreakChroot"/>
+      </keybind>
+      <keybind key="M-k">
+        <!-- Do I want this? -->
+        <action name="ToggleShowDesktop"/>
+        <action name="BreakChroot"/>
+      </keybind>
+      <keybind key="n">
+        <action name="ShowMenu"><menu>super</menu></action>
+        <action name="BreakChroot"/>
+      </keybind>
+      <keybind key="M-n">
+        <action name="ShowMenu"><menu>super</menu></action>
+        <action name="BreakChroot"/>
+      </keybind>
+      <keybind key="m">
+        <action name="ShowMenu"><menu>super-power-volume</menu></action>
+        <action name="BreakChroot"/>
+      </keybind>
+      <keybind key="M-m">
+        <action name="ShowMenu"><menu>super-power-volume</menu></action>
+        <action name="BreakChroot"/>
+      </keybind>
+    </keybind>
+    <!-- Test -->
     <keybind key="C-F12">
       <action name="Execute"><execute>python /home/akroshko/bin/f12_help_panel.py</execute></action>
     </keybind>

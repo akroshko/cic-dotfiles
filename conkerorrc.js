@@ -656,21 +656,24 @@ define_key(default_global_keymap, "C-c r", "reload-config");
 // open in firefox
 interactive("open-firefox", "",
     function (I) {
-        var cmd_str = 'firefox -P default -new-tab "' + I.buffer.display_uri_string + '"';
+        var theurl = transform_url_location(I.buffer,I.buffer.display_uri_string);
+        var cmd_str = 'firefox -P default -new-tab "' + theurl + '"';
         shell_command_blind(cmd_str);
     });
 define_key(content_buffer_normal_keymap, "C-c f", "open-firefox");
 // TODO: figure out C-u....
 interactive("open-firefox-unsafe", "",
     function (I) {
-        var cmd_str = 'firefox -P unsafe -new-tab "' + I.buffer.display_uri_string + '"';
+        var theurl = transform_url_location(I.buffer,I.buffer.display_uri_string);
+        var cmd_str = 'firefox -private -new-tab "' + theurl + '"';
         shell_command_blind(cmd_str);
     });
 define_key(content_buffer_normal_keymap, "C-u C-c f", "open-firefox-unsafe");
 // open in firefox private
 interactive("open-firefox-private", "",
     function (I) {
-        var cmd_str = 'firefox -private -new-tab "' + I.buffer.display_uri_string + '"';
+        var theurl = transform_url_location(I.buffer,I.buffer.display_uri_string);
+        var cmd_str = 'firefox -P unsafe -new-tab "' + theurl + '"';
         shell_command_blind(cmd_str);
     });
 define_key(content_buffer_normal_keymap, "C-c x", "open-firefox-private");
@@ -678,15 +681,17 @@ define_key(content_buffer_normal_keymap, "C-c x", "open-firefox-private");
 // chromium...
 interactive("open-chromium", "",
     function (I) {
-        // TODO: fix this....
-        var cmd_str = 'chromium --temp-profile "' + I.buffer.display_uri_string + '"';
+        // TODO: Can't auto-enable ad-blocker and avoid ads, I shred it enough that this is fine
+        var theurl = transform_url_location(I.buffer,I.buffer.display_uri_string);
+        var cmd_str = 'chromium "' + theurl + '"';
         shell_command_blind(cmd_str);
     });
 define_key(content_buffer_normal_keymap, "C-c g", "open-chromium");
 interactive("open-chromium-ads-on", "",
     function (I) {
         // TODO: fix this....
-        var cmd_str = 'chromium --incognito "' + I.buffer.display_uri_string + '"';
+        var theurl = transform_url_location(I.buffer,I.buffer.display_uri_string);
+        var cmd_str = 'chromium --temp-profile "' + theurl + '"';
         shell_command_blind(cmd_str);
     });
 define_key(content_buffer_normal_keymap, "C-u C-c g", "open-chromium-ads-on");
@@ -694,6 +699,7 @@ define_key(content_buffer_normal_keymap, "C-u C-c g", "open-chromium-ads-on");
 // open in gnome-web
 interactive("open-gnome-web", "",
     function (I) {
+        // TODO: add transform url here
         var cmd_str = 'epiphany --new-tab "' + I.buffer.display_uri_string + '"';
         shell_command_blind(cmd_str);
     });
@@ -776,6 +782,7 @@ interactive("web-video-pause-toggle",
         // I.window.minibuffer.message(player.getDuration())
     });
 
+
 interactive("youtube-seek",
     "Seek to a youtube location.",
     function (I) {
@@ -851,6 +858,43 @@ interactive("youtube-enumerate-api",
             I.window.alert(p);
         }
     });
+
+function transform_url_location (buffer,theurl) {
+    // transform location of the url to include position for things like videos
+    if ( theurl.indexOf("youtube.com") > -1 ) {
+        return youtube_link_from_current_time(buffer,theurl);
+    } else if ( theurl.indexOf("twitch.tv") != -1 && theurl.indexOf("videos") != -1) {
+        return twitch_link_from_current_time(buffer,theurl);
+    } else {
+        return theurl;
+    }
+}
+
+function youtube_link_from_current_time (buffer,url) {
+    var current_time = youtube_get_currenttime(buffer);
+    var current_time_integer=Math.floor(current_time);
+    return url+'&t='+String(current_time_integer);
+}
+
+function twitch_link_from_current_time (buffer,url) {
+    // https://openuserjs.org/scripts/flipperbw/Twitch_Hotkeys/source
+    // for testing...
+    // https://www.twitch.tv/videos/212539340?collection=YeKb2LJQ6hQMpg
+    // TODO: make a function
+    var player = buffer.document.getElementsByClassName('player-video')[0].getElementsByTagName('video')[0];
+    var current_time=player.currentTime;
+    var hours=Math.floor(current_time/3600);
+    var temptime=current_time - hours*3600;
+    var minutes=Math.floor(temptime/60);
+    var seconds=Math.floor(temptime - minutes*60);
+    var timestring=integer_to_two_digit_string(hours) + 'h' + integer_to_two_digit_string(minutes) + 'm' + integer_to_two_digit_string(seconds) + 's';
+    // convert to strings...
+    // write_text_file_line(make_file(logdir+"conkeror-current-log.org"),get_now() + " [[" + theurl + "::" + String(current_time) + "][" + thetitle + "]]\n");
+    // theurl_stripped=theurl.replace(/\?[0-9][0-9]h[0-9][0-9]m[0-9][0-9]s/,"");
+    // TODO: strip off anything but ? until I know what's going on, figure out format of twitch urls with lots of options
+    theurl_stripped=url.replace(/\?.*/,"");
+    return (theurl_stripped + '?t=' + timestring);
+}
 
 // get youtube time
 function youtube_get_currenttime (buffer) {
