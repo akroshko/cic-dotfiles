@@ -335,6 +335,17 @@ session_pref("javascript.enabled",true);
 // session_pref("media.autoplay.enabled",false);
 page_mode_deactivate(youtube_player_mode);
 
+interactive("copy-url-title","Copy url and title to clipboard in org-mode format.",
+    function (I) {
+        var the_url_title="[[" + I.buffer.current_uri.spec + "][" + I.buffer.document.title + "]]";
+        writeToClipboard(the_url_title);
+        I.window.minibuffer.message("Copied to clipboard: " + the_url_title);
+    });
+define_key(content_buffer_normal_keymap, "s-0", "copy-url-title");
+
+// So `* p c` will copy the title of the current buffer
+
+
 // Adblock Plus
 // http://conkeror.org/AdblockPlus
 require("extensions/adblockplus.js");
