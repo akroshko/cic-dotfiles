@@ -4,7 +4,7 @@
 <!-- Author: Andrew Kroshko -->
 <!-- Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com> -->
 <!-- Created: Thu June 09, 2016 -->
-<!-- Version: 20180409 -->
+<!-- Version: 20180410 -->
 <!-- URL: https://github.com/akroshko/cic-groups -->
 
 <!-- This program is free software: you can redistribute it and/or modify -->
@@ -293,9 +293,9 @@
     <!--   <action name="Execute"><execute>bash -c "amixer set Master mute;notify-send \"Mute\" \"$(date +%Y%m%d%H%M%S)\" -t 5000"</execute></action> -->
     <!-- </keybind> -->
     <!-- TODO: don't like sourcing libenv -->
-    <keybind key="F5">
-      <action name="ShowMenu"><menu>apropos</menu></action>
-    </keybind>
+    <!-- <keybind key="F5"> -->
+    <!--   <action name="ShowMenu"><menu>apropos</menu></action> -->
+    <!-- </keybind> -->
     <keybind key="M-F5">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;conkeror-clipboard.sh google"</execute></action>
     </keybind>
@@ -335,12 +335,12 @@
     <keybind key="H-F6">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;${HOME}/bin/secret-search-hyper.sh"</execute></action>
     </keybind>
-    <keybind key="F7">
-        <action name="ShowMenu"><menu>quick-reference</menu></action>
-    </keybind>
-    <keybind key="F8">
-        <action name="ShowMenu"><menu>capture</menu></action>
-    </keybind>
+    <!-- <keybind key="F7"> -->
+    <!--     <action name="ShowMenu"><menu>quick-reference</menu></action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="F8"> -->
+    <!--     <action name="ShowMenu"><menu>capture</menu></action> -->
+    <!-- </keybind> -->
     <!-- TODO Decide... -->
     <keybind key="M-F8">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;python /home/akroshko/cic-vcs/cic-groups/capture-bib.py --delay;notify-send "Captured!!!" -t 5000"</execute></action>
@@ -395,6 +395,46 @@
       </keybind>
       <keybind key="M-m">
         <action name="ShowMenu"><menu>super-power-volume</menu></action>
+        <action name="BreakChroot"/>
+      </keybind>
+      <keybind key="r">
+        <action name="ShowMenu"><menu>quick-reference</menu></action>
+        <action name="BreakChroot"/>
+      </keybind>
+      <keybind key="M-r">
+        <action name="ShowMenu"><menu>quick-reference</menu></action>
+        <action name="BreakChroot"/>
+      </keybind>
+      <keybind key="c">
+        <action name="ShowMenu"><menu>capture</menu></action>
+        <action name="BreakChroot"/>
+      </keybind>
+      <keybind key="M-c">
+        <action name="ShowMenu"><menu>capture</menu></action>
+        <action name="BreakChroot"/>
+      </keybind>
+      <keybind key="a">
+        <action name="ShowMenu"><menu>apropos</menu></action>
+        <action name="BreakChroot"/>
+      </keybind>
+      <keybind key="M-a">
+        <action name="ShowMenu"><menu>apropos</menu></action>
+        <action name="BreakChroot"/>
+      </keybind>
+      <keybind key="s">
+        <action name="ShowMenu"><menu>screen-capture</menu></action>
+        <action name="BreakChroot"/>
+      </keybind>
+      <keybind key="M-s">
+        <action name="ShowMenu"><menu>screen-capture</menu></action>
+        <action name="BreakChroot"/>
+      </keybind>
+      <keybind key="z">
+        <action name="ShowMenu"><menu>secret-search</menu></action>
+        <action name="BreakChroot"/>
+      </keybind>
+      <keybind key="M-z">
+        <action name="ShowMenu"><menu>secret-search</menu></action>
         <action name="BreakChroot"/>
       </keybind>
     </keybind>
@@ -1192,14 +1232,15 @@
     <file>/var/lib/openbox/debian-menu.xml</file>
     <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
     <file>menu.xml</file>
-    <file>/home/akroshko/.config/openbox/openbox-menu-second.xml</file>
     <file>/home/akroshko/.config/openbox/openbox-menu-capture.xml</file>
     <file>/home/akroshko/.config/openbox/openbox-menu-screencapture.xml</file>
     <file>/home/akroshko/.config/openbox/openbox-menu-apropos.xml</file>
     <file>/home/akroshko/.config/openbox/openbox-menu-quick-reference.xml</file>
+    <file>/home/akroshko/.config/openbox/openbox-menu-secret-search.xml</file>
+
     <file>/home/akroshko/.config/openbox/openbox-menu-super-power-volume.xml</file>
     <file>/home/akroshko/.config/openbox/openbox-menu-super.xml</file>
-    <file>/home/akroshko/.config/openbox/openbox-menu-secret-search.xml</file>
+    <file>/home/akroshko/.config/openbox/openbox-menu-second.xml</file>
     <hideDelay>200</hideDelay>
     <!-- if a press-release lasts longer than this setting (in milliseconds), the
          menu is hidden again -->
