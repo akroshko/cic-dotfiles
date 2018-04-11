@@ -533,6 +533,12 @@
     <keybind key="Print">
       <action name="Execute"><execute>bash -c "source ~/.bash_library.d/bash_functions_stdlib;source ~/.bash_library.d/bashrc_functions_external;source ~/.bash_library.d/bash_library_std;capture-screen"</execute></action>
     </keybind>
+    <keybind key="M-Print">
+      <action name="ShowMenu"><menu>screen-capture</menu></action>
+    </keybind>
+    <keybind key="C-Print">
+      <action name="Execute"><execute>bash -c "source ~/.bash_library.d/bash_functions_stdlib;source ~/.bash_library.d/bashrc_functions_external;source ~/.bash_library.d/bash_library_std;capture-selection"</execute></action>
+    </keybind>
     <!-- temporary... -->
     <keybind key="M-W-slash">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;whitenoise.sh"</execute></action>
@@ -887,9 +893,6 @@
     <!-- <keybind key="M-0"> -->
     <!--   <action name="ShowMenu"><menu>capture</menu></action> -->
     <!-- </keybind> -->
-    <keybind key="M-Print">
-      <action name="ShowMenu"><menu>screen-capture</menu></action>
-    </keybind>
     <!-- <keybind key="M-2"> -->
     <!--   <action name="ShowMenu"><menu>screen-capture</menu></action> -->
     <!-- </keybind> -->
