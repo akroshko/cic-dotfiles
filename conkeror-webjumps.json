@@ -46,7 +46,7 @@
  // TODO: might have to be updated...
  "emacswiki":["https://www.google.com/cse?cx=004774160799092323420%3A6-ff2s0o6yi&q=%s&sa=Search&siteurl=emacswiki.org%2F","https://www.emacswiki.org/"],
  "emacswiki-elispcookbook":["https://www.emacswiki.org/emacs/ElispCookbook"],
- "emacswiki-long-lost-string":["https://github.com/magnars/s.el"],
+ "emacs-long-lost-string":["https://github.com/magnars/s.el"],
  "electronicstutorials":["http://www.electronics-tutorials.ws/"],
  // TODO: uses invalid security certificate
  "encyclopedia":["http://www.reference.com/browse/%s","http://www.reference.com"],
