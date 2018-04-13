@@ -493,9 +493,10 @@
     <!--   <action name="Execute"><execute>bash -c "$HOME"/bin/web-video-pause-minimize.sh"</execute></action> -->
     <!-- </keybind> -->
     <!-- this is much faster to use a special script -->
-    <!-- <keybind key="M-9"> -->
-    <!--   <action name="Execute"><execute>~/cic-vcs/bash-stdlib/xclip-primary-insert-emacs-collection.sh</execute></action> -->
-    <!-- </keybind> -->
+    <!-- TODO: make this work better -->
+    <keybind key="M-W-9">
+      <action name="Execute"><execute>~/cic-vcs/bash-stdlib/xclip-primary-insert-emacs-collection.sh</execute></action>
+    </keybind>
     <!-- <keybind key="F10"> -->
     <!--   <action name="Execute"><execute>bash -c "export PATH=\"${PATH}:~/bin\";source ~/.bash_library.d/bash_functions_stdlib;master-boss-key"</execute></action> -->
     <!-- </keybind> -->
@@ -975,9 +976,10 @@
       <!-- <mousebind button="A-S-Down" action="Click"> -->
       <!--   <action name="SendToDesktop"><to>next</to></action> -->
       <!-- </mousebind> -->
-      <mousebind button="W-Left" action="Press">
-        <action name="Execute"><execute>~/cic-vcs/bash-stdlib/xclip-primary-insert-emacs-collection.sh</execute></action>
-      </mousebind>
+    <!--   Reeanble sometimes... -->
+    <!--   <mousebind button="W-Left" action="Press"> -->
+    <!--     <action name="Execute"><execute>~/cic-vcs/bash-stdlib/xclip-primary-insert-emacs-collection.sh</execute></action> -->
+    <!--   </mousebind> -->
     </context>
 
     <context name="Titlebar">
