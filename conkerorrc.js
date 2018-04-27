@@ -185,6 +185,26 @@ define_key(isearch_keymap,               "M-/", "isearch-continue-forward");
 // modules/bindings/default/content-buffer/normal.js:define_key(content_buffer_normal_keymap, "S", "isearch-continue-forward");
 // modules/bindings/default/content-buffer/normal.js:define_key(content_buffer_normal_keymap, "R", "isearch-continue-backward");
 
+
+interactive("open-marked-url", "Open the marked url.",
+    function (I) {
+        // see http://conkeror.org/Tips#Copy_Selection_to_Emacs_kill_ring
+        call_interactively(I, "cmd_copy");
+        var cc = read_from_x_primary_selection();
+        // trim everything from the front and back that are not good characters
+        // TODO: make a nice function for this
+        cc=cc.replace(/^["';<>()\/\\]*/,"","g");
+        cc=cc.replace(/["';<>()\\]*$/,"","g");
+        // reconstruct http, could cause confusion for ftp but hey, it is not too bad
+        cc=cc.replace(/^ttp/,"http","g");
+        cc=cc.replace(/^tp/,"http","g");
+        I.window.minibuffer.message(cc);
+        // now follow the link
+        browser_object_follow(I.buffer,OPEN_CURRENT_BUFFER,cc);
+    }
+);
+define_key(content_buffer_normal_keymap, "M-f", "open-marked-url");
+
 // define_key(content_buffer_normal_keymap, "5",   "reload");
 define_key(content_buffer_normal_keymap, "%",   "reload");
 // TODO: something slightly more consistent
@@ -884,7 +904,8 @@ function transform_url_location (buffer,theurl) {
 function youtube_link_from_current_time (buffer,url) {
     var current_time = youtube_get_currenttime(buffer);
     var current_time_integer=Math.floor(current_time);
-    return url+'&t='+String(current_time_integer);
+    var theurl_stripped=url.replace(/&t=[0-9]*s?/g,"");
+    return theurl_stripped+'&t='+String(current_time_integer);
 }
 
 function twitch_link_from_current_time (buffer,url) {

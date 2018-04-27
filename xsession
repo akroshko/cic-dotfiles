@@ -1,9 +1,9 @@
-# Copyright (C) 2016, Andrew Kroshko, all rights reserved.
+# Copyright (C) 2016-2018, Andrew Kroshko, all rights reserved.
 #
 # Author: Andrew Kroshko
 # Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com>
 # Created: Wed June 08, 2016
-# Version: 20160526
+# Version: 20180426
 # URL: https://github.com/akroshko/cic-groups
 #
 # This program is free software: you can redistribute it and/or modify
