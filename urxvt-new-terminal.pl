@@ -4,7 +4,7 @@
 # Author: Andrew Kroshko
 # Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com>
 # Created: Fri Jan 5, 2018
-# Version: 20180302
+# Version: 20180516
 # URL: https://github.com/akroshko/dotfiles-stdlib
 #
 # This program is free software: you can redistribute it and/or modify

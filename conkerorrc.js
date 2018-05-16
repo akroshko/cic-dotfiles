@@ -676,10 +676,20 @@ define_key(content_buffer_normal_keymap,"C-c v","fetch-video");
 interactive("fetch-video-as-audio", "Fetch Video as audio",
     function (I) {
         // TODO: why does --working-directory not work?
-        var cmd_str = 'rxvt-unicode -cd "${HOME}/Documents" -e bash -i -c "youtube-dl --no-cache-dir --extract-audio --audio-format mp3 ' + I.buffer.display_uri_string + ';wait;while read -r -t 0; do read -r; done;read -n 1 -s -r -p \'Press any key to continue...\'"'
+        // TODO: default format
+        var cmd_str = 'rxvt-unicode -cd "${HOME}/Documents" -e bash -i -c "youtube-dl --no-cache-dir --extract-audio --audio-format mp3 --audio-quality 9 ' + I.buffer.display_uri_string + ';wait;while read -r -t 0; do read -r; done;read -n 1 -s -r -p \'Press any key to continue...\'"'
         shell_command_blind(cmd_str);
     });
 define_key(content_buffer_normal_keymap,"C-c V","fetch-video-as-audio");
+
+interactive("fetch-video-playlist-as-audio", "Fetch Video playlist as audio",
+    function (I) {
+        // TODO: why does --working-directory not work?
+        // TODO: default format
+        var cmd_str = 'rxvt-unicode -cd "${HOME}/Documents" -e bash -i -c "youtube-dl --no-cache-dir --extract-audio --output \'%(playlist_title)s/%(playlist_title)s-%(playlist_index)s-%(title)s-%(id)s.%(ext)s\' --audio-format mp3 --audio-quality 9 ' + I.buffer.display_uri_string + ';wait;while read -r -t 0; do read -r; done;read -n 1 -s -r -p \'Press any key to continue...\'"'
+        shell_command_blind(cmd_str);
+    });
+define_key(content_buffer_normal_keymap,"C-c M-v","fetch-video-playlist-as-audio");
 
 // want C-c C-r to be restart
 define_key(default_global_keymap, "C-c r", "reload-config");

@@ -1,6 +1,7 @@
 set render-loading      false
 # default not
-set scroll-page-aware   false
+# TODO: changed this, may want to change it back
+set scroll-page-aware   true
 set scroll-full-overlap true
 set window-title-page   true
 # TODO: still need a halfpage scroll
