@@ -155,6 +155,7 @@ define_key(content_buffer_text_keymap,   "C-j",     "unfocus");
 
 // TODO: not sure if this is best
 define_key(content_buffer_normal_keymap, "a", "back");
+define_key(content_buffer_normal_keymap, "s-a", "back");
 define_key(content_buffer_normal_keymap, "s-c", "back");
 define_key(content_buffer_normal_keymap, "s-l", "back");
 // define_key(content_buffer_normal_keymap, "s-g",   "find-url");
@@ -207,6 +208,8 @@ define_key(content_buffer_normal_keymap, "M-f", "open-marked-url");
 
 // define_key(content_buffer_normal_keymap, "5",   "reload");
 define_key(content_buffer_normal_keymap, "%",   "reload");
+// TODO: alternate key to avoid interception
+define_key(content_buffer_normal_keymap, "s-r",   "reload");
 // TODO: something slightly more consistent
 // define_key(content_buffer_normal_keymap, "d",   "duplicate-buffer");
 // TODO: not great, but not bad either, maybe b will free up some day
