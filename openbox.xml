@@ -4,7 +4,7 @@
 <!-- Author: Andrew Kroshko -->
 <!-- Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com> -->
 <!-- Created: Thu June 09, 2016 -->
-<!-- Version: 20180516 -->
+<!-- Version: 20180523 -->
 <!-- URL: https://github.com/akroshko/cic-groups -->
 
 <!-- This program is free software: you can redistribute it and/or modify -->
@@ -569,6 +569,28 @@
     <keybind key="M-S-n">
       <action name="Iconify"/>
     </keybind>
+    <!-- <keybind key="KP_Multiply"> -->
+    <!--   <action name="Iconify"/> -->
+    <!-- </keybind> -->
+    <keybind key="KP_Subtract">
+      <action name="Iconify"/>
+    </keybind>
+    <keybind key="KP_Add">
+      <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-minimize.sh"</execute></action>
+    </keybind>
+    <keybind key="KP_Enter">
+      <action name="NextWindow">
+        <!-- <raise>yes</raise> -->
+        <linear>yes</linear>
+        <interactive>no</interactive>
+      </action>
+    </keybind>
+    <!-- KP_Prior and KP_Next -->
+    <!-- <keybind key="M-KP_Enter"> -->
+    <!--   <action name="NextWindow"> -->
+    <!--     <raise>yes</raise> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
     <keybind key="M-S-m">
       <action name="ToggleMaximize"/>
     </keybind>
@@ -722,14 +744,14 @@
     <!-- </keybind> -->
     <!-- TODO: move to more repls? move back if already at a repl? -->
     <keybind key="M-S-q">
-      <action name="Execute"><execute> wmctrl -a "repl-restartable 'psql"</execute></action>
+      <action name="Execute"><execute>wmctrl -a "repl-restartable 'psql"</execute></action>
     </keybind>
     <!-- TODO: r==relation? or use for more repls -->
     <keybind key="M-r">
-      <action name="Execute"><execute> wmctrl -a "repl-restartable 'psql"</execute></action>
+      <action name="Execute"><execute>wmctrl -a "repl-restartable 'psql"</execute></action>
     </keybind>
     <keybind key="M-S-r">
-      <action name="Execute"><execute> wmctrl -a "repl-restartable 'psql"</execute></action>
+      <action name="Execute"><execute>wmctrl -a "repl-restartable 'psql"</execute></action>
     </keybind>
     <!-- TODO: decide which of these is best -->
     <!-- <keybind key="W-period"> -->
