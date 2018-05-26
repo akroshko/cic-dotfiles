@@ -38,7 +38,7 @@ main () {
     # XXXX: overwrite to avoid my git repo being edited by program
     need_new_directory ${HOME}/.config/pcmanfm/default
     # XXXX: using backslash in front of cp does not work well on some systems I have for unknown reasons
-    command cp ${SCRIPTPATH}/pcmanfm.conf ${HOME}/.config/pcmanfm/default/pcmanfm.conf
+    cp_if_different ${SCRIPTPATH}/pcmanfm.conf ${HOME}/.config/pcmanfm/default/pcmanfm.conf
     # X11
     need_new_symlink ${SCRIPTPATH}/xmodmaprc ${HOME}/.xmodmaprc
     need_new_symlink ${SCRIPTPATH}/xpdfrc ${HOME}/.xpdfrc
@@ -50,9 +50,9 @@ main () {
     # calibre
     # TODO: copying to avoid settings overwriting.... need to suppress this script if experimenting
     [[ -e ${HOME}/.config/calibre/shortcuts/viewer.plist ]] && rm ${HOME}/.config/calibre/shortcuts/viewer.plist
-    [[ -d ${HOME}/.config/calibre/shortcuts ]]              && cp ${SCRIPTPATH}/calibre-viewer.plist ${HOME}/.config/calibre/shortcuts/viewer.plist
+    [[ -d ${HOME}/.config/calibre/shortcuts ]]              && cp_if_different ${SCRIPTPATH}/calibre-viewer.plist ${HOME}/.config/calibre/shortcuts/viewer.plist
     [[ -e ${HOME}/.config/calibre/viewer.py ]]              && rm ${HOME}/.config/calibre/viewer.py
-    [[ -d ${HOME}/.config/calibre/ ]]                       && cp ${SCRIPTPATH}/calibre-viewer.py ${HOME}/.config/calibre/viewer.py
+    [[ -d ${HOME}/.config/calibre/ ]]                       && cp_if_different ${SCRIPTPATH}/calibre-viewer.py ${HOME}/.config/calibre/viewer.py
     # create some quick links
     need_new_directory ${HOME}/bin
     # TODO: do better, works for now
