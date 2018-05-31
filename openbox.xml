@@ -569,21 +569,26 @@
     <keybind key="M-S-n">
       <action name="Iconify"/>
     </keybind>
-    <!-- <keybind key="KP_Multiply"> -->
-    <!--   <action name="Iconify"/> -->
-    <!-- </keybind> -->
-    <keybind key="KP_Subtract">
+    <keybind key="KP_Multiply">
+      <action name="PreviousWindow">
+        <linear>yes</linear>
+        <interactive>no</interactive>
+      </action>
+    </keybind>
+    <keybind key="KP_Divide">
+      <action name="NextWindow">
+        <linear>yes</linear>
+        <interactive>no</interactive>
+      </action>
+    </keybind>
+      <keybind key="KP_Subtract">
       <action name="Iconify"/>
     </keybind>
     <keybind key="KP_Add">
       <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-minimize.sh"</execute></action>
     </keybind>
     <keybind key="KP_Enter">
-      <action name="NextWindow">
-        <!-- <raise>yes</raise> -->
-        <linear>yes</linear>
-        <interactive>no</interactive>
-      </action>
+      <action name="ToggleShowDesktop"/>
     </keybind>
     <!-- KP_Prior and KP_Next -->
     <!-- <keybind key="M-KP_Enter"> -->

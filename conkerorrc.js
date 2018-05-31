@@ -206,7 +206,8 @@ interactive("open-marked-url", "Open the marked url.",
 );
 define_key(content_buffer_normal_keymap, "M-f", "open-marked-url");
 
-// define_key(content_buffer_normal_keymap, "5",   "reload");
+// TODO: could 5 be bad in some cases? do I need an F-key, i.e., F5?
+define_key(content_buffer_normal_keymap, "5",   "reload");
 define_key(content_buffer_normal_keymap, "%",   "reload");
 // TODO: alternate key to avoid interception
 define_key(content_buffer_normal_keymap, "s-r",   "reload");
