@@ -16,7 +16,7 @@
 	</array>
 	<key>Next Page</key>
 	<array>
-		<string>Right</string>
+		<string>PgDown</string>
 		<string>Space</string>
 	</array>
 	<key>Next Section</key>
@@ -26,7 +26,7 @@
 	</array>
 	<key>Previous Page</key>
 	<array>
-		<string>Left</string>
+		<string>PgUp</string>
 		<string>B</string>
 	</array>
 	<key>Previous Section</key>

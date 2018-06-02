@@ -13,24 +13,28 @@ set window-height       1080
 set selection-clipboard primary
 # TODO: would love to get command period working here
 # map reload
-map [normal]            %        reload
-map [fullscreen]        %        reload
-map [normal]            `        reload
-map [fullscreen]        `        reload
+map [normal]            %          reload
+map [fullscreen]        %          reload
+map [normal]            `          reload
+map [fullscreen]        `          reload
 # change from navigate previous, navigate next
-map [normal]            b        scroll full-up
-map [fullscreen]        b        scroll full-up
-map [normal]            <Space>  scroll full-down
-map [fullscreen]        <Space>  scroll full-down
+map [normal]            b          scroll full-up
+map [fullscreen]        b          scroll full-up
+map [normal]            <Space>    scroll full-down
+map [fullscreen]        <Space>    scroll full-down
+map [normal]            <C-.>      scroll full-up
+map [fullscreen]        <C-.>      scroll full-up
+map [normal]            <C-,>      scroll full-down
+map [fullscreen]        <C-,>      scroll full-down
 # TODO: I do not remember thse that well...., do I want them with control too?
-map [normal] ,                   scroll full-up
-map [fullscreen]        ,        scroll full-up
-map [normal] .                   scroll full-down
-map [fullscreen]        .        scroll full-down
-map [normal]            <S-Up>   scroll full-up
-map [fullscreen]        <S-Up>   scroll full-up
-map [normal]            <S-Down> scroll full-down
-map [fullscreen]        <S-Down> scroll full-down
+map [normal] ,                     scroll full-up
+map [fullscreen]        ,          scroll full-up
+map [normal] .                     scroll full-down
+map [fullscreen]        .          scroll full-down
+map [normal]            <S-Up>     scroll full-up
+map [fullscreen]        <S-Up>     scroll full-up
+map [normal]            <S-Down>   scroll full-down
+map [fullscreen]        <S-Down>   scroll full-down
 # better way of doing this?
 # TODO: fix this so I can search next without interferring with esdf keys
 # map [normal]          s        search next

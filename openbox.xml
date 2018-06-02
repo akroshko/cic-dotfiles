@@ -4,7 +4,7 @@
 <!-- Author: Andrew Kroshko -->
 <!-- Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com> -->
 <!-- Created: Thu June 09, 2016 -->
-<!-- Version: 20180525 -->
+<!-- Version: 20180531 -->
 <!-- URL: https://github.com/akroshko/cic-groups -->
 
 <!-- This program is free software: you can redistribute it and/or modify -->
@@ -566,6 +566,30 @@
     <!-- <keybind key="M-W-l"> -->
     <!--   <action name="Iconify"/> -->
     <!-- </keybind> -->
+    <!-- ==== Keypad ======================================== -->
+    <keybind key="KP_Begin">
+      <action name="NextWindow">
+        <interactive>no</interactive>
+      </action>
+    </keybind>
+    <keybind key="KP_Left">
+      <action name="Execute"><execute>xvkbd -secure -text "\\[Prior]"</execute></action>
+    </keybind>
+    <keybind key="KP_Right">
+      <action name="Execute"><execute>xvkbd -secure -text "\\[Next]"</execute></action>
+    </keybind>
+    <keybind key="KP_Up">
+      <action name="Execute"><execute>xvkbd -secure -text "\\[Up]"</execute></action>
+    </keybind>
+    <keybind key="KP_Down">
+      <action name="Execute"><execute>xvkbd -secure -text "\\[Down]"</execute></action>
+    </keybind>
+    <keybind key="KP_Divide">
+      <action name="NextWindow">
+        <linear>yes</linear>
+        <interactive>no</interactive>
+      </action>
+    </keybind>
     <keybind key="M-S-n">
       <action name="Iconify"/>
     </keybind>
@@ -581,8 +605,23 @@
         <interactive>no</interactive>
       </action>
     </keybind>
-      <keybind key="KP_Subtract">
+    <!-- Better window switching near mouse. -->
+    <keybind key="C-KP_Multiply">
+      <action name="NextWindow">
+        <raise>yes</raise>
+      </action>
+    </keybind>
+    <keybind key="C-KP_Divide">
+      <action name="PreviousWindow">
+        <raise>yes</raise>
+      </action>
+    </keybind>
+    <keybind key="KP_Subtract">
       <action name="Iconify"/>
+    </keybind>
+    <!-- Or do I want control? -->
+    <keybind key="s-KP_Subtract">
+      <action name="Close"/>
     </keybind>
     <keybind key="KP_Add">
       <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-minimize.sh"</execute></action>
@@ -816,12 +855,13 @@
         <raise>yes</raise>
       </action>
     </keybind>
-    <keybind key="C-comma">
-      <action name="Execute"><execute>xvkbd -xsendevent -text "\\[Prior]"</execute></action>
-    </keybind>
-    <keybind key="C-period">
-      <action name="Execute"><execute>xvkbd -xsendevent -text "\\[Next]"</execute></action>
-    </keybind>
+    <!-- These are awkward, see if I miss them in most applications, add to applications themselves maybe? -->
+    <!-- <keybind key="C-comma"> -->
+    <!--   <action name="Execute"><execute>xvkbd -secure -text "\\[Prior]"</execute></action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="C-period"> -->
+    <!--   <action name="Execute"><execute>xvkbd -secure -text "\\[Next]"</execute></action> -->
+    <!-- </keybind> -->
     <!-- TODO make these something else, xml comments do not play well with double hyphen, openbox warns about this too -->
     <!-- <keybind key="M-comma"> -->
     <!--   <action name="Execute"><execute>xdotool click dash-dash-clearmodifiers 4</execute></action> -->
@@ -961,6 +1001,21 @@
     <!-- Set this to TRUE to move the mouse pointer across the desktop when
          switching due to hitting the edge of the screen -->
     <context name="Frame">
+      <!-- akroshko: my stuff for switching windows, need to add context when things do not work -->
+      <!-- <mousebind key="C-Right" action="Press"> -->
+      <!--   <action name="NextWindow"> -->
+      <!--     <action name="PreviousWindow"> -->
+      <!--       <linear>yes</linear> -->
+      <!--       <interactive>no</interactive> -->
+      <!--     </action> -->
+      <!--   </action> -->
+      <!-- </mousebind> -->
+      <!-- <mousebind key="C-Left" action="Press"> -->
+      <!--   <action name="PreviousWindow"> -->
+      <!--     <raise>yes</raise> -->
+      <!--   </action> -->
+      <!-- </mousebind> -->
+
       <mousebind button="A-Left" action="Press">
         <action name="Focus"/>
         <action name="Raise"/>
@@ -1026,6 +1081,19 @@
     </context>
 
     <context name="Titlebar">
+      <!-- akroshko: my stuff for switching windows, need to add context when things do not work -->
+      <!-- <mousebind key="C-Right"> -->
+      <!--   <action name="NextWindow" action="Press"> -->
+      <!--     <raise>yes</raise> -->
+      <!--   </action> -->
+      <!-- </mousebind> -->
+      <!-- <mousebind key="C-Left"> -->
+      <!--   <action name="PreviousWindow" action="Press"> -->
+      <!--     <raise>yes</raise> -->
+      <!--   </action> -->
+      <!-- </mousebind> -->
+
+
       <mousebind button="Left" action="Drag">
         <action name="Move"/>
       </mousebind>
