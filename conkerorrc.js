@@ -241,24 +241,33 @@ define_key(content_buffer_text_keymap,   "s-v", "paste-x-primary-selection");
 // TODO: I'd like a paste url primary
 define_key(content_buffer_normal_keymap, "s-v", "paste-url");
 // scroll
-define_key(content_buffer_normal_keymap, "b",     "cmd_scrollPageUp");
-define_key(content_buffer_normal_keymap, "C-,",   "cmd_scrollPageUp");
-define_key(content_buffer_normal_keymap, "C-.",   "cmd_scrollPageDown");
-define_key(content_buffer_normal_keymap, "M-,",   "cmd_scrollPageUp");
-define_key(content_buffer_normal_keymap, "M-.",   "cmd_scrollPageDown");
+define_key(content_buffer_normal_keymap, "b",         "cmd_scrollPageUp");
+define_key(content_buffer_normal_keymap, "C-,",       "cmd_scrollPageUp");
+define_key(content_buffer_normal_keymap, "C-.",       "cmd_scrollPageDown");
+define_key(content_buffer_normal_keymap, "M-,",       "cmd_scrollPageUp");
+define_key(content_buffer_normal_keymap, "M-.",       "cmd_scrollPageDown");
 // this is pageup that works as expected everywhere
-define_key(default_global_keymap,        "s-Z",   "cmd_scrollPageUp");
-define_key(minibuffer_base_keymap,       "s-Z",   "cmd_scrollPageUp");
-define_key(content_buffer_form_keymap,   "s-Z",   "unfocus", $repeat = "cmd_scrollPageUp");
-define_key(content_buffer_text_keymap,   "s-Z",   "unfocus", $repeat = "cmd_scrollPageUp");
-define_key(content_buffer_normal_keymap, "s-Z",   "cmd_scrollPageUp");
+define_key(default_global_keymap,        "page_up",   "cmd_scrollPageUp");
+define_key(minibuffer_base_keymap,       "page_up",   "cmd_scrollPageUp");
+define_key(content_buffer_form_keymap,   "page_up",   "unfocus", $repeat = "cmd_scrollPageUp");
+define_key(content_buffer_text_keymap,   "page_up",   "unfocus", $repeat = "cmd_scrollPageUp");
+define_key(content_buffer_normal_keymap, "page_up",   "cmd_scrollPageUp");
+define_key(default_global_keymap,        "s-Z",       "cmd_scrollPageUp");
+define_key(minibuffer_base_keymap,       "s-Z",       "cmd_scrollPageUp");
+define_key(content_buffer_form_keymap,   "s-Z",       "unfocus", $repeat = "cmd_scrollPageUp");
+define_key(content_buffer_text_keymap,   "s-Z",       "unfocus", $repeat = "cmd_scrollPageUp");
+define_key(content_buffer_normal_keymap, "s-Z",       "cmd_scrollPageUp");
 // this is pagedown that works as expected everywhere
-// TODO: just v?
-define_key(default_global_keymap,        "s-z",   "cmd_scrollPageDown");
-define_key(minibuffer_base_keymap,       "s-z",   "cmd_scrollPageDown");
-define_key(content_buffer_form_keymap,   "s-z",   "unfocus", $repeat = "cmd_scrollPageDown");
-define_key(content_buffer_text_keymap,   "s-z",   "unfocus", $repeat = "cmd_scrollPageDown");
-define_key(content_buffer_normal_keymap, "s-z",   "cmd_scrollPageDown");
+define_key(default_global_keymap,        "page_down", "cmd_scrollPageDown");
+define_key(minibuffer_base_keymap,       "page_down", "cmd_scrollPageDown");
+define_key(content_buffer_form_keymap,   "page_down", "unfocus", $repeat = "cmd_scrollPageDown");
+define_key(content_buffer_text_keymap,   "page_down", "unfocus", $repeat = "cmd_scrollPageDown");
+define_key(content_buffer_normal_keymap, "page_down", "cmd_scrollPageDown");
+define_key(default_global_keymap,        "s-z",       "cmd_scrollPageDown");
+define_key(minibuffer_base_keymap,       "s-z",       "cmd_scrollPageDown");
+define_key(content_buffer_form_keymap,   "s-z",       "unfocus", $repeat = "cmd_scrollPageDown");
+define_key(content_buffer_text_keymap,   "s-z",       "unfocus", $repeat = "cmd_scrollPageDown");
+define_key(content_buffer_normal_keymap, "s-z",       "cmd_scrollPageDown");
 // this is pageup that works as expected everywhere
 define_key(default_global_keymap,        "S-up",   "cmd_scrollPageUp");
 define_key(minibuffer_base_keymap,       "S-up",   "cmd_scrollPageUp");
@@ -292,6 +301,15 @@ define_key(content_buffer_normal_keymap, "S-down",   "cmd_scrollPageDown");
 // define_key(content_buffer_form_keymap,   "s-V",   "cmd_scrollLineUp", $repeat = "cmd_scrollLineDown");
 // define_key(content_buffer_text_keymap,   "s-V",   "cmd_scrollLineUp", $repeat = "cmd_scrollLineDown");
 // define_key(content_buffer_normal_keymap, "s-V",   "cmd_scrollLineUp");
+
+
+// TODO: does not seem to work
+// interactive("cmd_scrollPageDown_unfocus",
+//             "Unfocus and scroll page down",
+//     function (I) {
+//         // call_interactively(I, "unfocus");
+//         call_interactively(I, "cmd_scrollPageDown");
+//     });
 
 // scroll
 // TODO: replace by asdf keys
