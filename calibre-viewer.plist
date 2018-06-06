@@ -1,46 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>Down</key>
-	<array>
-		<string>J</string>
-	</array>
-	<key>Find next</key>
-	<array>
-		<string>Ctrl+T</string>
-	</array>
-	<key>Left</key>
-	<array>
-		<string>H</string>
-	</array>
-	<key>Next Page</key>
-	<array>
-		<string>PgDown</string>
-		<string>Space</string>
-	</array>
-	<key>Next Section</key>
-	<array>
-		<string>Ctrl+PgDown</string>
-		<string>Down</string>
-	</array>
-	<key>Previous Page</key>
-	<array>
-		<string>PgUp</string>
-		<string>B</string>
-	</array>
-	<key>Previous Section</key>
-	<array>
-		<string>Ctrl+PgUp</string>
-		<string>Up</string>
-	</array>
-	<key>Right</key>
-	<array>
-		<string>L</string>
-	</array>
-	<key>Up</key>
-	<array>
-		<string>K</string>
-	</array>
-</dict>
+  <dict>
+    <key>Back</key>
+    <array>
+      <string>F21</string>
+    </array>
+    <key>Down</key>
+    <array>
+      <string>J</string>
+    </array>
+    <key>Find next</key>
+    <array>
+      <string>Ctrl+T</string>
+    </array>
+    <key>Left</key>
+    <array>
+      <string>H</string>
+    </array>
+    <key>Next Page</key>
+    <array>
+      <string>PgDown</string>
+      <string>Space</string>
+    </array>
+    <key>Next Section</key>
+    <array>
+      <string>F19</string>
+      <string>Down</string>
+    </array>
+    <key>Previous Page</key>
+    <array>
+      <string>PgUp</string>
+      <string>B</string>
+    </array>
+    <key>Previous Section</key>
+    <array>
+      <string>F17</string>
+      <string>Up</string>
+    </array>
+    <key>Table of Contents</key>
+    <array>
+      <string>F22</string>
+    </array>
+    <key>Quit</key>
+    <array>
+      <string>Q</string>
+    </array>
+    <key>Right</key>
+    <array>
+      <string>L</string>
+    </array>
+    <key>Up</key>
+    <array>
+      <string>K</string>
+    </array>
+  </dict>
 </plist>

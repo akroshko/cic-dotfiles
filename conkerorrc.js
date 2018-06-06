@@ -24,8 +24,14 @@ register_user_stylesheet(make_css_data_uri(["*, .mode-line {border-color:#000000
 define_key(content_buffer_normal_keymap, "C-[", "unfocus");
 // TODO: try to do this in single key
 define_key(content_buffer_normal_keymap, "s-x",
-           "browser-object-relationship-next",
-           $repeat = "follow-unfocus")
+    "browser-object-relationship-next",
+    $repeat = "follow-unfocus");
+define_key(content_buffer_normal_keymap, "f17",
+    "browser-object-relationship-previous",
+    $repeat = "follow-unfocus");
+define_key(content_buffer_normal_keymap, "f19",
+    "browser-object-relationship-next",
+    $repeat = "follow-unfocus");
 interactive("follow-unfocus","Follow and unfocus.",
     function (I) {
         yield follow(I, OPEN_CURRENT_BUFFER);
@@ -38,21 +44,23 @@ interactive("follow-unfocus","Follow and unfocus.",
 browser_relationship_patterns[RELATIONSHIP_NEXT] =
     [/^next$/i,
      new RegExp("^>$","i"),
-     new RegExp("^(>>|»)$","i"),
-     new RegExp("^(>|»)","i"),
-     new RegExp("(>|»)$","i"),
+     new RegExp("^(>>|[\\xBB])$","i"),
+     new RegExp("^(>|[\\xBB])","i"),
+     new RegExp("(>|[\\xBB])$","i"),
      // new RegExp("»","i"),
-     new RegExp("\\bnext","i"),
-     new RegExp("►","i")];
+     new RegExp("[\\u25BA]","i"),
+     new RegExp("\\bnext","i")];
+// ► »
 
 browser_relationship_patterns[RELATIONSHIP_PREVIOUS] =
     [/^(prev|previous)$/i,
      new RegExp("^<$","i"),
-     new RegExp("^(<<|«)$","i"),
-     new RegExp("^(<|«)","i"),
-     new RegExp("(<|«)$","i"),
-     new RegExp("\\bprev|previous\\b","i"),
-     new RegExp("◄","i")];
+     new RegExp("^(<<|[\\xAB])$","i"),
+     new RegExp("^(<|[\\xAB])","i"),
+     new RegExp("(<|[\\xAB])$","i"),
+     new RegExp("[\\u25C4]","i"),
+     new RegExp("\\bprev|previous\\b","i")];
+// ◄ «
 
 ////////////////////////////////////////
 // capture page with keyboard shortcut
@@ -153,11 +161,13 @@ define_key(text_keymap,                  "C-j",     "unfocus");
 define_key(content_buffer_text_keymap,   "C-j",     "unfocus");
 // define_key(text_keymap,                  "M-U",     "upcase-word");
 
-// TODO: not sure if this is best
+// TODO: not sure if this is best, unfocus back some?
 define_key(content_buffer_normal_keymap, "a", "back");
 define_key(content_buffer_normal_keymap, "s-a", "back");
 define_key(content_buffer_normal_keymap, "s-c", "back");
 define_key(content_buffer_normal_keymap, "s-l", "back");
+define_key(content_buffer_normal_keymap, "f21", "back");
+// define_key(content_buffer_normal_keymap, "F22", "forward");
 // define_key(content_buffer_normal_keymap, "s-g",   "find-url");
 // define_key(content_buffer_normal_keymap, "s-l g", "find-url");
 // emergency key to kill buffer quickly

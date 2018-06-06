@@ -4,7 +4,7 @@
 <!-- Author: Andrew Kroshko -->
 <!-- Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com> -->
 <!-- Created: Thu June 09, 2016 -->
-<!-- Version: 20180531 -->
+<!-- Version: 20180604 -->
 <!-- URL: https://github.com/akroshko/cic-groups -->
 
 <!-- This program is free software: you can redistribute it and/or modify -->
@@ -572,50 +572,19 @@
         <interactive>no</interactive>
       </action>
     </keybind>
-    <keybind key="KP_Left">
-      <action name="Execute"><execute>xvkbd -secure -text "\\[Prior]"</execute></action>
-    </keybind>
-    <keybind key="KP_Right">
-      <action name="Execute"><execute>xvkbd -secure -text "\\[Next]"</execute></action>
-    </keybind>
-    <keybind key="KP_Up">
-      <action name="Execute"><execute>xvkbd -secure -text "\\[Up]"</execute></action>
-    </keybind>
-    <keybind key="KP_Down">
-      <action name="Execute"><execute>xvkbd -secure -text "\\[Down]"</execute></action>
-    </keybind>
-    <keybind key="KP_Divide">
-      <action name="NextWindow">
-        <linear>yes</linear>
-        <interactive>no</interactive>
-      </action>
-    </keybind>
     <keybind key="M-S-n">
       <action name="Iconify"/>
     </keybind>
-    <keybind key="KP_Multiply">
-      <action name="PreviousWindow">
-        <linear>yes</linear>
-        <interactive>no</interactive>
-      </action>
-    </keybind>
-    <keybind key="KP_Divide">
-      <action name="NextWindow">
-        <linear>yes</linear>
-        <interactive>no</interactive>
-      </action>
-    </keybind>
-    <!-- Better window switching near mouse. -->
-    <keybind key="C-KP_Multiply">
-      <action name="NextWindow">
-        <raise>yes</raise>
-      </action>
-    </keybind>
-    <keybind key="C-KP_Divide">
-      <action name="PreviousWindow">
-        <raise>yes</raise>
-      </action>
-    </keybind>
+    <!-- <keybind key="C-KP_Multiply"> -->
+    <!--   <action name="NextWindow"> -->
+    <!--     <raise>yes</raise> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="C-KP_Divide"> -->
+    <!--   <action name="PreviousWindow"> -->
+    <!--     <raise>yes</raise> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
     <keybind key="KP_Subtract">
       <action name="Iconify"/>
     </keybind>
