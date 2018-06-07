@@ -23,24 +23,35 @@ register_user_stylesheet(make_css_data_uri(["*, .mode-line {border-color:#000000
 // standard keys
 define_key(content_buffer_normal_keymap, "C-[", "unfocus");
 // TODO: try to do this in single key
+define_key(content_buffer_form_keymap, "s-x",
+    "browser-object-relationship-next",
+    $repeat = "follow");
+define_key(content_buffer_text_keymap, "s-x",
+    "browser-object-relationship-next",
+    $repeat = "follow");
 define_key(content_buffer_normal_keymap, "s-x",
     "browser-object-relationship-next",
-    $repeat = "follow-unfocus");
-define_key(content_buffer_normal_keymap, "f17",
+    $repeat = "follow");
+define_key(content_buffer_form_keymap, "f13",
     "browser-object-relationship-previous",
-    $repeat = "follow-unfocus");
-define_key(content_buffer_normal_keymap, "f19",
+    $repeat = "follow");
+define_key(content_buffer_form_keymap, "f13",
+    "browser-object-relationship-previous",
+    $repeat = "follow");
+define_key(content_buffer_normal_keymap, "f13",
+    "browser-object-relationship-previous",
+    $repeat = "follow");
+define_key(content_buffer_form_keymap, "f15",
     "browser-object-relationship-next",
-    $repeat = "follow-unfocus");
-interactive("follow-unfocus","Follow and unfocus.",
-    function (I) {
-        yield follow(I, OPEN_CURRENT_BUFFER);
-        // removing this for now
-        unfocus(I.window, I.buffer);
-    });
+    $repeat = "follow");
+define_key(content_buffer_text_keymap, "f15",
+    "browser-object-relationship-next",
+    $repeat = "follow");
+define_key(content_buffer_normal_keymap, "f15",
+    "browser-object-relationship-next",
+    $repeat = "follow");
 
 // TODO: append to default instead
-// currently nonfuncitonal
 browser_relationship_patterns[RELATIONSHIP_NEXT] =
     [/^next$/i,
      new RegExp("^>$","i"),
@@ -196,7 +207,6 @@ define_key(isearch_keymap,               "M-/", "isearch-continue-forward");
 // modules/bindings/default/content-buffer/normal.js:define_key(content_buffer_normal_keymap, "S", "isearch-continue-forward");
 // modules/bindings/default/content-buffer/normal.js:define_key(content_buffer_normal_keymap, "R", "isearch-continue-backward");
 
-
 interactive("open-marked-url", "Open the marked url.",
     function (I) {
         // see http://conkeror.org/Tips#Copy_Selection_to_Emacs_kill_ring
@@ -259,37 +269,37 @@ define_key(content_buffer_normal_keymap, "M-.",       "cmd_scrollPageDown");
 // this is pageup that works as expected everywhere
 define_key(default_global_keymap,        "page_up",   "cmd_scrollPageUp");
 define_key(minibuffer_base_keymap,       "page_up",   "cmd_scrollPageUp");
-define_key(content_buffer_form_keymap,   "page_up",   "unfocus", $repeat = "cmd_scrollPageUp");
-define_key(content_buffer_text_keymap,   "page_up",   "unfocus", $repeat = "cmd_scrollPageUp");
+define_key(content_buffer_form_keymap,   "page_up",   "cmd_scrollPageUp_unfocus");
+define_key(content_buffer_text_keymap,   "page_up",   "cmd_scrollPageUp_unfocus");
 define_key(content_buffer_normal_keymap, "page_up",   "cmd_scrollPageUp");
 define_key(default_global_keymap,        "s-Z",       "cmd_scrollPageUp");
 define_key(minibuffer_base_keymap,       "s-Z",       "cmd_scrollPageUp");
-define_key(content_buffer_form_keymap,   "s-Z",       "unfocus", $repeat = "cmd_scrollPageUp");
-define_key(content_buffer_text_keymap,   "s-Z",       "unfocus", $repeat = "cmd_scrollPageUp");
+define_key(content_buffer_form_keymap,   "s-Z",       "cmd_scrollPageUp_unfocus");
+define_key(content_buffer_text_keymap,   "s-Z",       "cmd_scrollPageUp_unfocus");
 define_key(content_buffer_normal_keymap, "s-Z",       "cmd_scrollPageUp");
 // this is pagedown that works as expected everywhere
 define_key(default_global_keymap,        "page_down", "cmd_scrollPageDown");
 define_key(minibuffer_base_keymap,       "page_down", "cmd_scrollPageDown");
-define_key(content_buffer_form_keymap,   "page_down", "unfocus", $repeat = "cmd_scrollPageDown");
-define_key(content_buffer_text_keymap,   "page_down", "unfocus", $repeat = "cmd_scrollPageDown");
+define_key(content_buffer_form_keymap,   "page_down", "cmd_scrollPageDown_unfocus");
+define_key(content_buffer_text_keymap,   "page_down", "cmd_scrollPageDown_unfocus");
 define_key(content_buffer_normal_keymap, "page_down", "cmd_scrollPageDown");
 define_key(default_global_keymap,        "s-z",       "cmd_scrollPageDown");
 define_key(minibuffer_base_keymap,       "s-z",       "cmd_scrollPageDown");
-define_key(content_buffer_form_keymap,   "s-z",       "unfocus", $repeat = "cmd_scrollPageDown");
-define_key(content_buffer_text_keymap,   "s-z",       "unfocus", $repeat = "cmd_scrollPageDown");
+define_key(content_buffer_form_keymap,   "s-z",       "cmd_scrollPageDown_unfocus");
+define_key(content_buffer_text_keymap,   "s-z",       "cmd_scrollPageDown_unfocus");
 define_key(content_buffer_normal_keymap, "s-z",       "cmd_scrollPageDown");
 // this is pageup that works as expected everywhere
 define_key(default_global_keymap,        "S-up",   "cmd_scrollPageUp");
 define_key(minibuffer_base_keymap,       "S-up",   "cmd_scrollPageUp");
-define_key(content_buffer_form_keymap,   "S-up",   "unfocus", $repeat = "cmd_scrollPageUp");
-define_key(content_buffer_text_keymap,   "S-up",   "unfocus", $repeat = "cmd_scrollPageUp");
+define_key(content_buffer_form_keymap,   "S-up",   "cmd_scrollPageUp_unfocus");
+define_key(content_buffer_text_keymap,   "S-up",   "cmd_scrollPageUp_unfocus");
 define_key(content_buffer_normal_keymap, "S-up",   "cmd_scrollPageUp");
 // this is pagedown that works as expected everywhere
 // TODO: just v?
 define_key(default_global_keymap,        "S-down",   "cmd_scrollPageDown");
 define_key(minibuffer_base_keymap,       "S-down",   "cmd_scrollPageDown");
-define_key(content_buffer_form_keymap,   "S-down",   "unfocus", $repeat = "cmd_scrollPageDown");
-define_key(content_buffer_text_keymap,   "S-down",   "unfocus", $repeat = "cmd_scrollPageDown");
+define_key(content_buffer_form_keymap,   "S-down",   "cmd_scrollPageDown_unfocus");
+define_key(content_buffer_text_keymap,   "S-down",   "cmd_scrollPageDown_unfocus");
 define_key(content_buffer_normal_keymap, "S-down",   "cmd_scrollPageDown");
 // scroll a bit
 // TODO: decide if this is right, need cheatsheet
@@ -312,14 +322,20 @@ define_key(content_buffer_normal_keymap, "S-down",   "cmd_scrollPageDown");
 // define_key(content_buffer_text_keymap,   "s-V",   "cmd_scrollLineUp", $repeat = "cmd_scrollLineDown");
 // define_key(content_buffer_normal_keymap, "s-V",   "cmd_scrollLineUp");
 
+interactive("cmd_scrollPageDown_unfocus",
+            "Unfocus and scroll page down",
+    function (I) {
+        unfocus(I.window,I.buffer);
+        yield call_interactively(I, "cmd_scrollPageDown");
+    });
 
-// TODO: does not seem to work
-// interactive("cmd_scrollPageDown_unfocus",
-//             "Unfocus and scroll page down",
-//     function (I) {
-//         // call_interactively(I, "unfocus");
-//         call_interactively(I, "cmd_scrollPageDown");
-//     });
+interactive("cmd_scrollPageUp_unfocus",
+            "Unfocus and scroll page up",
+    function (I) {
+        unfocus(I.window,I.buffer);
+        yield call_interactively(I, "cmd_scrollPageUp");
+    });
+
 
 // scroll
 // TODO: replace by asdf keys
