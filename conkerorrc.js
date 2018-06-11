@@ -35,7 +35,7 @@ define_key(content_buffer_normal_keymap, "s-x",
 define_key(content_buffer_form_keymap, "f13",
     "browser-object-relationship-previous",
     $repeat = "follow");
-define_key(content_buffer_form_keymap, "f13",
+define_key(content_buffer_text_keymap, "f13",
     "browser-object-relationship-previous",
     $repeat = "follow");
 define_key(content_buffer_normal_keymap, "f13",
@@ -144,12 +144,15 @@ define_key(content_buffer_normal_keymap, "M-s-f",   "follow-new-window");
 // define_key(content_buffer_normal_keymap, "s-d",     "duplicate-buffer-new-window");
 // m=mirror
 
+// TODO: update...
 define_key(content_buffer_normal_keymap, "s-m",     "duplicate-buffer");
 define_key(content_buffer_normal_keymap, "s-M",     "duplicate-buffer-background");
 define_key(content_buffer_normal_keymap, "M-s-m",   "duplicate-buffer-new-window");
+define_key(content_buffer_normal_keymap, "w",       "find-url-new-window");
+define_key(content_buffer_normal_keymap, "W",       "duplicate-buffer-new-window");
 define_key(content_buffer_normal_keymap, "D",       "find-url-new-window");
 define_key(content_buffer_normal_keymap, "/",       "save");
-// TODO: best way to disable \ as viewsource... too easy and descructive
+// TODO: best way to disable \ as viewsource... too easy and destructive
 define_key(content_buffer_normal_keymap, "\\",      "");
 require("clicks-in-new-buffer.js");
 // clicks_in_new_buffer_target = OPEN_NEW_BUFFER_BACKGROUND;
@@ -236,9 +239,6 @@ define_key(content_buffer_normal_keymap, "s-r",   "reload");
 // TODO: not great, but not bad either, maybe b will free up some day
 // define_key(content_buffer_normal_keymap, "D", "follow-new-buffer-background");
 // new window
-// TODO: still want these?
-define_key(content_buffer_normal_keymap, "w",   "duplicate-buffer-new-window");
-define_key(content_buffer_normal_keymap, "W",   "find-url-new-window");
 // copy and paste
 // TODO: should be copy-url sometimes too
 // TODO: not sure about default_global_keymap

@@ -1,5 +1,5 @@
 [user]
-    name = Andrew Kroshko
+    name  = Andrew Kroshko
     email = akroshko.public+devel@gmail.com
 [core]
     editor = emacs
