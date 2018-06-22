@@ -273,29 +273,6 @@
     <keybind key="m-2">
       <action name="ToggleShowDesktop"/>
     </keybind>
-    <!-- <keybind key="F3"> -->
-    <!--   <action name="ShowMenu"><menu>super</menu></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="M-3"> -->
-    <!--   <action name="ShowMenu"><menu>super</menu></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="F4"> -->
-    <!--   <action name="ShowMenu"><menu>super-power-volume</menu></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="M-4"> -->
-    <!--   <action name="ShowMenu"><menu>super-power-volume</menu></action> -->
-    <!-- </keybind> -->
-    <!-- TODO: do I need both? not sure I need nested volume menu anymore, or power menu still want a good fast mute key f7/f8? -->
-    <!-- <keybind key="F3"> -->
-    <!--   <action name="Execute"><execute>bash -c "amixer set Master mute;notify-send \"Mute\" \"$(date +%Y%m%d%H%M%S)\" -t 5000"</execute></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="C-3"> -->
-    <!--   <action name="Execute"><execute>bash -c "amixer set Master mute;notify-send \"Mute\" \"$(date +%Y%m%d%H%M%S)\" -t 5000"</execute></action> -->
-    <!-- </keybind> -->
-    <!-- TODO: don't like sourcing libenv -->
-    <!-- <keybind key="F5"> -->
-    <!--   <action name="ShowMenu"><menu>apropos</menu></action> -->
-    <!-- </keybind> -->
     <keybind key="M-F5">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;conkeror-clipboard.sh google"</execute></action>
     </keybind>
@@ -335,13 +312,6 @@
     <keybind key="H-F6">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;${HOME}/bin/secret-search-hyper.sh"</execute></action>
     </keybind>
-    <!-- <keybind key="F7"> -->
-    <!--     <action name="ShowMenu"><menu>quick-reference</menu></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="F8"> -->
-    <!--     <action name="ShowMenu"><menu>capture</menu></action> -->
-    <!-- </keybind> -->
-    <!-- TODO Decide... -->
     <keybind key="M-F8">
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;python /home/akroshko/cic-vcs/cic-groups/capture-bib.py --delay;notify-send "Captured!!!" -t 5000"</execute></action>
     </keybind>
@@ -355,17 +325,6 @@
     <keybind key="F9">
       <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-toggle.sh"</execute></action>
     </keybind>
-    <!-- <keybind key="M-4"> -->
-    <!--   <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-toggle.sh"</execute></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="F10"> -->
-    <!--   <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-minimize.sh"</execute></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="M-F10"> -->
-    <!--   <action name="Execute"><execute>bash -c "$HOME/bin/web-video-restore.sh"</execute></action> -->
-    <!-- </keybind> -->
-    <!-- Experimental -->
-    <!-- TODO: shift f12 sends f12 -->
     <keybind key="M-k" chroot="true">
       <keybind key="Escape">
         <action name="BreakChroot"/>
@@ -505,20 +464,9 @@
         <action name="BreakChroot"/>
       </keybind>
     </keybind>
-    <!-- <keybind key="C-9"> -->
-    <!--   <action name="Execute"><execute>bash -c "$HOME"/bin/web-video-pause-minimize.sh"</execute></action> -->
-    <!-- </keybind> -->
-    <!-- this is much faster to use a special script -->
-    <!-- TODO: make this work better -->
     <keybind key="M-W-9">
       <action name="Execute"><execute>~/cic-vcs/bash-stdlib/xclip-primary-insert-emacs-collection.sh</execute></action>
     </keybind>
-    <!-- <keybind key="F10"> -->
-    <!--   <action name="Execute"><execute>bash -c "export PATH=\"${PATH}:~/bin\";source ~/.bash_library.d/bash_functions_stdlib;master-boss-key"</execute></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="M-F10"> -->
-    <!--   <action name="Execute"><execute>bash -c "export PATH=\"${PATH}:~/bin\";source ~/.bash_library.d/bash_functions_stdlib;master-unboss-key"</execute></action> -->
-    <!-- </keybind> -->
     <keybind key="C-0">
       <action name="Execute"><execute>bash -c "export PATH=\"${PATH}:~/bin\";source ~/.bash_library.d/bash_functions_stdlib;master-boss-key"</execute></action>
     </keybind>
@@ -548,13 +496,13 @@
       <action name="ToggleMaximize"/>
     </keybind>
     <keybind key="Print">
-      <action name="Execute"><execute>bash -c "source ~/.bash_library.d/bash_functions_stdlib;source ~/.bash_library.d/bashrc_functions_external;source ~/.bash_library.d/bash_library_std;capture-screen"</execute></action>
+      <action name="Execute"><execute>bash -c "source ~/.bash_library.d/bash_functions_stdlib;source ~/.bash_library.d/bashrc_functions_external;source ~/.bash_library.d/bash_library_std;screenshot-screen"</execute></action>
     </keybind>
     <keybind key="M-Print">
       <action name="ShowMenu"><menu>screen-capture</menu></action>
     </keybind>
     <keybind key="C-Print">
-      <action name="Execute"><execute>bash -c "source ~/.bash_library.d/bash_functions_stdlib;source ~/.bash_library.d/bashrc_functions_external;source ~/.bash_library.d/bash_library_std;capture-selection"</execute></action>
+      <action name="Execute"><execute>bash -c "source ~/.bash_library.d/bash_functions_stdlib;source ~/.bash_library.d/bashrc_functions_external;source ~/.bash_library.d/bash_library_std;screenshot-selection"</execute></action>
     </keybind>
     <!-- temporary... -->
     <keybind key="M-W-slash">
@@ -632,44 +580,6 @@
       </action>
       <action name="MoveToEdge"><direction>east</direction></action>
     </keybind>
-    <!-- snap left -->
-    <!-- <keybind key="M-S-b"> -->
-    <!--   <action name="UnmaximizeFull"/> -->
-    <!--   <action name="MaximizeVert"/> -->
-    <!--   <action name="MoveResizeTo"> -->
-    <!--     <width>50%</width> -->
-    <!--   </action> -->
-    <!--   <action name="MoveToEdge"><direction>west</direction></action> -->
-    <!-- </keybind> -->
-    <!-- snap right -->
-    <!-- <keybind key="M-S-f"> -->
-    <!--   <action name="UnmaximizeFull"/> -->
-    <!--   <action name="MaximizeVert"/> -->
-    <!--   <action name="MoveResizeTo"> -->
-    <!--     <width>50%</width> -->
-    <!--   </action> -->
-    <!--   <action name="MoveToEdge"><direction>east</direction></action> -->
-    <!-- </keybind> -->
-    <!-- snap left -->
-    <!-- <keybind key="M-W-w"> -->
-    <!--   <action name="UnmaximizeFull"/> -->
-    <!--   <action name="MaximizeVert"/> -->
-    <!--   <action name="MoveResizeTo"> -->
-    <!--     <width>40%</width> -->
-    <!--   </action> -->
-    <!--   <action name="MoveToEdge"><direction>west</direction></action> -->
-    <!-- </keybind> -->
-    <!-- snap right -->
-    <!-- <keybind key="M-W-e"> -->
-    <!--   <action name="UnmaximizeFull"/> -->
-    <!--   <action name="MaximizeVert"/> -->
-    <!--   <action name="MoveResizeTo"> -->
-    <!--     <width>60%</width> -->
-    <!--   </action> -->
-    <!--   <action name="MoveToEdge"><direction>east</direction></action> -->
-    <!-- </keybind> -->
-    <!-- this screen -->
-    <!-- TODO might conflict? -->
     <keybind key="M-W-bracketright">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
@@ -711,32 +621,6 @@
       <action name="MoveToEdge"><direction>west</direction></action>
       <action name="ToggleMaximize"/>
     </keybind>
-    <!-- directional -->
-    <!-- TODO: do I really need these -->
-    <!-- <keybind key="C-W-f"> -->
-    <!--   <action name="DirectionalTargetWindow"><direction>east</direction></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="C-W-b"> -->
-    <!--   <action name="DirectionalTargetWindow"><direction>west</direction></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="C-W-p"> -->
-    <!--   <action name="DirectionalTargetWindow"><direction>north</direction></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="C-W-n"> -->
-    <!--   <action name="DirectionalTargetWindow"><direction>south</direction></action> -->
-    <!-- </keybind> -->
-    <!-- Rather like this, for when super keys are no available, or needed for applications -->
-    <!-- C-shift-z works just fine for terminals -->
-    <!-- focus emacs instead -->
-    <!-- <keybind key="W-z"> -->
-    <!--   <action name="NextWindow"/> -->
-    <!-- </keybind> -->
-    <!-- Keybindings for window switching with the arrow keys -->
-    <!-- <keybind key="M-z"> -->
-    <!--   <action name="NextWindow"> -->
-    <!--     <raise>yes</raise> -->
-    <!--   </action> -->
-    <!-- </keybind> -->
     <keybind key="M-j">
       <action name="NextWindow">
         <raise>yes</raise>
@@ -843,10 +727,10 @@
     </keybind>
     <!-- TODO: get rid of source here for responsiveness -->
     <keybind key="XF86AudioLowerVolume">
-      <action name="Execute"><execute>bash -c "amixer set Master 10%-;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
+      <action name="Execute"><execute>bash -c "amixer set Master 5%-;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
     </keybind>
     <keybind key="XF86AudioRaiseVolume">
-      <action name="Execute"><execute>bash -c "amixer set Master 10%+;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
+      <action name="Execute"><execute>bash -c "amixer set Master 5%+;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
     </keybind>
     <keybind key="XF86AudioMute">
       <action name="Execute"><execute>bash -c "amixer sset Master toggle;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-mute"</execute></action>
@@ -856,10 +740,10 @@
       <action name="Execute"><execute>bash -c "source ~/.bash_libenv;apropos-clipboard"</execute></action>
     </keybind>
     <keybind key="C-W-z">
-      <action name="Execute"><execute>bash -c "amixer set Master 10%-;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
+      <action name="Execute"><execute>bash -c "amixer set Master 5%-;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
     </keybind>
     <keybind key="C-W-x">
-      <action name="Execute"><execute>bash -c "amixer set Master 10%+;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
+      <action name="Execute"><execute>bash -c "amixer set Master 5%+;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
     </keybind>
     <!-- TODO: toggle or force off? notify?-->
     <keybind key="C-W-c">
@@ -873,10 +757,10 @@
     </keybind>
     <!-- TODO: is above what I want? -->
     <keybind key="M-W-minus">
-      <action name="Execute"><execute>bash -c "amixer set Master 10%-;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
+      <action name="Execute"><execute>bash -c "amixer set Master 5%-;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
     </keybind>
     <keybind key="M-S-W-plus">
-      <action name="Execute"><execute>bash -c "amixer set Master 10%+;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
+      <action name="Execute"><execute>bash -c "amixer set Master 5%+;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
     </keybind>
     <!-- Desktop keys -->
     <keybind key="M-W-d">

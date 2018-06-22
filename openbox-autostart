@@ -3,7 +3,7 @@
 # Author: Andrew Kroshko
 # Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com>
 # Created: Wed June 08, 2016
-# Version: 20180516
+# Version: 20180617
 # URL: https://github.com/akroshko/cic-groups
 #
 # This program is free software: you can redistribute it and/or modify
@@ -19,14 +19,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see http://www.gnu.org/licenses/.
 
-if [[ "${HOSTNAME}" == "akroshko-main" ]]; then
+if [ "${HOSTNAME}" == "akroshko-main" ]; then
     xrandr --auto --output VGA-0 --left-of DVI-0
     xrandr --output DVI-0 --mode 1920x1080
 fi
 xmodmap ~/.xmodmaprc
-openbox --restart
-# XXXX: xscreensaver actually init'd in my ~/.bash_profile (which is sourced from ~/.profile) file
-rxvt-unicode -e bash -i -c "source ~/.profile" &
 # XXXX: restart openbox, this is necessary due to using /etc/default/keyboard to put control key on caps lock
 #       then to make xmodmap remapped hyper onto left control as openbox keys
-# TODO: can I fix this?
+openbox --restart
+# let openbox restart fully
+sleep 3
+# XXXX: xscreensaver actually init'd in my ~/.bash_profile (which is sourced from ~/.profile) file
+rxvt-unicode -e bash -i -c "source ~/.profile" &

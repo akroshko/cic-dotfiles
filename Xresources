@@ -93,8 +93,3 @@ URxvt.keysym.F1:                perl:displayhelp:now
 ! clipboard
 URxvt.clipboard.copycmd:        xclip -i -selection clipboard
 URxvt.clipboard.pastecmd:       xclip -o -selection clipboard
-! URxvt.clipboard.copycmd:  xsel -ib
-! URxvt.clipboard.pastecmd: xsel -ob
-! URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-! URxvt.keysym.Shift-Control-C: perl:clipboard:copy
-! URxvt.keysym.Shift-Control-V: perl:clipboard:paste
