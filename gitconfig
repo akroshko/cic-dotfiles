@@ -9,6 +9,15 @@
 [instaweb]
     local = true
     httpd = apache2 -f
+
+[merge]
+    conflictstyle = diff3
+    tool = emerge3
+
+[mergetool "emerge3"]
+    cmd = ~/bin/emerge3.sh $LOCAL $REMOTE $BASE $MERGED
+    trustExitCode = true
+
 # TODO: look up online, not working for me
 # [color]
 #   diff = true

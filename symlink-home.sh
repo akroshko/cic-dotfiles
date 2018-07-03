@@ -26,9 +26,7 @@ main () {
     need_new_directory ${HOME}/.themes/MyClearlooks/openbox-3/
     need_new_symlink ${SCRIPTPATH}/openbox.xml       ${HOME}/.config/openbox/rc.xml
     # raspberry pi openbox
-    if [[ -e "${HOME}"/.config/lxsession/LXDE-pi ]]; then
-        need_new_symlink ${SCRIPTPATH}/lxde-pi-autostart "${HOME}"/.config/lxsession/LXDE-pi/autostart
-    fi
+    [[ -e "${HOME}"/.config/lxsession/LXDE-pi ]] && need_new_symlink ${SCRIPTPATH}/lxde-pi-autostart "${HOME}"/.config/lxsession/LXDE-pi/autostart
     # TODO: unify eventually?
     need_new_symlink ${SCRIPTPATH}/lxde-pi-rc.xml    ${HOME}/.config/openbox/lxde-pi-rc.xml
     need_new_symlink ${SCRIPTPATH}/openbox-menu.xml  ${HOME}/.config/openbox/menu.xml
@@ -58,7 +56,6 @@ main () {
     need_new_directory ${HOME}/bin
     # TODO: do better, works for now
     need_new_symlink ${SCRIPTPATH}/../bash-stdlib/launch-emacsclient          ${HOME}/bin/launch-emacsclient
-    need_new_symlink ${SCRIPTPATH}/../bash-stdlib/web-video-pause-minimize.sh ${HOME}/bin/web-video-pause-minimize.sh
     need_new_symlink ${SCRIPTPATH}/../bash-stdlib/web-video-minimize.sh       ${HOME}/bin/web-video-minimize.sh
     need_new_symlink ${SCRIPTPATH}/../bash-stdlib/web-video-pause-toggle.sh   ${HOME}/bin/web-video-pause-toggle.sh
     need_new_symlink ${SCRIPTPATH}/../bash-stdlib/web-video-restore.sh        ${HOME}/bin/web-video-restore.sh

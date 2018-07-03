@@ -77,19 +77,25 @@ URxvt.iso14755:                 False
 URxvt.iconFile:                 /home/akroshko/.urxvt/terminal.svg
 URxvt.keysym.M-c:               perl:clipboard:copy
 URxvt.keysym.M-v:               perl:clipboard:paste
+URxvt.keysym.Control-period:    \033[6~
+URxvt.keysym.Control-comma:     \033[5~
+! URxvt.keysym.Control-period:    perl:pageup
+! URxvt.keysym.Control-comma:     perl:pagedown
 ! see https://ubuntuforums.org/archive/index.php/t-783096.html
 ! see man -s7 urxvt
 ! keep this, useful
 URxvt.keysym.Shift-Up:          command:\033]720;1\007
 URxvt.keysym.Shift-Down:        command:\033]721;1\007
+! TODO: do I still want this?
 URxvt.keysym.Control-less:      perl:pageup
 URxvt.keysym.Control-greater:   perl:pagedown
 ! just prints current buffer
-URxvt.keysym.C-1:               perl:scrollback:save
-URxvt.keysym.C-2:               perl:scrollback:save_emacs
-URxvt.keysym.C-5:               perl:new:terminal
-URxvt.keysym.C-6:               perl:new:emacsdired
-URxvt.keysym.F1:                perl:displayhelp:now
+URxvt.keysym.Control-1:         perl:scrollback:save
+URxvt.keysym.Control-2:         perl:scrollback:save_emacs
+URxvt.keysym.Control-5:         perl:new:terminal
+URxvt.keysym.Control-6:         perl:new:emacsdired
+! does not work
+URxvt.keysym.Shift-F1:          perl:displayhelp:now
 ! clipboard
 URxvt.clipboard.copycmd:        xclip -i -selection clipboard
 URxvt.clipboard.pastecmd:       xclip -o -selection clipboard

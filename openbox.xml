@@ -4,7 +4,7 @@
 <!-- Author: Andrew Kroshko -->
 <!-- Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com> -->
 <!-- Created: Thu June 09, 2016 -->
-<!-- Version: 20180609 -->
+<!-- Version: 20180626 -->
 <!-- URL: https://github.com/akroshko/cic-groups -->
 
 <!-- This program is free software: you can redistribute it and/or modify -->
@@ -304,22 +304,22 @@
       <action name="ShowMenu"><menu>secret-search</menu></action>
     </keybind>
     <keybind key="C-F6">
-      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;${HOME}/bin/secret-search-ctrl.sh"</execute></action>
+      <action name="Execute"><execute>bash -c "source ${HOME}/.bash_libenv;${HOME}/bin/secret-search-ctrl.sh"</execute></action>
     </keybind>
     <keybind key="W-F6">
-      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;${HOME}/bin/secret-search-super.sh"</execute></action>
+      <action name="Execute"><execute>bash -c "source ${HOME}/.bash_libenv;${HOME}/bin/secret-search-super.sh"</execute></action>
     </keybind>
     <keybind key="H-F6">
-      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;${HOME}/bin/secret-search-hyper.sh"</execute></action>
+      <action name="Execute"><execute>bash -c "source ${HOME}/.bash_libenv;${HOME}/bin/secret-search-hyper.sh"</execute></action>
     </keybind>
     <keybind key="M-F8">
-      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;python /home/akroshko/cic-vcs/cic-groups/capture-bib.py --delay;notify-send "Captured!!!" -t 5000"</execute></action>
+      <action name="Execute"><execute>bash -c "source ${HOME}/.bash_libenv;python ${HOME}/cic-vcs/cic-groups/capture-bib.py --delay;notify-send "Captured!!!" -t 5000"</execute></action>
     </keybind>
     <keybind key="M-8">
-      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;python /home/akroshko/cic-vcs/cic-groups/capture-bib.py --delay;notify-send "Captured!!!" -t 5000"</execute></action>
+      <action name="Execute"><execute>bash -c "source ${HOME}/.bash_libenv;python ${HOME}/cic-vcs/cic-groups/capture-bib.py --delay;notify-send "Captured!!!" -t 5000"</execute></action>
     </keybind>
     <keybind key="C-F8">
-      <action name="Execute"><execute>bash -c "python ~/cic-vcs/cic-groups/capture-bib.py;sleep 0.2;~/bin/launch-emacsclient noframe \"org-protocol:/capture:/X/empty/empty/empty\""</execute></action>
+      <action name="Execute"><execute>bash -c "python ${HOME}/cic-vcs/cic-groups/capture-bib.py;sleep 0.2;~/bin/launch-emacsclient noframe \"org-protocol:/capture:/X/empty/empty/empty\""</execute></action>
     </keybind>
     <!-- TODO: add notifications -->
     <keybind key="F9">
@@ -415,7 +415,7 @@
     </keybind>
     <!-- Test -->
     <keybind key="C-F12">
-      <action name="Execute"><execute>python /home/akroshko/bin/f12_help_panel.py</execute></action>
+      <action name="Execute"><execute>python ${HOME}/bin/f12_help_panel.py</execute></action>
     </keybind>
     <keybind key="F12" chroot="true">
       <keybind key="Escape">
@@ -427,10 +427,10 @@
         <action name="BreakChroot"/>
       </keybind>
       <keybind key="C-h">
-        <action name="Execute"><execute>python /home/akroshko/bin/f12_help_panel.py</execute></action>
+        <action name="Execute"><execute>python ~/bin/f12_help_panel.py</execute></action>
       </keybind>
       <keybind key="F1">
-        <action name="Execute"><execute>python /home/akroshko/bin/f12_help_panel.py</execute></action>
+        <action name="Execute"><execute>python ~/bin/f12_help_panel.py</execute></action>
       </keybind>
       <keybind key="F5">
         <action name="Execute"><execute>pause/play key</execute></action>
@@ -459,7 +459,7 @@
         <action name="BreakChroot"/>
       </keybind>
       <keybind key="F12">
-        <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-minimize.sh"</execute></action>
+        <action name="Execute"><execute>bash -c "$HOME/bin/web-video-minimize.sh --pause"</execute></action>
         <action name="Execute"><execute>bash -c "pkill -f f12_help_panel"</execute></action>
         <action name="BreakChroot"/>
       </keybind>
@@ -502,7 +502,8 @@
       <action name="ShowMenu"><menu>screen-capture</menu></action>
     </keybind>
     <keybind key="C-Print">
-      <action name="Execute"><execute>bash -c "source ~/.bash_library.d/bash_functions_stdlib;source ~/.bash_library.d/bashrc_functions_external;source ~/.bash_library.d/bash_library_std;screenshot-selection"</execute></action>
+      <action name="ShowMenu"><menu>screen-capture-current-capture</menu></action>
+      <!-- <action name="Execute"><execute>bash -c "source ~/.bash_library.d/bash_functions_stdlib;source ~/.bash_library.d/bashrc_functions_external;source ~/.bash_library.d/bash_library_std;screenshot-selection"</execute></action> -->
     </keybind>
     <!-- temporary... -->
     <keybind key="M-W-slash">
@@ -541,7 +542,7 @@
       <action name="Close"/>
     </keybind>
     <keybind key="KP_Add">
-      <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-minimize.sh"</execute></action>
+      <action name="Execute"><execute>bash -c "$HOME/bin/web-video-minimize.sh --pause"</execute></action>
     </keybind>
     <keybind key="KP_Enter">
       <action name="ToggleShowDesktop"/>
@@ -633,11 +634,11 @@
     </keybind>
     <!-- Switch to emacs windows, hardcoded for speed -->
     <keybind key="M-e">
-      <action name="Execute"><execute>/home/akroshko/cic-vcs/bash-stdlib/switch-to-emacs-or-passthrough.sh</execute></action>
+      <action name="Execute"><execute>~/cic-vcs/bash-stdlib/switch-to-emacs-or-passthrough.sh</execute></action>
     </keybind>
     <!-- TODO: same thing for now? possibly use to ditch emacs? -->
     <!-- <keybind key="M-E"> -->
-    <!--   <action name="Execute"><execute>/home/akroshko/cic-vcs/bash-stdlib/switch-to-emacs-or-passthrough.sh</execute></action> -->
+    <!--   <action name="Execute"><execute>~/cic-vcs/bash-stdlib/switch-to-emacs-or-passthrough.sh</execute></action> -->
     <!-- </keybind> -->
     <!-- TODO: move to more repls? move back if already at a repl? -->
     <keybind key="M-S-q">
@@ -802,14 +803,6 @@
         <wrap>no</wrap>
       </action>
     </keybind>
-    <!--   Moving over from xbindkeys -->
-    <!--   TODO: how did I end up with duplicate keys -->
-    <!-- TODO: delete -->
-    <!-- need fallbacks and sync up properly with dotfiles -->
-    <!-- <xi:include href="openbox-second.xml"/> -->
-    <!-- <xi:include href="openbox-second-f8.xml"/> -->
-    <!-- only problem with this is other menus are control rather than meta -->
-    <!-- might change this.... -->
     <keybind key="C-z">
       <action name="NextWindow">
         <raise>yes</raise>
@@ -1201,15 +1194,15 @@
     <file>/var/lib/openbox/debian-menu.xml</file>
     <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
     <file>menu.xml</file>
-    <file>/home/akroshko/.config/openbox/openbox-menu-capture.xml</file>
-    <file>/home/akroshko/.config/openbox/openbox-menu-screencapture.xml</file>
-    <file>/home/akroshko/.config/openbox/openbox-menu-apropos.xml</file>
-    <file>/home/akroshko/.config/openbox/openbox-menu-quick-reference.xml</file>
-    <file>/home/akroshko/.config/openbox/openbox-menu-secret-search.xml</file>
-
-    <file>/home/akroshko/.config/openbox/openbox-menu-super-power-volume.xml</file>
-    <file>/home/akroshko/.config/openbox/openbox-menu-super.xml</file>
-    <file>/home/akroshko/.config/openbox/openbox-menu-second.xml</file>
+    <file>~/.config/openbox/openbox-menu-capture.xml</file>
+    <file>~/.config/openbox/openbox-menu-screencapture.xml</file>
+    <file>~/.config/openbox/openbox-menu-screencapture-current-capture.xml</file>
+    <file>~/.config/openbox/openbox-menu-apropos.xml</file>
+    <file>~/.config/openbox/openbox-menu-quick-reference.xml</file>
+    <file>~/.config/openbox/openbox-menu-secret-search.xml</file>
+    <file>~/.config/openbox/openbox-menu-super-power-volume.xml</file>
+    <file>~/.config/openbox/openbox-menu-super.xml</file>
+    <file>~/.config/openbox/openbox-menu-second.xml</file>
     <hideDelay>200</hideDelay>
     <!-- if a press-release lasts longer than this setting (in milliseconds), the
          menu is hidden again -->

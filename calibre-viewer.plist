@@ -18,25 +18,30 @@
     <array>
       <string>H</string>
     </array>
+    <!-- Looks like I can have 3 keys -->
     <key>Next Page</key>
     <array>
       <string>PgDown</string>
       <string>Space</string>
+      <string>Right</string>
     </array>
     <key>Next Section</key>
     <array>
       <string>F15</string>
-      <string>Down</string>
+      <string>Shift+Right</string>
+      <!-- <string>Down</string> -->
     </array>
     <key>Previous Page</key>
     <array>
       <string>PgUp</string>
       <string>B</string>
+      <string>Left</string>
     </array>
     <key>Previous Section</key>
     <array>
       <string>F13</string>
-      <string>Up</string>
+      <string>Shift+Left</string>
+      <!-- <string>Up</string> -->
     </array>
     <key>Table of Contents</key>
     <array>
@@ -46,6 +51,7 @@
     <array>
       <string>Q</string>
     </array>
+    <!-- modify these for scrolling around stuff??? -->
     <key>Right</key>
     <array>
       <string>L</string>

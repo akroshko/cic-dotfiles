@@ -5,6 +5,10 @@ load_paths.unshift("chrome://conkeror-contrib/content/");
 // require('block-content-focus-change.js');
 // hinting
 
+// add exceptions later
+require("key-kill");
+key_kill_mode.test.push(/\/\/.*\//); //regexp matches all sites
+
 // define_key(content_buffer_normal_keymap, "h", "browse-buffer-history");
 
 // hint_digits="abcdefghijklmnopqrstuvwxyz";
@@ -41,6 +45,15 @@ define_key(content_buffer_text_keymap, "f13",
 define_key(content_buffer_normal_keymap, "f13",
     "browser-object-relationship-previous",
     $repeat = "follow");
+define_key(content_buffer_form_keymap, "S-left",
+    "browser-object-relationship-previous",
+    $repeat = "follow");
+define_key(content_buffer_text_keymap, "S-left",
+    "browser-object-relationship-previous",
+    $repeat = "follow");
+define_key(content_buffer_normal_keymap, "S-left",
+    "browser-object-relationship-previous",
+    $repeat = "follow");
 define_key(content_buffer_form_keymap, "f15",
     "browser-object-relationship-next",
     $repeat = "follow");
@@ -48,6 +61,15 @@ define_key(content_buffer_text_keymap, "f15",
     "browser-object-relationship-next",
     $repeat = "follow");
 define_key(content_buffer_normal_keymap, "f15",
+    "browser-object-relationship-next",
+    $repeat = "follow");
+define_key(content_buffer_form_keymap, "S-right",
+    "browser-object-relationship-next",
+    $repeat = "follow");
+define_key(content_buffer_text_keymap, "S-right",
+    "browser-object-relationship-next",
+    $repeat = "follow");
+define_key(content_buffer_normal_keymap, "S-right",
     "browser-object-relationship-next",
     $repeat = "follow");
 
@@ -610,7 +632,7 @@ interactive("third-localhost-proxy", "Third party localhost proxy",
         unregister_user_stylesheet(home_proxy_style_sheet);
         register_user_stylesheet(third_proxy_style_sheet);
     });
-define_key(content_buffer_normal_keymap,"C-u C-c p","third-localhost-proxy")
+define_key(content_buffer_normal_keymap,"C-c M-P","third-localhost-proxy")
 
 
 // remove proxy
@@ -629,7 +651,7 @@ interactive("remove-proxy", "Localhost proxy",
         unregister_user_stylesheet(home_proxy_style_sheet);
         unregister_user_stylesheet(third_proxy_style_sheet);
     });
-define_key(content_buffer_normal_keymap,"C-c P","remove-proxy")
+define_key(content_buffer_normal_keymap,"C-u C-c p","remove-proxy")
 
 ////////////////////////////////////////////////////////////////////////////////
 // set up proxy modeline
@@ -909,7 +931,7 @@ interactive("twitch-enumerate-api",
             thestring+=(String(p) + " :: " + String(player[p]));
             thestring+="\n";
         }
-        path = make_file('/home/akroshko/conkeror-debug.txt');
+        path = make_file('~/conkeror-debug.txt');
         write_text_file(path,thestring);
         // I.window.alert(String(thelist));
     });
