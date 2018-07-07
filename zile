@@ -1,3 +1,6 @@
+;; make editing work properly
+(setq indent-tabs-mode nil)
+
 ;; Non-nil means make a backup of a file the first time it is saved.
 ;; This is done by appending `~' to the file name.
 ;; Default value is t.

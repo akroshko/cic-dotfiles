@@ -644,13 +644,13 @@
     <keybind key="M-S-q">
       <action name="Execute"><execute>wmctrl -a "repl-restartable 'psql"</execute></action>
     </keybind>
-    <!-- TODO: r==relation? or use for more repls -->
-    <keybind key="M-r">
-      <action name="Execute"><execute>wmctrl -a "repl-restartable 'psql"</execute></action>
-    </keybind>
-    <keybind key="M-S-r">
-      <action name="Execute"><execute>wmctrl -a "repl-restartable 'psql"</execute></action>
-    </keybind>
+    <!-- TODO: r==relation? or use for more repls? rerference -->
+    <!-- <keybind key="M-r"> -->
+    <!--   <action name="Execute"><execute>wmctrl -a "repl-restartable 'psql"</execute></action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="M-S-r"> -->
+    <!--   <action name="Execute"><execute>wmctrl -a "repl-restartable 'psql"</execute></action> -->
+    <!-- </keybind> -->
     <!-- TODO: decide which of these is best -->
     <!-- <keybind key="W-period"> -->
     <!--   <action name="NextWindow"> -->
