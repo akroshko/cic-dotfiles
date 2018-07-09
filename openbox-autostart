@@ -19,10 +19,13 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see http://www.gnu.org/licenses/.
 
-if [ "${HOSTNAME}" == "akroshko-main" ]; then
-    xrandr --auto --output VGA-0 --left-of DVI-0
-    xrandr --output DVI-0 --mode 1920x1080
-fi
+# this does not work
+# if [ "${HOSTNAME}" == "akroshko-main" ]; then
+#     xrandr --auto --output VGA-0 --left-of DVI-0
+#     xrandr --output DVI-0 --mode 1920x1080
+# fi
+# xrandr --auto --output DVI-0 --left-of VGA-0
+
 xmodmap ~/.xmodmaprc
 # XXXX: restart openbox, this is necessary due to using /etc/default/keyboard to put control key on caps lock
 #       then to make xmodmap remapped hyper onto left control as openbox keys
@@ -30,4 +33,4 @@ openbox --restart
 # let openbox restart fully
 sleep 3
 # XXXX: xscreensaver actually init'd in my ~/.bash_profile (which is sourced from ~/.profile) file
-rxvt-unicode -e bash -i -c "SUPPRESSTERMRESIZE=1 source ~/.profile" &
+rxvt-unicode -e bash -i -c "exportSUPPRESSTERMRESIZE=1;source ~/.profile" &

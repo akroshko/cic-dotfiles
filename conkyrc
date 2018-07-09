@@ -103,6 +103,10 @@ ${color grey}Swap Usage:$color $swap/$swapmax $swapperc%  ${swapbar 4}
 ${color grey}/tmp Usage:$color ${fs_used /tmp}/${fs_size /tmp} ${fs_used_perc /tmp}% ${fs_bar_free /tmp 4}
 ${color grey}/    Usage:$color ${fs_used /}/${fs_size /} ${fs_used_perc /}% ${fs_bar_free / 4}
 
+# TODO: order might change above
+# old CPUTIN
+#
+
 ${if_match "${nodename}" == "akroshko-laptop"}\
 ${color grey}Sound:$color ${exec amixer get Master | grep -- Front.*Playback | tr "\\n" " " | sed -e 's/Front//g' -e 's/Playback//g' -e 's/\s[0-9]\+//g' -e 's/  */ /g'}\
 ${color grey}Backlight:$color ${exec echo "`cat /sys/class/backlight/intel_backlight/brightness`*100/`cat /sys/class/backlight/intel_backlight/max_brightness`" | bc -l | xargs printf "%1.0f\n"}\
