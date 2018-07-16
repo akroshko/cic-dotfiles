@@ -212,46 +212,6 @@
   </dock>
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
-    <!-- override f-keys -->
-    <!-- ================================================================================ -->
-    <!-- real F-keys by using shift -->
-    <!-- <keybind key="S-F1"> -->
-    <!--   <action name="Execute"><execute>xdotool getwindowfocus key F1</execute></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="S-F2"> -->
-    <!--   <action name="Execute"><execute>xdotool getwindowfocus key F2</execute></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="S-F3"> -->
-    <!--   <action name="Execute"><execute>xdotool getwindowfocus key F3</execute></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="S-F4"> -->
-    <!--   <action name="Execute"><execute>xdotool getwindowfocus key F4</execute></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="S-F5"> -->
-    <!--   <action name="Execute"><execute>xdotool getwindowfocus key F5</execute></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="S-F6"> -->
-    <!--   <action name="Execute"><execute>xdotool getwindowfocus key F6</execute></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="S-F7"> -->
-    <!--   <action name="Execute"><execute>xdotool getwindowfocus key F7</execute></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="S-F8"> -->
-    <!--   <action name="Execute"><execute>xdotool getwindowfocus key F8</execute></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="S-F9"> -->
-    <!--   <action name="Execute"><execute>xdotool getwindowfocus key F9</execute></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="S-F10"> -->
-    <!--   <action name="Execute"><execute>xdotool getwindowfocus key F10</execute></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="S-F11"> -->
-    <!--   <action name="Execute"><execute>xdotool getwindowfocus key F11</execute></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="S-F12"> -->
-    <!--   <action name="Execute"><execute>xdotool getwindowfocus key F12</execute></action> -->
-    <!-- </keybind> -->
-    <!-- TODO: do I want this?-->
     <!-- TODO: do I want this?-->
     <keybind key="M-W-semicolon">
       <action name="ShowMenu"><menu>root-menu</menu></action>
@@ -459,7 +419,7 @@
         <action name="BreakChroot"/>
       </keybind>
       <keybind key="F12">
-        <action name="Execute"><execute>bash -c "$HOME/bin/web-video-minimize.sh --pause"</execute></action>
+        <action name="Execute"><execute>bash -c "$HOME/bin/web-video-minimize.sh --all"</execute></action>
         <action name="Execute"><execute>bash -c "pkill -f f12_help_panel"</execute></action>
         <action name="BreakChroot"/>
       </keybind>
@@ -535,20 +495,23 @@
     <!--   </action> -->
     <!-- </keybind> -->
     <keybind key="KP_Subtract">
-      <action name="Execute"><execute>bash -c "$HOME/bin/web-video-minimize.sh --pause"</execute></action>
+      <action name="Execute"><execute>~/bin/web-video-minimize.sh --pause</execute></action>
     </keybind>
     <!-- Or do I want control? -->
     <keybind key="S-KP_Subtract">
-      <action name="Execute"><execute>bash -c "$HOME/bin/web-video-minimize.sh"</execute></action>
+      <action name="Execute"><execute>~/bin/web-video-minimize.sh</execute></action>
     </keybind>
     <keybind key="KP_Add">
-      <action name="Execute"><execute>bash -c "$HOME/bin/web-video-minimize.sh --all"</execute></action>
+      <action name="Execute"><execute>~/cic-vcs/bash-stdlib/switch-to-emacs-or-passthrough.sh</execute></action>
     </keybind>
     <!-- <keybind key="S-KP_Add"> -->
     <!--   <action name="Execute"><execute>bash -c "$HOME/bin/web-video-minimize.sh"</execute></action> -->
     <!-- </keybind> -->
     <keybind key="KP_Enter">
       <action name="ToggleShowDesktop"/>
+    </keybind>
+    <keybind key="S-KP_Enter">
+      <action name="Execute"><execute>~/bin/web-video-minimize.sh --all</execute></action>
     </keybind>
     <!-- KP_Prior and KP_Next -->
     <!-- <keybind key="M-KP_Enter"> -->
@@ -714,10 +677,10 @@
     </keybind>
     <!-- These are awkward, see if I miss them in most applications, add to applications themselves maybe? -->
     <!-- <keybind key="C-comma"> -->
-    <!--   <action name="Execute"><execute>xvkbd -secure -text "\\[Prior]"</execute></action> -->
+    <!--   <action name="Execute"><execute>xvkbd -text "\\[Prior]"</execute></action> -->
     <!-- </keybind> -->
     <!-- <keybind key="C-period"> -->
-    <!--   <action name="Execute"><execute>xvkbd -secure -text "\\[Next]"</execute></action> -->
+    <!--   <action name="Execute"><execute>xvkbd -text "\\[Next]"</execute></action> -->
     <!-- </keybind> -->
     <!-- TODO make these something else, xml comments do not play well with double hyphen, openbox warns about this too -->
     <!-- <keybind key="M-comma"> -->
