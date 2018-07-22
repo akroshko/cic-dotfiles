@@ -155,7 +155,8 @@ define_key(content_buffer_normal_keymap, "o",       "browser-object-media");
 define_key(content_buffer_normal_keymap, "f",       "follow");
 define_key(content_buffer_normal_keymap, "s-f",     "follow-new-buffer");
 define_key(content_buffer_normal_keymap, "s-F",     "follow-new-buffer-background");
-define_key(content_buffer_normal_keymap, "M-s-f",   "follow-new-window");
+// TODO: sort this out
+define_key(content_buffer_normal_keymap, "w",   "follow-new-window");
 // TODO: esdf keys no longer used
 // define_key(content_buffer_normal_keymap, "e",       "cmd_scrollLineUp");
 // define_key(content_buffer_normal_keymap, "s",       "cmd_scrollLeft");
@@ -166,13 +167,16 @@ define_key(content_buffer_normal_keymap, "M-s-f",   "follow-new-window");
 // define_key(content_buffer_normal_keymap, "s-d",     "duplicate-buffer-new-window");
 // m=mirror
 
+// TODO still want this, but don't know how
+// define_key(content_buffer_normal_keymap, "G",       "find-url-new-window");
+
 // TODO: update...
 define_key(content_buffer_normal_keymap, "s-m",     "duplicate-buffer");
 define_key(content_buffer_normal_keymap, "s-M",     "duplicate-buffer-background");
 define_key(content_buffer_normal_keymap, "M-s-m",   "duplicate-buffer-new-window");
-define_key(content_buffer_normal_keymap, "w",       "find-url-new-window");
 define_key(content_buffer_normal_keymap, "W",       "duplicate-buffer-new-window");
-define_key(content_buffer_normal_keymap, "D",       "find-url-new-window");
+// conflicts with duckduckgo
+// define_key(content_buffer_normal_keymap, "D",       "find-url-new-window");
 define_key(content_buffer_normal_keymap, "/",       "save");
 // TODO: best way to disable \ as viewsource... too easy and destructive
 define_key(content_buffer_normal_keymap, "\\",      "");

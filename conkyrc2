@@ -79,14 +79,14 @@ $nodename - $sysname $kernel on $machine $alignr${time %b/%a/%d} ${time %k:%M:%S
 $hr
 ${color}${execi 600 weather-update.py CAXX0442}
 $hr
-${execi 60 bash -c "source ~/.bash_libenv;df-crypt-disks | sed '/^Filesystem/d' | sed '/^udev/d'"}
+${execi 60 bash -c "source ~/.bash_library;df-crypt-disks | sed '/^Filesystem/d' | sed '/^udev/d'"}
 $hr
-${execi 60 bash -c "source ~/.bash_libenv;smartctl-disks"}
+${execi 60 bash -c "source ~/.bash_library;smartctl-disks"}
 ${if_match "${nodename}" == "akroshko-main"}\
 $hr
-${execi 60 bash -c "source ~/.bash_libenv;mdstat-status"}
+${execi 60 bash -c "source ~/.bash_library;mdstat-status"}
 # ${execi 10 bash -c "cat /proc/mdstat"}
 ${endif}
 $hr
-${exec bash -c "source ~/.bash_libenv;dunst-notifications | tail -n 20"}
+${exec bash -c "source ~/.bash_library;dunst-notifications | tail -n 20"}
 $hr

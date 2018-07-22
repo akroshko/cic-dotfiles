@@ -234,23 +234,23 @@
       <action name="ToggleShowDesktop"/>
     </keybind>
     <keybind key="M-F5">
-      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;conkeror-clipboard.sh google"</execute></action>
+      <action name="Execute"><execute>bash -c "source ~/.bash_library;conkeror-clipboard.sh google"</execute></action>
     </keybind>
     <!-- TODO: might want this to be a menu -->
     <!-- <keybind key="M-5"> -->
-    <!--   <action name="Execute"><execute>bash -c "source ~/.bash_libenv;conkeror-clipboard.sh google"</execute></action> -->
+    <!--   <action name="Execute"><execute>bash -c "source ~/.bash_library;conkeror-clipboard.sh google"</execute></action> -->
     <!-- </keybind> -->
     <keybind key="C-F5">
-      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;apropos-clipboard"</execute></action>
+      <action name="Execute"><execute>bash -c "source ~/.bash_library;apropos-clipboard"</execute></action>
     </keybind>
     <!-- <keybind key="C-5"> -->
-    <!--   <action name="Execute"><execute>bash -c "source ~/.bash_libenv;apropos-clipboard"</execute></action> -->
+    <!--   <action name="Execute"><execute>bash -c "source ~/.bash_library;apropos-clipboard"</execute></action> -->
     <!-- </keybind> -->
     <keybind key="W-F5">
-      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;conkeror-clipboard.sh wikipedia"</execute></action>
+      <action name="Execute"><execute>bash -c "source ~/.bash_library;conkeror-clipboard.sh wikipedia"</execute></action>
     </keybind>
     <keybind key="H-F5">
-      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;conkeror-clipboard.sh scholar"</execute></action>
+      <action name="Execute"><execute>bash -c "source ~/.bash_library;conkeror-clipboard.sh scholar"</execute></action>
     </keybind>
     <!-- ================================================================================ -->
     <!-- These aren't actually secret searches, just here for convienience.  The content of the scripts changes depending on my current project/workflow.  Generally uses what is on primary to execute an action -->
@@ -258,25 +258,25 @@
       <action name="ShowMenu"><menu>secret-search</menu></action>
     </keybind>
     <keybind key="M-F6">
-      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;${HOME}/bin/secret-search.sh"</execute></action>
+      <action name="Execute"><execute>bash -c "source ~/.bash_library;${HOME}/bin/secret-search.sh"</execute></action>
     </keybind>
     <keybind key="M-6">
       <action name="ShowMenu"><menu>secret-search</menu></action>
     </keybind>
     <keybind key="C-F6">
-      <action name="Execute"><execute>bash -c "source ${HOME}/.bash_libenv;${HOME}/bin/secret-search-ctrl.sh"</execute></action>
+      <action name="Execute"><execute>bash -c "source ${HOME}/.bash_library;${HOME}/bin/secret-search-ctrl.sh"</execute></action>
     </keybind>
     <keybind key="W-F6">
-      <action name="Execute"><execute>bash -c "source ${HOME}/.bash_libenv;${HOME}/bin/secret-search-super.sh"</execute></action>
+      <action name="Execute"><execute>bash -c "source ${HOME}/.bash_library;${HOME}/bin/secret-search-super.sh"</execute></action>
     </keybind>
     <keybind key="H-F6">
-      <action name="Execute"><execute>bash -c "source ${HOME}/.bash_libenv;${HOME}/bin/secret-search-hyper.sh"</execute></action>
+      <action name="Execute"><execute>bash -c "source ${HOME}/.bash_library;${HOME}/bin/secret-search-hyper.sh"</execute></action>
     </keybind>
     <keybind key="M-F8">
-      <action name="Execute"><execute>bash -c "source ${HOME}/.bash_libenv;python ${HOME}/cic-vcs/cic-groups/capture-bib.py --delay;notify-send "Captured!!!" -t 5000"</execute></action>
+      <action name="Execute"><execute>bash -c "source ${HOME}/.bash_library;python ${HOME}/cic-vcs/cic-groups/capture-bib.py --delay;notify-send "Captured!!!" -t 5000"</execute></action>
     </keybind>
     <keybind key="M-8">
-      <action name="Execute"><execute>bash -c "source ${HOME}/.bash_libenv;python ${HOME}/cic-vcs/cic-groups/capture-bib.py --delay;notify-send "Captured!!!" -t 5000"</execute></action>
+      <action name="Execute"><execute>bash -c "source ${HOME}/.bash_library;python ${HOME}/cic-vcs/cic-groups/capture-bib.py --delay;notify-send "Captured!!!" -t 5000"</execute></action>
     </keybind>
     <keybind key="C-F8">
       <action name="Execute"><execute>bash -c "python ${HOME}/cic-vcs/cic-groups/capture-bib.py;sleep 0.2;~/bin/launch-emacsclient noframe \"org-protocol:/capture:/X/empty/empty/empty\""</execute></action>
@@ -467,10 +467,10 @@
     </keybind>
     <!-- temporary... -->
     <keybind key="M-W-slash">
-      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;whitenoise.sh"</execute></action>
+      <action name="Execute"><execute>bash -c "source ~/.bash_library;whitenoise.sh"</execute></action>
     </keybind>
     <keybind key="M-W-S-slash">
-      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;whitenoise.sh --next"</execute></action>
+      <action name="Execute"><execute>bash -c "source ~/.bash_library;whitenoise.sh --next"</execute></action>
     </keybind>
     <!-- <keybind key="M-W-l"> -->
     <!--   <action name="Iconify"/> -->
@@ -501,6 +501,9 @@
     <keybind key="S-KP_Subtract">
       <action name="Execute"><execute>~/bin/web-video-minimize.sh</execute></action>
     </keybind>
+    <keybind key="C-KP_Subtract">
+      <action name="Execute"><execute>~/bin/web-video-restore.sh</execute></action>
+    </keybind>
     <keybind key="KP_Add">
       <action name="Execute"><execute>~/cic-vcs/bash-stdlib/switch-to-emacs-or-passthrough.sh</execute></action>
     </keybind>
@@ -510,9 +513,12 @@
     <keybind key="KP_Enter">
       <action name="ToggleShowDesktop"/>
     </keybind>
-    <keybind key="S-KP_Enter">
-      <action name="Execute"><execute>~/bin/web-video-minimize.sh --all</execute></action>
+    <keybind key="C-KP_Enter">
+      <action name="Execute"><execute>xscreensaver-command -lock</execute></action>
     </keybind>
+    <!-- <keybind key="S-KP_Enter"> -->
+    <!--   <action name="Execute"><execute>~/bin/web-video-minimize.sh all</execute></action> -->
+    <!-- </keybind> -->
     <!-- KP_Prior and KP_Next -->
     <!-- <keybind key="M-KP_Enter"> -->
     <!--   <action name="NextWindow"> -->
@@ -704,7 +710,7 @@
     </keybind>
     <!-- TODO: are these what I want? may not want this.... f6 version better -->
     <keybind key="C-W-a">
-      <action name="Execute"><execute>bash -c "source ~/.bash_libenv;apropos-clipboard"</execute></action>
+      <action name="Execute"><execute>bash -c "source ~/.bash_library;apropos-clipboard"</execute></action>
     </keybind>
     <keybind key="C-W-z">
       <action name="Execute"><execute>bash -c "amixer set Master 5%-;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
