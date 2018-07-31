@@ -31,3 +31,7 @@ keycode 81 = F19 F19 F19 F19
 keycode 106 = F21 F21 F21 F21
 ! keypad prior is keycode 63,   remap to F22
 keycode 63 = F22 F22 F22 F22
+! keypad insert is keycode 90,  remap to F23
+keycode 90 = F23 F23 F23 F23
+! keypad insert is keycode 91,  remap to F24
+keycode 91 = F24 F24 F24 F24

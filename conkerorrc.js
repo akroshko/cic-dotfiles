@@ -6,8 +6,8 @@ load_paths.unshift("chrome://conkeror-contrib/content/");
 // hinting
 
 // add exceptions later
-require("key-kill");
-key_kill_mode.test.push(/\/\/.*\//); //regexp matches all sites
+// require("key-kill");
+// key_kill_mode.test.push(/\/\/.*\//); //regexp matches all sites
 
 // define_key(content_buffer_normal_keymap, "h", "browse-buffer-history");
 
@@ -391,6 +391,11 @@ session_pref("font.size.x-western", 11);
 session_pref("font.size.variable.x-western", 11);
 // ???
 session_pref("xpinstall.whitelist.required", false);
+// TODO: these may be needed sometimes, so they are here
+session_pref("extensions.checkCompatibility", false);
+session_pref("extensions.checkUpdateSecurity", false);
+session_pref("extensions.blocklist.enabled", false);
+
 session_pref("browser.history_expire_days",1);
 // session_pref("browser.download.manager.retention",1)
 // TODO do any of these actually work? some of these are broken...
