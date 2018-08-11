@@ -290,8 +290,6 @@ define_key(content_buffer_normal_keymap, "s-v", "paste-url");
 define_key(content_buffer_normal_keymap, "b",         "cmd_scrollPageUp");
 define_key(content_buffer_normal_keymap, "C-,",       "cmd_scrollPageUp");
 define_key(content_buffer_normal_keymap, "C-.",       "cmd_scrollPageDown");
-define_key(content_buffer_normal_keymap, "M-,",       "cmd_scrollPageUp");
-define_key(content_buffer_normal_keymap, "M-.",       "cmd_scrollPageDown");
 // this is pageup that works as expected everywhere
 define_key(default_global_keymap,        "page_up",   "cmd_scrollPageUp");
 define_key(minibuffer_base_keymap,       "page_up",   "cmd_scrollPageUp");
@@ -379,10 +377,22 @@ url_remoting_fn = load_url_in_new_window;
 // url_remoting_fn = load_url_in_new_buffer;
 // url_remoting_fn = load_url_in_current_buffer;
 
-// // user prefs
-// user_pref("layers.acceleration.disabled", false);
-// user_pref("layers.acceleration.force-enabled", true);
-// user_pref("layers.offmainthreadcomposition.enabled", true);
+// XXXX acceleration makes a big difference for me
+// XXXX: make sure they are stored more permanently
+user_pref("layers.acceleration.disabled", false);
+user_pref("layers.acceleration.force-enabled", true);
+user_pref("layers.offmainthreadcomposition.enabled", true);
+// XXXX: hidden option enables azure acceleration
+user_pref("gfx.canvas.azure.accelerated",true);
+// XXXX: needs to be low on low-memory devices
+user_pref("browser.preferences.defaultPerformanceSettings.enabled",false);
+user_pref("dom.ipc.processCount",4);
+// TODO https://wiki.mozilla.org/Electrolysis#Force_Enable
+// XXXX remove if not stable, but puts each window into its own process
+user_pref("browser.tabs.remote.force-enable",true);
+// TODO: not working yet...
+user_pref("media.hardware-video-decoding.enabled",true);
+user_pref("media.hardware-video-decoding.force-enabled",true);
 
 // session preferences
 // fonts
@@ -394,7 +404,8 @@ session_pref("xpinstall.whitelist.required", false);
 // TODO: these may be needed sometimes, so they are here
 session_pref("extensions.checkCompatibility", false);
 session_pref("extensions.checkUpdateSecurity", false);
-session_pref("extensions.blocklist.enabled", false);
+// TODO: this could be dangerous to disable, see if adblock latitude keeps working
+// session_pref("extensions.blocklist.enabled", false);
 
 session_pref("browser.history_expire_days",1);
 // session_pref("browser.download.manager.retention",1)
@@ -405,12 +416,30 @@ session_pref("full-screen-api.enabled",true);
 // session_pref("gfx.font_rendering.directwrite.enabled",true);
 // session_pref("mozilla.widget.render-mode",6);
 // session_pref("network.prefetch-next",true);
-// TODO: are these still valid?
+// TODO: are these still relevant?
 session_pref("network.http.max-persistent-connections-per-server",8);
 session_pref("network.http.pipelining",true);
+session_pref("network.http.pipelining.ssl",true);
 session_pref("network.http.pipelining.maxrequests",8);
 // session_pref("network.dns.disableIPv6",true);
-// TODO:
+// performance stuff
+// I either have lots of memory or a slow computer
+// these can be set elsewhere too
+// 1001: disable disk cache
+session_pref("browser.cache.disk.enable",false);
+session_pref("browser.cache.disk.capacity", 0);
+session_pref("browser.cache.disk.smart_size.enabled", false);
+session_pref("browser.cache.disk.smart_size.first_run", false);
+// 1002: disable disk caching of SSL pages
+// http://kb.mozillazine.org/Browser.cache.disk_cache_ssl
+session_pref("browser.cache.disk_cache_ssl", false);
+session_pref("browser.cache.memory.enable ",true);
+session_pref("browser.cache.compression_level",0);
+// 1004: disable offline cache
+session_pref("browser.cache.offline.enable", false);
+// 1005: disable storing extra session data 0=all 1=http-only 2=none
+// extra session data contains contents of forms, scrollbar positions, cookies and POST data
+session_pref("browser.sessionstore.privacy_level", 2);
 // printer stuff
 session_pref("print.print_headercenter","");
 session_pref("print.print_headerleft","");
@@ -427,12 +456,88 @@ session_pref("print.shrink_to_fit.scale-limit-percent",50);
 // session_pref("print.always_print_silent", true);
 // session_pref("print.print_to_file","");
 // session_pref("print.print_to_filename","");
-// deactivate page modes
 session_pref("dom.ipc.plugins.flash.subprocess.crashreporter.enabled",false);
 session_pref("javascript.enabled",true);
+// media
+// TODO: mediasource vs. non-mediasource?
+session_pref("media.mediasource.mp4.enabled",true);
+session_pref("media.mediasource.webm.enabled",true);
+// deactivate page modes
 // TODO: see if this breaks anything, add on a key
+// deactivating page modes speed up things a lot on slow computers
 // session_pref("media.autoplay.enabled",false);
+page_mode_deactivate(dailymotion_mode);
+// page_mode_deactivate(duckduckgo_mode);
+page_mode_deactivate(google_calendar_mode);
+page_mode_deactivate(google_maps_mode);
+page_mode_deactivate(google_reader_mode);
+page_mode_deactivate(google_video_mode);
+page_mode_deactivate(smbc_mode);
+page_mode_deactivate(xkcd_mode);
+page_mode_deactivate(youtube_mode);
 page_mode_deactivate(youtube_player_mode);
+// Page mode modules
+session_pref("conkeror.load.page-modes/dailymotion", 0);
+session_pref("conkeror.load.page-modes/google-calendar", 0);
+session_pref("conkeror.load.page-modes/google-maps", 0);
+session_pref("conkeror.load.page-modes/google-reader", 0);
+session_pref("conkeror.load.page-modes/google-video", 0);
+session_pref("conkeror.load.page-modes/smbc", 0);
+session_pref("conkeror.load.page-modes/xkcd", 0);
+session_pref("conkeror.load.page-modes/youtube", 0);
+session_pref("conkeror.load.page-modes/youtube-player", 0);
+
+session_pref("webgl.disabled", false);
+session_pref("webgl.min_capability_mode", false);
+session_pref("webgl.disable-extensions", false);
+session_pref("webgl.dxgl.enabled", true);
+session_pref("webgl.enable-webgl2", true);
+session_pref("webgl.force-enabled", true);
+
+// TODO: this lets me go back...
+session_pref("browser.sessionhistory.max_entries", 50);
+
+// https://gist.github.com/haasn/69e19fc2fe0e25f3cff5
+// TODO: prefetching
+session_pref("dom.event.clipboardevents.enabled",false);
+session_pref("dom.battery.enabled",false);
+session_pref("loop.enabled",false);
+// TODO: what is this, see https://gist.github.com/haasn/69e19fc2fe0e25f3cff5
+session_pref("browser.beacen.enabled",false);
+// TODO: go back to ghacks user.js
+session_pref("geo.enabled",false);
+session_pref("geo.wifi.logging.enabled",false);
+session_pref("geo.wifi.uri","");
+// TODO: browser.safebrowsing.enabled, why not in ghacks
+session_pref("browser.safebrowsing.enabled",false);
+session_pref("browser.safebrowsing.downloads.enabled",false);
+session_pref("browser.safebrowsing.malware.enabled",false);
+// TODO: not around...?
+session_pref("media.block-autoplay-until-in-foreground",true);
+session_pref("social.manifest.facebook","");
+session_pref("device.sensors.enabled",false);
+session_pref("camera.control.autofocus_moving_callback.enabled",false);
+// network.http.speculative-parallel-limit=0
+// TODO: should I add below
+session_pref("security.tls.insecure_fallback_hosts.use_static_list",false);
+// TOOD: hmmmm....
+session_pref("security.tls.version.min",1);
+// TODO: change in future when I don't need to connect to certain unsafe websites
+// https://wiki.mozilla.org/Security:Renegotiation#security.ssl.require_safe_negotiation
+// session_pref("security.ssl.require_safe_negotiation",true);
+// TODO: not having this broke google on January 19,2018
+session_pref("security.ssl.treat_unsafe_negotiation_as_broken",false);
+session_pref("security.ssl3.rsa_seed_sha",true);
+// TODO: change below
+session_pref("security.OCSP.enabled",1);
+session_pref("security.OCSP.require",false);
+// perfect forward secrecy, but muight break many things
+// session_pref("security.ssl3.rsa_aes_256_sha",false);
+// TODO: better, but some of my websites won't work
+// session_pref("security.tls.version.min",3);
+// changed ghacks defaults because I use it
+session_pref("layout.css.visited_links_enabled", true);
+
 
 interactive("copy-url-title","Copy url and title to clipboard in org-mode format.",
     function (I) {
@@ -814,16 +919,18 @@ interactive("open-chromium-ads-on", "",
         var cmd_str = 'chromium --temp-profile "' + theurl + '"';
         shell_command_blind(cmd_str);
     });
+// TODO: decide which one
 define_key(content_buffer_normal_keymap, "C-u C-c g", "open-chromium-ads-on");
+define_key(content_buffer_normal_keymap, "C-c G", "open-chromium-ads-on");
 
 // open in gnome-web
-interactive("open-gnome-web", "",
-    function (I) {
-        // TODO: add transform url here
-        var cmd_str = 'epiphany --new-tab "' + I.buffer.display_uri_string + '"';
-        shell_command_blind(cmd_str);
-    });
-define_key(content_buffer_normal_keymap, "C-c G", "open-gnome-web");
+// interactive("open-gnome-web", "",
+//     function (I) {
+//         // TODO: add transform url here
+//         var cmd_str = 'epiphany --new-tab "' + I.buffer.display_uri_string + '"';
+//         shell_command_blind(cmd_str);
+//     });
+// define_key(content_buffer_normal_keymap, "C-c G", "open-gnome-web");
 
 interactive("open-firefox-new-window", "",
     function (I) {
@@ -841,6 +948,19 @@ interactive("reload-config", "reload conkerorrc",
           I.window.minibuffer.message("config reloaded");
        });
 
+interactive("youtube-fullscreen",
+    "Click the Youtube html5 player fullscreen button.",
+    function (I) {
+        var buf = I.buffer;
+        // var elem = buf.document.querySelector(".ytp-button-fullscreen, .ytp-button");
+        // var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
+        var elem = I.buffer.document.getElementsByClassName("ytp-fullscreen-button ytp-button");
+        // elem[0].click();
+        dom_node_click(elem[0], 1, 1);
+    });
+// TODO: generalize and add error checking
+define_key(content_buffer_normal_keymap, "M-,", "youtube-fullscreen");
+
 // web video pause only
 interactive("web-video-pause",
     "Pause Youtube videos (as opposed to pause/play of other thing).",
@@ -848,6 +968,7 @@ interactive("web-video-pause",
         // get url, is this the best way?
         var theurl = load_spec_uri_string(load_spec(I.buffer.top_frame));
         if (theurl.indexOf("www.youtube.com") != -1) {
+            // https://developers.google.com/youtube/iframe_api_reference
             // https://www.youtube.com/iframe_api
             var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
             player.pauseVideo()
@@ -901,7 +1022,7 @@ interactive("web-video-pause-toggle",
         }
         // I.window.minibuffer.message(player.getDuration())
     });
-
+define_key(content_buffer_normal_keymap, "M-.", "web-video-pause-toggle");
 
 interactive("youtube-seek",
     "Seek to a youtube location.",

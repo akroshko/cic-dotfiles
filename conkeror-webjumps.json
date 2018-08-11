@@ -90,6 +90,7 @@
  "ncix":["http://www.ncix.com/search/?categoryid=0&q=%s","http://www.ncix.com"],
  // TODO: uses invalid security certificate
  "newegg":["http://www.newegg.ca/Product/ProductList.aspx?Submit=ENE&DEPA=0&Order=BESTMATCH&Description=%s","http://newegg.ca"],
+ "noip":["https://www.noip.com"],
  "openhub":[ "https://www.openhub.net/query=%s","https://www.openhub.net/"],
  "openbox":[ "http://openbox.org/wiki/Help:Contents"],
  "orgmode-hacks":["https://orgmode.org/worg/org-hacks.html"],

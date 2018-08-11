@@ -357,22 +357,23 @@
         <action name="BreakChroot"/>
       </keybind>
     </keybind>
-    <keybind key="M-l" chroot="true">
-      <keybind key="Escape">
-        <action name="BreakChroot"/>
-      </keybind>
-      <keybind key="C-bracketleft">
-        <action name="BreakChroot"/>
-      </keybind>
-      <keybind key="C-h">
-        <action name="BreakChroot"/>
-      </keybind>
-      <!-- toggle calculator on/off -->
-      <keybind key="M-l">
-        <action name="Execute"><execute>qalculate</execute></action>
-        <action name="BreakChroot"/>
-      </keybind>
-    </keybind>
+    <!-- do something interesting here eventually -->
+    <!-- <keybind key="M-l" chroot="true"> -->
+    <!--   <keybind key="Escape"> -->
+    <!--     <action name="BreakChroot"/> -->
+    <!--   </keybind> -->
+    <!--   <keybind key="C-bracketleft"> -->
+    <!--     <action name="BreakChroot"/> -->
+    <!--   </keybind> -->
+    <!--   <keybind key="C-h"> -->
+    <!--     <action name="BreakChroot"/> -->
+    <!--   </keybind> -->
+    <!-- toggle calculator on/off -->
+    <!--   <keybind key="M-l"> -->
+    <!-- <action name="Execute"><execute>qalculate</execute></action> -->
+    <!--     <action name="BreakChroot"/> -->
+    <!--   </keybind> -->
+    <!-- </keybind> -->
     <!-- Test -->
     <keybind key="C-F12">
       <action name="Execute"><execute>python ${HOME}/bin/f12_help_panel.py</execute></action>

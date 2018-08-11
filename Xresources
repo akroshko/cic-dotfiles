@@ -71,8 +71,8 @@ URxvt*scrollstyle: rxvt
 ! from archwiki
 ! TODO: change all names to .pl
 ! TODO: forget how to even use this.... scrollback.pl,
-URxvt.perl-ext-common:          default,clipboard,-searchable-scrollback
-URxvt.perl-ext:                 urxvt-scrollback.pl,urxvt-new-terminal.pl,urxvt-searchable-scrollback.pl,urxvt-help.pl
+URxvt.perl-ext-common:          default
+URxvt.perl-ext:                 urxvt-clipboard.pl,urxvt-scrollback.pl,urxvt-new-terminal.pl,urxvt-searchable-scrollback.pl,urxvt-help.pl
 URxvt.iso14755:                 False
 URxvt.iconFile:                 /home/akroshko/.urxvt/terminal.svg
 URxvt.keysym.M-c:               perl:clipboard:copy
