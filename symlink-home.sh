@@ -56,6 +56,7 @@ main () {
     need_new_directory ${HOME}/bin
     # TODO: do better, works for now
     need_new_symlink ${SCRIPTPATH}/../bash-stdlib/launch-emacsclient          ${HOME}/bin/launch-emacsclient
+    need_new_symlink ${SCRIPTPATH}/../bash-stdlib/launch-emacsclient-fail.sh  ${HOME}/bin/launch-emacsclient-fail.sh
     need_new_symlink ${SCRIPTPATH}/../bash-stdlib/web-video-minimize.sh       ${HOME}/bin/web-video-minimize.sh
     need_new_symlink ${SCRIPTPATH}/../bash-stdlib/web-video-pause-toggle.sh   ${HOME}/bin/web-video-pause-toggle.sh
     need_new_symlink ${SCRIPTPATH}/../bash-stdlib/web-video-restore.sh        ${HOME}/bin/web-video-restore.sh
