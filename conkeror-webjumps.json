@@ -15,7 +15,7 @@
  "archwiki":["https://wiki.archlinux.org/index.php?title=Special%3ASearch&search=%s&go=Go", "https://wiki.archlinux.org"],
  "archwiki-raid":["https://wiki.archlinux.org/index.php/RAID"],
  "arch-applications":["https://wiki.archlinux.org/index.php/list_of_applications"],
- "archive":["https://archive.org/"],
+ "archive":["https://archive.org/search.php?query=%s","https://archive.org/"],
  "archive-wayback":["https://archive.org/web/"],
  "arstechnica":["https://arstechnica.com"],
  "allaboutcircuits":["http://www.allaboutcircuits.com/"],
