@@ -154,7 +154,12 @@
  "sundre-weathernetwork":["http://www.theweathernetwork.com/weather/canada/alberta/sundre"],
  "radium-weathernetwork":["https://www.theweathernetwork.com/ca/weather/british-columbia/radium-hot-springs"],
  "radium-weatheroffice":[ "https://weather.gc.ca/city/pages/bc-72_metric_e.html"],
- "saskatchewan-firehazard":["http://www.environment.gov.sk.ca/fire"],
+ "saskatchewan-firehazard":["http://www.saskatchewan.ca/fire"],
+ "firehazard-saskatchewan":["http://www.saskatchewan.ca/fire"],
+ "firehazard-alberta":["http://wildfire.alberta.ca/"],
+ "alberta-firehazard":["http://wildfire.alberta.ca/"],
+ "firehazard-british-columbia":["https://www2.gov.bc.ca/gov/content/safety/wildfire-status/wildfire-situation"],
+ "british-columbia-firehazard":["https://www2.gov.bc.ca/gov/content/safety/wildfire-status/wildfire-situation"],
  "saskatoon-timeanddate":["https://www.timeanddate.com/worldclock/city.html?n=1227"],
  "saskatoon-weathernetwork":["http://www.theweathernetwork.com/weather/canada/saskatchewan/saskatoon"],
  "saskatoon-weatheroffice":["http://www.weatheroffice.gc.ca/city/pages/sk-40_metric_e.html"],
@@ -185,4 +190,5 @@
  "timeanddate-saskatoon":["https://www.timeanddate.com/worldclock/city.html?n=1227"],
  "trails-banff":[ "http://www.pc.gc.ca/apps/tcond/cond_e.asp?oPark=100092"],
  "trails-jasper":["http://www.pc.gc.ca/apps/tcond/cond_e.asp?oPark=100244"],
- "usask-ecommons-thesises":["https://ecommons.usask.ca/handle/10388/381"]}
+ "usask-ecommons-thesises":["https://ecommons.usask.ca/handle/10388/381"],
+ "vimeo":["https://vimeo.com"]}

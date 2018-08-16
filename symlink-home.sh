@@ -6,6 +6,8 @@ main () {
     need_new_directory "${HOME}/.conkerorrc"
     # make sure the normal conkerorrc is loaded first
     need_new_symlink ${SCRIPTPATH}/conkerorrc.js          "${HOME}/.conkerorrc/00conkerorrc.js"
+    # TODO: add a fence here to make sure this works
+    cp ${SCRIPTPATH}/conkeror-webpage-key-kill.js         "${HOME}/cic-external-vcs/conkeror-external/modules/page-modes/webpage-key-kill.js"
     need_new_symlink ${SCRIPTPATH}/conkeror-webjumps.json "${HOME}/.conkerorrc/conkeror-webjumps.json"
     need_new_symlink ${SCRIPTPATH}/conkyrc                "${HOME}/.conkyrc"
     need_new_symlink ${SCRIPTPATH}/gitconfig              "${HOME}/.gitconfig"

@@ -6,8 +6,9 @@ load_paths.unshift("chrome://conkeror-contrib/content/");
 // hinting
 
 // add exceptions later
-// require("key-kill");
-// key_kill_mode.test.push(/\/\/.*\//); //regexp matches all sites
+// TODO: eventually incorporate my changes into conkeror
+require("webpage-key-kill");
+webpage_key_kill_mode.test.push(/\/\/.*\//); //regexp matches all sites
 
 // define_key(content_buffer_normal_keymap, "h", "browse-buffer-history");
 
