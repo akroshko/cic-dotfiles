@@ -4,7 +4,7 @@
 <!-- Author: Andrew Kroshko -->
 <!-- Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com> -->
 <!-- Created: Thu June 09, 2016 -->
-<!-- Version: 20180726 -->
+<!-- Version: 20180817 -->
 <!-- URL: https://github.com/akroshko/cic-groups -->
 
 <!-- This program is free software: you can redistribute it and/or modify -->
@@ -254,12 +254,12 @@
     </keybind>
     <!-- ================================================================================ -->
     <!-- These aren't actually secret searches, just here for convienience.  The content of the scripts changes depending on my current project/workflow.  Generally uses what is on primary to execute an action -->
-    <keybind key="F6">
-      <action name="ShowMenu"><menu>secret-search</menu></action>
-    </keybind>
-    <keybind key="M-F6">
-      <action name="Execute"><execute>bash -c "source ~/.bash_library;${HOME}/bin/secret-search.sh"</execute></action>
-    </keybind>
+    <!-- <keybind key="F6"> -->
+    <!--   <action name="ShowMenu"><menu>secret-search</menu></action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="M-F6"> -->
+    <!--   <action name="Execute"><execute>bash -c "source ~/.bash_library;${HOME}/bin/secret-search.sh"</execute></action> -->
+    <!-- </keybind> -->
     <keybind key="M-6">
       <action name="ShowMenu"><menu>secret-search</menu></action>
     </keybind>
@@ -282,9 +282,9 @@
       <action name="Execute"><execute>bash -c "python ${HOME}/cic-vcs/cic-groups/capture-bib.py;sleep 0.2;~/bin/launch-emacsclient noframe \"org-protocol:/capture:/X/empty/empty/empty\""</execute></action>
     </keybind>
     <!-- TODO: add notifications -->
-    <keybind key="F9">
-      <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-toggle.sh"</execute></action>
-    </keybind>
+    <!-- <keybind key="F9"> -->
+    <!--   <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-toggle.sh"</execute></action> -->
+    <!-- </keybind> -->
     <keybind key="M-k" chroot="true">
       <keybind key="Escape">
         <action name="BreakChroot"/>
@@ -375,56 +375,65 @@
     <!--   </keybind> -->
     <!-- </keybind> -->
     <!-- Test -->
-    <keybind key="C-F12">
-      <action name="Execute"><execute>python ${HOME}/bin/f12_help_panel.py</execute></action>
-    </keybind>
+    <!-- <keybind key="C-F12"> -->
+    <!--   <action name="Execute"><execute>python ${HOME}/bin/f12_help_panel.py</execute></action> -->
+    <!-- </keybind> -->
     <keybind key="F12" chroot="true">
       <keybind key="Escape">
-        <action name="Execute"><execute>bash -c "pkill -f f12_help_panel"</execute></action>
+        <!-- <action name="Execute"><execute>bash -c "pkill -f f12_help_panel"</execute></action> -->
         <action name="BreakChroot"/>
       </keybind>
-      <keybind key="C-bracketleft">
-        <action name="Execute"><execute>bash -c "pkill -f f12_help_panel"</execute></action>
-        <action name="BreakChroot"/>
-      </keybind>
-      <keybind key="C-h">
-        <action name="Execute"><execute>python ~/bin/f12_help_panel.py</execute></action>
-      </keybind>
-      <keybind key="F1">
-        <action name="Execute"><execute>python ~/bin/f12_help_panel.py</execute></action>
-      </keybind>
-      <keybind key="F5">
-        <action name="Execute"><execute>pause/play key</execute></action>
-      </keybind>
-      <keybind key="F6">
-        <action name="Execute"><execute>bash -c "amixer set Master 10%-;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
-      </keybind>
-      <keybind key="F7">
-        <action name="Execute"><execute>bash -c "amixer set Master 10%+;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action>
-      </keybind>
-      <keybind key="F8">
-        <action name="Execute"><execute>bash -c "amixer sset Master toggle;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-mute"</execute></action>
-      </keybind>
-      <!-- Put on control key too... -->
-      <keybind key="F9">
-        <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-toggle.sh"</execute></action>
-      </keybind>
-      <keybind key="F10">
-        <action name="Execute"><execute>bash -c "$HOME/bin/web-video-minimize.sh"</execute></action>
-        <action name="Execute"><execute>bash -c "pkill -f f12_help_panel"</execute></action>
-        <action name="BreakChroot"/>
-      </keybind>
-      <keybind key="F11">
-        <action name="Execute"><execute>bash -c "$HOME/bin/web-video-restore.sh"</execute></action>
-        <action name="Execute"><execute>bash -c "pkill -f f12_help_panel"</execute></action>
+      <keybind key="Backspace">
         <action name="BreakChroot"/>
       </keybind>
       <keybind key="F12">
-        <action name="Execute"><execute>bash -c "$HOME/bin/web-video-minimize.sh --all"</execute></action>
-        <action name="Execute"><execute>bash -c "pkill -f f12_help_panel"</execute></action>
-        <action name="BreakChroot"/>
+        <action name="Execute"><execute>~/bin/web-video-focus.sh</execute></action>
+      </keybind>
+      <keybind key="C-F12">
+        <action name="Execute"><execute>~/bin/web-video-focus-restore.sh</execute></action>
       </keybind>
     </keybind>
+    <!--   <keybind key="C-bracketleft"> -->
+    <!--     <action name="Execute"><execute>bash -c "pkill -f f12_help_panel"</execute></action> -->
+    <!--     <action name="BreakChroot"/> -->
+    <!--   </keybind> -->
+    <!--   <keybind key="C-h"> -->
+    <!--     <action name="Execute"><execute>python ~/bin/f12_help_panel.py</execute></action> -->
+    <!--   </keybind> -->
+    <!--   <keybind key="F1"> -->
+    <!--     <action name="Execute"><execute>python ~/bin/f12_help_panel.py</execute></action> -->
+    <!--   </keybind> -->
+    <!--   <keybind key="F5"> -->
+    <!--     <action name="Execute"><execute>pause/play key</execute></action> -->
+    <!--   </keybind> -->
+    <!--   <keybind key="F6"> -->
+    <!--     <action name="Execute"><execute>bash -c "amixer set Master 10%-;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action> -->
+    <!--   </keybind> -->
+    <!--   <keybind key="F7"> -->
+    <!--     <action name="Execute"><execute>bash -c "amixer set Master 10%+;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-volumes"</execute></action> -->
+    <!--   </keybind> -->
+    <!--   <keybind key="F8"> -->
+    <!--     <action name="Execute"><execute>bash -c "amixer sset Master toggle;source ~/.bash_library.d/bash_functions_stdlib;notify-amixer-mute"</execute></action> -->
+    <!--   </keybind> -->
+    <!-- Put on control key too... -->
+    <!--   <keybind key="F9"> -->
+    <!--     <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-toggle.sh"</execute></action> -->
+    <!--   </keybind> -->
+    <!--   <keybind key="F10"> -->
+    <!--     <action name="Execute"><execute>bash -c "$HOME/bin/web-video-minimize.sh"</execute></action> -->
+    <!--     <action name="Execute"><execute>bash -c "pkill -f f12_help_panel"</execute></action> -->
+    <!--     <action name="BreakChroot"/> -->
+    <!--   </keybind> -->
+    <!--   <keybind key="F11"> -->
+    <!--     <action name="Execute"><execute>bash -c "$HOME/bin/web-video-restore.sh"</execute></action> -->
+    <!--     <action name="Execute"><execute>bash -c "pkill -f f12_help_panel"</execute></action> -->
+    <!--     <action name="BreakChroot"/> -->
+    <!--   </keybind> -->
+    <!--   <keybind key="F12"> -->
+    <!-- <action name="Execute"><execute>bash -c "$HOME/bin/web-video-minimize.sh all"</execute></action> -->
+    <!--     <action name="Execute"><execute>bash -c "pkill -f f12_help_panel"</execute></action> -->
+    <!--     <action name="BreakChroot"/> -->
+    <!--   </keybind> -->
     <keybind key="M-W-9">
       <action name="Execute"><execute>~/bin/xclip-primary-insert-emacs-collection.sh</execute></action>
     </keybind>
@@ -476,6 +485,10 @@
     <!-- <keybind key="M-W-l"> -->
     <!--   <action name="Iconify"/> -->
     <!-- </keybind> -->
+    <!-- Some extra keys -->
+    <keybind key="S-BackSpace">
+      <action name="Iconify"/>
+    </keybind>
     <!-- ==== Keypad ======================================== -->
     <keybind key="KP_Begin">
       <action name="Execute"><execute>~/bin/switch-to-emacs-or-passthrough.sh</execute></action>

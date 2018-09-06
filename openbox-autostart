@@ -27,6 +27,7 @@
 # xrandr --auto --output DVI-0 --left-of VGA-0
 
 xmodmap ~/.xmodmaprc
+xmodmap ~/.xmodmaprc_numpad_fkeys
 # XXXX: restart openbox, this is necessary due to using /etc/default/keyboard to put control key on caps lock
 #       then to make xmodmap remapped hyper onto left control as openbox keys
 openbox --restart

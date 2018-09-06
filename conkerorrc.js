@@ -5,7 +5,7 @@ load_paths.unshift("chrome://conkeror-contrib/content/");
 // require('block-content-focus-change.js');
 // hinting
 
-// add exceptions later
+// TODO: add exceptions later, kill all but then whitelist some
 // TODO: eventually incorporate my changes into conkeror
 require("webpage-key-kill");
 webpage_key_kill_mode.test.push(/\/\/.*\//); //regexp matches all sites
@@ -387,13 +387,34 @@ user_pref("layers.offmainthreadcomposition.enabled", true);
 user_pref("gfx.canvas.azure.accelerated",true);
 // XXXX: needs to be low on low-memory devices
 user_pref("browser.preferences.defaultPerformanceSettings.enabled",false);
+// maybe these should just be default?
 user_pref("dom.ipc.processCount",4);
+user_pref("dom.workers.enabled",true);
+user_pref("dom.workers.sharedWorkers.enabled",true);
+user_pref("dom.workers.maxPerDomain",20);
+user_pref("dom.workers.websocket.enabled",true);
 // TODO https://wiki.mozilla.org/Electrolysis#Force_Enable
 // XXXX remove if not stable, but puts each window into its own process
 user_pref("browser.tabs.remote.force-enable",true);
-// TODO: not working yet...
 user_pref("media.hardware-video-decoding.enabled",true);
 user_pref("media.hardware-video-decoding.force-enabled",true);
+// 1001: disable disk cache
+user_pref("browser.cache.disk.enable",false);
+user_pref("browser.cache.disk.capacity", 0);
+user_pref("browser.cache.disk.smart_size.enabled", false);
+user_pref("browser.cache.disk.smart_size.first_run", false);
+// 1002: disable disk caching of SSL pages
+// http://kb.mozillazine.org/Browser.cache.disk_cache_ssl
+user_pref("browser.cache.disk_cache_ssl", false);
+user_pref("browser.cache.memory.enable ",true);
+// for 1GB computer, size in kb
+// http://kb.mozillazine.org/Browser.cache.memory.capacity
+user_pref("browser.cache.memory.capacity","32768");
+
+// XXXX: not sure if these can be session prefs or must be user prefs
+//       these seem to be needed for recaptcha v2
+user_pref("dom.w3c_pointer_events.enabled",true);
+user_pref("dom.messageChannel.enabled",true);
 
 // session preferences
 // fonts
@@ -407,37 +428,24 @@ session_pref("extensions.checkCompatibility", false);
 session_pref("extensions.checkUpdateSecurity", false);
 // TODO: this could be dangerous to disable, see if adblock latitude keeps working
 // session_pref("extensions.blocklist.enabled", false);
-
 session_pref("browser.history_expire_days",1);
 // session_pref("browser.download.manager.retention",1)
 // TODO do any of these actually work? some of these are broken...
 session_pref("browser.display.show_image_placeholders",false);
 session_pref("full-screen-api.enabled",true);
 // TODO: fix?
-// session_pref("gfx.font_rendering.directwrite.enabled",true);
-// session_pref("mozilla.widget.render-mode",6);
 // session_pref("network.prefetch-next",true);
 // TODO: are these still relevant?
-session_pref("network.http.max-persistent-connections-per-server",8);
-session_pref("network.http.pipelining",true);
-session_pref("network.http.pipelining.ssl",true);
-session_pref("network.http.pipelining.maxrequests",8);
+user_pref("network.http.max-persistent-connections-per-server",4);
+user_pref("network.http.pipelining",true);
+user_pref("network.http.pipelining.ssl",true);
+user_pref("network.http.pipelining.maxrequests",8);
 // session_pref("network.dns.disableIPv6",true);
 // performance stuff
 // I either have lots of memory or a slow computer
-// these can be set elsewhere too
-// 1001: disable disk cache
-session_pref("browser.cache.disk.enable",false);
-session_pref("browser.cache.disk.capacity", 0);
-session_pref("browser.cache.disk.smart_size.enabled", false);
-session_pref("browser.cache.disk.smart_size.first_run", false);
-// 1002: disable disk caching of SSL pages
-// http://kb.mozillazine.org/Browser.cache.disk_cache_ssl
-session_pref("browser.cache.disk_cache_ssl", false);
-session_pref("browser.cache.memory.enable ",true);
-session_pref("browser.cache.compression_level",0);
+user_pref("browser.cache.compression_level",0);
 // 1004: disable offline cache
-session_pref("browser.cache.offline.enable", false);
+user_pref("browser.cache.offline.enable", false);
 // 1005: disable storing extra session data 0=all 1=http-only 2=none
 // extra session data contains contents of forms, scrollbar positions, cookies and POST data
 session_pref("browser.sessionstore.privacy_level", 2);
@@ -499,7 +507,6 @@ session_pref("webgl.force-enabled", true);
 session_pref("browser.sessionhistory.max_entries", 50);
 
 // https://gist.github.com/haasn/69e19fc2fe0e25f3cff5
-// TODO: prefetching
 session_pref("dom.event.clipboardevents.enabled",false);
 session_pref("dom.battery.enabled",false);
 session_pref("loop.enabled",false);
@@ -597,6 +604,13 @@ function focusblock (buffer) {
         s);
 }
 add_hook('content_buffer_progress_change_hook', focusblock);
+
+// try to garbage collect so it does not happen all at once on slow computers
+function gcafterload (buffer) {
+    Cu.forceGC();
+}
+add_hook('content_buffer_finished_loading_hook', gcafterload);
+
 // really quick ones
 // these are here so the browser is functional even if json is not loaded
 // TODO: highlight following

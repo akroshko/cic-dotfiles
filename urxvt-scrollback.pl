@@ -4,7 +4,7 @@
 # Author: Andrew Kroshko
 # Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com>
 # Created: Sun Nov 19, 2017
-# Version: 20180516
+# Version: 20180823
 # URL: https://github.com/akroshko/dotfiles-stdlib
 #
 # This program is free software: you can redistribute it and/or modify
@@ -73,11 +73,14 @@ sub msg {
    # my $ov = $self->overlay (-1, 0, $self->strwidth ($msg), 1, urxvt::OVERLAY_RSTYLE, 0);
    my $ov = $self->overlay (0, 0, $self->strwidth ($msg), 1, urxvt::OVERLAY_RSTYLE, 0);
    $ov->set (0, 0, $msg);
-
+   # TODO: this seems to be after command is run, rather than after msg is called
+   #       still needs more diagnosis
+   # ->after (5)
+   my $msgtime = time();
    $self->{msg} =
       urxvt::timer
               ->new
-              ->after (5)
+              ->set ($msgtime,5)
               ->cb (sub { delete $self->{msg}; undef $ov; });
 }
 
@@ -87,39 +90,37 @@ sub msg {
 sub save_scrollback {
     my ($self) = @_;
 
-    # TODO: where to start
-    my $row = $self->top_row;
-    # TODO: create string...
-    my $scrollback = '';
-    # print "===================="  . "\n";
-    # print $row . "\n";
-    # print $self->top_row . "\n";
-    # print $self->nrow . "\n";
-    # print "===================="  . "\n";
-    while ($row <= $self->nrow) {
-        my $line = $self->line ($row)
-            or last;
-        my $text = $line->t;
-        # concat to string
-        $scrollback = $scrollback . $text. "\n";
-        $row = $row + 1;
-        # print $row . "\n";
-
-    }
-    # get rid of trailing newline
-    chomp($scrollback);
-    # create a datestamp and add it
-    # TODO: create directory if not exist
-    # system("bash", "-c", "cat > $HOME/tmp/collect/urxvt-$(date +%Y%m%d%H%M%S)");
+    # create a datestamp
     (my $sec,my $min,my $hour,my $mday,my $mon,my $year,my $wday,my $yday,my $isdst) = localtime();
     # y2k+100 problem
     my $year_number=1900+$year;
     my $mon_number=$mon+1;
-    my $timestamp = "$year_number$mon_number$mday$hour$min$sec";
+    my $timestamp = sprintf("%04d%02d%02d%02d%02d%02d", $year_number, $mon_number, $mday, $hour, $min, $sec);
+
+    # TODO: might want to use tempfile.... but this fine for now
     my $filename=$ENV{"HOME"} . "/tmp/collect/urxvt-$timestamp" . ".txt";
-    $self->msg ("Capturing scrollback to " . $filename);
+
+    my $row = $self->top_row;
+    my $notfirst = 0;
     open(my $fh,'>',$filename);
-    print $fh $scrollback;
+    while ($row <= $self->nrow) {
+        # TODO: eventually capture long lines like this
+        # my $line = $self->line ($row)
+        #     or last;
+        my $line = $self->ROW_t ($row)
+            or last;
+        if ($notfirst) {
+            print $fh "\n";
+        } else {
+            $notfirst = 1;
+        }
+        # TODO: for getting long lines all at once
+        # my $text = $line->t;
+        my $text = $line;
+        print $fh $text;
+        $row = $row + 1;
+    }
+    # get rid of trailing newline
     close $fh;
     $self->msg ("Successfully captured scrollback to " . $filename);
 
@@ -129,42 +130,38 @@ sub save_scrollback {
 sub save_scrollback_emacs {
     my ($self) = @_;
 
-    # TODO: where to start
-    my $row = $self->top_row;
-    # TODO: create string...
-    my $scrollback = '';
-    # print "===================="  . "\n";
-    # print $row . "\n";
-    # print $self->top_row . "\n";
-    # print $self->nrow . "\n";
-    # print "===================="  . "\n";
-    while ($row <= $self->nrow) {
-        my $line = $self->line ($row)
-            or last;
-        my $text = $line->t;
-        # concat to string
-        $scrollback = $scrollback . $text. "\n";
-        $row = $row + 1;
-        # print $row . "\n";
-
-    }
-    # get rid of trailing newline
-    chomp($scrollback);
-    # create a datestamp and add it
-    # TODO: create directory if not exist
-    # system("bash", "-c", "cat > $HOME/tmp/collect/urxvt-$(date +%Y%m%d%H%M%S)");
+    # create a datestamp
     (my $sec,my $min,my $hour,my $mday,my $mon,my $year,my $wday,my $yday,my $isdst) = localtime();
     # y2k+100 problem
     my $year_number=1900+$year;
     my $mon_number=$mon+1;
-    my $timestamp = "$year_number$mon_number$mday$hour$min$sec";
+    my $timestamp = sprintf("%04d%02d%02d%02d%02d%02d", $year_number, $mon_number, $mday, $hour, $min, $sec);
 
-    # TODO: might want to use tempfile.... but this fine
+    # TODO: might want to use tempfile.... but this fine for now
     my $filename=$ENV{"HOME"} . "/tmp/collect/urxvt-$timestamp" . ".txt";
-    open(my $fh,'>',$filename);
-    print $fh $scrollback;
-    close $fh;
 
+    my $row = $self->top_row;
+    my $notfirst = 0;
+    open(my $fh,'>',$filename);
+    while ($row <= $self->nrow) {
+        # TODO: eventually capture long lines like this
+        # my $line = $self->line ($row)
+        #     or last;
+        my $line = $self->ROW_t ($row)
+            or last;
+        if ($notfirst) {
+            print $fh "\n";
+        } else {
+            $notfirst = 1;
+        }
+        # TODO: for getting long lines all at once
+        # my $text = $line->t;
+        my $text = $line;
+        print $fh $text;
+        $row = $row + 1;
+    }
+    # get rid of trailing newline
+    close $fh;
     # XXXX: requires launch-emacsclient script in place
     # run shell command to read it into emacs
     my $emacs_command = $ENV{"HOME"} . "/bin/launch-emacsclient";
