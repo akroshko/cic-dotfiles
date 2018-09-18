@@ -4,7 +4,7 @@
 <!-- Author: Andrew Kroshko -->
 <!-- Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com> -->
 <!-- Created: Thu June 09, 2016 -->
-<!-- Version: 20180817 -->
+<!-- Version: 20180911 -->
 <!-- URL: https://github.com/akroshko/cic-groups -->
 
 <!-- This program is free software: you can redistribute it and/or modify -->
@@ -166,7 +166,7 @@
 
   <resize>
     <drawContents>yes</drawContents>
-    <popupShow>Nonpixel</popupShow>
+    <popupShow>Always</popupShow>
     <!-- 'Always', 'Never', or 'Nonpixel' (xterms and such) -->
     <popupPosition>Center</popupPosition>
     <!-- 'Center', 'Top', or 'Fixed' -->
@@ -258,28 +258,28 @@
     <!--   <action name="ShowMenu"><menu>secret-search</menu></action> -->
     <!-- </keybind> -->
     <!-- <keybind key="M-F6"> -->
-    <!--   <action name="Execute"><execute>bash -c "source ~/.bash_library;${HOME}/bin/secret-search.sh"</execute></action> -->
+    <!--   <action name="Execute"><execute>bash -c "source ~/.bash_library;$HOME/bin/secret-search.sh"</execute></action> -->
     <!-- </keybind> -->
     <keybind key="M-6">
       <action name="ShowMenu"><menu>secret-search</menu></action>
     </keybind>
     <keybind key="C-F6">
-      <action name="Execute"><execute>bash -c "source ${HOME}/.bash_library;${HOME}/bin/secret-search-ctrl.sh"</execute></action>
+      <action name="Execute"><execute>bash -c "source $HOME/.bash_library;$HOME/bin/secret-search-ctrl.sh"</execute></action>
     </keybind>
     <keybind key="W-F6">
-      <action name="Execute"><execute>bash -c "source ${HOME}/.bash_library;${HOME}/bin/secret-search-super.sh"</execute></action>
+      <action name="Execute"><execute>bash -c "source $HOME/.bash_library;$HOME/bin/secret-search-super.sh"</execute></action>
     </keybind>
     <keybind key="H-F6">
-      <action name="Execute"><execute>bash -c "source ${HOME}/.bash_library;${HOME}/bin/secret-search-hyper.sh"</execute></action>
+      <action name="Execute"><execute>bash -c "source $HOME/.bash_library;$HOME/bin/secret-search-hyper.sh"</execute></action>
     </keybind>
     <keybind key="M-F8">
-      <action name="Execute"><execute>bash -c "source ${HOME}/.bash_library;python ${HOME}/cic-vcs/cic-groups/capture-bib.py --delay;notify-send "Captured!!!" -t 5000"</execute></action>
+      <action name="Execute"><execute>bash -c "source $HOME/.bash_library;python $HOME/cic-vcs/cic-groups/capture-bib.py --delay;notify-send "Captured!!!" -t 5000"</execute></action>
     </keybind>
     <keybind key="M-8">
-      <action name="Execute"><execute>bash -c "source ${HOME}/.bash_library;python ${HOME}/cic-vcs/cic-groups/capture-bib.py --delay;notify-send "Captured!!!" -t 5000"</execute></action>
+      <action name="Execute"><execute>bash -c "source $HOME/.bash_library;python $HOME/cic-vcs/cic-groups/capture-bib.py --delay;notify-send "Captured!!!" -t 5000"</execute></action>
     </keybind>
     <keybind key="C-F8">
-      <action name="Execute"><execute>bash -c "python ${HOME}/cic-vcs/cic-groups/capture-bib.py;sleep 0.2;~/bin/launch-emacsclient noframe \"org-protocol:/capture:/X/empty/empty/empty\""</execute></action>
+      <action name="Execute"><execute>bash -c "python $HOME/cic-vcs/cic-groups/capture-bib.py;sleep 0.2;~/bin/launch-emacsclient noframe \"org-protocol:/capture:/X/empty/empty/empty\""</execute></action>
     </keybind>
     <!-- TODO: add notifications -->
     <!-- <keybind key="F9"> -->
@@ -376,7 +376,7 @@
     <!-- </keybind> -->
     <!-- Test -->
     <!-- <keybind key="C-F12"> -->
-    <!--   <action name="Execute"><execute>python ${HOME}/bin/f12_help_panel.py</execute></action> -->
+    <!--   <action name="Execute"><execute>python $HOME/bin/f12_help_panel.py</execute></action> -->
     <!-- </keybind> -->
     <keybind key="F12" chroot="true">
       <keybind key="Escape">
@@ -715,7 +715,7 @@
     <!--   <action name="Execute"><execute>xdotool click dash-dash-clearmodifiers 5</execute></action> -->
     <!-- </keybind> -->
     <keybind key="XF86Calculator">
-      <action name="Execute"><execute>xcalc</execute></action>
+      <action name="Execute"><execute>qalculate</execute></action>
     </keybind>
     <!-- TODO: get rid of source here for responsiveness -->
     <keybind key="XF86AudioLowerVolume">
@@ -830,7 +830,8 @@
     <doubleClickTime>500</doubleClickTime>
     <!-- in milliseconds (1000 = 1 second) -->
     <!-- TODO: should I make this much less? default was 400 -->
-    <screenEdgeWarpTime>200</screenEdgeWarpTime>
+    <!-- <screenEdgeWarpTime>200</screenEdgeWarpTime> -->
+    <screenEdgeWarpTime>0</screenEdgeWarpTime>
     <!-- Time before changing desktops when the pointer touches the edge of the
          screen while moving a window, in milliseconds (1000 = 1 second).
          Set this to 0 to disable warping -->

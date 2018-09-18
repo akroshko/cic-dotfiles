@@ -23,11 +23,11 @@
   </item>
   <separator />
   <item label="_Emacs">
-    <action name="Execute"><execute>bash -c "${HOME}/bin/launch-emacsclient"</execute></action>
+    <action name="Execute"><execute>bash -c "$HOME/bin/launch-emacsclient"</execute></action>
   </item>
   <!-- This requires a script in ~/bin for conkeror-->
   <item label="Web browser (_conkeror)">
-    <action name="Execute"><execute>bash -c "${HOME}/bin/conkeror"</execute></action>
+    <action name="Execute"><execute>bash -c "$HOME/bin/conkeror"</execute></action>
   </item>
   <item label="Calculator (_xcalc)">
     <action name="Execute"><execute>xcalc</execute></action>
