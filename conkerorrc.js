@@ -13,7 +13,7 @@ webpage_key_kill_mode.test.push(/\/\/.*\//); //regexp matches all sites
 // define_key(content_buffer_normal_keymap, "h", "browse-buffer-history");
 
 // hint_digits="abcdefghijklmnopqrstuvwxyz";
-hint_digits="asdfgqwertzxcvb";
+hint_digits="asdfgzxcvbqwert";
 register_user_stylesheet(
     "data:text/css," +
         escape(
@@ -28,13 +28,13 @@ register_user_stylesheet(make_css_data_uri(["*, .mode-line {border-color:#000000
 // standard keys
 define_key(content_buffer_normal_keymap, "C-[", "unfocus");
 // TODO: try to do this in single key
-define_key(content_buffer_form_keymap, "s-x",
+define_key(content_buffer_form_keymap, "s-v",
     "browser-object-relationship-next",
     $repeat = "follow");
-define_key(content_buffer_text_keymap, "s-x",
+define_key(content_buffer_text_keymap, "s-v",
     "browser-object-relationship-next",
     $repeat = "follow");
-define_key(content_buffer_normal_keymap, "s-x",
+define_key(content_buffer_normal_keymap, "s-v",
     "browser-object-relationship-next",
     $repeat = "follow");
 define_key(content_buffer_form_keymap, "f13",
@@ -147,15 +147,33 @@ interactive("browse-buffer-history",
 define_key(content_buffer_normal_keymap, "h", "browse-buffer-history");
 
 ////////////////////////////////////////
+// fix some keymaps
+// XXXX: the defaults break a lot of modern websites like youtube and
+//       twitter, better to just ensure default always done
+// TODO: figure out other things like this
+define_key(content_buffer_button_keymap, "space", "cmd_scrollPageDown",
+           $browser_object = browser_object_focused_element);
+// define_key(content_buffer_button_keymap, "return", "follow",
+//            $browser_object = browser_object_focused_element);
+
+////////////////////////////////////////
 // esdf keys, experimental
 // TODO: need new 10x, need new back
 // TODO: these could be better, exteriment
 // TODO: is this really what I want
-define_key(content_buffer_normal_keymap, "o",       "browser-object-media");
+define_key(content_buffer_normal_keymap, "o",   "browser-object-media");
 // follow and other surfing keys
-define_key(content_buffer_normal_keymap, "f",       "follow");
-define_key(content_buffer_normal_keymap, "s-f",     "follow-new-buffer");
-define_key(content_buffer_normal_keymap, "s-F",     "follow-new-buffer-background");
+define_key(content_buffer_normal_keymap, "f",   "follow");
+// TODO: do something with these, put elsewhere
+define_key(content_buffer_normal_keymap, "s-f", "follow-new-buffer");
+define_key(content_buffer_normal_keymap, "s-F", "follow-new-buffer-background");
+// s-f is enter in the minibuffer
+define_key(content_buffer_normal_keymap, "s-c", "follow");
+define_key(hint_keymap,                  "s-c", "hints-exit");
+define_key(hint_keymap,                  "s-x", "minibuffer-abort");
+// TODO: define more like this, add s-c==enter in text boxes
+define_key(minibuffer_keymap,            "s-c", "exit-minibuffer");
+// define_key(minibuffer_keymap,            "s-space", "minibuffer-complete");
 // TODO: sort this out
 define_key(content_buffer_normal_keymap, "w",   "follow-new-window");
 // TODO: esdf keys no longer used
@@ -189,6 +207,10 @@ clicks_in_new_buffer_button = 2;
 // m for mirror/duplicate
 // best ones are....
 // ???
+
+//
+
+
 // buffer switching
 define_key(content_buffer_normal_keymap, "s-space", "switch-to-buffer");
 define_key(minibuffer_keymap,            "s-space", "minibuffer-complete");
@@ -205,11 +227,11 @@ define_key(content_buffer_text_keymap,   "C-j",     "unfocus");
 // TODO: not sure if this is best, unfocus back some?
 define_key(content_buffer_normal_keymap, "a", "back");
 define_key(content_buffer_normal_keymap, "s-a", "back");
-define_key(content_buffer_normal_keymap, "s-c", "back");
+define_key(content_buffer_normal_keymap, "s-x", "back");
 define_key(content_buffer_normal_keymap, "s-l", "back");
 define_key(content_buffer_normal_keymap, "f21", "back");
 // define_key(content_buffer_normal_keymap, "F22", "forward");
-// define_key(content_buffer_normal_keymap, "s-g",   "find-url");
+define_key(content_buffer_normal_keymap, "s-g",   "find-url");
 // define_key(content_buffer_normal_keymap, "s-l g", "find-url");
 // emergency key to kill buffer quickly
 // TODO: used for other things
@@ -281,12 +303,12 @@ define_key(minibuffer_base_keymap,       "M-v", "yank");
 define_key(content_buffer_form_keymap,   "M-v", "yank");
 define_key(content_buffer_text_keymap,   "M-v", "yank");
 define_key(content_buffer_normal_keymap, "M-v", "paste-url");
-define_key(default_global_keymap,        "s-v", "paste-x-primary-selection");
-define_key(minibuffer_base_keymap,       "s-v", "paste-x-primary-selection");
-define_key(content_buffer_form_keymap,   "s-v", "paste-x-primary-selection");
-define_key(content_buffer_text_keymap,   "s-v", "paste-x-primary-selection");
-// TODO: I'd like a paste url primary
-define_key(content_buffer_normal_keymap, "s-v", "paste-url");
+// define_key(default_global_keymap,        "s-v", "paste-x-primary-selection");
+// define_key(minibuffer_base_keymap,       "s-v", "paste-x-primary-selection");
+// define_key(content_buffer_form_keymap,   "s-v", "paste-x-primary-selection");
+// define_key(content_buffer_text_keymap,   "s-v", "paste-x-primary-selection");
+// // TODO: I'd like a paste url primary
+// define_key(content_buffer_normal_keymap, "s-v", "paste-url");
 // scroll
 define_key(content_buffer_normal_keymap, "b",         "cmd_scrollPageUp");
 define_key(content_buffer_normal_keymap, "C-,",       "cmd_scrollPageUp");
@@ -804,19 +826,20 @@ proxy_widget.prototype = {
 ////////////////////////////////////////////////////////////////////////////////
 // find highlighted in google
 // see http://conkeror.org/Tips#Selection_Searches
-interactive("selection-search-google","Use current selection and search on Google.",
-    "find-url-new-buffer",
-    $browser_object = function (I) {
-        return "google " + I.buffer.top_frame.getSelection();
-    });
-define_key(content_buffer_normal_keymap, "s-g", "selection-search-google")
+// interactive("selection-search-google","Use current selection and search on Google.",
+//     "find-url-new-buffer",
+//     $browser_object = function (I) {
+//         return "google " + I.buffer.top_frame.getSelection();
+//     });
+// define_key(content_buffer_normal_keymap, "s-g", "selection-search-google")
 
-interactive("selection-search-scholar","Use current selection and search on Google Scholar.",
-    "find-url-new-buffer",
-    $browser_object = function (I) {
-        return "scholar " + I.buffer.top_frame.getSelection();
-    });
-define_key(content_buffer_normal_keymap, "s-s", "selection-search-scholar")
+// not for now
+// interactive("selection-search-scholar","Use current selection and search on Google Scholar.",
+//     "find-url-new-buffer",
+//     $browser_object = function (I) {
+//         return "scholar " + I.buffer.top_frame.getSelection();
+//     });
+// define_key(content_buffer_normal_keymap, "s-s", "selection-search-scholar")
 
 interactive("selection-search-wikipedia","Use current selection and search on Wikipedia.",
     "find-url-new-buffer",
@@ -869,7 +892,7 @@ interactive("fetch-video", "Fetch Video",
         var cmd_str = 'rxvt-unicode -cd "$HOME/Documents" -e bash -i -c "youtube-dl --no-cache-dir ' + I.buffer.display_uri_string + ';wait;while read -r -t 0;do read -r; done;read -n 1 -s -r -p \'Press any key to continue...\'"'
         shell_command_blind(cmd_str);
     });
-define_key(content_buffer_normal_keymap,"C-c v","fetch-video");
+define_key(content_buffer_normal_keymap,"C-x v","fetch-video");
 
 // fetch video as audio
 interactive("fetch-video-as-audio", "Fetch Video as audio",
@@ -879,7 +902,7 @@ interactive("fetch-video-as-audio", "Fetch Video as audio",
         var cmd_str = 'rxvt-unicode -cd "$HOME/Documents" -e bash -i -c "youtube-dl --no-cache-dir --extract-audio --audio-format mp3 --audio-quality 9 ' + I.buffer.display_uri_string + ';wait;while read -r -t 0; do read -r; done;read -n 1 -s -r -p \'Press any key to continue...\'"'
         shell_command_blind(cmd_str);
     });
-define_key(content_buffer_normal_keymap,"C-c V","fetch-video-as-audio");
+define_key(content_buffer_normal_keymap,"C-x V","fetch-video-as-audio");
 
 interactive("fetch-video-playlist-as-audio", "Fetch Video playlist as audio",
     function (I) {
@@ -888,7 +911,7 @@ interactive("fetch-video-playlist-as-audio", "Fetch Video playlist as audio",
         var cmd_str = 'rxvt-unicode -cd "$HOME/Documents" -e bash -i -c "youtube-dl --no-cache-dir --extract-audio --output \'%(playlist_title)s/%(playlist_title)s-%(playlist_index)s-%(title)s-%(id)s.%(ext)s\' --audio-format mp3 --audio-quality 9 ' + I.buffer.display_uri_string + ';wait;while read -r -t 0; do read -r; done;read -n 1 -s -r -p \'Press any key to continue...\'"'
         shell_command_blind(cmd_str);
     });
-define_key(content_buffer_normal_keymap,"C-c M-v","fetch-video-playlist-as-audio");
+define_key(content_buffer_normal_keymap,"C-x M-v","fetch-video-playlist-as-audio");
 
 // want C-c C-r to be restart
 define_key(default_global_keymap, "C-c r", "reload-config");
@@ -954,6 +977,14 @@ interactive("open-firefox-new-window", "",
     });
 // TODO is this the best way to do C-u?
 define_key(content_buffer_normal_keymap, "C-u C-c f", "open-firefox-new-window");
+
+// TOOD: go to beginning (by default preserve position)
+interactive("open-vlc", "Try opening current link in VLC.",
+    function (I) {
+        var cmd_str = '~/bin/vlc-local.sh "' + I.buffer.display_uri_string + '"';
+        shell_command_blind(cmd_str);
+    });
+define_key(content_buffer_normal_keymap, "C-c v", "open-vlc");
 
 // http://emacs-fu.blogspot.ca/2010/12/conkeror-web-browsing-emacs-way.html
 // reload conkerorrc with C-c r

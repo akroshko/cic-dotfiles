@@ -230,9 +230,15 @@
     <keybind key="C-W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
-    <keybind key="m-2">
-      <action name="ToggleShowDesktop"/>
+    <keybind key="M-l">
+      <!-- See raiselower -->
+      <action name="Lower"/>
+      <action name="FocusToBottom"/>
+      <action name="Unfocus"/>
     </keybind>
+    <!-- <keybind key="m-2"> -->
+    <!--   <action name="ToggleShowDesktop"/> -->
+    <!-- </keybind> -->
     <keybind key="M-F5">
       <action name="Execute"><execute>bash -c "source ~/.bash_library;conkeror-clipboard.sh google"</execute></action>
     </keybind>
@@ -489,6 +495,9 @@
     <keybind key="S-BackSpace">
       <action name="Iconify"/>
     </keybind>
+    <keybind key="W-c">
+      <action name="Execute"><execute>~/bin/switch-to-emacs-zathura-or-passthrough.sh</execute></action>
+    </keybind>
     <!-- ==== Keypad ======================================== -->
     <keybind key="KP_Begin">
       <action name="Execute"><execute>~/bin/switch-to-emacs-or-passthrough.sh</execute></action>
@@ -623,9 +632,20 @@
         <raise>yes</raise>
       </action>
     </keybind>
+    <!-- TODO: use for something else  -->
+    <!-- <keybind key="M-e"> -->
+    <!--   <action name="Execute"><execute>~/bin/switch-to-emacs-or-passthrough.sh</execute></action> -->
+    <!-- </keybind> -->
+    <!-- Switch to rxvt windows, hardcoded for speed -->
+    <keybind key="M-1">
+      <action name="Execute"><execute>~/bin/switch-to-windowclass.sh rxvt-unicode.URxvt</execute></action>
+    </keybind>
     <!-- Switch to emacs windows, hardcoded for speed -->
-    <keybind key="M-e">
+    <keybind key="M-2">
       <action name="Execute"><execute>~/bin/switch-to-emacs-or-passthrough.sh</execute></action>
+    </keybind>
+    <keybind key="M-3">
+      <action name="Execute"><execute>~/bin/switch-to-windowclass.sh Navigator.Conkeror</execute></action>
     </keybind>
     <!-- TODO: same thing for now? possibly use to ditch emacs? -->
     <!-- <keybind key="M-E"> -->

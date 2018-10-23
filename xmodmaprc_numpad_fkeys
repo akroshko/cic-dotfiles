@@ -1,24 +1,24 @@
-! keypad left is keycode 83,    remap to Prior
+! keypad left is keycode 83,     remap to Prior
 keycode 83 = Prior Prior Prior Prior
-! right is keycode 85,          remap to Next
+! right is keycode 85,           remap to Next
 keycode 85 = Next Next Next Next
-! keypad up is keycode 80,      remap to Up
+! keypad up is keycode 80,       remap to Up
 keycode 80 = Up Up Up Up
-! keypad up is keycode 88,      remap to Down
+! keypad down is keycode 88,     remap to Down
 keycode 88 = Down Down Down Down
-! keypad end is keycode 87,     remap to F13
+! keypad end is keycode 87,      remap to F13
 keycode 87 = F13 F13 F13 F13
-! keypad pgdn is keycode 88,    remap to F15
+! keypad pgdn is keycode 88,     remap to F15
 keycode 89 = F15 F15 F15 F15
-! keypad home is keycode 79,    remap to F17
+! keypad home is keycode 79,     remap to F17
 keycode 79 = F17 F17 F17 F17
-! keypad prior is keycode 81,   remap to F19
+! keypad prior is keycode 81,    remap to F19
 keycode 81 = F19 F19 F19 F19
-! keypad divide is keycode 106, remap to F21
+! keypad divide is keycode 106,  remap to F21
 keycode 106 = F21 F21 F21 F21
-! keypad prior is keycode 63,   remap to F22
+! keypad multiple is keycode 63, remap to F22
 keycode 63 = F22 F22 F22 F22
-! keypad insert is keycode 90,  remap to F23
+! keypad insert is keycode 90,   remap to F23
 keycode 90 = F23 F23 F23 F23
-! keypad insert is keycode 91,  remap to F24
+! keypad delete is keycode 91,   remap to F24
 keycode 91 = F24 F24 F24 F24

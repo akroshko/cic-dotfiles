@@ -14,12 +14,11 @@
  "anandtech":["http://www.anandtech.com/"],
  "archwiki":["https://wiki.archlinux.org/index.php?title=Special%3ASearch&search=%s&go=Go", "https://wiki.archlinux.org"],
  "archwiki-raid":["https://wiki.archlinux.org/index.php/RAID"],
- "arch-applications":["https://wiki.archlinux.org/index.php/list_of_applications"],
+ "archwiki-applications":["https://wiki.archlinux.org/index.php/list_of_applications"],
  "archive":["https://archive.org/search.php?query=%s","https://archive.org/"],
  "archive-wayback":["https://archive.org/web/"],
  "arstechnica":["https://arstechnica.com"],
  "allaboutcircuits":["http://www.allaboutcircuits.com/"],
-
  "bc-firehazard":["http://www2.gov.bc.ca/gov/content/safety/wildfire-status/fire-danger"],
  "be-electronics":["http://www.be-electronics.com/"],
  "books":[ "https://www.google.com/search?q=%s&tbm=bks", "https://books.google.com/"],

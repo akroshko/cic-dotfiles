@@ -18,6 +18,7 @@ main () {
     need_new_symlink "${SCRIPTPATH}/inputrc"                "$HOME/.inputrc"
     need_new_symlink "${SCRIPTPATH}/latexmkrc"              "$HOME/.latexmkrc"
     need_new_symlink "${SCRIPTPATH}/screenrc"               "$HOME/.screenrc"
+    need_new_symlink "${SCRIPTPATH}/wmcalc"                 "$HOME/.wmcalc"
     need_new_symlink "${SCRIPTPATH}/zile"                   "$HOME/.zile"
     need_new_symlink "${SCRIPTPATH}/pentadactylrc"          "$HOME/.pentadactylrc"
     # .config
@@ -42,21 +43,22 @@ main () {
     # XXXX: using backslash in front of cp does not work well on some systems I have for unknown reasons
     cp_if_different "${SCRIPTPATH}/pcmanfm.conf" "$HOME/.config/pcmanfm/default/pcmanfm.conf"
     # X11
-    need_new_symlink "${SCRIPTPATH}/xmodmaprc"              "$HOME/.xmodmaprc"
-    need_new_symlink "${SCRIPTPATH}/xmodmaprc_numpad_fkeys" "$HOME/.xmodmaprc_numpad_fkeys"
-    need_new_symlink "${SCRIPTPATH}/xpdfrc"                 "$HOME/.xpdfrc"
-    need_new_symlink "${SCRIPTPATH}/Xresources"             "$HOME/.Xresources"
+    need_new_symlink "${SCRIPTPATH}/xmodmaprc"                  "$HOME/.xmodmaprc"
+    need_new_symlink "${SCRIPTPATH}/xmodmaprc_numpad_fkeys"     "$HOME/.xmodmaprc_numpad_fkeys"
+    need_new_symlink "${SCRIPTPATH}/xmodmaprc_numpad_arrowkeys" "$HOME/.xmodmaprc_numpad_arrowkeys"
+    need_new_symlink "${SCRIPTPATH}/xpdfrc"                     "$HOME/.xpdfrc"
+    need_new_symlink "${SCRIPTPATH}/Xresources"                 "$HOME/.Xresources"
     # feh
-    need_new_directory                                      "$HOME/.config/feh"
-    need_new_symlink "${SCRIPTPATH}/feh-buttons"            "$HOME/.config/feh/buttons"
-    need_new_symlink "${SCRIPTPATH}/feh-keys"               "$HOME/.config/feh/keys"
+    need_new_directory                                          "$HOME/.config/feh"
+    need_new_symlink "${SCRIPTPATH}/feh-buttons"                "$HOME/.config/feh/buttons"
+    need_new_symlink "${SCRIPTPATH}/feh-keys"                   "$HOME/.config/feh/keys"
     # calibre
     # TODO: copying to avoid settings overwriting.... need to suppress this script if experimenting
-    need_new_directory                           "$HOME/.config/calibre/shortcuts"
+    need_new_directory                                          "$HOME/.config/calibre/shortcuts"
     # [[ -e $HOME/.config/calibre/shortcuts/viewer.plist ]] && rm $HOME/.config/calibre/shortcuts/viewer.plist
-    [[ -d "$HOME/.config/calibre/shortcuts" ]]              && cp_if_different "${SCRIPTPATH}/calibre-viewer.plist" "$HOME/.config/calibre/shortcuts/viewer.plist"
-    [[ -e "$HOME/.config/calibre/viewer.py" ]]              && rm                                                   "$HOME/.config/calibre/viewer.py"
-    [[ -d "$HOME/.config/calibre/" ]]                       && cp_if_different "${SCRIPTPATH}/calibre-viewer.py"    "$HOME/.config/calibre/viewer.py"
+    [[ -d "$HOME/.config/calibre/shortcuts" ]]               && cp_if_different "${SCRIPTPATH}/calibre-viewer.plist" "$HOME/.config/calibre/shortcuts/viewer.plist"
+    [[ -e "$HOME/.config/calibre/viewer.py" ]]               && rm                                                   "$HOME/.config/calibre/viewer.py"
+    [[ -d "$HOME/.config/calibre/" ]]                        && cp_if_different "${SCRIPTPATH}/calibre-viewer.py"    "$HOME/.config/calibre/viewer.py"
     # create some quick links
     need_new_directory "$HOME/bin"
     # TODO: do better, works for now

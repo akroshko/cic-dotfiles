@@ -71,14 +71,18 @@ URxvt*scrollstyle: rxvt
 ! from archwiki
 ! TODO: change all names to .pl
 ! TODO: forget how to even use this.... scrollback.pl,
-URxvt.perl-ext-common:          default
-URxvt.perl-ext:                 urxvt-clipboard.pl,urxvt-scrollback.pl,urxvt-new-terminal.pl,urxvt-searchable-scrollback.pl,urxvt-help.pl
-URxvt.iso14755:                 False
-URxvt.iconFile:                 /home/akroshko/.urxvt/terminal.svg
-URxvt.keysym.M-c:               perl:clipboard:copy
-URxvt.keysym.M-v:               perl:clipboard:paste
-URxvt.keysym.Control-period:    \033[6~
-URxvt.keysym.Control-comma:     \033[5~
+! TODO: is this good, no load default? because I change keys? see if this hurts functionality?
+! URxvt.perl-ext-common:       default
+URxvt.perl-ext-common:
+! XXXX: cic here to avoid conflicts
+URxvt.perl-ext:              cic-urxvt-clipboard.pl,cic-urxvt-scrollback.pl,cic-urxvt-new-terminal.pl,cic-urxvt-searchable-scrollback.pl,cic-urxvt-help.pl
+URxvt.iso14755:              False
+URxvt.iconFile:              /home/akroshko/.urxvt/terminal.svg
+URxvt.keysym.M-c:            perl:clipboard:copy
+URxvt.keysym.M-v:            perl:clipboard:paste
+URxvt.keysym.Control-period: \033[6~
+URxvt.keysym.Control-comma:  \033[5~
+! URxvt.keysym.M-r:            perl:searchable-scrollback:start
 ! URxvt.keysym.Control-period:    perl:pageup
 ! URxvt.keysym.Control-comma:     perl:pagedown
 ! see https://ubuntuforums.org/archive/index.php/t-783096.html
