@@ -4,7 +4,7 @@
 <!-- Author: Andrew Kroshko -->
 <!-- Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com> -->
 <!-- Created: Thu June 09, 2016 -->
-<!-- Version: 20180911 -->
+<!-- Version: 20181106 -->
 <!-- URL: https://github.com/akroshko/cic-groups -->
 
 <!-- This program is free software: you can redistribute it and/or modify -->
@@ -278,15 +278,36 @@
     <keybind key="H-F6">
       <action name="Execute"><execute>bash -c "source $HOME/.bash_library;$HOME/bin/secret-search-hyper.sh"</execute></action>
     </keybind>
-    <keybind key="M-F8">
-      <action name="Execute"><execute>bash -c "source $HOME/.bash_library;python $HOME/cic-vcs/cic-groups/capture-bib.py --delay;notify-send "Captured!!!" -t 5000"</execute></action>
+    <!-- <keybind key="M-F8"> -->
+    <!-- TODO add dash dash back -->
+    <!-- <action name="Execute"><execute>bash -c "source $HOME/.bash_library;python $HOME/cic-vcs/cic-groups/capture-bib.py delay;notify-send "Captured!!!" -t 5000"</execute></action> -->
+    <!-- </keybind> -->
+    <keybind key="W-7">
+      <action name="Execute"><execute>~/bin/send-s7-to-emacs.sh</execute></action>
     </keybind>
     <keybind key="M-8">
-      <action name="Execute"><execute>bash -c "source $HOME/.bash_library;python $HOME/cic-vcs/cic-groups/capture-bib.py --delay;notify-send "Captured!!!" -t 5000"</execute></action>
+      <action name="Execute"><execute>~/bin/send-m8-to-emacs.sh</execute></action>
     </keybind>
-    <keybind key="C-F8">
-      <action name="Execute"><execute>bash -c "python $HOME/cic-vcs/cic-groups/capture-bib.py;sleep 0.2;~/bin/launch-emacsclient noframe \"org-protocol:/capture:/X/empty/empty/empty\""</execute></action>
+    <keybind key="C-8">
+      <action name="Execute"><execute>~/bin/send-c8-to-emacs.sh</execute></action>
     </keybind>
+    <keybind key="W-8">
+      <action name="Execute"><execute>~/bin/send-s8-to-emacs.sh</execute></action>
+    </keybind>
+    <keybind key="M-W-8">
+      <action name="Execute"><execute>~/bin/send-ms8-to-emacs.sh</execute></action>
+    </keybind>
+    <keybind key="H-W-8">
+      <action name="Execute"><execute>~/bin/send-hs8-to-emacs.sh</execute></action>
+    </keybind>
+    <keybind key="C-W-8">
+      <action name="Lower"/>
+      <action name="Execute"><execute>~/bin/x11_restore_saved_window.sh</execute></action>
+    </keybind>
+    <!-- TODO will probably be deleted because I don't use org-protocol for much, it's too hard to debug -->
+    <!-- <keybind key="C-F8"> -->
+    <!--   <action name="Execute"><execute>bash -c "python $HOME/cic-vcs/cic-groups/capture-bib.py;sleep 0.2;~/bin/launch-emacsclient noframe \"org-protocol:/capture:/X/empty/empty/empty\""</execute></action> -->
+    <!-- </keybind> -->
     <!-- TODO: add notifications -->
     <!-- <keybind key="F9"> -->
     <!--   <action name="Execute"><execute>bash -c "$HOME/bin/web-video-pause-toggle.sh"</execute></action> -->
@@ -440,6 +461,17 @@
     <!--     <action name="Execute"><execute>bash -c "pkill -f f12_help_panel"</execute></action> -->
     <!--     <action name="BreakChroot"/> -->
     <!--   </keybind> -->
+    <!-- <keybind key="S-F11"> -->
+    <!--   <action name="Execute"><execute>bash -c "source ~/.bash_library;fullscreen-window-move"</execute></action> -->
+    <!-- </keybind> -->
+    <keybind key="C-F11">
+      <action name="Execute"><execute>bash -c "source ~/.bash_library;fullscreen-window-move"</execute></action>
+    </keybind>
+    <keybind key="S-F11">
+      <action name="Execute"><execute>bash -c "source ~/.bash_library;fullscreen-window-minimize"</execute></action>
+      <!-- <action name="Lower"/> -->
+      <!-- <action name="FocusToBottom"/> -->
+    </keybind>
     <keybind key="M-W-9">
       <action name="Execute"><execute>~/bin/xclip-primary-insert-emacs-collection.sh</execute></action>
     </keybind>
@@ -451,8 +483,18 @@
     <keybind key="M-S-F10">
       <action name="Execute"><execute>rxvt-unicode -e bash -i -c "while read -r -t 0;do read -r; done;IFS= read -n 1 -p 'Press [Enter] to hibernate or [Space] to abort... ' TRYAGAIN;if [[ ${TRYAGAIN} == ' ' ]];then echo '';echo 'Aborting hibernate!!!';sleep 5;else echo 'Hibernating...';sudo pm-hibernate;sleep 15;fi;"</execute></action>
     </keybind>
-    <keybind key="M-W-F11">
+    <keybind key="F11">
       <action name="ToggleFullscreen"/>
+      <action name="If">
+        <query target="default">
+           <maximized>yes</maximized>
+         </query>
+         <then>
+         </then>
+         <else>
+           <action name="Maximize"/>
+         </else>
+      </action>
     </keybind>
     <!-- keep for now, but want to remove -->
     <keybind key="M-W-m">
@@ -565,22 +607,64 @@
     <!-- TODO: temporary, need to decide -->
     <!-- snap left -->
     <keybind key="M-W-comma">
-      <action name="UnmaximizeFull"/>
-      <action name="MaximizeVert"/>
-      <action name="MoveResizeTo">
-        <width>50%</width>
-      </action>
-      <action name="MoveToEdge"><direction>west</direction></action>
+      <action name="Execute"><execute>~/bin/x11_snap_current_window.sh 0</execute></action>
     </keybind>
+    <!-- <keybind key="M-W-comma"> -->
+    <!--   <action name="If"> -->
+    <!--     <query target="default"> -->
+    <!--       <maximized>yes</maximized> -->
+    <!--     </query> -->
+    <!--     <then> -->
+    <!--       <action name="UnmaximizeFull"/> -->
+    <!--     </then> -->
+    <!--     <else> -->
+    <!--     </else> -->
+    <!--   </action> -->
+    <!--   <action name="If"> -->
+    <!--     <query target="default"> -->
+    <!--       <maximizedvertical>yes</maximizedvertical> -->
+    <!--     </query> -->
+    <!--     <then> -->
+    <!--     </then> -->
+    <!--     <else> -->
+    <!--       <action name="MaximizeVert"/> -->
+    <!--     </else> -->
+    <!--   </action> -->
+    <!--   <action name="MoveResizeTo"> -->
+    <!--     <width>50%</width> -->
+    <!--   </action> -->
+    <!--   <action name="MoveToEdge"><direction>west</direction></action> -->
+    <!-- </keybind> -->
     <!-- snap right -->
     <keybind key="M-W-period">
-      <action name="UnmaximizeFull"/>
-      <action name="MaximizeVert"/>
-      <action name="MoveResizeTo">
-        <width>50%</width>
-      </action>
-      <action name="MoveToEdge"><direction>east</direction></action>
+      <action name="Execute"><execute>~/bin/x11_snap_current_window.sh 1</execute></action>
     </keybind>
+    <!-- <keybind key="M-W-period">  -->
+    <!--   <action name="If"> -->
+    <!--     <query target="default"> -->
+    <!--       <maximized>yes</maximized> -->
+    <!--     </query> -->
+    <!--     <then> -->
+    <!--       <action name="UnmaximizeFull"/> -->
+    <!--     </then> -->
+    <!--     <else> -->
+    <!--     </else> -->
+    <!--   </action> -->
+    <!--   <action name="If"> -->
+    <!--     <query target="default"> -->
+    <!--       <maximizedvertical>yes</maximizedvertical> -->
+    <!--     </query> -->
+    <!--     <then> -->
+    <!--     </then> -->
+    <!--     <else> -->
+    <!--       <action name="MaximizeVert"/> -->
+    <!--     </else> -->
+    <!--   </action> -->
+    <!--   <action name="MoveResizeTo"> -->
+    <!--     <width>50%</width> -->
+    <!--   </action> -->
+    <!--   <action name="MoveToEdge"><direction>east</direction></action> -->
+    <!-- </keybind> -->
     <keybind key="M-W-bracketright">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">

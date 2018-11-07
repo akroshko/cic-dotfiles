@@ -73,7 +73,7 @@ xftfont Terminus:size=10
 
 # TODO: need much better way to deal with different hosts
 
-# ${color grey}Core 1:$color${execi 8 sensors | grep 'Core 0:' | sed -n 1p | cut -c14-19 | sed '/^$/d'}°C ${color grey}Core 2:$color${execi 8 sensors | grep 'Core 1:' | sed -n 1p | cut -c14-19 | sed '/^$/d'}°C ${color grey}Core 3:$color${execi 8 sensors | grep 'Core 2:' | sed -n 1p | cut -c14-19 | sed '/^$/d'}°C ${color grey}Core 4:$color${execi 8 sensors | grep 'Core 3:' | sed -n 1p | cut -c14-19 | sed '/^$/d'}°C ${color grey}\
+# ${color grey}Core 1:$color${execi 8 sensors | sed -e '/Core 0:/!d' | sed -n 1p | cut -c14-19 | sed -e '/^$/d'}°C ${color grey}Core 2:$color${execi 8 sensors | sed -e '/Core 1:/!d' | sed -n 1p | cut -c14-19 | sed -e '/^$/d'}°C ${color grey}Core 3:$color${execi 8 sensors | sed -e '/Core 2:/!d' | sed -n 1p | cut -c14-19 | sed -e '/^$/d'}°C ${color grey}Core 4:$color${execi 8 sensors | grep sed -e '/Core 3:/!d' | sed -n 1p | cut -c14-19 | sed -e '/^$/d'}°C ${color grey}\
 
 TEXT
 $nodename - $sysname $kernel on $machine $alignr${time %b/%a/%d} ${time %k:%M:%S}
@@ -93,10 +93,10 @@ ${else}\
 ${color grey}CPU Cores:$color ${cpu cpu1}% ${cpu cpu2}% ${cpu cpu3}% ${cpu cpu4}%
 ${endif}
 ${if_match "${nodename}" == "akroshko-laptop"}\
-${color grey}Core 1:$color${execi 8 sensors | grep 'Core 0:' | sed -n 1p | cut -c14-19 | sed '/^$/d'}°C ${color grey}Core 2:$color${execi 8 sensors | grep 'Core 1:' | sed -n 1p | cut -c14-19 | sed '/^$/d'}°C \
+${color grey}Core 1:$color${execi 8 sensors | sed -e '/Core 0:/!d' | sed -n 1p | cut -c14-19 | sed -e '/^$/d'}°C ${color grey}Core 2:$color${execi 8 sensors | sed -e '/Core 1:/!d' | sed -n 1p | cut -c14-19 | sed -e '/^$/d'}°C \
 ${else}\
-${color grey}CPU:$color${execi 8 sensors | grep 'temp1' | sed -n 1p | cut -c14-19 | sed '/^$/d'}°C ${color grey}MB:$color${execi 8 sensors | grep 'temp1' | sed -n 2p | cut -c14-19 | sed '/^$/d'}°C ${color grey}CPUTIN:$color${execi 8 sensors | grep 'CPUTIN' | sed -n 1p | cut -c24-29 | sed '/^$/d'}°C
-${color grey}Fan 1:$color${execi 8 sensors | grep 'fan1' | sed -n 1p | cut -c23-27}rpm ${color grey}Fan 2:$color${execi 8 sensors | grep 'fan2' | sed -n 1p | cut -c23-27}rpm ${color grey}Fan 3:$color${execi 8 sensors | grep 'fan3' | sed -n 1p | cut -c23-27}rpm\
+${color grey}CPU:$color${execi 8 sensors | sed -e '/temp1/!d' | sed -n 1p | cut -c14-19 | sed -e '/^$/d'}°C ${color grey}MB:$color${execi 8 sensors | sed -e '/temp1/!d' | sed -n 2p | cut -c14-19 | sed -e '/^$/d'}°C ${color grey}CPUTIN:$color${execi 8 sensors | sed -e '/CPUTIN/!d' | sed -n 1p | cut -c24-29 | sed -e '/^$/d'}°C
+${color grey}Fan 1:$color${execi 8 sensors | sed -e '/fan1/!d' | sed -n 1p | cut -c23-27}rpm ${color grey}Fan 2:$color${execi 8 sensors | sed -e '/fan2/!d' | sed -n 1p | cut -c23-27}rpm ${color grey}Fan 3:$color${execi 8 sensors | sed -e '/fan3/!d' | sed -n 1p | cut -c23-27}rpm\
 ${endif}
 ${color grey}RAM  Usage:$color $mem/$memmax $memperc% ${membar 4}
 ${color grey}Swap Usage:$color $swap/$swapmax $swapperc%  ${swapbar 4}

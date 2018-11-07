@@ -49,7 +49,7 @@
     </array>
     <key>Quit</key>
     <array>
-      <string>Q</string>
+      <string>`</string>
     </array>
     <!-- modify these for scrolling around stuff??? -->
     <key>Right</key>

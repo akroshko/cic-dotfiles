@@ -156,6 +156,12 @@ define_key(content_buffer_button_keymap, "space", "cmd_scrollPageDown",
 // define_key(content_buffer_button_keymap, "return", "follow",
 //            $browser_object = browser_object_focused_element);
 
+
+// comapred to q, this stops me from closing accidently
+define_key(default_global_keymap,        "q",     null);
+define_key(default_global_keymap,        "`",     "kill-current-buffer");
+define_key(default_global_keymap,        "M-`",   "kill-current-buffer");
+define_key(default_global_keymap,        "C-`",   "delete-window");
 ////////////////////////////////////////
 // esdf keys, experimental
 // TODO: need new 10x, need new back
@@ -576,6 +582,14 @@ interactive("copy-url-title","Copy url and title to clipboard in org-mode format
         I.window.minibuffer.message("Copied to clipboard: " + the_url_title);
     });
 define_key(content_buffer_normal_keymap, "s-0", "copy-url-title");
+
+interactive("copy-url-selected","Copy url and the selected text to clipboard in org-mode format.",
+    function (I) {
+        var the_url_selected="[[" + I.buffer.current_uri.spec + "][" + read_from_x_primary_selection() + "]]";
+        writeToClipboard(the_url_selected);
+        I.window.minibuffer.message("Copied to clipboard: " + the_url_selected);
+    });
+define_key(content_buffer_normal_keymap, "C-0", "copy-url-selected");
 
 // So `* p c` will copy the title of the current buffer
 

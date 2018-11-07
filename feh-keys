@@ -45,7 +45,7 @@ zoom_fit          underscore   F
 # TODO: other key for this?
 zoom_fill         equal
 # no second key for quit, I press escape too many times accidently
-quit              q
+quit              q            grave
 # TODO: should I switch these around?
 reload_image      grave
 render            r

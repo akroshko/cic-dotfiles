@@ -15,11 +15,14 @@ set window-height       1080
 # XXXX: I use primary for many things these days
 set selection-clipboard primary
 # TODO: would love to get command period working here
+# quit that is not so easy
+map [normal]            `          quit
+map [fullscreen]        `          quit
 # map reload
 map [normal]            %          reload
 map [fullscreen]        %          reload
-map [normal]            `          reload
-map [fullscreen]        `          reload
+# map [normal]            `          reload
+# map [fullscreen]        `          reload
 # change from navigate previous, navigate next
 map [normal]            b          scroll full-up
 map [fullscreen]        b          scroll full-up
