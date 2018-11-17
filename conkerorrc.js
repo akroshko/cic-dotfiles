@@ -28,13 +28,13 @@ register_user_stylesheet(make_css_data_uri(["*, .mode-line {border-color:#000000
 // standard keys
 define_key(content_buffer_normal_keymap, "C-[", "unfocus");
 // TODO: try to do this in single key
-define_key(content_buffer_form_keymap, "s-v",
+define_key(content_buffer_form_keymap, "s-c",
     "browser-object-relationship-next",
     $repeat = "follow");
-define_key(content_buffer_text_keymap, "s-v",
+define_key(content_buffer_text_keymap, "s-c",
     "browser-object-relationship-next",
     $repeat = "follow");
-define_key(content_buffer_normal_keymap, "s-v",
+define_key(content_buffer_normal_keymap, "s-c",
     "browser-object-relationship-next",
     $repeat = "follow");
 define_key(content_buffer_form_keymap, "f13",
@@ -158,7 +158,9 @@ define_key(content_buffer_button_keymap, "space", "cmd_scrollPageDown",
 
 
 // comapred to q, this stops me from closing accidently
-define_key(default_global_keymap,        "q",     null);
+define_key(default_global_keymap,        "q",     "kill-current-buffer");
+define_key(default_global_keymap,        "s-q",   "kill-current-buffer");
+// TODO: fix these
 define_key(default_global_keymap,        "`",     "kill-current-buffer");
 define_key(default_global_keymap,        "M-`",   "kill-current-buffer");
 define_key(default_global_keymap,        "C-`",   "delete-window");
@@ -170,15 +172,17 @@ define_key(default_global_keymap,        "C-`",   "delete-window");
 define_key(content_buffer_normal_keymap, "o",   "browser-object-media");
 // follow and other surfing keys
 define_key(content_buffer_normal_keymap, "f",   "follow");
+define_key(content_buffer_normal_keymap, "s-f", "follow");
 // TODO: do something with these, put elsewhere
-define_key(content_buffer_normal_keymap, "s-f", "follow-new-buffer");
+// define_key(content_buffer_normal_keymap, "s-f", "follow-new-buffer");
 define_key(content_buffer_normal_keymap, "s-F", "follow-new-buffer-background");
 // s-f is enter in the minibuffer
-define_key(content_buffer_normal_keymap, "s-c", "follow");
 define_key(hint_keymap,                  "s-c", "hints-exit");
-define_key(hint_keymap,                  "s-x", "minibuffer-abort");
+define_key(hint_keymap,                  "s-f", "hints-exit");
+// define_key(hint_keymap,                  "s-x", "minibuffer-abort");
 // TODO: define more like this, add s-c==enter in text boxes
 define_key(minibuffer_keymap,            "s-c", "exit-minibuffer");
+define_key(minibuffer_keymap,            "s-f", "exit-minibuffer");
 // define_key(minibuffer_keymap,            "s-space", "minibuffer-complete");
 // TODO: sort this out
 define_key(content_buffer_normal_keymap, "w",   "follow-new-window");
@@ -592,7 +596,6 @@ interactive("copy-url-selected","Copy url and the selected text to clipboard in 
 define_key(content_buffer_normal_keymap, "C-0", "copy-url-selected");
 
 // So `* p c` will copy the title of the current buffer
-
 
 // Adblock Plus
 // http://conkeror.org/AdblockPlus

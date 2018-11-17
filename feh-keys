@@ -45,13 +45,13 @@ zoom_fit          underscore   F
 # TODO: other key for this?
 zoom_fill         equal
 # no second key for quit, I press escape too many times accidently
-quit              q            grave
+quit              q
 # TODO: should I switch these around?
-reload_image      grave
+reload_image      C-r
 render            r
 # TODO: should I use < >, but I use them for top/bottom in other apps and emacs
-# TODO: bad...
-# orient_3          R
+# TODO: figure out and sync with zathura
+orient_3          R
 # orient_1          r
 # hack to give g for gimp-edit along with feh-open-browse sh script
 action_6          6            g

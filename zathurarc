@@ -16,11 +16,13 @@ set window-height       1080
 set selection-clipboard primary
 # TODO: would love to get command period working here
 # quit that is not so easy
-map [normal]            `          quit
-map [fullscreen]        `          quit
+map [normal]            q          quit
+map [fullscreen]        q          quit
 # map reload
 map [normal]            %          reload
 map [fullscreen]        %          reload
+map [normal]            r          reload
+map [fullscreen]        r          reload
 # map [normal]            `          reload
 # map [fullscreen]        `          reload
 # change from navigate previous, navigate next
@@ -89,6 +91,9 @@ map [normal]            W        adjust_window width
 map [fullscreen]        W        adjust_window width
 map [normal]            F        adjust_window fit
 map [fullscreen]        F        adjust_window fit
+# TOOD: rotate other way?
+map [normal]            R        rotate rotate-cw
+map [fullscreen]        R        rotate rotate-cw
 # TODO: need a capital letter for fit
 # things don't seem to work
 map [normal]            <C-,>    navigate previous
