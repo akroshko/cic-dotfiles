@@ -1,3 +1,5 @@
+var g_rc_successful=false;
+
 // https://github.com/vedang/conkeror-rc/blob/master/README
 homepage = "http://conkeror.org/";
 load_paths.unshift("chrome://conkeror-contrib/content/");
@@ -160,10 +162,9 @@ define_key(content_buffer_button_keymap, "space", "cmd_scrollPageDown",
 // comapred to q, this stops me from closing accidently
 define_key(default_global_keymap,        "q",     "kill-current-buffer");
 define_key(default_global_keymap,        "s-q",   "kill-current-buffer");
-// TODO: fix these
-define_key(default_global_keymap,        "`",     "kill-current-buffer");
-define_key(default_global_keymap,        "M-`",   "kill-current-buffer");
-define_key(default_global_keymap,        "C-`",   "delete-window");
+// TODO: alternate for these
+// define_key(default_global_keymap,        "M-`",   "kill-current-buffer");
+// define_key(default_global_keymap,        "C-`",   "delete-window");
 ////////////////////////////////////////
 // esdf keys, experimental
 // TODO: need new 10x, need new back
@@ -217,8 +218,6 @@ clicks_in_new_buffer_button = 2;
 // m for mirror/duplicate
 // best ones are....
 // ???
-
-//
 
 
 // buffer switching
@@ -706,7 +705,7 @@ function load_webjumps_json (path) {
     // https://stackoverflow.com/questions/2930852/javascript-how-to-remove-line-that-contain-specific-string
     var string_json_nocomment = string_json.replace(/^\s*\/\/.*$/mg,'');
     var parsed_json = JSON.parse(string_json_nocomment);
-    for (entry in parsed_json) {
+    for (let entry in parsed_json) {
         if (parsed_json[entry].length == 2) {
             define_webjump(entry,String(parsed_json[entry][0]),$alternative=String(parsed_json[entry][1]));
         } else {
@@ -885,7 +884,7 @@ define_key(content_buffer_normal_keymap, "s-G", "clipboard-search-google")
 interactive("copy-all-urls", "Copy all URLs",
     function (I) {
         var urls="";
-        for (var i = 0, nbuffers = I.window.buffers.count; i < nbuffers; i++ ) {
+        for (let i = 0, nbuffers = I.window.buffers.count; i < nbuffers; i++ ) {
             urls = urls + "\n" + "[[" + I.window.buffers.get_buffer(i).display_uri_string + "]] -- " + I.window.buffers.get_buffer(i).document.title;
         }
         urls = urls + "\n";
@@ -1120,7 +1119,7 @@ interactive("twitch-enumerate-api",
         // https://openuserjs.org/scripts/flipperbw/Twitch_Hotkeys/source
         var player = I.buffer.document.getElementsByClassName('player-video')[0].getElementsByTagName('video')[0];
         thestring = "";
-        for (var p in player) {
+        for (let p in player) {
             thestring+=(String(p) + " :: " + String(player[p]));
             thestring+="\n";
         }
@@ -1158,7 +1157,7 @@ interactive("youtube-enumerate-api",
     function (I) {
         // https://www.youtube.com/iframe_api
         var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
-        for (var p in player) {
+        for (let p in player) {
             I.window.alert(p);
         }
     });
@@ -1384,3 +1383,5 @@ base64.encode = function(s) {
     }
     return x.join('');
 }
+
+var g_rc_successful=true;

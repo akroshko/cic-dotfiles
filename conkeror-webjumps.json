@@ -61,6 +61,7 @@
  "flotrack":["http://www.flotrack.org"],
  "fvwm":["http://fvwm.org/"],
  "github":[ "https://github.com/"],
+ // "gmail":[ "https://mail.google.com/mail/?ui=html&zy=h"],
  "gmail":[ "https://mail.google.com/"],
  "gnuplot":[ "http://www.gnuplot.info"],
  "googleimages":[ "http://www.google.com/images?q=%s&safe=off", "https://www.google.com/imghp?as_q=&safe=off"],
