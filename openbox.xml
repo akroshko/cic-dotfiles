@@ -330,6 +330,11 @@
       <!-- <action name="Lower"/> -->
       <!-- <action name="FocusToBottom"/> -->
     </keybind>
+    <keybind key="F12">
+      <action name="Execute"><execute>bash -c "source ~/.bash_library;fullscreen-window-minimize"</execute></action>
+      <!-- <action name="Lower"/> -->
+      <!-- <action name="FocusToBottom"/> -->
+    </keybind>
     <keybind key="M-W-9">
       <action name="Execute"><execute>~/bin/xclip-primary-insert-emacs-collection.sh</execute></action>
     </keybind>
