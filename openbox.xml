@@ -4,7 +4,7 @@
 <!-- Author: Andrew Kroshko -->
 <!-- Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com> -->
 <!-- Created: Thu June 09, 2016 -->
-<!-- Version: 20181122 -->
+<!-- Version: 20181214 -->
 <!-- URL: https://github.com/akroshko/cic-groups -->
 
 <!-- This program is free software: you can redistribute it and/or modify -->
@@ -277,13 +277,6 @@
     <keybind key="H-F6">
       <action name="Execute"><execute>bash -c "source $HOME/.bash_library;$HOME/bin/secret-search-hyper.sh"</execute></action>
     </keybind>
-    <!-- <keybind key="M-F8"> -->
-    <!-- TODO add dash dash back -->
-    <!-- <action name="Execute"><execute>bash -c "source $HOME/.bash_library;python $HOME/cic-vcs/cic-groups/capture-bib.py delay;notify-send "Captured!!!" -t 5000"</execute></action> -->
-    <!-- </keybind> -->
-    <keybind key="W-7">
-      <action name="Execute"><execute>~/bin/send-s7-to-emacs.sh</execute></action>
-    </keybind>
     <keybind key="M-8">
       <action name="Execute"><execute>~/bin/send-m8-to-emacs.sh</execute></action>
     </keybind>
@@ -296,8 +289,8 @@
     <keybind key="M-W-8">
       <action name="Execute"><execute>~/bin/send-ms8-to-emacs.sh</execute></action>
     </keybind>
-    <keybind key="H-W-8">
-      <action name="Execute"><execute>~/bin/send-hs8-to-emacs.sh</execute></action>
+    <keybind key="W-0">
+      <action name="Execute"><execute>~/bin/x11-s0-capture.sh</execute></action>
     </keybind>
     <keybind key="m-k">
       <action name="Lower"/>
@@ -307,21 +300,21 @@
     <!-- <keybind key="C-F12"> -->
     <!--   <action name="Execute"><execute>python $HOME/bin/f12_help_panel.py</execute></action> -->
     <!-- </keybind> -->
-    <keybind key="F12" chroot="true">
-      <keybind key="Escape">
-        <!-- <action name="Execute"><execute>bash -c "pkill -f f12_help_panel"</execute></action> -->
-        <action name="BreakChroot"/>
-      </keybind>
-      <keybind key="Backspace">
-        <action name="BreakChroot"/>
-      </keybind>
-      <keybind key="F12">
-        <action name="Execute"><execute>~/bin/web-video-focus.sh</execute></action>
-      </keybind>
-      <keybind key="C-F12">
-        <action name="Execute"><execute>~/bin/web-video-focus-restore.sh</execute></action>
-      </keybind>
-    </keybind>
+    <!-- <keybind key="F12" chroot="true"> -->
+    <!--   <keybind key="Escape"> -->
+    <!-- <action name="Execute"><execute>bash -c "pkill -f f12_help_panel"</execute></action> -->
+    <!--     <action name="BreakChroot"/> -->
+    <!--   </keybind> -->
+    <!--   <keybind key="Backspace"> -->
+    <!--     <action name="BreakChroot"/> -->
+    <!--   </keybind> -->
+    <!--   <keybind key="F12"> -->
+    <!--     <action name="Execute"><execute>~/bin/web-video-focus.sh</execute></action> -->
+    <!--   </keybind> -->
+    <!--   <keybind key="C-F12"> -->
+    <!--     <action name="Execute"><execute>~/bin/web-video-focus-restore.sh</execute></action> -->
+    <!--   </keybind> -->
+    <!-- </keybind> -->
     <keybind key="C-F11">
       <action name="Execute"><execute>bash -c "source ~/.bash_library;fullscreen-window-move"</execute></action>
     </keybind>
@@ -335,8 +328,14 @@
       <!-- <action name="Lower"/> -->
       <!-- <action name="FocusToBottom"/> -->
     </keybind>
-    <keybind key="M-W-9">
+    <keybind key="m-9">
       <action name="Execute"><execute>~/bin/xclip-primary-insert-emacs-collection.sh</execute></action>
+    </keybind>
+    <keybind key="W-9">
+      <action name="Execute"><execute>~/bin/send-s9-to-emacs.sh</execute></action>
+    </keybind>
+    <keybind key="C-9">
+      <action name="Execute"><execute>~/bin/send-c9-to-emacs.sh</execute></action>
     </keybind>
     <!-- <keybind key="C-0"> -->
     <!--   <action name="Execute"><execute>bash -c "export PATH=\"${PATH}:~/bin\";source ~/.bash_library.d/bash_functions_stdlib;master-boss-key"</execute></action> -->
@@ -377,14 +376,16 @@
       <action name="ToggleMaximize"/>
     </keybind>
     <keybind key="Print">
-      <action name="Execute"><execute>bash -c "source ~/.bash_library.d/bash_functions_stdlib;source ~/.bash_library.d/bashrc_functions_external;source ~/.bash_library.d/bash_library_std;screenshot-screen"</execute></action>
+      <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-screen"</execute></action>
+    </keybind>
+    <keybind key="S-Print">
+      <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window"</execute></action>
     </keybind>
     <keybind key="M-Print">
       <action name="ShowMenu"><menu>screen-capture</menu></action>
     </keybind>
     <keybind key="C-Print">
-      <action name="ShowMenu"><menu>screen-capture-current-capture</menu></action>
-      <!-- <action name="Execute"><execute>bash -c "source ~/.bash_library.d/bash_functions_stdlib;source ~/.bash_library.d/bashrc_functions_external;source ~/.bash_library.d/bash_library_std;screenshot-selection"</execute></action> -->
+      <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window-show"</execute></action>
     </keybind>
     <!-- temporary... -->
     <keybind key="M-W-slash">
@@ -732,11 +733,12 @@
         <raise>yes</raise>
       </action>
     </keybind>
-    <keybind key="H-z">
-      <action name="NextWindow">
-        <raise>yes</raise>
-      </action>
-    </keybind>
+    <!-- TODO nonfunctional -->
+    <!-- <keybind key="H-z"> -->
+    <!--   <action name="NextWindow"> -->
+    <!--     <raise>yes</raise> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
     <keybind key="M-z">
       <action name="ShowMenu"><menu>prog</menu></action>
     </keybind>

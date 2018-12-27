@@ -71,6 +71,6 @@ main () {
     need_new_symlink "${SCRIPTPATH}/../bash-stdlib/web-video-restore.sh"        "$HOME/bin/web-video-restore.sh"
     need_new_symlink "${SCRIPTPATH}/../bash-stdlib/x11_restore_saved_window.sh" "$HOME/bin/x11_restore_saved_window.sh"
     need_new_symlink "${SCRIPTPATH}/../bash-stdlib/x11_save_focused_window.sh"  "$HOME/bin/x11_save_focused_window.sh"
-    need_new_symlink "${SCRIPTPATH}/../bash-stdlib/zathura-local.sh"           "$HOME/bin/zathura-local.sh"
+    need_new_symlink "${SCRIPTPATH}/../bash-stdlib/zathura-tex-local.sh"        "$HOME/bin/zathura-tex-local.sh"
 }
 main

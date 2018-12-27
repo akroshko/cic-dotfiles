@@ -13,7 +13,9 @@ set scroll-full-overlap 0.075
 set window-width        1920
 set window-height       1080
 # XXXX: I use primary for many things these days
-set selection-clipboard primary
+# set selection-clipboard primary
+# TODO: see how this works
+set selection-clipboard clipboard
 # TODO: would love to get command period working here
 # quit that is not so easy
 map [normal]            q          quit
