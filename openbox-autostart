@@ -38,4 +38,4 @@ if [ -z "$XDG_RUNTIME_DIR" ]; then
     export XDG_RUNTIME_DIR=/run/user/$(id -u)
 fi
 # XXXX: xscreensaver actually init'd in my ~/.bash_profile (which is sourced from ~/.profile) file
-rxvt-unicode -e bash -i -c "exportSUPPRESSTERMRESIZE=1;source ~/.profile" &
+rxvt-unicode -e bash -i -c "export SUPPRESSTERMRESIZE=1;source ~/.profile" &
