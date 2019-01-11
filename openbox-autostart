@@ -33,9 +33,10 @@ xmodmap ~/.xmodmaprc_numpad_fkeys
 openbox --restart
 # let openbox restart fully
 sleep 3
-# XXXX: is this needed for systemd?
+# XXXX: this is needed for systemd
 if [ -z "$XDG_RUNTIME_DIR" ]; then
-    export XDG_RUNTIME_DIR=/run/user/$(id -u)
+    # XXXX: xscreensaver actually init'd in my ~/.bash_profile (which is sourced from ~/.profile) file
+    rxvt-unicode -e bash -i -c "export SUPPRESSTERMRESIZE=1;export XDG_RUNTIME_DIR=/run/user/$(id -u);source ~/.profile" &
+else
+    rxvt-unicode -e bash -i -c "export SUPPRESSTERMRESIZE=1;source ~/.profile" &
 fi
-# XXXX: xscreensaver actually init'd in my ~/.bash_profile (which is sourced from ~/.profile) file
-rxvt-unicode -e bash -i -c "export SUPPRESSTERMRESIZE=1;source ~/.profile" &
