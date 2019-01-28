@@ -77,7 +77,7 @@ URxvt.perl-ext-common:
 ! XXXX: cic here to avoid conflicts
 URxvt.perl-ext:              cic-urxvt-clipboard.pl,cic-urxvt-scrollback.pl,cic-urxvt-new-terminal.pl,cic-urxvt-searchable-scrollback.pl,cic-urxvt-help.pl
 URxvt.iso14755:              False
-URxvt.iconFile:              /home/akroshko/.urxvt/terminal.svg
+URxvt.iconFile:              .urxvt/terminal.svg
 URxvt.keysym.M-c:            perl:clipboard:copy
 URxvt.keysym.M-v:            perl:clipboard:paste
 URxvt.keysym.Control-period: \033[6~
