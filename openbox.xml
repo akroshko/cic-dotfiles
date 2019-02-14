@@ -4,7 +4,7 @@
 <!-- Author: Andrew Kroshko -->
 <!-- Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com> -->
 <!-- Created: Thu June 09, 2016 -->
-<!-- Version: 20181214 -->
+<!-- Version: 20190128 -->
 <!-- URL: https://github.com/akroshko/cic-groups -->
 
 <!-- This program is free software: you can redistribute it and/or modify -->
@@ -277,6 +277,9 @@
     <keybind key="H-F6">
       <action name="Execute"><execute>bash -c "source $HOME/.bash_library;$HOME/bin/secret-search-hyper.sh"</execute></action>
     </keybind>
+    <keybind key="M-7">
+      <action name="Execute"><execute>~/bin/send-m7-to-emacs.sh</execute></action>
+    </keybind>
     <keybind key="M-8">
       <action name="Execute"><execute>~/bin/send-m8-to-emacs.sh</execute></action>
     </keybind>
@@ -292,6 +295,7 @@
     <keybind key="W-0">
       <action name="Execute"><execute>~/bin/x11-s0-capture.sh</execute></action>
     </keybind>
+    <!-- TODO change this -->
     <keybind key="m-k">
       <action name="Lower"/>
       <action name="Execute"><execute>~/bin/x11_restore_saved_window.sh</execute></action>
@@ -305,7 +309,7 @@
     <!-- <action name="Execute"><execute>bash -c "pkill -f f12_help_panel"</execute></action> -->
     <!--     <action name="BreakChroot"/> -->
     <!--   </keybind> -->
-    <!--   <keybind key="Backspace"> -->
+    <!--   <keybind key="BackSpace"> -->
     <!--     <action name="BreakChroot"/> -->
     <!--   </keybind> -->
     <!--   <keybind key="F12"> -->
@@ -394,9 +398,6 @@
     <keybind key="M-W-S-slash">
       <action name="Execute"><execute>bash -c "source ~/.bash_library;whitenoise.sh --next"</execute></action>
     </keybind>
-    <!-- <keybind key="M-W-l"> -->
-    <!--   <action name="Iconify"/> -->
-    <!-- </keybind> -->
     <!-- Some extra keys -->
     <keybind key="S-BackSpace">
       <action name="Iconify"/>
@@ -407,9 +408,6 @@
     <!-- ==== Keypad ======================================== -->
     <keybind key="KP_Begin">
       <action name="Execute"><execute>~/bin/switch-to-emacs-or-passthrough.sh</execute></action>
-    </keybind>
-    <keybind key="M-S-n">
-      <action name="Iconify"/>
     </keybind>
     <keybind key="KP_Subtract">
       <action name="Execute"><execute>~/bin/web-video-minimize.sh --pause</execute></action>
@@ -454,9 +452,32 @@
     <keybind key="M-S-m">
       <action name="ToggleMaximize"/>
     </keybind>
-    <!-- TODO: decide on these -->
-    <keybind key="M-W-k">
+    <keybind key="M-W-n">
+      <action name="Iconify"/>
+    </keybind>
+    <keybind key="M-W-BackSpace">
       <action name="Close"/>
+    </keybind>
+    <keybind key="M-BackSpace">
+      <action name="Close"/>
+    </keybind>
+    <keybind key="M-W-u">
+      <action name="DirectionalCycleWindows">
+        <direction>left</direction>
+        <raise>yes</raise>
+      </action>
+    </keybind>
+    <keybind key="M-W-o">
+      <action name="DirectionalCycleWindows">
+        <direction>right</direction>
+        <raise>yes</raise>
+      </action>
+    </keybind>
+    <keybind key="M-W-j">
+      <action name="NextWindow"/>
+    </keybind>
+    <keybind key="M-W-l">
+      <action name="PreviousWindow"/>
     </keybind>
     <keybind key="M-W-q">
       <action name="Close"/>
@@ -511,14 +532,14 @@
       <action name="MoveToEdge"><direction>west</direction></action>
       <action name="ToggleMaximize"/>
     </keybind>
-    <!-- Experimental  -->
+    <!-- TODO: still experimental  -->
     <keybind key="M-j">
-      <action name="NextWindow">
+      <action name="PreviousWindow">
         <raise>yes</raise>
       </action>
     </keybind>
-    <keybind key="M-S-j">
-      <action name="PreviousWindow">
+    <keybind key="M-l">
+      <action name="NextWindow">
         <raise>yes</raise>
       </action>
     </keybind>

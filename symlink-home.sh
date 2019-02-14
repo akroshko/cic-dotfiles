@@ -29,9 +29,9 @@ main () {
     need_new_directory "$HOME/.themes"
     need_new_directory "$HOME/.themes/MyClearlooks/"
     need_new_directory "$HOME/.themes/MyClearlooks/openbox-3/"
-    need_new_symlink ${SCRIPTPATH}/openbox.xml            "$HOME/.config/openbox/rc.xml"
+    need_new_symlink   "${SCRIPTPATH}/openbox.xml" "$HOME/.config/openbox/rc.xml"
     # raspberry pi openbox
-    [[ -e "$HOME/.config/lxsession/LXDE-pi" ]] && need_new_symlink ${SCRIPTPATH}/lxde-pi-autostart "$HOME/.config/lxsession/LXDE-pi/autostart"
+    [[ -e "$HOME/.config/lxsession/LXDE-pi" ]] && need_new_symlink "${SCRIPTPATH}/lxde-pi-autostart" "$HOME/.config/lxsession/LXDE-pi/autostart"
     # TODO: unify eventually?
     need_new_symlink "${SCRIPTPATH}/lxde-pi-rc.xml"               "$HOME/.config/openbox/lxde-pi-rc.xml"
     need_new_symlink "${SCRIPTPATH}/openbox-menu.xml"             "$HOME/.config/openbox/menu.xml"
