@@ -35,8 +35,10 @@ openbox --restart
 sleep 3
 # XXXX: this is needed for systemd
 if [ -z "$XDG_RUNTIME_DIR" ]; then
-    # XXXX: xscreensaver actually init'd in my ~/.bash_profile (which is sourced from ~/.profile) file
-    rxvt-unicode -e bash -i -c "export SUPPRESSTERMRESIZE=1;export XDG_RUNTIME_DIR=/run/user/$(id -u);source ~/.profile" &
+    # XXXX: xscreensaver actually init'd in my ~/.bash_profile (which is sourced from ~/.bash_profile) file
+    # TODO: probably do not need to double up like this
+    export XDG_RUNTIME_DIR=/run/user/$(id -u)
+    rxvt-unicode -e bash -i -c "export SUPPRESSTERMRESIZE=1;export XDG_RUNTIME_DIR=/run/user/$(id -u);source ~/.bash_profile" &
 else
-    rxvt-unicode -e bash -i -c "export SUPPRESSTERMRESIZE=1;source ~/.profile" &
+    rxvt-unicode -e bash -i -c "export SUPPRESSTERMRESIZE=1;source ~/.bash_profile" &
 fi

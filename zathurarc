@@ -127,14 +127,14 @@ map [normal]            i        toggle_index
 map [fullscreen]        i        toggle_index
 # TODO: find out if these were defaults for anything
 map [fullscreen]
-map [normal]            }        feedkeys ":exec zathura-switch-file.py $FILE"
-map [fullscreen]        }        feedkeys ":exec zathura-switch-file.py $FILE"
-map [normal]            ]        feedkeys ":exec zathura-switch-file.py $FILE --bytime"
-map [fullscreen]        ]        feedkeys ":exec zathura-switch-file.py $FILE --bytime"
-map [normal]            {        feedkeys ":exec zathura-switch-file.py $FILE --previous"
-map [fullscreen]        {        feedkeys ":exec zathura-switch-file.py $FILE --previous"
-map [normal]            [        feedkeys ":exec zathura-switch-file.py $FILE --bytime --previous"
-map [fullscreen]        [        feedkeys ":exec zathura-switch-file.py $FILE --bytime --previous"
+map [normal]            ]        feedkeys ":exec zathura-switch-file.py $FILE"
+map [fullscreen]        ]        feedkeys ":exec zathura-switch-file.py $FILE"
+map [normal]            }        feedkeys ":exec zathura-switch-file.py $FILE --bytime"
+map [fullscreen]        }        feedkeys ":exec zathura-switch-file.py $FILE --bytime"
+map [normal]            [        feedkeys ":exec zathura-switch-file.py $FILE --previous"
+map [fullscreen]        [        feedkeys ":exec zathura-switch-file.py $FILE --previous"
+map [normal]            {        feedkeys ":exec zathura-switch-file.py $FILE --bytime --previous"
+map [fullscreen]        {        feedkeys ":exec zathura-switch-file.py $FILE --bytime --previous"
 map [normal]            <A-l>    feedkeys ":exec emacs-window-uid-from-filename.sh $FILE"
 map [fullscreen]        <A-l>    feedkeys ":exec emacs-window-uid-from-filename.sh $FILE"
 # TODO: may not be permanent

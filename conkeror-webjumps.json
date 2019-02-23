@@ -188,6 +188,7 @@
  "wo-sundre":["http://www.weatheroffice.gc.ca/city/pages/ab-53_metric_e.html"],
  "wu-saskatoon":["https://www.wunderground.com/cgi-bin/findweather/getForecast?query=saskatoon"],
  "timeanddate":["https://www.timeanddate.com/search/results.html?query=%s"],
+ "timeanddate-calendar":["https://www.timeanddate.com/calendar/S"],
  "timeanddate-calgary":["https://www.timeanddate.com/worldclock/city.html?n=55"],
  "timeanddate-saskatoon":["https://www.timeanddate.com/worldclock/city.html?n=1227"],
  "trails-banff":[ "http://www.pc.gc.ca/apps/tcond/cond_e.asp?oPark=100092"],
