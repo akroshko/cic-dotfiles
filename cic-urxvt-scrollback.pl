@@ -1,5 +1,5 @@
 #! perl -w
-# Copyright (C) 2017-2018, Andrew Kroshko, Bert Muennich, all rights reserved.
+# Copyright (C) 2017-2019, Andrew Kroshko, Bert Muennich, all rights reserved.
 #
 # Author: Andrew Kroshko
 # Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com>
