@@ -268,6 +268,9 @@ define_key(isearch_keymap,               "M-/", "isearch-continue-forward");
 // modules/bindings/default/content-buffer/normal.js:define_key(content_buffer_normal_keymap, "S", "isearch-continue-forward");
 // modules/bindings/default/content-buffer/normal.js:define_key(content_buffer_normal_keymap, "R", "isearch-continue-backward");
 
+// serach configuration
+isearch_scroll_center_vertically=true;
+
 interactive("open-marked-url", "Open the marked url.",
     function (I) {
         // see http://conkeror.org/Tips#Copy_Selection_to_Emacs_kill_ring
