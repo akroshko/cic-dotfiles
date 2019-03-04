@@ -723,7 +723,7 @@ load_webjumps_json('~/.conkerorrc/conkeror-webjumps.json');
 // I use port localhost:18122 as a proxy to my University for accademic journals
 //       port localhost:18222 as a proxy back to my home
 //       port localhost:18322 as a proxy to other third party providers
-var current_conkeror_proxy = "No proxy";
+var current_conkeror_proxy = "| No proxy";
 // var current_conkeror_proxy_init=null;
 
 // TODO: make function
@@ -756,7 +756,7 @@ interactive("academic-localhost-proxy", "Academic Localhost proxy",
         session_pref('network.proxy.share_proxy_settings', true);
         session_pref('network.proxy.type', 1);
         I.window.minibuffer.message("Socks using "+server+":"+port+" for this session");
-        current_conkeror_proxy = "Academic proxy on "+server+":"+port;
+        current_conkeror_proxy = "| Academic proxy on "+server+":"+port;
         mode_line_mode(false);
         mode_line_mode(true);
         unregister_user_stylesheet(home_proxy_style_sheet);
@@ -775,7 +775,7 @@ interactive("home-localhost-proxy", "Home Localhost proxy",
         session_pref('network.proxy.share_proxy_settings', true);
         session_pref('network.proxy.type', 1);
         I.window.minibuffer.message("Socks using "+server+":"+port+" for this session");
-        current_conkeror_proxy = "Home proxy on "+server+":"+port;
+        current_conkeror_proxy = "| Home proxy on "+server+":"+port;
         mode_line_mode(false);
         mode_line_mode(true);
         unregister_user_stylesheet(academic_proxy_style_sheet);
@@ -795,7 +795,7 @@ interactive("third-localhost-proxy", "Third party localhost proxy",
         session_pref('network.proxy.share_proxy_settings', true);
         session_pref('network.proxy.type', 1);
         I.window.minibuffer.message("Socks using "+server+":"+port+" for this session");
-        current_conkeror_proxy = "3rd-party proxy on "+server+":"+port;
+        current_conkeror_proxy = "| 3rd-party proxy on "+server+":"+port;
         mode_line_mode(false);
         mode_line_mode(true);
         unregister_user_stylesheet(academic_proxy_style_sheet);
@@ -804,7 +804,6 @@ interactive("third-localhost-proxy", "Third party localhost proxy",
     });
 define_key(content_buffer_normal_keymap,"C-c M-P","third-localhost-proxy")
 
-
 // remove proxy
 // set up a proxy
 interactive("remove-proxy", "Localhost proxy",
@@ -812,7 +811,7 @@ interactive("remove-proxy", "Localhost proxy",
         session_pref('network.proxy.share_proxy_settings', false);
         session_pref('network.proxy.type', 0);
         I.window.minibuffer.message("Removing Socks for this session");
-        current_conkeror_proxy = "No proxy";
+        current_conkeror_proxy = "| No proxy";
         mode_line_mode(false);
         mode_line_mode(true);
         // TODO: procedure to unregister all stylesheets
