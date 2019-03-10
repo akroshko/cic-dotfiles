@@ -4,7 +4,7 @@
 <!-- Author: Andrew Kroshko -->
 <!-- Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com> -->
 <!-- Created: Thu June 09, 2016 -->
-<!-- Version: 20190228 -->
+<!-- Version: 20190309 -->
 <!-- URL: https://github.com/akroshko/cic-groups -->
 
 <!-- This program is free software: you can redistribute it and/or modify -->
@@ -211,10 +211,10 @@
   </dock>
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
-    <!-- TODO: do I want this?-->
-    <keybind key="M-W-semicolon">
-      <action name="ShowMenu"><menu>root-menu</menu></action>
-    </keybind>
+    <!-- TODO: I do not use this -->
+    <!-- <keybind key="M-W-semicolon"> -->
+    <!--   <action name="ShowMenu"><menu>root-menu</menu></action> -->
+    <!-- </keybind> -->
     <!-- ================================================================================ -->
     <!-- F-keys -->
     <!-- put these beside escape to make menu select easy, plus easy to find on laptop in the dark -->
@@ -371,6 +371,10 @@
     <keybind key="C-Print">
       <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window-show"</execute></action>
     </keybind>
+    <!-- TODO is this what want -->
+    <!-- <keybind key="M-w"> -->
+    <!--   <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window"</execute></action> -->
+    <!-- </keybind> -->
     <!-- temporary... -->
     <keybind key="M-W-slash">
       <action name="Execute"><execute>bash -c "source ~/.bash_library;whitenoise.sh"</execute></action>
@@ -519,11 +523,6 @@
       </action>
     </keybind>
     <keybind key="M-l">
-      <action name="NextWindow">
-        <raise>yes</raise>
-      </action>
-    </keybind>
-    <keybind key="M-apostrophe">
       <action name="NextWindow">
         <raise>yes</raise>
       </action>

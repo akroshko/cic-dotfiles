@@ -5,15 +5,13 @@ homepage = "http://conkeror.org/";
 load_paths.unshift("chrome://conkeror-contrib/content/");
 // TODO: uncomment?
 // require('block-content-focus-change.js');
-// hinting
 
 // TODO: add exceptions later, kill all but then whitelist some
 // TODO: eventually incorporate my changes into conkeror
 require("webpage-key-kill");
 webpage_key_kill_mode.test.push(/\/\/.*\//); //regexp matches all sites
 
-// define_key(content_buffer_normal_keymap, "h", "browse-buffer-history");
-
+// hinting
 // hint_digits="abcdefghijklmnopqrstuvwxyz";
 hint_digits="asdfgzxcvbqwert";
 register_user_stylesheet(
@@ -98,24 +96,6 @@ browser_relationship_patterns[RELATIONSHIP_PREVIOUS] =
      new RegExp("\\bprev|previous\\b","i")];
 // ◄ «
 
-////////////////////////////////////////
-// capture page with keyboard shortcut
-// TODO: change timeouts to not be stupid
-interactive("local-print-buffer",
-    "Print the currently loaded page.",
-    function (I) {
-        // only a copy, should not take long
-        session_pref("print.always_print_silent", true);
-        I.window.setTimeout(function() {
-            I.buffer.top_frame.print();
-        },1000);
-        // TODO: use a callback on print instead if possible
-        I.window.setTimeout(function() {
-            session_pref("print.always_print_silent", false);
-        },2000);
-    });
-
-
 // http://conkeror.org/Tips#Browse_buffer_session_history
 // TODO: need hotkey for this
 interactive("browse-buffer-history",
@@ -155,16 +135,11 @@ define_key(content_buffer_normal_keymap, "h", "browse-buffer-history");
 // TODO: figure out other things like this
 define_key(content_buffer_button_keymap, "space", "cmd_scrollPageDown",
            $browser_object = browser_object_focused_element);
-// define_key(content_buffer_button_keymap, "return", "follow",
-//            $browser_object = browser_object_focused_element);
 
 
 // comapred to q, this stops me from closing accidently
 define_key(default_global_keymap,        "q",     "kill-current-buffer");
 define_key(default_global_keymap,        "s-q",   "kill-current-buffer");
-// TODO: alternate for these
-// define_key(default_global_keymap,        "M-`",   "kill-current-buffer");
-// define_key(default_global_keymap,        "C-`",   "delete-window");
 ////////////////////////////////////////
 // esdf keys, experimental
 // TODO: need new 10x, need new back
@@ -225,9 +200,6 @@ define_key(content_buffer_normal_keymap, "s-space", "switch-to-buffer");
 define_key(minibuffer_keymap,            "s-space", "minibuffer-complete");
 
 define_key(content_buffer_normal_keymap, "C-]",     "local-print-buffer");
-// define_key(default_global_keymap,        "M-u",     "unfocus");
-// define_key(text_keymap,                  "M-u",     "unfocus");
-// define_key(content_buffer_text_keymap,   "M-u",     "unfocus");
 define_key(default_global_keymap,        "C-j",     "unfocus");
 define_key(text_keymap,                  "C-j",     "unfocus");
 define_key(content_buffer_text_keymap,   "C-j",     "unfocus");
@@ -360,26 +332,6 @@ define_key(minibuffer_base_keymap,       "S-down",   "cmd_scrollPageDown");
 define_key(content_buffer_form_keymap,   "S-down",   "cmd_scrollPageDown_unfocus");
 define_key(content_buffer_text_keymap,   "S-down",   "cmd_scrollPageDown_unfocus");
 define_key(content_buffer_normal_keymap, "S-down",   "cmd_scrollPageDown");
-// scroll a bit
-// TODO: decide if this is right, need cheatsheet
-// define_key(default_global_keymap,        "C-s-z", "cmd_scrollLineDown");
-// define_key(minibuffer_base_keymap,       "C-s-z", "cmd_scrollLineDown");
-// define_key(content_buffer_form_keymap,   "C-s-z", "cmd_scrollLineDown", $repeat = "cmd_scrollLineDown");
-// define_key(content_buffer_text_keymap,   "C-s-z", "cmd_scrollLineDown", $repeat = "cmd_scrollLineDown");
-// define_key(content_buffer_normal_keymap, "C-s-z", "cmd_scrollLineDown");
-// TODO: I replaceed this stuff
-// scroll a bit
-// define_key(default_global_keymap,        "s-v",   "cmd_scrollLineDown");
-// define_key(minibuffer_base_keymap,       "s-v",   "cmd_scrollLineDown");
-// define_key(content_buffer_form_keymap,   "s-v",   "cmd_scrollLineDown", $repeat = "cmd_scrollLineDown");
-// define_key(content_buffer_text_keymap,   "s-v",   "cmd_scrollLineDown", $repeat = "cmd_scrollLineDown");
-// define_key(content_buffer_normal_keymap, "s-v",   "cmd_scrollLineDown");
-// // scroll a bit
-// define_key(default_global_keymap,        "s-V",   "cmd_scrollLineUp");
-// define_key(minibuffer_base_keymap,       "s-V",   "cmd_scrollLineUp");
-// define_key(content_buffer_form_keymap,   "s-V",   "cmd_scrollLineUp", $repeat = "cmd_scrollLineDown");
-// define_key(content_buffer_text_keymap,   "s-V",   "cmd_scrollLineUp", $repeat = "cmd_scrollLineDown");
-// define_key(content_buffer_normal_keymap, "s-V",   "cmd_scrollLineUp");
 
 interactive("cmd_scrollPageDown_unfocus",
             "Unfocus and scroll page down",
