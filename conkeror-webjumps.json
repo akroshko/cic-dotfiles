@@ -6,7 +6,6 @@
  "alberta-firehazard":["http://wildfire.alberta.ca/fire-danger-forecasts/images/firehaz.gif"],
  "alliexpress":["https://www.aliexpress.com/"],
  "alternativeto":["https://alternativeto.net/software/%s","https://alternativeto.net"],
- "android-fdroid":["https://f-droid.org/en/"],
  "amazon":["https://www.amazon.com/exec/obidos/external-search/?field-keywords=%s&mode=blended", "https://amazon.com"],
  "amazonca":["https://www.amazon.ca/exec/obidos/external-search/?field-keywords=%s&mode=blended", "https://amazon.ca"],
  "amsaut":["http://www.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=%s&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=ALLF&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=html&Submit=Search", "http://www.ams.org/mathscinet/"],
@@ -57,6 +56,9 @@
  "extremetech":["http://extremetech.com"],
  "electronic-goldmine":["http://www.goldmine-elec-products.com/"],
  "facebook":["https://www.facebook.com/search/results.php?q=%s&init=quick","https://www.facebook.com"],
+ "fdroid":["https://f-droid.org/en/"],
+ "flash-player-check":["https://helpx.adobe.com/flash-player.html"],
+ "fvwm":["http://fvwm.org/"],
  "fivethirtyeight":["http://fivethirtyeight.com"],
  "flickr":["https://www.flickr.com/search/?q=%s", "https://www.flickr.com"],
  "flotrack":["http://www.flotrack.org"],
@@ -196,4 +198,5 @@
  "trails-banff":["http://www.pc.gc.ca/apps/tcond/cond_e.asp?oPark=100092"],
  "trails-jasper":["http://www.pc.gc.ca/apps/tcond/cond_e.asp?oPark=100244"],
  "usask-ecommons-thesises":["https://ecommons.usask.ca/handle/10388/381"],
- "vimeo":["https://vimeo.com"]}
+ "vimeo":["https://vimeo.com"],
+ "zdnet":["https://www.zdnet.com/"]}

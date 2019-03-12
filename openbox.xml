@@ -733,6 +733,14 @@
         <raise>yes</raise>
       </action>
     </keybind>
+    <!-- Experimental, just for testing new ideas -->
+    <keybind key="M-W-9">
+      <action name="Undecorate"/>
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <y>0</y>
+      </action>
+    </keybind>
     <!-- TODO nonfunctional -->
     <!-- <keybind key="H-z"> -->
     <!--   <action name="NextWindow"> -->
