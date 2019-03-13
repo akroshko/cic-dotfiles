@@ -1,5 +1,5 @@
 #!/bin/bash
-SCRIPTPATH=$(dirname $(readlink -f "$0"))
+SCRIPTPATH=$(dirname -- $(readlink -f -- "$0"))
 main () {
     # requires https://github.com/akroshko/bash-stdlib
     source "$HOME/.bash_library"
