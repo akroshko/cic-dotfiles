@@ -272,9 +272,10 @@
     <keybind key="M-W-8">
       <action name="Execute"><execute>~/bin/send-ms8-to-emacs.sh</execute></action>
     </keybind>
-    <keybind key="W-0">
-      <action name="Execute"><execute>~/bin/x11-s0-capture.sh</execute></action>
-    </keybind>
+    <!-- TODO: depricated in favour of M-8, remove -->
+    <!-- <keybind key="W-0"> -->
+    <!--   <action name="Execute"><execute>~/bin/x11-s0-capture.sh</execute></action> -->
+    <!-- </keybind> -->
     <!-- TODO change this -->
     <keybind key="m-k">
       <action name="Lower"/>
@@ -362,20 +363,15 @@
     <keybind key="Print">
       <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-screen"</execute></action>
     </keybind>
-    <keybind key="S-Print">
+    <keybind key="C-Print">
       <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window"</execute></action>
     </keybind>
-    <keybind key="M-Print">
+    <keybind key="S-Print">
       <action name="ShowMenu"><menu>screen-capture</menu></action>
     </keybind>
-    <keybind key="C-Print">
+    <keybind key="M-Print">
       <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window-show"</execute></action>
     </keybind>
-    <!-- TODO is this what want -->
-    <!-- <keybind key="M-w"> -->
-    <!--   <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window"</execute></action> -->
-    <!-- </keybind> -->
-    <!-- temporary... -->
     <keybind key="M-W-slash">
       <action name="Execute"><execute>bash -c "source ~/.bash_library;whitenoise.sh"</execute></action>
     </keybind>

@@ -78,8 +78,9 @@ URxvt.perl-ext-common:
 URxvt.perl-ext:              cic-urxvt-clipboard.pl,cic-urxvt-scrollback.pl,cic-urxvt-new-terminal.pl,cic-urxvt-searchable-scrollback.pl,cic-urxvt-help.pl
 URxvt.iso14755:              False
 URxvt.iconFile:              /opt/cic/icons/terminal.svg
-URxvt.keysym.M-c:            perl:clipboard:copy
-URxvt.keysym.M-v:            perl:clipboard:paste
+! use cuda feeling keys in terminal
+URxvt.keysym.Mod3-c:         perl:clipboard:copy
+URxvt.keysym.Mod3-v:         perl:clipboard:paste
 URxvt.keysym.Control-period: \033[6~
 URxvt.keysym.Control-comma:  \033[5~
 ! URxvt.keysym.M-r:            perl:searchable-scrollback:start

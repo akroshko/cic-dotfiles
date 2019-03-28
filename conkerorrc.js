@@ -27,50 +27,22 @@ register_user_stylesheet(make_css_data_uri(["*, .mode-line {border-color:#000000
                                            $namespace = XUL_NS));
 // standard keys
 define_key(content_buffer_normal_keymap, "C-[", "unfocus");
-// TODO: try to do this in single key
-define_key(content_buffer_form_keymap, "s-c",
-    "browser-object-relationship-next",
-    $repeat = "follow");
-define_key(content_buffer_text_keymap, "s-c",
-    "browser-object-relationship-next",
-    $repeat = "follow");
-define_key(content_buffer_normal_keymap, "s-c",
-    "browser-object-relationship-next",
-    $repeat = "follow");
-define_key(content_buffer_form_keymap, "f13",
+define_key(content_buffer_form_keymap, "M-c",
     "browser-object-relationship-previous",
     $repeat = "follow");
-define_key(content_buffer_text_keymap, "f13",
+define_key(content_buffer_text_keymap, "M-c",
     "browser-object-relationship-previous",
     $repeat = "follow");
-define_key(content_buffer_normal_keymap, "f13",
+define_key(content_buffer_normal_keymap, "M-c",
     "browser-object-relationship-previous",
     $repeat = "follow");
-define_key(content_buffer_form_keymap, "S-left",
-    "browser-object-relationship-previous",
-    $repeat = "follow");
-define_key(content_buffer_text_keymap, "S-left",
-    "browser-object-relationship-previous",
-    $repeat = "follow");
-define_key(content_buffer_normal_keymap, "S-left",
-    "browser-object-relationship-previous",
-    $repeat = "follow");
-define_key(content_buffer_form_keymap, "f15",
+define_key(content_buffer_form_keymap, "M-v",
     "browser-object-relationship-next",
     $repeat = "follow");
-define_key(content_buffer_text_keymap, "f15",
+define_key(content_buffer_text_keymap, "M-v",
     "browser-object-relationship-next",
     $repeat = "follow");
-define_key(content_buffer_normal_keymap, "f15",
-    "browser-object-relationship-next",
-    $repeat = "follow");
-define_key(content_buffer_form_keymap, "S-right",
-    "browser-object-relationship-next",
-    $repeat = "follow");
-define_key(content_buffer_text_keymap, "S-right",
-    "browser-object-relationship-next",
-    $repeat = "follow");
-define_key(content_buffer_normal_keymap, "S-right",
+define_key(content_buffer_normal_keymap, "M-v",
     "browser-object-relationship-next",
     $repeat = "follow");
 
@@ -136,7 +108,6 @@ define_key(content_buffer_normal_keymap, "h", "browse-buffer-history");
 define_key(content_buffer_button_keymap, "space", "cmd_scrollPageDown",
            $browser_object = browser_object_focused_element);
 
-
 // comapred to q, this stops me from closing accidently
 define_key(default_global_keymap,        "q",     "kill-current-buffer");
 define_key(default_global_keymap,        "s-q",   "kill-current-buffer");
@@ -148,33 +119,7 @@ define_key(default_global_keymap,        "s-q",   "kill-current-buffer");
 define_key(content_buffer_normal_keymap, "o",   "browser-object-media");
 // follow and other surfing keys
 define_key(content_buffer_normal_keymap, "f",   "follow");
-define_key(content_buffer_normal_keymap, "s-f", "follow");
-// TODO: do something with these, put elsewhere
-// define_key(content_buffer_normal_keymap, "s-f", "follow-new-buffer");
-define_key(content_buffer_normal_keymap, "s-F", "follow-new-buffer-background");
-// s-f is enter in the minibuffer
-define_key(hint_keymap,                  "s-c", "hints-exit");
-define_key(hint_keymap,                  "s-f", "hints-exit");
-// define_key(hint_keymap,                  "s-x", "minibuffer-abort");
-// TODO: define more like this, add s-c==enter in text boxes
-define_key(minibuffer_keymap,            "s-c", "exit-minibuffer");
-define_key(minibuffer_keymap,            "s-f", "exit-minibuffer");
-// define_key(minibuffer_keymap,            "s-space", "minibuffer-complete");
-// TODO: sort this out
 define_key(content_buffer_normal_keymap, "w",   "follow-new-window");
-// TODO: esdf keys no longer used
-// define_key(content_buffer_normal_keymap, "e",       "cmd_scrollLineUp");
-// define_key(content_buffer_normal_keymap, "s",       "cmd_scrollLeft");
-// define_key(content_buffer_normal_keymap, "d",       "cmd_scrollLineDown");
-// define_key(content_buffer_normal_keymap, "f",       "cmd_scrollRight");
-// TODO: d is too valuable
-// define_key(content_buffer_normal_keymap, "d",       "duplicate-buffer");
-// define_key(content_buffer_normal_keymap, "s-d",     "duplicate-buffer-new-window");
-// m=mirror
-
-// TODO still want this, but don't know how
-// define_key(content_buffer_normal_keymap, "G",       "find-url-new-window");
-
 // TODO: update...
 define_key(content_buffer_normal_keymap, "s-m",     "duplicate-buffer");
 define_key(content_buffer_normal_keymap, "s-M",     "duplicate-buffer-background");
@@ -189,11 +134,6 @@ require("clicks-in-new-buffer.js");
 // clicks_in_new_buffer_target = OPEN_NEW_BUFFER_BACKGROUND;
 clicks_in_new_buffer_target = OPEN_NEW_WINDOW;
 clicks_in_new_buffer_button = 2;
-// / for download/save
-// m for mirror/duplicate
-// best ones are....
-// ???
-
 
 // buffer switching
 define_key(content_buffer_normal_keymap, "s-space", "switch-to-buffer");
@@ -206,9 +146,8 @@ define_key(content_buffer_text_keymap,   "C-j",     "unfocus");
 // define_key(text_keymap,                  "M-U",     "upcase-word");
 
 // TODO: not sure if this is best, unfocus back some?
-define_key(content_buffer_normal_keymap, "a", "back");
+define_key(content_buffer_normal_keymap, "a",   "back");
 define_key(content_buffer_normal_keymap, "s-a", "back");
-define_key(content_buffer_normal_keymap, "s-x", "back");
 define_key(content_buffer_normal_keymap, "s-l", "back");
 define_key(content_buffer_normal_keymap, "f21", "back");
 // define_key(content_buffer_normal_keymap, "F22", "forward");
@@ -230,6 +169,7 @@ interactive("duplicate-buffer-new-window", "Duplicate buffer in new window",
                 browser_object_follow(I.buffer, OPEN_NEW_WINDOW, I.buffer.current_uri.spec);
             });
 
+// TODO: do I still wnat these?
 define_key(default_global_keymap,        "M-?", "isearch-backward");
 define_key(content_buffer_normal_keymap, "M-?", "isearch-backward");
 define_key(isearch_keymap,               "M-?", "isearch-continue-backward");
@@ -237,6 +177,33 @@ define_key(isearch_keymap,               "M-?", "isearch-continue-backward");
 define_key(default_global_keymap,        "M-/", "isearch-forward");
 define_key(content_buffer_normal_keymap, "M-/", "isearch-forward");
 define_key(isearch_keymap,               "M-/", "isearch-continue-forward");
+// cuda-type keys
+// find
+define_key(default_global_keymap,        "s-f", "isearch-forward");
+define_key(content_buffer_normal_keymap, "s-f", "isearch-forward");
+define_key(isearch_keymap,               "s-f", "isearch-continue-forward");
+define_key(default_global_keymap,        "s-r", "isearch-backward");
+define_key(content_buffer_normal_keymap, "s-r", "isearch-backward");
+define_key(isearch_keymap,               "s-r", "isearch-continue-backward");
+// cut
+define_key(default_global_keymap,        "s-x", "kill-region");
+define_key(minibuffer_base_keymap,       "s-x", "kill-region");
+// copy
+define_key(default_global_keymap,        "s-c", "kill-ring-save");
+define_key(content_buffer_form_keymap,   "s-c", "kill-ring-save");
+define_key(content_buffer_text_keymap,   "s-c", "kill-ring-save");
+define_key(content_buffer_normal_keymap, "s-c", "cmd_copy");
+define_key(text_keymap,                  "s-c", "kill-ring-save");
+define_key(minibuffer_base_keymap,       "s-c", "kill-ring-save");
+// paste
+define_key(default_global_keymap,        "s-v", "yank");
+define_key(minibuffer_base_keymap,       "s-v", "yank");
+define_key(content_buffer_form_keymap,   "s-v", "yank");
+define_key(content_buffer_text_keymap,   "s-v", "yank");
+define_key(content_buffer_normal_keymap, "s-v", "paste-url");
+define_key(text_keymap,                  "s-v", "yank");
+define_key(minibuffer_base_keymap,       "s-v", "yank");
+
 // modules/bindings/default/content-buffer/normal.js:define_key(content_buffer_normal_keymap, "S", "isearch-continue-forward");
 // modules/bindings/default/content-buffer/normal.js:define_key(content_buffer_normal_keymap, "R", "isearch-continue-backward");
 
@@ -265,34 +232,11 @@ define_key(content_buffer_normal_keymap, "M-f", "open-marked-url");
 // TODO: could 5 be bad in some cases? do I need an F-key, i.e., F5?
 define_key(content_buffer_normal_keymap, "5",   "reload");
 define_key(content_buffer_normal_keymap, "%",   "reload");
-// TODO: alternate key to avoid interception
-define_key(content_buffer_normal_keymap, "s-r",   "reload");
 // TODO: something slightly more consistent
 // define_key(content_buffer_normal_keymap, "d",   "duplicate-buffer");
 // TODO: not great, but not bad either, maybe b will free up some day
 // define_key(content_buffer_normal_keymap, "D", "follow-new-buffer-background");
 // new window
-// copy and paste
-// TODO: should be copy-url sometimes too
-// TODO: not sure about default_global_keymap
-define_key(default_global_keymap,        "M-c", "kill-ring-save");
-define_key(minibuffer_base_keymap,       "M-c", "kill-ring-save");
-define_key(content_buffer_form_keymap,   "M-c", "kill-ring-save");
-define_key(content_buffer_text_keymap,   "M-c", "kill-ring-save");
-define_key(content_buffer_normal_keymap, "M-c", "cmd_copy");
-
-// TODO: should be paste-url sometimes too
-define_key(default_global_keymap,        "M-v", "yank");
-define_key(minibuffer_base_keymap,       "M-v", "yank");
-define_key(content_buffer_form_keymap,   "M-v", "yank");
-define_key(content_buffer_text_keymap,   "M-v", "yank");
-define_key(content_buffer_normal_keymap, "M-v", "paste-url");
-// define_key(default_global_keymap,        "s-v", "paste-x-primary-selection");
-// define_key(minibuffer_base_keymap,       "s-v", "paste-x-primary-selection");
-// define_key(content_buffer_form_keymap,   "s-v", "paste-x-primary-selection");
-// define_key(content_buffer_text_keymap,   "s-v", "paste-x-primary-selection");
-// // TODO: I'd like a paste url primary
-// define_key(content_buffer_normal_keymap, "s-v", "paste-url");
 // scroll
 define_key(content_buffer_normal_keymap, "b",         "cmd_scrollPageUp");
 define_key(content_buffer_normal_keymap, "C-,",       "cmd_scrollPageUp");
@@ -303,22 +247,12 @@ define_key(minibuffer_base_keymap,       "page_up",   "cmd_scrollPageUp");
 define_key(content_buffer_form_keymap,   "page_up",   "cmd_scrollPageUp_unfocus");
 define_key(content_buffer_text_keymap,   "page_up",   "cmd_scrollPageUp_unfocus");
 define_key(content_buffer_normal_keymap, "page_up",   "cmd_scrollPageUp");
-define_key(default_global_keymap,        "s-Z",       "cmd_scrollPageUp");
-define_key(minibuffer_base_keymap,       "s-Z",       "cmd_scrollPageUp");
-define_key(content_buffer_form_keymap,   "s-Z",       "cmd_scrollPageUp_unfocus");
-define_key(content_buffer_text_keymap,   "s-Z",       "cmd_scrollPageUp_unfocus");
-define_key(content_buffer_normal_keymap, "s-Z",       "cmd_scrollPageUp");
 // this is pagedown that works as expected everywhere
 define_key(default_global_keymap,        "page_down", "cmd_scrollPageDown");
 define_key(minibuffer_base_keymap,       "page_down", "cmd_scrollPageDown");
 define_key(content_buffer_form_keymap,   "page_down", "cmd_scrollPageDown_unfocus");
 define_key(content_buffer_text_keymap,   "page_down", "cmd_scrollPageDown_unfocus");
 define_key(content_buffer_normal_keymap, "page_down", "cmd_scrollPageDown");
-define_key(default_global_keymap,        "s-z",       "cmd_scrollPageDown");
-define_key(minibuffer_base_keymap,       "s-z",       "cmd_scrollPageDown");
-define_key(content_buffer_form_keymap,   "s-z",       "cmd_scrollPageDown_unfocus");
-define_key(content_buffer_text_keymap,   "s-z",       "cmd_scrollPageDown_unfocus");
-define_key(content_buffer_normal_keymap, "s-z",       "cmd_scrollPageDown");
 // this is pageup that works as expected everywhere
 define_key(default_global_keymap,        "S-up",   "cmd_scrollPageUp");
 define_key(minibuffer_base_keymap,       "S-up",   "cmd_scrollPageUp");
@@ -348,14 +282,6 @@ interactive("cmd_scrollPageUp_unfocus",
     });
 
 
-// scroll
-// TODO: replace by asdf keys
-// TODO: do with "v" as well? change page back to "b", something else for background?
-// define_key(content_buffer_normal_keymap, "s-V", "cmd_scrollLineUp");
-// define_key(content_buffer_normal_keymap, "s-v", "cmd_scrollLineDown");
-// TODO: replace standard view with something else
-// define_key(content_buffer_normal_keymap, "V",   "cmd_scrollLineUp");
-// define_key(content_buffer_normal_keymap, "v",   "cmd_scrollLineDown");
 // url
 url_completion_use_bookmarks = false;
 url_completion_use_history = false;
@@ -410,6 +336,7 @@ session_pref("font.size.variable.x-western", 11);
 // ???
 session_pref("xpinstall.whitelist.required", false);
 // TODO: these may be needed sometimes, so they are here
+session_pref("extensions.blocklist.enabled", false);
 session_pref("extensions.checkCompatibility", false);
 session_pref("extensions.checkUpdateSecurity", false);
 // TODO: this could be dangerous to disable, see if adblock latitude keeps working
@@ -581,6 +508,7 @@ interactive("toggle-javascript","Toggle javascript.",
 define_key(content_buffer_normal_keymap,"s-n","toggle-javascript");
 
 // http://conkeror.org/Focus
+// TODO: put these back on at some point
 function focusblock (buffer) {
     var s = Components.utils.Sandbox(buffer.top_frame);
     s.document = buffer.document.wrappedJSObject;
@@ -617,8 +545,9 @@ define_webjump("duckduckgo","https://duckduckgo.com/?q=%s&t=hb&ia=web",         
 define_webjump("google",    "https://www.google.ca/search?q=%s&ie=utf-8&oe=utf-8&gws_rd=cr&dcr=0&safe=off",$alternative="https://www.google.ca/");
 // define_webjump("y",         "https://www.youtube.com/results?search_query=%s&search=Search",               $alternative="https://www.youtube.com/feed/subscriptions");
 // local stuff for completion
-define_webjump("about-config", "about:config");
-define_webjump("about-support","about:support");
+define_webjump("aboutaddons", "about:config");
+define_webjump("aboutconfig", "about:config");
+define_webjump("aboutsupport","about:support");
 // use web browser for system admin
 // TODO: may need to be https for some people
 define_webjump("local-router", "http://192.168.0.1");
@@ -669,129 +598,6 @@ function load_webjumps_json (path) {
     }
 }
 load_webjumps_json('~/.conkerorrc/conkeror-webjumps.json');
-
-////////////////////////////////////////////////////////////////////////////////
-// proxies
-// I use port localhost:18122 as a proxy to my University for accademic journals
-//       port localhost:18222 as a proxy back to my home
-//       port localhost:18322 as a proxy to other third party providers
-var current_conkeror_proxy = "| No proxy";
-// var current_conkeror_proxy_init=null;
-
-// TODO: make function
-// magenta=academic
-var academic_proxy_style_sheet=make_css_data_uri(["*, .mode-line {background-color: #ff99ff; -moz-appearance: none;border-color:#000000;}",
-                                                  // can I keep these at default instead?
-                                                  "#minibuffer-input, .textbox-input-box {background-color: #ffffff;}",
-                                                  "tree.completions treechildren {background-color: #ffffff;}"],
-                                                 $namespace = XUL_NS);
-// cyan=home
-var home_proxy_style_sheet=make_css_data_uri(["*, .mode-line {background-color: #99ffff; -moz-appearance: none;border-color:#000000;}",
-                                              // can I keep these at default instead?
-                                              "#minibuffer-input, .textbox-input-box {background-color: #ffffff;}",
-                                              "tree.completions treechildren {background-color: #ffffff;}"],
-                                             $namespace = XUL_NS);
-// blue=third party
-var third_proxy_style_sheet=make_css_data_uri(["*, .mode-line {background-color: #9999ff; -moz-appearance: none;border-color:#000000;}",
-                                               // can I keep these at default instead?
-                                               "#minibuffer-input, .textbox-input-box {background-color: #ffffff;}",
-                                               "tree.completions treechildren {background-color: #ffffff;}"],
-                                              $namespace = XUL_NS);
-
-// academic proxy
-interactive("academic-localhost-proxy", "Academic Localhost proxy",
-    function (I) {
-        server = 'localhost';
-        port=18122;
-        session_pref('network.proxy.socks', server);
-        session_pref('network.proxy.socks_port', port);
-        session_pref('network.proxy.share_proxy_settings', true);
-        session_pref('network.proxy.type', 1);
-        I.window.minibuffer.message("Socks using "+server+":"+port+" for this session");
-        current_conkeror_proxy = "| Academic proxy on "+server+":"+port;
-        mode_line_mode(false);
-        mode_line_mode(true);
-        unregister_user_stylesheet(home_proxy_style_sheet);
-        unregister_user_stylesheet(third_proxy_style_sheet);
-        register_user_stylesheet(academic_proxy_style_sheet);
-    });
-define_key(content_buffer_normal_keymap,"C-c p","academic-localhost-proxy")
-
-// home proxy
-interactive("home-localhost-proxy", "Home Localhost proxy",
-    function (I) {
-        server = 'localhost';
-        port=18123;
-        session_pref('network.proxy.socks', server);
-        session_pref('network.proxy.socks_port', port);
-        session_pref('network.proxy.share_proxy_settings', true);
-        session_pref('network.proxy.type', 1);
-        I.window.minibuffer.message("Socks using "+server+":"+port+" for this session");
-        current_conkeror_proxy = "| Home proxy on "+server+":"+port;
-        mode_line_mode(false);
-        mode_line_mode(true);
-        unregister_user_stylesheet(academic_proxy_style_sheet);
-        unregister_user_stylesheet(third_proxy_style_sheet);
-        register_user_stylesheet(home_proxy_style_sheet);
-    });
-define_key(content_buffer_normal_keymap,"C-c M-p","home-localhost-proxy")
-
-// set up a proxy
-// 3rd party proxy
-interactive("third-localhost-proxy", "Third party localhost proxy",
-    function (I) {
-        server = 'localhost';
-        port=18124;
-        session_pref('network.proxy.socks', server);
-        session_pref('network.proxy.socks_port', port);
-        session_pref('network.proxy.share_proxy_settings', true);
-        session_pref('network.proxy.type', 1);
-        I.window.minibuffer.message("Socks using "+server+":"+port+" for this session");
-        current_conkeror_proxy = "| 3rd-party proxy on "+server+":"+port;
-        mode_line_mode(false);
-        mode_line_mode(true);
-        unregister_user_stylesheet(academic_proxy_style_sheet);
-        unregister_user_stylesheet(home_proxy_style_sheet);
-        register_user_stylesheet(third_proxy_style_sheet);
-    });
-define_key(content_buffer_normal_keymap,"C-c M-P","third-localhost-proxy")
-
-// remove proxy
-// set up a proxy
-interactive("remove-proxy", "Localhost proxy",
-    function (I) {
-        session_pref('network.proxy.share_proxy_settings', false);
-        session_pref('network.proxy.type', 0);
-        I.window.minibuffer.message("Removing Socks for this session");
-        current_conkeror_proxy = "| No proxy";
-        mode_line_mode(false);
-        mode_line_mode(true);
-        // TODO: procedure to unregister all stylesheets
-        // TODO: not highlighted in emacs conkeror mode...
-        unregister_user_stylesheet(academic_proxy_style_sheet);
-        unregister_user_stylesheet(home_proxy_style_sheet);
-        unregister_user_stylesheet(third_proxy_style_sheet);
-    });
-define_key(content_buffer_normal_keymap,"C-u C-c p","remove-proxy")
-
-////////////////////////////////////////////////////////////////////////////////
-// set up proxy modeline
-
-function proxy_widget (window) {
-    this.class_name = "proxy-widget";
-    text_widget.call(this, window);
-    // this.flex = "1";
-    // this.crop = "end";
-    this.add_hook("current_content_buffer_location_change_hook");
-    this.add_hook("select_buffer_hook");
-}
-proxy_widget.prototype = {
-    constructor: proxy_widget,
-    __proto__: text_widget.prototype,
-    update: function () {
-        this.view.text = current_conkeror_proxy;
-    }
-};
 
 ////////////////////////////////////////////////////////////////////////////////
 // find highlighted in google
@@ -846,14 +652,6 @@ interactive("copy-all-urls", "Copy all URLs",
         var gClipboardHelper = Cc["@mozilla.org/widget/clipboardhelper;1"].getService(Ci.nsIClipboardHelper);
         gClipboardHelper.copyString(urls);
     });
-
-// add to mode line hook during initialization, is there a more robust way?
-if (!current_conkeror_proxy_init) {
-    mode_line_mode(false);
-    add_hook("mode_line_hook", mode_line_adder(proxy_widget));
-    mode_line_mode(true);
-}
-var current_conkeror_proxy_init=true;
 
 // fetch video as audio
 interactive("fetch-video", "Fetch Video",

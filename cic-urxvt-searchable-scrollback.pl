@@ -38,7 +38,7 @@ sub on_init {
 
    my $hotkey = $self->{argv}[0]
                 || $self->x_resource ("%")
-                || "M-r";
+                || "Mod3-r";
 
    $self->parse_keysym ($hotkey, "perl:searchable-scrollback:start")
       or warn "unable to register '$hotkey' as scrollback search start hotkey\n";
@@ -157,6 +157,7 @@ sub key_press {
    delete $self->{manpage_overlay};
 
    # r is keysym 0x72
+   # f is keysym 0x???
 
    if ($keysym == 0xff0d || $keysym == 0xff8d) { # enter
       if ($self->{found} && $event->{state} & urxvt::ShiftMask) {
@@ -182,12 +183,12 @@ sub key_press {
       substr $self->{search}, -1, 1, "";
       $self->search;
       $self->idle;
-   } elsif ($keysym == 0x72 && $event->{state} & urxvt::Mod1Mask) { # alt-r
+   } elsif ($keysym == 0x72 && $event->{state} & urxvt::Mod3Mask) { # hyper-r
       # same as up key
       # TODO: combine?
       $self->{row}-- if $self->{row} > $self->top_row;
       $self->search (-1);
-   } elsif ($keysym == 0x73 && $event->{state} & urxvt::Mod1Mask) { # alt-s
+   } elsif ($keysym == 0x66 && $event->{state} & urxvt::Mod3Mask) { # hyper-f
       # same as down key
       # TODO: combine?
       $self->{row}++ if $self->{row} < $self->nrow;

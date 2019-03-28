@@ -19,6 +19,8 @@ set output-meta on
 # Incrementally search history with M-p/M-n
 "\M-p": history-search-backward
 "\M-n": history-search-forward
+# found using C-v and then typing control-backspace
+"\C-h": backward-kill-word
 # TODO: experimenting with menu-complete.... can I use c-j elsewhere consistently
 # "\M-i": menu-complete
 # https://www.reddit.com/r/commandline/comments/kbeoe/you_can_make_readline_and_bash_much_more_user/
