@@ -1,24 +1,9 @@
 #! perl -w
-# Copyright (C) 2017-2019, Andrew Kroshko, Bert Muennich, all rights reserved.
-#
-# Author: Andrew Kroshko
-# Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com>
-# Created: Sun Nov 19, 2017
-# Version: 20190228
-# URL: https://github.com/akroshko/dotfiles-stdlib
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or (at
-# your option) any later version.
-#
-# This program is distributed in the hope that it will be useful, but
-# WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-# General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program. If not, see http://www.gnu.org/licenses/.
+# Author:   Andrew Kroshko 2017-2019
+# Created:  Sun Nov 19, 2017
+# Version:  20190411
+# Website:  https://github.com/akroshko/cic-dotfiles
+# License:  GPLv2
 
 ########################################
 ########## Original copyright ##########

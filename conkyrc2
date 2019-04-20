@@ -6,9 +6,9 @@
 #
 # Please see COPYING for details
 #
-# Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
-# Copyright (c) 2005-2010, Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
 # Copyright (c) 2015-2018, Andrew Kroshko
+# Copyright (c) 2005-2010, Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+# Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
 # All rights reserved.
 #
 # This program is free software: you can redistribute it and/or modify
@@ -26,7 +26,7 @@
 # See the source for conky at https://github.com/brndnmtthws/conky for
 # the AUTHORS files and more information.
 
-# Some settings I use are slightly different for hostname
+# Some settings I use are slightly different for the host
 # akroshko-netbook; which has a small screen, mobile features, and
 # limited power.  The if statements are constructed to not waste space
 # regardless of system, but could probably be improved.
@@ -71,8 +71,6 @@ own_window_class Conky
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 
 xftfont Terminus:size=10
-
-# TODO: appears notifications need continuous update
 
 TEXT
 $nodename - $sysname $kernel on $machine $alignr${time %b/%a/%d} ${time %k:%M:%S}

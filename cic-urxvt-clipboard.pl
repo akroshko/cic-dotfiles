@@ -1,4 +1,12 @@
 #! perl -w
+# Author:   Andrew Kroshko 2018-2019
+# Created:  Sat July 21, 2018
+# Version:  20190411
+# Website:  https://github.com/akroshko/cic-dotfiles
+# License:  GPLv2
+
+########################################
+########## Original copyright ##########
 # Author:   Bert Muennich
 # Website:  http://www.github.com/muennich/urxvt-perls
 # License:  GPLv2

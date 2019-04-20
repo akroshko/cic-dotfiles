@@ -6,9 +6,9 @@
 #
 # Please see COPYING for details
 #
-# Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
-# Copyright (c) 2005-2010, Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
 # Copyright (c) 2015-2019, Andrew Kroshko
+# Copyright (c) 2005-2010, Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+# Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
 # All rights reserved.
 #
 # This program is free software: you can redistribute it and/or modify
@@ -26,7 +26,7 @@
 # See the source for conky at https://github.com/brndnmtthws/conky for
 # the AUTHORS files and more information.
 
-# Some settings I use are slightly different for hostname
+# Some settings I use are slightly different for the host
 # akroshko-netbook; which has a small screen, mobile features, and
 # limited power.  The if statements are constructed to not waste space
 # regardless of system, but could probably be improved.
@@ -102,10 +102,6 @@ ${color grey}RAM  Usage:$color $mem/$memmax $memperc% ${membar 4}
 ${color grey}Swap Usage:$color $swap/$swapmax $swapperc%  ${swapbar 4}
 ${color grey}/tmp Usage:$color ${fs_used /tmp}/${fs_size /tmp} ${fs_used_perc /tmp}% ${fs_bar_free /tmp 4}
 ${color grey}/    Usage:$color ${fs_used /}/${fs_size /} ${fs_used_perc /}% ${fs_bar_free / 4}
-
-# TODO: order might change above
-# old CPUTIN
-#
 
 ${if_match "${nodename}" == "akroshko-laptop"}\
 ${color grey}Sound:$color ${exec amixer get Master | grep -- Front.*Playback | tr "\\n" " " | sed -e 's/Front//g' -e 's/Playback//g' -e 's/\s[0-9]\+//g' -e 's/  */ /g'}\

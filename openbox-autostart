@@ -3,7 +3,7 @@
 # Author: Andrew Kroshko
 # Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com>
 # Created: Wed June 08, 2016
-# Version: 20190228
+# Version: 20190411
 # URL: https://github.com/akroshko/cic-groups
 #
 # This program is free software: you can redistribute it and/or modify
@@ -19,26 +19,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see http://www.gnu.org/licenses/.
 
-# this does not work
-# if [ "${HOSTNAME}" == "akroshko-main" ]; then
-#     xrandr --auto --output VGA-0 --left-of DVI-0
-#     xrandr --output DVI-0 --mode 1920x1080
-# fi
-# xrandr --auto --output DVI-0 --left-of VGA-0
-
 xmodmap ~/.xmodmaprc
-xmodmap ~/.xmodmaprc_numpad_fkeys
 # XXXX: restart openbox, this is necessary due to using /etc/default/keyboard to put control key on caps lock
 #       then to make xmodmap remapped hyper onto left control as openbox keys
 openbox --restart
 # let openbox restart fully
-sleep 3
-# XXXX: this is needed for systemd
-if [ -z "$XDG_RUNTIME_DIR" ]; then
-    # XXXX: xscreensaver actually init'd in my ~/.bash_profile (which is sourced from ~/.bash_profile) file
-    # TODO: probably do not need to double up like this
-    export XDG_RUNTIME_DIR=/run/user/$(id -u)
-    rxvt-unicode -e bash -i -c "export SUPPRESSTERMRESIZE=1;export XDG_RUNTIME_DIR=/run/user/$(id -u);source ~/.bash_profile" &
-else
-    rxvt-unicode -e bash -i -c "export SUPPRESSTERMRESIZE=1;source ~/.bash_profile" &
-fi
+# TODO: I'd love to get rid of the sleep here, will put back if I have problems
+# sleep 1
+# XXXX: xscreensaver actually init'd in my ~/.bash_profile (which is sourced from ~/.bash_profile) file
+rxvt-unicode -e bash -i -c "export SUPPRESSTERMRESIZE=1;source ~/.bash_profile" &

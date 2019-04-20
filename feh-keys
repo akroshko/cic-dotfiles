@@ -17,7 +17,6 @@ render
 quit
 # figure this out
 # rotate
-# things for esdf, these should be replaced
 # TODO: want a more universal metadata key
 toggle_exif
 save_image
@@ -25,7 +24,6 @@ toggle_filenames
 toggle_fixed_geometry
 save_filelist
 ########################################
-# good keys for using on a laptop
 # bind new keys for movement
 scroll_up         Up    e
 scroll_down       Down  d
@@ -42,9 +40,8 @@ prev_img          C-Left       b
 next_img          C-Right      space
 zoom_default      0            S
 zoom_fit          underscore   F
-# TODO: other key for this?
 zoom_fill         equal
-# no second key for quit, I press escape too many times accidently
+# no second key for quit, especially not escape, I press escape too many times accidently
 quit              q
 # TODO: should I switch these around?
 reload_image      C-r

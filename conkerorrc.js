@@ -1,18 +1,15 @@
 var g_rc_successful=false;
 
-// https://github.com/vedang/conkeror-rc/blob/master/README
 homepage = "http://conkeror.org/";
 load_paths.unshift("chrome://conkeror-contrib/content/");
-// TODO: uncomment?
-// require('block-content-focus-change.js');
 
-// TODO: add exceptions later, kill all but then whitelist some
-// TODO: eventually incorporate my changes into conkeror
+// TODO: add exceptions to this later, kill all but then whitelist some
 require("webpage-key-kill");
 webpage_key_kill_mode.test.push(/\/\/.*\//); //regexp matches all sites
 
 // hinting
 // hint_digits="abcdefghijklmnopqrstuvwxyz";
+// hint digits that make it easy to use while still using a mouse
 hint_digits="asdfgzxcvbqwert";
 register_user_stylesheet(
     "data:text/css," +
@@ -46,17 +43,17 @@ define_key(content_buffer_normal_keymap, "M-v",
     "browser-object-relationship-next",
     $repeat = "follow");
 
-// TODO: append to default instead
+// TODO: append to default patterns instead
 browser_relationship_patterns[RELATIONSHIP_NEXT] =
     [/^next$/i,
      new RegExp("^>$","i"),
      new RegExp("^(>>|[\\xBB])$","i"),
      new RegExp("^(>|[\\xBB])","i"),
      new RegExp("(>|[\\xBB])$","i"),
-     // new RegExp("»","i"),
+     // ►
      new RegExp("[\\u25BA]","i"),
+     // »
      new RegExp("\\bnext","i")];
-// ► »
 
 browser_relationship_patterns[RELATIONSHIP_PREVIOUS] =
     [/^(prev|previous)$/i,
@@ -64,12 +61,13 @@ browser_relationship_patterns[RELATIONSHIP_PREVIOUS] =
      new RegExp("^(<<|[\\xAB])$","i"),
      new RegExp("^(<|[\\xAB])","i"),
      new RegExp("(<|[\\xAB])$","i"),
+     // ◄
      new RegExp("[\\u25C4]","i"),
+     // «
      new RegExp("\\bprev|previous\\b","i")];
-// ◄ «
 
 // http://conkeror.org/Tips#Browse_buffer_session_history
-// TODO: need hotkey for this
+// browse history of this buffer
 interactive("browse-buffer-history",
             "Browse the session history for the current buffer",
     function browse_buffer_history (I) {
@@ -79,7 +77,7 @@ interactive("browse-buffer-history",
         if (history.count > 1) {
             var entries = [];
 
-            for(var i = 0 ; i < history.count ; i += 1) {
+            for (var i = 0 ; i < history.count ; i += 1) {
                 entries[i] = history.getEntryAtIndex(i, false).URI.spec;
             }
 
@@ -101,43 +99,37 @@ interactive("browse-buffer-history",
 define_key(content_buffer_normal_keymap, "h", "browse-buffer-history");
 
 ////////////////////////////////////////
-// fix some keymaps
-// XXXX: the defaults break a lot of modern websites like youtube and
-//       twitter, better to just ensure default always done
-// TODO: figure out other things like this
+// remap keys
 define_key(content_buffer_button_keymap, "space", "cmd_scrollPageDown",
            $browser_object = browser_object_focused_element);
-
-// comapred to q, this stops me from closing accidently
-define_key(default_global_keymap,        "q",     "kill-current-buffer");
-define_key(default_global_keymap,        "s-q",   "kill-current-buffer");
-////////////////////////////////////////
-// esdf keys, experimental
-// TODO: need new 10x, need new back
-// TODO: these could be better, exteriment
-// TODO: is this really what I want
-define_key(content_buffer_normal_keymap, "o",   "browser-object-media");
+// hint keymap
+define_key(hint_keymap,                  "C-space","hints-exit");
+define_key(default_global_keymap,        "q",      "kill-current-buffer");
+// compared to q, this stops me from closing accidently, eventually replace q completely?
+define_key(default_global_keymap,        "s-q",    "kill-current-buffer");
+define_key(content_buffer_normal_keymap, "o",       "browser-object-media");
 // follow and other surfing keys
-define_key(content_buffer_normal_keymap, "f",   "follow");
-define_key(content_buffer_normal_keymap, "w",   "follow-new-window");
+define_key(content_buffer_normal_keymap, "f",       "follow");
+define_key(content_buffer_normal_keymap, "w",       "follow-new-window");
 // TODO: update...
 define_key(content_buffer_normal_keymap, "s-m",     "duplicate-buffer");
 define_key(content_buffer_normal_keymap, "s-M",     "duplicate-buffer-background");
 define_key(content_buffer_normal_keymap, "M-s-m",   "duplicate-buffer-new-window");
 define_key(content_buffer_normal_keymap, "W",       "duplicate-buffer-new-window");
-// conflicts with duckduckgo
-// define_key(content_buffer_normal_keymap, "D",       "find-url-new-window");
 define_key(content_buffer_normal_keymap, "/",       "save");
 // TODO: best way to disable \ as viewsource... too easy and destructive
 define_key(content_buffer_normal_keymap, "\\",      "");
 require("clicks-in-new-buffer.js");
-// clicks_in_new_buffer_target = OPEN_NEW_BUFFER_BACKGROUND;
 clicks_in_new_buffer_target = OPEN_NEW_WINDOW;
 clicks_in_new_buffer_button = 2;
 
 // buffer switching
 define_key(content_buffer_normal_keymap, "s-space", "switch-to-buffer");
 define_key(minibuffer_keymap,            "s-space", "minibuffer-complete");
+
+// esdf keys for minibuffer
+define_key(minibuffer_keymap, "C-d", "minibuffer-complete");
+define_key(minibuffer_keymap, "C-e", "minibuffer-complete-previous");
 
 define_key(content_buffer_normal_keymap, "C-]",     "local-print-buffer");
 define_key(default_global_keymap,        "C-j",     "unfocus");
@@ -149,8 +141,6 @@ define_key(content_buffer_text_keymap,   "C-j",     "unfocus");
 define_key(content_buffer_normal_keymap, "a",   "back");
 define_key(content_buffer_normal_keymap, "s-a", "back");
 define_key(content_buffer_normal_keymap, "s-l", "back");
-define_key(content_buffer_normal_keymap, "f21", "back");
-// define_key(content_buffer_normal_keymap, "F22", "forward");
 define_key(content_buffer_normal_keymap, "s-g",   "find-url");
 // define_key(content_buffer_normal_keymap, "s-l g", "find-url");
 // emergency key to kill buffer quickly
@@ -169,15 +159,7 @@ interactive("duplicate-buffer-new-window", "Duplicate buffer in new window",
                 browser_object_follow(I.buffer, OPEN_NEW_WINDOW, I.buffer.current_uri.spec);
             });
 
-// TODO: do I still wnat these?
-define_key(default_global_keymap,        "M-?", "isearch-backward");
-define_key(content_buffer_normal_keymap, "M-?", "isearch-backward");
-define_key(isearch_keymap,               "M-?", "isearch-continue-backward");
-
-define_key(default_global_keymap,        "M-/", "isearch-forward");
-define_key(content_buffer_normal_keymap, "M-/", "isearch-forward");
-define_key(isearch_keymap,               "M-/", "isearch-continue-forward");
-// cuda-type keys
+// cuda-style keys
 // find
 define_key(default_global_keymap,        "s-f", "isearch-forward");
 define_key(content_buffer_normal_keymap, "s-f", "isearch-forward");
@@ -204,22 +186,20 @@ define_key(content_buffer_normal_keymap, "s-v", "paste-url");
 define_key(text_keymap,                  "s-v", "yank");
 define_key(minibuffer_base_keymap,       "s-v", "yank");
 
-// modules/bindings/default/content-buffer/normal.js:define_key(content_buffer_normal_keymap, "S", "isearch-continue-forward");
-// modules/bindings/default/content-buffer/normal.js:define_key(content_buffer_normal_keymap, "R", "isearch-continue-backward");
-
 // serach configuration
 isearch_scroll_center_vertically=true;
 
+// open the url currently highlighted, useful for sites that leave links unclickable
 interactive("open-marked-url", "Open the marked url.",
     function (I) {
-        // see http://conkeror.org/Tips#Copy_Selection_to_Emacs_kill_ring
         call_interactively(I, "cmd_copy");
         var cc = read_from_x_primary_selection();
         // trim everything from the front and back that are not good characters
         // TODO: make a nice function for this
         cc=cc.replace(/^["';<>()\/\\]*/,"","g");
         cc=cc.replace(/["';<>()\\]*$/,"","g");
-        // reconstruct http, could cause confusion for ftp but hey, it is not too bad
+        // reconstruct http if first characters missed
+        // this could cause confusion for ftp but hey, it is not too bad
         cc=cc.replace(/^ttp/,"http","g");
         cc=cc.replace(/^tp/,"http","g");
         I.window.minibuffer.message(cc);
@@ -227,16 +207,46 @@ interactive("open-marked-url", "Open the marked url.",
         browser_object_follow(I.buffer,OPEN_CURRENT_BUFFER,cc);
     }
 );
-define_key(content_buffer_normal_keymap, "M-f", "open-marked-url");
+define_key(content_buffer_normal_keymap, "M-f",       "open-marked-url");
 
-// TODO: could 5 be bad in some cases? do I need an F-key, i.e., F5?
-define_key(content_buffer_normal_keymap, "5",   "reload");
-define_key(content_buffer_normal_keymap, "%",   "reload");
-// TODO: something slightly more consistent
-// define_key(content_buffer_normal_keymap, "d",   "duplicate-buffer");
-// TODO: not great, but not bad either, maybe b will free up some day
-// define_key(content_buffer_normal_keymap, "D", "follow-new-buffer-background");
-// new window
+// esdf-style keys
+define_key(default_global_keymap,        "C-e",       "cmd_scrollLineUp");
+define_key(content_buffer_form_keymap,   "C-e",       "cmd_scrollLineUp");
+define_key(content_buffer_text_keymap,   "C-e",       "cmd_scrollLineUp");
+define_key(content_buffer_normal_keymap, "C-e",       "cmd_scrollLineUp");
+define_key(default_global_keymap,        "C-d",       "cmd_scrollLineDown");
+define_key(content_buffer_form_keymap,   "C-d",       "cmd_scrollLineDown");
+define_key(content_buffer_text_keymap,   "C-d",       "cmd_scrollLineDown");
+define_key(content_buffer_normal_keymap, "C-d",       "cmd_scrollLineDown");
+define_key(default_global_keymap,        "C-s",       "cmd_scrollLeft");
+define_key(content_buffer_form_keymap,   "C-s",       "cmd_scrollLeft");
+define_key(content_buffer_text_keymap,   "C-s",       "backward-char");
+define_key(content_buffer_normal_keymap, "C-s",       "backward-char");
+define_key(minibuffer_keymap,            "C-s",       "backward-char");
+// end of line
+define_key(content_buffer_form_keymap,   "C-r",       "end-of-line");
+define_key(content_buffer_text_keymap,   "C-r",       "end-of-line");
+define_key(minibuffer_keymap,            "C-r",       "end-of-line");
+define_key(content_buffer_form_keymap,   "C-h",       "cmd_deleteCharForward");
+define_key(content_buffer_text_keymap,   "C-h",       "cmd_deleteCharForward");
+define_key(minibuffer_keymap,            "C-h",       "cmd_deleteCharForward");
+define_key(content_buffer_form_keymap,   "M-h",       "cmd_deleteWordForward");
+define_key(content_buffer_text_keymap,   "M-h",       "cmd_deleteWordForward");
+define_key(minibuffer_keymap,            "M-h",       "cmd_deleteWordForward");
+// move by word
+define_key(text_keymap,                  "M-f",       "forward-word");
+define_key(content_buffer_form_keymap,   "M-f",       "forward-word");
+define_key(content_buffer_text_keymap,   "M-f",       "forward-word");
+define_key(minibuffer_keymap,            "M-f",       "forward-word");
+define_key(isearch_keymap,               "M-f",       "forward-word");
+define_key(text_keymap,                  "M-s",       "backward-word");
+define_key(content_buffer_form_keymap,   "M-s",       "backward-word");
+define_key(content_buffer_text_keymap,   "M-s",       "backward-word");
+define_key(minibuffer_keymap,            "M-s",       "backward-word");
+define_key(isearch_keymap,               "M-s",       "backward-word");
+// TODO: do I want an an F-key to reload too, i.e., F5?
+define_key(content_buffer_normal_keymap, "5",         "reload");
+define_key(content_buffer_normal_keymap, "%",         "reload");
 // scroll
 define_key(content_buffer_normal_keymap, "b",         "cmd_scrollPageUp");
 define_key(content_buffer_normal_keymap, "C-,",       "cmd_scrollPageUp");
@@ -254,19 +264,33 @@ define_key(content_buffer_form_keymap,   "page_down", "cmd_scrollPageDown_unfocu
 define_key(content_buffer_text_keymap,   "page_down", "cmd_scrollPageDown_unfocus");
 define_key(content_buffer_normal_keymap, "page_down", "cmd_scrollPageDown");
 // this is pageup that works as expected everywhere
-define_key(default_global_keymap,        "S-up",   "cmd_scrollPageUp");
-define_key(minibuffer_base_keymap,       "S-up",   "cmd_scrollPageUp");
-define_key(content_buffer_form_keymap,   "S-up",   "cmd_scrollPageUp_unfocus");
-define_key(content_buffer_text_keymap,   "S-up",   "cmd_scrollPageUp_unfocus");
-define_key(content_buffer_normal_keymap, "S-up",   "cmd_scrollPageUp");
+define_key(default_global_keymap,        "C-b",       "cmd_scrollPageUp");
+define_key(minibuffer_base_keymap,       "C-b",       "cmd_scrollPageUp");
+define_key(content_buffer_form_keymap,   "C-b",       "cmd_scrollPageUp_unfocus");
+define_key(content_buffer_text_keymap,   "C-b",       "cmd_scrollPageUp_unfocus");
+define_key(content_buffer_normal_keymap, "C-b",       "cmd_scrollPageUp");
 // this is pagedown that works as expected everywhere
-// TODO: just v?
-define_key(default_global_keymap,        "S-down",   "cmd_scrollPageDown");
-define_key(minibuffer_base_keymap,       "S-down",   "cmd_scrollPageDown");
-define_key(content_buffer_form_keymap,   "S-down",   "cmd_scrollPageDown_unfocus");
-define_key(content_buffer_text_keymap,   "S-down",   "cmd_scrollPageDown_unfocus");
-define_key(content_buffer_normal_keymap, "S-down",   "cmd_scrollPageDown");
+define_key(default_global_keymap,        "C-v",       "cmd_scrollPageDown");
+define_key(minibuffer_base_keymap,       "C-v",       "cmd_scrollPageDown");
+define_key(content_buffer_form_keymap,   "C-v",       "cmd_scrollPageDown_unfocus");
+define_key(content_buffer_text_keymap,   "C-v",       "cmd_scrollPageDown_unfocus");
+define_key(content_buffer_normal_keymap, "C-v",       "cmd_scrollPageDown");
+// this is pageup that works as expected everywhere
+define_key(default_global_keymap,        "S-up",      "cmd_scrollPageUp");
+define_key(minibuffer_base_keymap,       "S-up",      "cmd_scrollPageUp");
+define_key(content_buffer_form_keymap,   "S-up",      "cmd_scrollPageUp_unfocus");
+define_key(content_buffer_text_keymap,   "S-up",      "cmd_scrollPageUp_unfocus");
+define_key(content_buffer_normal_keymap, "S-up",      "cmd_scrollPageUp");
+// this is pagedown that works as expected everywhere
+define_key(default_global_keymap,        "S-down",    "cmd_scrollPageDown");
+define_key(minibuffer_base_keymap,       "S-down",    "cmd_scrollPageDown");
+define_key(content_buffer_form_keymap,   "S-down",    "cmd_scrollPageDown_unfocus");
+define_key(content_buffer_text_keymap,   "S-down",    "cmd_scrollPageDown_unfocus");
+define_key(content_buffer_normal_keymap, "S-down",    "cmd_scrollPageDown");
 
+define_key(default_global_keymap, "C-c r", "reload-config");
+
+// unfocus before pagedown
 interactive("cmd_scrollPageDown_unfocus",
             "Unfocus and scroll page down",
     function (I) {
@@ -274,6 +298,7 @@ interactive("cmd_scrollPageDown_unfocus",
         yield call_interactively(I, "cmd_scrollPageDown");
     });
 
+// unfocus before pageup
 interactive("cmd_scrollPageUp_unfocus",
             "Unfocus and scroll page up",
     function (I) {
@@ -281,12 +306,17 @@ interactive("cmd_scrollPageUp_unfocus",
         yield call_interactively(I, "cmd_scrollPageUp");
     });
 
+// help
+define_key(default_global_keymap,"s-h k","describe-key");
+define_key(default_global_keymap,"s-h t","tutorial");
+define_key(default_global_keymap,"s-h v","describe-variable");
 
 // url
 url_completion_use_bookmarks = false;
 url_completion_use_history = false;
 url_completion_use_webjumps = true;
 url_remoting_fn = load_url_in_new_window;
+// alternatives if desired
 // url_remoting_fn = load_url_in_new_buffer;
 // url_remoting_fn = load_url_in_current_buffer;
 
@@ -306,7 +336,7 @@ user_pref("dom.workers.sharedWorkers.enabled",true);
 user_pref("dom.workers.maxPerDomain",20);
 user_pref("dom.workers.websocket.enabled",true);
 // TODO https://wiki.mozilla.org/Electrolysis#Force_Enable
-// XXXX remove if not stable, but puts each window into its own process
+// XXXX: remove if not stable, but puts each window into its own process
 user_pref("browser.tabs.remote.force-enable",true);
 user_pref("media.hardware-video-decoding.enabled",true);
 user_pref("media.hardware-video-decoding.force-enabled",true);
@@ -324,7 +354,7 @@ user_pref("browser.cache.memory.enable ",true);
 user_pref("browser.cache.memory.capacity","32768");
 
 // XXXX: not sure if these can be session prefs or must be user prefs
-//       these seem to be needed for recaptcha v2
+//       these seem to be needed for recaptcha v2 to work
 user_pref("dom.w3c_pointer_events.enabled",true);
 user_pref("dom.messageChannel.enabled",true);
 
@@ -333,27 +363,21 @@ user_pref("dom.messageChannel.enabled",true);
 session_pref("font.minimum-size.x-western", 11);
 session_pref("font.size.x-western", 11);
 session_pref("font.size.variable.x-western", 11);
-// ???
 session_pref("xpinstall.whitelist.required", false);
 // TODO: these may be needed sometimes, so they are here
 session_pref("extensions.blocklist.enabled", false);
 session_pref("extensions.checkCompatibility", false);
 session_pref("extensions.checkUpdateSecurity", false);
-// TODO: this could be dangerous to disable, see if adblock latitude keeps working
-// session_pref("extensions.blocklist.enabled", false);
 session_pref("browser.history_expire_days",1);
 // session_pref("browser.download.manager.retention",1)
-// TODO do any of these actually work? some of these are broken...
 session_pref("browser.display.show_image_placeholders",false);
 session_pref("full-screen-api.enabled",true);
-// TODO: fix?
+// TODO: is this what I want, especially for slow computers
 // session_pref("network.prefetch-next",true);
-// TODO: are these still relevant?
 user_pref("network.http.max-persistent-connections-per-server",4);
 user_pref("network.http.pipelining",true);
 user_pref("network.http.pipelining.ssl",true);
 user_pref("network.http.pipelining.maxrequests",8);
-// session_pref("network.dns.disableIPv6",true);
 // performance stuff
 // I either have lots of memory or a slow computer
 user_pref("browser.cache.compression_level",0);
@@ -373,21 +397,19 @@ session_pref("print.print_footerright","");
 session_pref("print.print_printer","");
 session_pref("print.print_shrink_to_fit",true);
 session_pref("print.shrink_to_fit.scale-limit-percent",50);
-// javascript by default
-// this actually works!!! can impose options on conkeror!
 // session_pref("print.always_print_silent", true);
 // session_pref("print.print_to_file","");
 // session_pref("print.print_to_filename","");
 session_pref("dom.ipc.plugins.flash.subprocess.crashreporter.enabled",false);
+// javascript by default
 session_pref("javascript.enabled",true);
 // media
-// TODO: mediasource vs. non-mediasource?
 session_pref("media.mediasource.mp4.enabled",true);
 session_pref("media.mediasource.webm.enabled",true);
-// deactivate page modes
-// TODO: see if this breaks anything, add on a key
-// deactivating page modes speed up things a lot on slow computers
 // session_pref("media.autoplay.enabled",false);
+// deactivate conkeror page modes
+// deactivating conkeror page modes speed up things a lot on slow computers
+// TODO: eventually remove from conkeror
 page_mode_deactivate(dailymotion_mode);
 // page_mode_deactivate(duckduckgo_mode);
 page_mode_deactivate(google_calendar_mode);
@@ -398,7 +420,7 @@ page_mode_deactivate(smbc_mode);
 page_mode_deactivate(xkcd_mode);
 page_mode_deactivate(youtube_mode);
 page_mode_deactivate(youtube_player_mode);
-// Page mode modules
+// Page mode modules deactivate
 session_pref("conkeror.load.page-modes/dailymotion", 0);
 session_pref("conkeror.load.page-modes/google-calendar", 0);
 session_pref("conkeror.load.page-modes/google-maps", 0);
@@ -409,6 +431,7 @@ session_pref("conkeror.load.page-modes/xkcd", 0);
 session_pref("conkeror.load.page-modes/youtube", 0);
 session_pref("conkeror.load.page-modes/youtube-player", 0);
 
+// I go to sites that like webgl
 session_pref("webgl.disabled", false);
 session_pref("webgl.min_capability_mode", false);
 session_pref("webgl.disable-extensions", false);
@@ -416,7 +439,6 @@ session_pref("webgl.dxgl.enabled", true);
 session_pref("webgl.enable-webgl2", true);
 session_pref("webgl.force-enabled", true);
 
-// TODO: this lets me go back...
 session_pref("browser.sessionhistory.max_entries", 50);
 
 // https://gist.github.com/haasn/69e19fc2fe0e25f3cff5
@@ -425,31 +447,29 @@ session_pref("dom.battery.enabled",false);
 session_pref("loop.enabled",false);
 // TODO: what is this, see https://gist.github.com/haasn/69e19fc2fe0e25f3cff5
 session_pref("browser.beacen.enabled",false);
-// TODO: go back to ghacks user.js
 session_pref("geo.enabled",false);
 session_pref("geo.wifi.logging.enabled",false);
 session_pref("geo.wifi.uri","");
-// TODO: browser.safebrowsing.enabled, why not in ghacks
+// TODO: should I enable these?
 session_pref("browser.safebrowsing.enabled",false);
 session_pref("browser.safebrowsing.downloads.enabled",false);
 session_pref("browser.safebrowsing.malware.enabled",false);
-// TODO: not around...?
 session_pref("media.block-autoplay-until-in-foreground",true);
-session_pref("social.manifest.facebook","");
+// TODO: if this has disappeared from waterfox, then can remove this permanently
+// session_pref("social.manifest.facebook","");
 session_pref("device.sensors.enabled",false);
 session_pref("camera.control.autofocus_moving_callback.enabled",false);
 // network.http.speculative-parallel-limit=0
-// TODO: should I add below
+// TODO: update security versions when relivant
 session_pref("security.tls.insecure_fallback_hosts.use_static_list",false);
-// TOOD: hmmmm....
+// TOOD: fix this
 session_pref("security.tls.version.min",1);
-// TODO: change in future when I don't need to connect to certain unsafe websites
+// TODO: change security settings in future when I don't need to connect to certain unsafe websites
 // https://wiki.mozilla.org/Security:Renegotiation#security.ssl.require_safe_negotiation
 // session_pref("security.ssl.require_safe_negotiation",true);
 // TODO: not having this broke google on January 19,2018
 session_pref("security.ssl.treat_unsafe_negotiation_as_broken",false);
 session_pref("security.ssl3.rsa_seed_sha",true);
-// TODO: change below
 session_pref("security.OCSP.enabled",1);
 session_pref("security.OCSP.require",false);
 // perfect forward secrecy, but muight break many things
@@ -459,7 +479,7 @@ session_pref("security.OCSP.require",false);
 // changed ghacks defaults because I use it
 session_pref("layout.css.visited_links_enabled", true);
 
-
+// copy the current url and it's title to an org-mode link in the clipboard
 interactive("copy-url-title","Copy url and title to clipboard in org-mode format.",
     function (I) {
         var the_url_title="[[" + I.buffer.current_uri.spec + "][" + I.buffer.document.title + "]]";
@@ -468,6 +488,7 @@ interactive("copy-url-title","Copy url and title to clipboard in org-mode format
     });
 define_key(content_buffer_normal_keymap, "s-0", "copy-url-title");
 
+// copy the current url and the selected text to an org-mode link in the clipboard
 interactive("copy-url-selected","Copy url and the selected text to clipboard in org-mode format.",
     function (I) {
         var the_url_selected="[[" + I.buffer.current_uri.spec + "][" + read_from_x_primary_selection() + "]]";
@@ -476,25 +497,13 @@ interactive("copy-url-selected","Copy url and the selected text to clipboard in 
     });
 define_key(content_buffer_normal_keymap, "C-0", "copy-url-selected");
 
-// So `* p c` will copy the title of the current buffer
-
 // Adblock Plus
 // http://conkeror.org/AdblockPlus
+// I use Adblock Latitude right now but will probably replace with another fork of
 require("extensions/adblockplus.js");
 
-// TODO: does not seem to work
-// interactive("toggle-adblockplus","Toggle adblockplus.",
-//     function (I) {
-//         if (get_pref("extensions.adblockplus.enabled")) {
-//             I.window.minibuffer.message("Disabling adblockplus!!!");
-//             session_pref("extensions.adblockplus.enabled",false);
-//         } else {
-//             I.window.minibuffer.message("Enabling adblockplus!!!");
-//             session_pref("extensions.adblockplus.enabled",true);
-//         }
-//     });
-// define_key(content_buffer_normal_keymap,"s-b","toggle-adblockplus");
-
+// toggle javascript on/off
+// TODO: add modeline indication and hint
 interactive("toggle-javascript","Toggle javascript.",
     function (I) {
         if (get_pref("javascript.enabled")) {
@@ -507,8 +516,8 @@ interactive("toggle-javascript","Toggle javascript.",
     });
 define_key(content_buffer_normal_keymap,"s-n","toggle-javascript");
 
-// http://conkeror.org/Focus
-// TODO: put these back on at some point
+// based on http://conkeror.org/Focus
+// stop things like form elements from focusing, eventually add a whitelist for certain websites
 function focusblock (buffer) {
     var s = Components.utils.Sandbox(buffer.top_frame);
     s.document = buffer.document.wrappedJSObject;
@@ -526,58 +535,22 @@ function focusblock (buffer) {
 }
 add_hook('content_buffer_progress_change_hook', focusblock);
 
-// try to garbage collect so it does not happen all at once on slow computers
-function gcafterload (buffer) {
-    Cu.forceGC();
-}
-add_hook('content_buffer_finished_loading_hook', gcafterload);
-
 // really quick ones
 // these are here so the browser is functional even if json is not loaded
-// TODO: highlight following
-// define_opensearch_webjump("d", "duckduckgo.xml");
-// define_webjump("duckduckgo","https://duckduckgo.com/?q=%s",$alternative="https://duckduckgo.com");
-// define_opensearch_webjump("g", "google.xml");
-// TODO: single letter abbreviations too confusing... can I add a help string?
 // TODO: figure out safe search off by default in duckduckgo
 define_webjump("duckduckgo","https://duckduckgo.com/?q=%s&t=hb&ia=web",                                    $alternative="https://duckduckgo.com");
-// define_webjump("g",         "https://www.google.ca/search?q=%s&ie=utf-8&oe=utf-8&gws_rd=cr&dcr=0&safe=off",$alternative="https://www.google.ca/");
 define_webjump("google",    "https://www.google.ca/search?q=%s&ie=utf-8&oe=utf-8&gws_rd=cr&dcr=0&safe=off",$alternative="https://www.google.ca/");
-// define_webjump("y",         "https://www.youtube.com/results?search_query=%s&search=Search",               $alternative="https://www.youtube.com/feed/subscriptions");
 // local stuff for completion
 define_webjump("aboutaddons", "about:config");
 define_webjump("aboutconfig", "about:config");
 define_webjump("aboutsupport","about:support");
 // use web browser for system admin
-// TODO: may need to be https for some people
 define_webjump("local-router", "http://192.168.0.1");
 define_webjump("router-local", "http://192.168.0.1");
 define_webjump("local-cups",   "http://localhost:631");
 define_webjump("cups-local",   "http://localhost:631");
 
-// http://conkeror.org/Tips#Selection_Searches
-// selection searches
-function create_selection_search(webjump, key) {
-    interactive(webjump+"-selection-search",
-                "Search " + webjump + " with selection contents",
-                "find-url-new-buffer",
-                $browser_object = function (I) {
-                    return webjump + " " + I.buffer.top_frame.getSelection();});
-    define_key(content_buffer_normal_keymap, key.toUpperCase(), webjump + "-selection-search");
-
-    interactive("prompted-"+webjump+"-search", null,
-                function (I) {
-                    var term = yield I.minibuffer.read_url($prompt = "Search "+webjump+":",
-                                                           $initial_value = webjump+" ",
-                                                           $select = false);
-                    browser_object_follow(I.buffer, FOLLOW_DEFAULT, term);
-                });
-    define_key(content_buffer_normal_keymap, key, "prompted-" + webjump + "-search");
-}
-create_selection_search("duckduckgo","d");
-// TODO: e is wierd for google
-create_selection_search("google","e");
-
+// load webjumps from a json file
 function load_webjumps_json (path) {
     if (! (path instanceof Ci.nsIFile)) {
         path = make_file(path);
@@ -600,47 +573,11 @@ function load_webjumps_json (path) {
 load_webjumps_json('~/.conkerorrc/conkeror-webjumps.json');
 
 ////////////////////////////////////////////////////////////////////////////////
-// find highlighted in google
-// see http://conkeror.org/Tips#Selection_Searches
-// interactive("selection-search-google","Use current selection and search on Google.",
-//     "find-url-new-buffer",
-//     $browser_object = function (I) {
-//         return "google " + I.buffer.top_frame.getSelection();
-//     });
-// define_key(content_buffer_normal_keymap, "s-g", "selection-search-google")
-
-// not for now
-// interactive("selection-search-scholar","Use current selection and search on Google Scholar.",
-//     "find-url-new-buffer",
-//     $browser_object = function (I) {
-//         return "scholar " + I.buffer.top_frame.getSelection();
-//     });
-// define_key(content_buffer_normal_keymap, "s-s", "selection-search-scholar")
-
-interactive("selection-search-wikipedia","Use current selection and search on Wikipedia.",
-    "find-url-new-buffer",
-    $browser_object = function (I) {
-        return "wikipedia " + I.buffer.top_frame.getSelection();
-    });
-define_key(content_buffer_normal_keymap, "s-w", "selection-search-wikipedia")
-
-////////////////////////////////////////////////////////////////////////////////
-// find clipboard in google
-interactive("clipboard-search-google","Use current clipboard and search on Google.",
-    "find-url-new-buffer",
-    $browser_object = function (I) {
-        return "google " + read_from_clipboard();
-    });
-define_key(content_buffer_normal_keymap, "s-G", "clipboard-search-google")
-
-// TODO: add others
-
-////////////////////////////////////////////////////////////////////////////////
 // misc
 
-// copy all urls to clipboard as list
+// copy all urls in currently open buffer to clipboard as list, generally meant to move to other programs
 // TODO: and/or save to temp file
-// generally meant to move to other programs
+// TODO: name ambiguous because it can be confused with scraping urls
 interactive("copy-all-urls", "Copy all URLs",
     function (I) {
         var urls="";
@@ -652,39 +589,7 @@ interactive("copy-all-urls", "Copy all URLs",
         var gClipboardHelper = Cc["@mozilla.org/widget/clipboardhelper;1"].getService(Ci.nsIClipboardHelper);
         gClipboardHelper.copyString(urls);
     });
-
-// fetch video as audio
-interactive("fetch-video", "Fetch Video",
-    function (I) {
-        // TODO: why does --working-directory not work?
-        var cmd_str = 'rxvt-unicode -cd "$HOME/Documents" -e bash -i -c "youtube-dl --no-cache-dir ' + I.buffer.display_uri_string + ';wait;while read -r -t 0;do read -r; done;read -n 1 -s -r -p \'Press any key to continue...\'"'
-        shell_command_blind(cmd_str);
-    });
-define_key(content_buffer_normal_keymap,"C-x v","fetch-video");
-
-// fetch video as audio
-interactive("fetch-video-as-audio", "Fetch Video as audio",
-    function (I) {
-        // TODO: why does --working-directory not work?
-        // TODO: default format
-        var cmd_str = 'rxvt-unicode -cd "$HOME/Documents" -e bash -i -c "youtube-dl --no-cache-dir --extract-audio --audio-format mp3 --audio-quality 9 ' + I.buffer.display_uri_string + ';wait;while read -r -t 0; do read -r; done;read -n 1 -s -r -p \'Press any key to continue...\'"'
-        shell_command_blind(cmd_str);
-    });
-define_key(content_buffer_normal_keymap,"C-x V","fetch-video-as-audio");
-
-interactive("fetch-video-playlist-as-audio", "Fetch Video playlist as audio",
-    function (I) {
-        // TODO: why does --working-directory not work?
-        // TODO: default format
-        var cmd_str = 'rxvt-unicode -cd "$HOME/Documents" -e bash -i -c "youtube-dl --no-cache-dir --extract-audio --output \'%(playlist_title)s/%(playlist_title)s-%(playlist_index)s-%(title)s-%(id)s.%(ext)s\' --audio-format mp3 --audio-quality 9 ' + I.buffer.display_uri_string + ';wait;while read -r -t 0; do read -r; done;read -n 1 -s -r -p \'Press any key to continue...\'"'
-        shell_command_blind(cmd_str);
-    });
-define_key(content_buffer_normal_keymap,"C-x M-v","fetch-video-playlist-as-audio");
-
-// want C-c C-r to be restart
-define_key(default_global_keymap, "C-c r", "reload-config");
-////////////////////////////////////////
-// open in firefox
+// open current url in firefox
 interactive("open-firefox", "",
     function (I) {
         var theurl = transform_url_location(I.buffer,I.buffer.display_uri_string);
@@ -692,272 +597,38 @@ interactive("open-firefox", "",
         shell_command_blind(cmd_str);
     });
 define_key(content_buffer_normal_keymap, "C-c f", "open-firefox");
-// TODO: figure out C-u....
-interactive("open-firefox-unsafe", "",
+// open current url in a private session of firefox
+interactive("open-firefox-private", "",
     function (I) {
         var theurl = transform_url_location(I.buffer,I.buffer.display_uri_string);
         var cmd_str = 'firefox -private -new-tab "' + theurl + '"';
         shell_command_blind(cmd_str);
     });
-define_key(content_buffer_normal_keymap, "C-u C-c f", "open-firefox-unsafe");
-// open in firefox private
-interactive("open-firefox-private", "",
+define_key(content_buffer_normal_keymap, "C-u C-c f", "open-firefox-private");
+// open current url using the conkeror-private script
+interactive("open-conkeror-private", "",
     function (I) {
         var theurl = transform_url_location(I.buffer,I.buffer.display_uri_string);
-        var cmd_str = 'firefox -P unsafe -new-tab "' + theurl + '"';
+        var cmd_str = 'conkeror-private "' + theurl + '"';
         shell_command_blind(cmd_str);
     });
-define_key(content_buffer_normal_keymap, "C-c x", "open-firefox-private");
-////////////////////////////////////////
-// chromium...
+define_key(content_buffer_normal_keymap, "C-c x", "open-conkeror-private");
+// open current url in chromium
 interactive("open-chromium", "",
     function (I) {
         // TODO: Can't auto-enable ad-blocker and avoid ads, I shred it enough that this is fine
         var theurl = transform_url_location(I.buffer,I.buffer.display_uri_string);
-        var cmd_str = 'chromium "' + theurl + '"';
-        shell_command_blind(cmd_str);
-    });
-define_key(content_buffer_normal_keymap, "C-c g", "open-chromium");
-interactive("open-chromium-ads-on", "",
-    function (I) {
-        // TODO: fix this....
-        var theurl = transform_url_location(I.buffer,I.buffer.display_uri_string);
         var cmd_str = 'chromium --temp-profile "' + theurl + '"';
         shell_command_blind(cmd_str);
     });
-// TODO: decide which one
-define_key(content_buffer_normal_keymap, "C-u C-c g", "open-chromium-ads-on");
-define_key(content_buffer_normal_keymap, "C-c G", "open-chromium-ads-on");
+define_key(content_buffer_normal_keymap, "C-c g", "open-chromium");
 
-// open in gnome-web
-// interactive("open-gnome-web", "",
-//     function (I) {
-//         // TODO: add transform url here
-//         var cmd_str = 'epiphany --new-tab "' + I.buffer.display_uri_string + '"';
-//         shell_command_blind(cmd_str);
-//     });
-// define_key(content_buffer_normal_keymap, "C-c G", "open-gnome-web");
-
-interactive("open-firefox-new-window", "",
-    function (I) {
-        var cmd_str = 'firefox -P default -new-window "' + I.buffer.display_uri_string + '"';
-        shell_command_blind(cmd_str);
-    });
-// TODO is this the best way to do C-u?
-define_key(content_buffer_normal_keymap, "C-u C-c f", "open-firefox-new-window");
-
-// TOOD: go to beginning (by default preserve position)
-interactive("open-vlc", "Try opening current link in VLC.",
-    function (I) {
-        var cmd_str = '~/bin/vlc-local.sh "' + I.buffer.display_uri_string + '"';
-        shell_command_blind(cmd_str);
-    });
-define_key(content_buffer_normal_keymap, "C-c v", "open-vlc");
-
-// http://emacs-fu.blogspot.ca/2010/12/conkeror-web-browsing-emacs-way.html
-// reload conkerorrc with C-c r
+// function to reload conkerorrc with a helpful message
 interactive("reload-config", "reload conkerorrc",
        function(I) {
           load_rc();
           I.window.minibuffer.message("config reloaded");
        });
-
-interactive("youtube-fullscreen",
-    "Click the Youtube html5 player fullscreen button.",
-    function (I) {
-        var buf = I.buffer;
-        // var elem = buf.document.querySelector(".ytp-button-fullscreen, .ytp-button");
-        // var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
-        var elem = I.buffer.document.getElementsByClassName("ytp-fullscreen-button ytp-button");
-        // elem[0].click();
-        dom_node_click(elem[0], 1, 1);
-    });
-// TODO: generalize and add error checking
-define_key(content_buffer_normal_keymap, "M-,", "youtube-fullscreen");
-
-// web video pause only
-interactive("web-video-pause",
-    "Pause Youtube videos (as opposed to pause/play of other thing).",
-    function (I) {
-        // get url, is this the best way?
-        var theurl = load_spec_uri_string(load_spec(I.buffer.top_frame));
-        if (theurl.indexOf("www.youtube.com") != -1) {
-            // https://developers.google.com/youtube/iframe_api_reference
-            // https://www.youtube.com/iframe_api
-            var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
-            player.pauseVideo()
-        } else if (theurl.indexOf("twitch.tv") != -1 && theurl.indexOf("videos") != -1) {
-            // https://openuserjs.org/scripts/flipperbw/Twitch_Hotkeys/source
-            var player = I.buffer.document.getElementsByClassName('player-video')[0].getElementsByTagName('video')[0];
-            player.pause();
-        }
-        // I.window.minibuffer.message(player.getDuration())
-    });
-
-interactive("web-video-play",
-    "Pause Youtube videos (as opposed to pause/play of other thing).",
-    function (I) {
-        // get url, is this the best way?
-        var theurl = load_spec_uri_string(load_spec(I.buffer.top_frame));
-        if (theurl.indexOf("www.youtube.com") != -1) {
-            // https://www.youtube.com/iframe_api
-            var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
-            player.playVideo()
-        } else if (theurl.indexOf("twitch.tv") != -1 && theurl.indexOf("videos") != -1) {
-            // https://openuserjs.org/scripts/flipperbw/Twitch_Hotkeys/source
-            // TODO: only do for videos, live streams are only muted minimized or surfed away from
-            var player = I.buffer.document.getElementsByClassName('player-video')[0].getElementsByTagName('video')[0];
-            player.play();
-        }
-        // I.window.minibuffer.message(player.getDuration())
-    });
-
-interactive("web-video-pause-toggle",
-    "Pause Youtube videos (as opposed to pause/play of other thing).",
-    function (I) {
-        var theurl = load_spec_uri_string(load_spec(I.buffer.top_frame));
-        if (theurl.indexOf("www.youtube.com") != -1) {
-            // https://www.youtube.com/iframe_api
-            var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
-            if (player.getPlayerState() == 1) {
-                player.pauseVideo();
-            } else {
-                player.playVideo();
-            }
-        } else if (theurl.indexOf("twitch.tv") != -1  && theurl.indexOf("videos") != -1) {
-            // https://openuserjs.org/scripts/flipperbw/Twitch_Hotkeys/source
-            var player = I.buffer.document.getElementsByClassName('player-video')[0].getElementsByTagName('video')[0];
-            var player_status = player.paused;
-            if (player_status) {
-                player.play();
-            } else {
-                player.pause();
-            }
-        }
-        // I.window.minibuffer.message(player.getDuration())
-    });
-define_key(content_buffer_normal_keymap, "M-.", "web-video-pause-toggle");
-
-interactive("youtube-seek",
-    "Seek to a youtube location.",
-    function (I) {
-        // TODO: do not use clipboard in future, communicate by temp file maybe
-        var seek_location = parseFloat(read_from_clipboard())
-        // https://www.youtube.com/iframe_api
-        var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
-        I.window.minibuffer.message("Seeking to: "+seek_location);
-        player.seekTo(seek_location);
-    });
-
-// TODO: need a timeout on this, this may be an excessive way to do this
-interactive("twitch-seek",
-    "Seek to a twitch location.",
-    function (I) {
-        // TODO: do not use clipboard in future, communicate by temp file maybe
-        var seek_location = parseFloat(read_from_clipboard())
-        // https://openuserjs.org/scripts/flipperbw/Twitch_Hotkeys/source
-        var player = I.buffer.document.getElementsByClassName('player-video')[0].getElementsByTagName('video')[0];
-        // player.currentTime = seek_location;
-        player.pause();
-        sleep(1000.0);
-        player.fastSeek(seek_location);
-        sleep(1000.0);
-        player.play();
-    });
-
-interactive("twitch-enumerate-api",
-    "Enumerate API for twitch.  Clunky, but useful.",
-    function (I) {
-        // https://openuserjs.org/scripts/flipperbw/Twitch_Hotkeys/source
-        var player = I.buffer.document.getElementsByClassName('player-video')[0].getElementsByTagName('video')[0];
-        thestring = "";
-        for (let p in player) {
-            thestring+=(String(p) + " :: " + String(player[p]));
-            thestring+="\n";
-        }
-        path = make_file('~/conkeror-debug.txt');
-        write_text_file(path,thestring);
-        // I.window.alert(String(thelist));
-    });
-
-interactive("youtube-previous",
-    "Previous in a youtube playlist.",
-    function (I) {
-        // https://www.youtube.com/iframe_api
-        var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
-        player.previousVideo();
-    });
-
-interactive("youtube-next",
-    "Next in youtube playlist.",
-    function (I) {
-        // https://www.youtube.com/iframe_api
-        var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
-        player.nextVideo();
-    });
-
-interactive("youtube-normalize-volume",
-    "Set volume in youtube to a nice level.",
-    function (I) {
-        // https://www.youtube.com/iframe_api
-        var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
-        player.setVolume(40);
-    });
-
-interactive("youtube-enumerate-api",
-    "Enumerate API in youtube.  Clunky, but useful.",
-    function (I) {
-        // https://www.youtube.com/iframe_api
-        var player = I.buffer.document.getElementById('movie_player').wrappedJSObject;
-        for (let p in player) {
-            I.window.alert(p);
-        }
-    });
-
-function transform_url_location (buffer,theurl) {
-    // transform location of the url to include position for things like videos
-    if ( theurl.indexOf("youtube.com") > -1 ) {
-        return youtube_link_from_current_time(buffer,theurl);
-    } else if ( theurl.indexOf("twitch.tv") != -1 && theurl.indexOf("videos") != -1) {
-        return twitch_link_from_current_time(buffer,theurl);
-    } else {
-        return theurl;
-    }
-}
-
-function youtube_link_from_current_time (buffer,url) {
-    var current_time = youtube_get_currenttime(buffer);
-    var current_time_integer=Math.floor(current_time);
-    var theurl_stripped=url.replace(/&t=[0-9]*s?/g,"");
-    return theurl_stripped+'&t='+String(current_time_integer);
-}
-
-function twitch_link_from_current_time (buffer,url) {
-    // https://openuserjs.org/scripts/flipperbw/Twitch_Hotkeys/source
-    // for testing...
-    // https://www.twitch.tv/videos/212539340?collection=YeKb2LJQ6hQMpg
-    // TODO: make a function
-    var player = buffer.document.getElementsByClassName('player-video')[0].getElementsByTagName('video')[0];
-    var current_time=player.currentTime;
-    var hours=Math.floor(current_time/3600);
-    var temptime=current_time - hours*3600;
-    var minutes=Math.floor(temptime/60);
-    var seconds=Math.floor(temptime - minutes*60);
-    var timestring=integer_to_two_digit_string(hours) + 'h' + integer_to_two_digit_string(minutes) + 'm' + integer_to_two_digit_string(seconds) + 's';
-    // convert to strings...
-    // write_text_file_line(make_file(logdir+"conkeror-current-log.org"),get_now() + " [[" + theurl + "::" + String(current_time) + "][" + thetitle + "]]\n");
-    // theurl_stripped=theurl.replace(/\?[0-9][0-9]h[0-9][0-9]m[0-9][0-9]s/,"");
-    // TODO: strip off anything but ? until I know what's going on, figure out format of twitch urls with lots of options
-    theurl_stripped=url.replace(/\?.*/,"");
-    return (theurl_stripped + '?t=' + timestring);
-}
-
-// get youtube time
-function youtube_get_currenttime (buffer) {
-    // https://www.youtube.com/iframe_api
-    var player = buffer.document.getElementById('movie_player').wrappedJSObject;
-    return player.getCurrentTime()
-};
 
 /*
  * Copyright (c) 2010 Nick Galbreath

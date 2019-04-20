@@ -20,7 +20,7 @@ set output-meta on
 "\M-p": history-search-backward
 "\M-n": history-search-forward
 # found using C-v and then typing control-backspace
-"\C-h": backward-kill-word
+# "\C-h": backward-kill-word
 # TODO: experimenting with menu-complete.... can I use c-j elsewhere consistently
 # "\M-i": menu-complete
 # https://www.reddit.com/r/commandline/comments/kbeoe/you_can_make_readline_and_bash_much_more_user/
@@ -29,6 +29,18 @@ Control-j: menu-complete
 # Control-k: menu-complete-backward
 # XXXX: required for sage terminal
 "\e[3~":delete-char
+########################################
+# esdf style movement keys
+"\C-e": previous-screen-line
+"\C-s": backward-char
+"\C-d": next-screen-line
+"\C-f": forward-char
+"\M-s": backward-word
+"\M-f": forward-word
+"\C-a": beginning-of-line
+"\C-r": end-of-line
+"\C-h": delete-char
+"\M-h": kill-word
 ########################################
 # needed for home and end keys
 # https://wiki.archlinux.org/index.php/Home_and_End_keys_not_working

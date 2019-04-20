@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (C) 2016-2019, Andrew Kroshko, all rights reserved. -->
+<!-- Copyright (C) 2003-2011, Dana Jansens and others. -->
 
 <!-- Author: Andrew Kroshko -->
 <!-- Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com> -->
 <!-- Created: Thu June 09, 2016 -->
-<!-- Version: 20190309 -->
+<!-- Version: 20190413 -->
 <!-- URL: https://github.com/akroshko/cic-groups -->
 
 <!-- This program is free software: you can redistribute it and/or modify -->
@@ -20,7 +21,8 @@
 <!-- You should have received a copy of the GNU General Public License -->
 <!-- along with this program. If not, see http://www.gnu.org/licenses/. -->
 
-<!-- XXXX: blatently lifted from Debians default openbox rc.xml -->
+<!-- This file has been lifted  from
+     Debians default openbox rc.xml. -->
 
 <openbox_config xmlns="http://openbox.org/3.4/rc"
                 xmlns:xi="http://www.w3.org/2001/XInclude">
@@ -229,33 +231,11 @@
     <keybind key="C-W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
-    <!-- <keybind key="M-l"> -->
-    <!-- See raiselower -->
-    <!--   <action name="Lower"/> -->
-    <!--   <action name="FocusToBottom"/> -->
-    <!--   <action name="Unfocus"/> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="m-2"> -->
-    <!--   <action name="ToggleShowDesktop"/> -->
-    <!-- </keybind> -->
-    <keybind key="M-F5">
-      <action name="Execute"><execute>bash -c "source ~/.bash_library;conkeror-clipboard.sh google"</execute></action>
+    <keybind key="M-5">
+      <action name="Execute"><execute>~/bin/send-m5-to-emacs.sh</execute></action>
     </keybind>
-    <!-- TODO: might want this to be a menu -->
-    <!-- <keybind key="M-5"> -->
-    <!--   <action name="Execute"><execute>bash -c "source ~/.bash_library;conkeror-clipboard.sh google"</execute></action> -->
-    <!-- </keybind> -->
-    <keybind key="C-F5">
-      <action name="Execute"><execute>bash -c "source ~/.bash_library;apropos-clipboard"</execute></action>
-    </keybind>
-    <!-- <keybind key="C-5"> -->
-    <!--   <action name="Execute"><execute>bash -c "source ~/.bash_library;apropos-clipboard"</execute></action> -->
-    <!-- </keybind> -->
-    <keybind key="W-F5">
-      <action name="Execute"><execute>bash -c "source ~/.bash_library;conkeror-clipboard.sh wikipedia"</execute></action>
-    </keybind>
-    <keybind key="H-F5">
-      <action name="Execute"><execute>bash -c "source ~/.bash_library;conkeror-clipboard.sh scholar"</execute></action>
+    <keybind key="M-6">
+      <action name="Execute"><execute>~/bin/send-m6-to-emacs.sh</execute></action>
     </keybind>
     <keybind key="M-7">
       <action name="Execute"><execute>~/bin/send-m7-to-emacs.sh</execute></action>
@@ -272,34 +252,11 @@
     <keybind key="M-W-8">
       <action name="Execute"><execute>~/bin/send-ms8-to-emacs.sh</execute></action>
     </keybind>
-    <!-- TODO: depricated in favour of M-8, remove -->
-    <!-- <keybind key="W-0"> -->
-    <!--   <action name="Execute"><execute>~/bin/x11-s0-capture.sh</execute></action> -->
-    <!-- </keybind> -->
     <!-- TODO change this -->
     <keybind key="m-k">
       <action name="Lower"/>
       <action name="Execute"><execute>~/bin/x11_restore_saved_window.sh</execute></action>
     </keybind>
-    <!-- Test -->
-    <!-- <keybind key="C-F12"> -->
-    <!--   <action name="Execute"><execute>python $HOME/bin/f12_help_panel.py</execute></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="F12" chroot="true"> -->
-    <!--   <keybind key="Escape"> -->
-    <!-- <action name="Execute"><execute>bash -c "pkill -f f12_help_panel"</execute></action> -->
-    <!--     <action name="BreakChroot"/> -->
-    <!--   </keybind> -->
-    <!--   <keybind key="BackSpace"> -->
-    <!--     <action name="BreakChroot"/> -->
-    <!--   </keybind> -->
-    <!--   <keybind key="F12"> -->
-    <!--     <action name="Execute"><execute>~/bin/web-video-focus.sh</execute></action> -->
-    <!--   </keybind> -->
-    <!--   <keybind key="C-F12"> -->
-    <!--     <action name="Execute"><execute>~/bin/web-video-focus-restore.sh</execute></action> -->
-    <!--   </keybind> -->
-    <!-- </keybind> -->
     <keybind key="C-F11">
       <action name="Execute"><execute>bash -c "source ~/.bash_library;fullscreen-window-move"</execute></action>
     </keybind>
@@ -308,6 +265,7 @@
       <!-- <action name="Lower"/> -->
       <!-- <action name="FocusToBottom"/> -->
     </keybind>
+    <!-- TODO: do I still want this? -->
     <keybind key="F12">
       <action name="Execute"><execute>bash -c "source ~/.bash_library;fullscreen-window-minimize"</execute></action>
       <!-- <action name="Lower"/> -->
@@ -322,10 +280,6 @@
     <keybind key="C-9">
       <action name="Execute"><execute>~/bin/send-c9-to-emacs.sh</execute></action>
     </keybind>
-    <!-- <keybind key="C-0"> -->
-    <!--   <action name="Execute"><execute>bash -c "export PATH=\"${PATH}:~/bin\";source ~/.bash_library.d/bash_functions_stdlib;master-boss-key"</execute></action> -->
-    <!-- </keybind> -->
-    <!-- emergency (or normal) hibernate, assume pm-hibernate is in sudoers -->
     <!-- TODO: want other key for this for small keyboards? actually make just enter work for accept -->
     <keybind key="M-S-F10">
       <action name="Execute"><execute>rxvt-unicode -e bash -i -c "while read -r -t 0;do read -r; done;IFS= read -n 1 -p 'Press [Enter] to hibernate or [Space] to abort... ' TRYAGAIN;if [[ ${TRYAGAIN} == ' ' ]];then echo '';echo 'Aborting hibernate!!!';sleep 5;else echo 'Hibernating...';sudo pm-hibernate;sleep 15;fi;"</execute></action>
@@ -382,13 +336,7 @@
     <keybind key="S-BackSpace">
       <action name="Iconify"/>
     </keybind>
-    <keybind key="W-c">
-      <action name="Execute"><execute>~/bin/switch-to-emacs-zathura-or-passthrough.sh</execute></action>
-    </keybind>
     <!-- ==== Keypad ======================================== -->
-    <keybind key="KP_Begin">
-      <action name="Execute"><execute>~/bin/switch-to-emacs-or-passthrough.sh</execute></action>
-    </keybind>
     <keybind key="KP_Subtract">
       <action name="Execute"><execute>~/bin/web-video-minimize.sh --pause</execute></action>
     </keybind>
@@ -441,18 +389,6 @@
     <keybind key="M-BackSpace">
       <action name="Close"/>
     </keybind>
-    <keybind key="M-W-u">
-      <action name="DirectionalCycleWindows">
-        <direction>left</direction>
-        <raise>yes</raise>
-      </action>
-    </keybind>
-    <keybind key="M-W-o">
-      <action name="DirectionalCycleWindows">
-        <direction>right</direction>
-        <raise>yes</raise>
-      </action>
-    </keybind>
     <keybind key="M-W-j">
       <action name="NextWindow"/>
     </keybind>
@@ -471,48 +407,6 @@
     <keybind key="M-W-period">
       <action name="Execute"><execute>~/bin/x11_snap_current_window.sh 1</execute></action>
     </keybind>
-    <keybind key="M-W-bracketright">
-      <action name="UnmaximizeFull"/>
-      <action name="MoveResizeTo">
-        <width>50%</width>
-      </action>
-      <action name="MoveToEdge"><direction>east</direction></action>
-      <action name="MoveResizeTo">
-        <width>50%</width>
-      </action>
-      <action name="MoveToEdge"><direction>east</direction></action>
-      <action name="MoveResizeTo">
-        <width>50%</width>
-      </action>
-      <action name="MoveToEdge"><direction>east</direction></action>
-      <action name="MoveResizeTo">
-        <width>50%</width>
-      </action>
-      <action name="MoveToEdge"><direction>east</direction></action>
-      <action name="MoveResizeTo">
-        <width>50%</width>
-      </action>
-      <action name="MoveToEdge"><direction>east</direction></action>
-      <action name="ToggleMaximize"/>
-    </keybind>
-    <!-- other screen -->
-    <keybind key="M-W-bracketleft">
-      <action name="UnmaximizeFull"/>
-      <action name="MoveResizeTo">
-        <width>50%</width>
-      </action>
-      <action name="MoveToEdge"><direction>west</direction></action>
-      <action name="MoveResizeTo">
-        <width>50%</width>
-      </action>
-      <action name="MoveToEdge"><direction>west</direction></action>
-      <action name="MoveResizeTo">
-        <width>50%</width>
-      </action>
-      <action name="MoveToEdge"><direction>west</direction></action>
-      <action name="ToggleMaximize"/>
-    </keybind>
-    <!-- TODO: still experimental  -->
     <keybind key="M-j">
       <action name="PreviousWindow">
         <raise>yes</raise>
@@ -523,124 +417,24 @@
         <raise>yes</raise>
       </action>
     </keybind>
-    <!-- TODO: use for something else  -->
-    <!-- <keybind key="M-e"> -->
-    <!--   <action name="Execute"><execute>~/bin/switch-to-emacs-or-passthrough.sh</execute></action> -->
-    <!-- </keybind> -->
-    <!-- Switch to rxvt windows, hardcoded for speed -->
     <keybind key="M-grave">
       <!-- <action name="Lower"/> -->
       <action name="Execute"><execute>~/bin/x11_restore_saved_window.sh</execute></action>
-    </keybind>
-    <keybind key="M-1">
-      <action name="Execute"><execute>~/bin/switch-to-windowclass.sh rxvt-unicode.URxvt</execute></action>
-    </keybind>
-    <keybind key="M-2">
-      <action name="If">
-        <query target="default">
-          <class type="exact">Emacs</class>
-          <name type="exact">emacs</name>
-        </query>
-        <then>
-          <action name="Execute"><execute>~/cic-vcs/bash-stdlib/launch-emacsclient noframe --eval "(other-frame 1)"</execute></action>
-        </then>
-        <else>
-          <action name="Execute"><execute>~/bin/x11_save_focused_window.sh</execute></action>
-          <action name="Execute"><execute>wmctrl -x -a emacs.Emacs</execute></action>
-        </else>
-      </action>
-      <!--   <action name="Execute"><execute>~/bin/switch-to-emacs-or-passthrough.sh</execute></action> -->
-    </keybind>
-    <keybind key="M-3">
-      <action name="Execute"><execute>~/bin/switch-to-windowclass.sh Navigator.Conkeror</execute></action>
     </keybind>
     <!-- TODO: move to more repls? move back if already at a repl? -->
     <keybind key="M-S-q">
       <action name="Execute"><execute>wmctrl -a "repl-restartable 'psql"</execute></action>
     </keybind>
-    <!-- TODO: r==relation? or use for more repls? rerference -->
-    <!-- <keybind key="M-r"> -->
-    <!--   <action name="Execute"><execute>wmctrl -a "repl-restartable 'psql"</execute></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="M-S-r"> -->
-    <!--   <action name="Execute"><execute>wmctrl -a "repl-restartable 'psql"</execute></action> -->
-    <!-- </keybind> -->
-    <!-- TODO: decide which of these is best -->
-    <!-- <keybind key="W-period"> -->
-    <!--   <action name="NextWindow"> -->
-    <!--     <raise>yes</raise> -->
-    <!--     <linear>yes</linear> -->
-    <!--     <interactive>no</interactive> -->
-    <!--   </action> -->
-      <!-- directional cycle does not work well for me -->
-      <!-- <action name="DirectionalCycleWindows"> -->
-      <!--   <direction>right</direction> -->
-      <!--   <raise>yes</raise> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="W-comma"> -->
-    <!--   <action name="PreviousWindow"> -->
-    <!--     <raise>yes</raise> -->
-    <!--     <linear>yes</linear> -->
-    <!--     <interactive>no</interactive> -->
-    <!--   </action> -->
-      <!-- <action name="DirectionalCycleWindows"> -->
-      <!--   <direction>left</direction> -->
-      <!--   <raise>yes</raise> -->
-      <!-- </action> -->
-    <!-- </keybind> -->
     <keybind key="W-slash">
       <action name="NextWindow">
         <raise>yes</raise>
         <linear>no</linear>
         <interactive>no</interactive>
       </action>
-      <!-- <action name="DirectionalCycleWindows"> -->
-      <!--   <direction>left</direction> -->
-      <!--   <raise>yes</raise> -->
-      <!-- </action> -->
     </keybind>
-    <!-- <keybind key="H-W-period"> -->
-    <!--   <action name="DirectionalCycleWindows"> -->
-    <!--     <direction>right</direction> -->
-    <!--     <raise>yes</raise> -->
-    <!--   </action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="H-W-comma"> -->
-    <!--   <action name="DirectionalCycleWindows"> -->
-    <!--     <direction>left</direction> -->
-    <!--     <raise>yes</raise> -->
-    <!--   </action> -->
-    <!-- </keybind> -->
-    <keybind key="H-W-f">
-      <action name="DirectionalCycleWindows">
-        <direction>right</direction>
-        <raise>yes</raise>
-      </action>
-    </keybind>
-    <keybind key="H-W-b">
-      <action name="DirectionalCycleWindows">
-        <direction>left</direction>
-        <raise>yes</raise>
-      </action>
-    </keybind>
-    <!-- These are awkward, see if I miss them in most applications, add to applications themselves maybe? -->
-    <!-- <keybind key="C-comma"> -->
-    <!--   <action name="Execute"><execute>xvkbd -text "\\[Prior]"</execute></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="C-period"> -->
-    <!--   <action name="Execute"><execute>xvkbd -text "\\[Next]"</execute></action> -->
-    <!-- </keybind> -->
-    <!-- TODO make these something else, xml comments do not play well with double hyphen, openbox warns about this too -->
-    <!-- <keybind key="M-comma"> -->
-    <!--   <action name="Execute"><execute>xdotool click dash-dash-clearmodifiers 4</execute></action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="M-period"> -->
-    <!--   <action name="Execute"><execute>xdotool click dash-dash-clearmodifiers 5</execute></action> -->
-    <!-- </keybind> -->
     <keybind key="XF86Calculator">
       <action name="Execute"><execute>qalculate</execute></action>
     </keybind>
-    <!-- TODO: get rid of source here for responsiveness -->
     <keybind key="XF86AudioLowerVolume">
       <action name="Execute"><execute>amixer set Master 5%-</execute></action>
       <action name="Execute"><execute>~/bin/notify-amixer-volumes.sh</execute></action>
@@ -652,10 +446,6 @@
     <keybind key="XF86AudioMute">
       <action name="Execute"><execute>amixer sset Master toggle</execute></action>
       <action name="Execute"><execute>~/bin/notify-amixer-mute.sh</execute></action>
-    </keybind>
-    <!-- TODO: are these what I want? may not want this.... f6 version better -->
-    <keybind key="C-W-a">
-      <action name="Execute"><execute>bash -c "source ~/.bash_library;apropos-clipboard"</execute></action>
     </keybind>
     <keybind key="C-W-z">
       <action name="Execute"><execute>amixer set Master 5%-</execute></action>
@@ -672,10 +462,6 @@
     <keybind key="C-W-v">
       <action name="Execute"><execute>rxvt-unicode -title "alsamixer" -e bash -c alsamixer</execute></action>
     </keybind>
-    <keybind key="C-W-s">
-      <action name="Execute"><execute>rxvt-unicode</execute></action>
-    </keybind>
-    <!-- TODO: is above what I want? -->
     <keybind key="M-W-minus">
       <action name="Execute"><execute>amixer set Master 5%-</execute></action>
       <action name="Execute"><execute>~/bin/notify-amixer-volumes.sh</execute></action>
@@ -737,12 +523,6 @@
         <y>0</y>
       </action>
     </keybind>
-    <!-- TODO nonfunctional -->
-    <!-- <keybind key="H-z"> -->
-    <!--   <action name="NextWindow"> -->
-    <!--     <raise>yes</raise> -->
-    <!--   </action> -->
-    <!-- </keybind> -->
     <keybind key="M-z">
       <action name="ShowMenu"><menu>prog</menu></action>
     </keybind>
@@ -771,21 +551,6 @@
     <!-- Set this to TRUE to move the mouse pointer across the desktop when
          switching due to hitting the edge of the screen -->
     <context name="Frame">
-      <!-- akroshko: my stuff for switching windows, need to add context when things do not work -->
-      <!-- <mousebind key="C-Right" action="Press"> -->
-      <!--   <action name="NextWindow"> -->
-      <!--     <action name="PreviousWindow"> -->
-      <!--       <linear>yes</linear> -->
-      <!--       <interactive>no</interactive> -->
-      <!--     </action> -->
-      <!--   </action> -->
-      <!-- </mousebind> -->
-      <!-- <mousebind key="C-Left" action="Press"> -->
-      <!--   <action name="PreviousWindow"> -->
-      <!--     <raise>yes</raise> -->
-      <!--   </action> -->
-      <!-- </mousebind> -->
-
       <mousebind button="A-Left" action="Press">
         <action name="Focus"/>
         <action name="Raise"/>
@@ -827,18 +592,6 @@
     </context>
 
     <context name="Titlebar">
-      <!-- akroshko: my stuff for switching windows, need to add context when things do not work -->
-      <!-- <mousebind key="C-Right"> -->
-      <!--   <action name="NextWindow" action="Press"> -->
-      <!--     <raise>yes</raise> -->
-      <!--   </action> -->
-      <!-- </mousebind> -->
-      <!-- <mousebind key="C-Left"> -->
-      <!--   <action name="PreviousWindow" action="Press"> -->
-      <!--     <raise>yes</raise> -->
-      <!--   </action> -->
-      <!-- </mousebind> -->
-
       <mousebind button="Left" action="Drag">
         <action name="Move"/>
       </mousebind>
@@ -1266,9 +1019,5 @@
           <y>600</y>
         </position>
       </application>
-      <!-- <application -->
-      <!--   class="Chromium-browser"> -->
-      <!-- <focus>no</focus> -->
-      <!-- </application> -->
     </applications>
 </openbox_config>

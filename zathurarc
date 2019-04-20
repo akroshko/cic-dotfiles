@@ -1,7 +1,12 @@
+# Author:   Andrew Kroshko 2015-2019
+# Created:  Sun Oct 23, 2016
+# Version:  20190411
+# Website:  https://github.com/akroshko/cic-dotfiles
+# License:  GPLv3
+
 set dbus-service        true
 set render-loading      false
-# default not
-# TODO: changed this, may want to change it back
+# TODO: changed this from defualt, may want to change it back
 set scroll-page-aware   true
 set scroll-full-overlap true
 set window-title-page   true
@@ -12,9 +17,6 @@ set scroll-full-overlap 0.075
 # TODO: temporary, change for different machines
 set window-width        1920
 set window-height       1080
-# XXXX: I use primary for many things these days
-# set selection-clipboard primary
-# TODO: see how this works
 set selection-clipboard clipboard
 # TODO: would love to get command period working here
 # quit that is not so easy
@@ -46,9 +48,6 @@ map [fullscreen]        <S-Up>     scroll full-up
 map [normal]            <S-Down>   scroll full-down
 map [fullscreen]        <S-Down>   scroll full-down
 # better way of doing this?
-# TODO: fix this so I can search next without interferring with esdf keys
-# map [normal]          s        search next
-# map [fullscreen]      s        search next
 map [normal]            <C-s>    focus_inputbar /
 map [fullscreen]        <C-s>    focus_inputbar /
 # TODO: map equals
@@ -71,20 +70,27 @@ map [normal]            <C-p>    scroll up
 map [fullscreen]        <C-p>    scroll up
 map [normal]            <C-n>    scroll down
 map [fullscreen]        <C-n>    scroll down
-# esdf keys with a as follow
-# TODO: overwrites: a, s   Adjust window in best-fit or width mode
-map [normal]            f        follow
-map [fullscreen]        f        follow
+# esdf keys with something else as follow???
+# map [normal]            f        follow
+# map [fullscreen]        f        follow
 map [normal]            w        toggle_page_mode
 map [fullscreen]        w        toggle_page_mode
-# map [normal]          e        scroll up
-# map [fullscreen]      e        scroll up
-# map [normal]          s        scroll left
-# map [fullscreen]      s        scroll left
-# map [normal]          d        scroll down
-# map [fullscreen]      d        scroll down
-# map [normal]          f        scroll right
-# map [fullscreen]      f        scroll right
+map [normal]            e        scroll up
+map [fullscreen]        e        scroll up
+map [normal]            <C-e>    scroll up
+map [fullscreen]        <C-e>    scroll up
+map [normal]            s        scroll left
+map [fullscreen]        s        scroll left
+map [normal]            <C-s>    scroll left
+map [fullscreen]        <C-s>    scroll left
+map [normal]            d        scroll down
+map [fullscreen]        d        scroll down
+map [normal]            <C-d>    scroll down
+map [fullscreen]        <C-d>    scroll down
+map [normal]            f        scroll right
+map [fullscreen]        f        scroll right
+map [normal]            <C-f>    scroll right
+map [fullscreen]        <C-f>    scroll right
 map [normal]            E        zoom in
 map [fullscreen]        E        zoom in
 map [normal]            D        zoom out
@@ -93,26 +99,16 @@ map [normal]            W        adjust_window width
 map [fullscreen]        W        adjust_window width
 map [normal]            F        adjust_window fit
 map [fullscreen]        F        adjust_window fit
-# TOOD: rotate other way?
+# TOOD: better rotate other way?
 map [normal]            R        rotate rotate-cw
 map [fullscreen]        R        rotate rotate-cw
-# TODO: need a capital letter for fit
-# things don't seem to work
 map [normal]            <C-,>    navigate previous
 map [fullscreen]        <C-,>    navigate previous
 map [normal]            <C-.>    navigate next
 map [fullscreen]        <C-.>    navigate next
 # scroll easily
-# TODO: not sure which I'll choose
-map [normal]            V        scroll up
-map [fullscreen]        V        scroll up
 map [normal]            v        scroll down
 map [fullscreen]        v        scroll down
-# TODO: want this
-# map [normal]          N        scroll up
-# map [fullscreen]      N        scroll up
-# map [normal]          n        scroll down
-# map [fullscreen]      n        scroll down
 # back
 map [normal]            l        jumplist backward
 map [fullscreen]        l        jumplist backward
@@ -125,7 +121,7 @@ map [fullscreen]        <F22>    toggle_index
 # index
 map [normal]            i        toggle_index
 map [fullscreen]        i        toggle_index
-# TODO: find out if these were defaults for anything
+# TODO: find out if these were defaults for anything?
 map [fullscreen]
 map [normal]            ]        feedkeys ":exec zathura-switch-file.py $FILE"
 map [fullscreen]        ]        feedkeys ":exec zathura-switch-file.py $FILE"
@@ -142,8 +138,8 @@ map [normal]            <A-y>    feedkeys ":exec zathura-capture-page.py $FILE"
 map [fullscreen]        <A-y>    feedkeys ":exec zathura-capture-page.py $FILE"
 # TODO: duplicate (mirror) current file
 #       make a little harder?
-# TODO: zathura needs a $PAGE too
-# TODO: m matches my conkeror?
+#       zathura needs a $PAGE too
+# m matches my key in conkeror?
 map [normal]            m        feedkeys ":exec zathura $FILE"
 map [fullscreen]        m        feedkeys ":exec zathura $FILE"
 # good thing to use, c means toggle-continuous....

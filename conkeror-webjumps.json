@@ -8,9 +8,9 @@
  "alternativeto":["https://alternativeto.net/software/%s","https://alternativeto.net"],
  "amazon":["https://www.amazon.com/exec/obidos/external-search/?field-keywords=%s&mode=blended", "https://amazon.com"],
  "amazonca":["https://www.amazon.ca/exec/obidos/external-search/?field-keywords=%s&mode=blended", "https://amazon.ca"],
- "amsaut":["http://www.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=%s&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=ALLF&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=html&Submit=Search", "http://www.ams.org/mathscinet/"],
- "amskey":["http://www.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=ALLF&s7=%s&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=html&Submit=Search","http://www.ams.org/mathscinet/"],
- "amstit":["http://www.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=&co4=AND&pg5=TI&s5=%s&co5=AND&pg6=PC&s6=&co6=AND&pg7=ALLF&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=html&Submit=Search","http://www.ams.org/mathscinet/"],
+ "ams-author":["http://www.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=%s&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=ALLF&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=html&Submit=Search", "http://www.ams.org/mathscinet/"],
+ "ams-key":["http://www.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=ALLF&s7=%s&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=html&Submit=Search","http://www.ams.org/mathscinet/"],
+ "ams-title":["http://www.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=&co4=AND&pg5=TI&s5=%s&co5=AND&pg6=PC&s6=&co6=AND&pg7=ALLF&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=html&Submit=Search","http://www.ams.org/mathscinet/"],
  "anandtech":["http://www.anandtech.com/"],
  "archwiki":["https://wiki.archlinux.org/index.php?title=Special%3ASearch&search=%s&go=Go", "https://wiki.archlinux.org"],
  "archwiki-raid":["https://wiki.archlinux.org/index.php/RAID"],
@@ -34,7 +34,6 @@
  "ctan-description":["https://www.ctan.org/search/?search=%s&search_type=description","https://www.ctan.org"],
  "ctan-filename":["https://www.ctan.org/search/?search=%s&search_type=filename","https://www.ctan.org"],
  "ctan-package":["https://www.ctan.org/search/?search=%s&search_type=id","https://www.ctan.org"],
- "daily-galaxy":["http://www.dailygalaxy.com/"],
  "deal-extreme":["https://www.dx.com/"],
  "debian-stable-announce":["https://lists.debian.org/debian-stable-announce/"],
  "debian-stable-proposed":["https://release.debian.org/proposed-updates/stable.html"],
@@ -50,6 +49,7 @@
  "emacswiki-elispcookbook":["https://www.emacswiki.org/emacs/ElispCookbook"],
  "emacs-long-lost-string":["https://github.com/magnars/s.el"],
  "electronicstutorials":["http://www.electronics-tutorials.ws/"],
+ "emojipedia":["https://emojipedia.org/"],
  // TODO: uses invalid security certificate
  "encyclopedia":["http://www.reference.com/browse/%s","http://www.reference.com"],
  "epicurious":["https://www.epicurious.com/tools/searchresults?search=%s","https://www.epicurious.com"],
@@ -117,13 +117,13 @@
  "sagemath-sym":["http://doc.sagemath.org/html/en/reference/calculus/sage/symbolic/expression.html"],
  "sagemath-plot":["http://doc.sagemath.org/html/en/reference/plotting/sage/plot/plot.html"],
  "sciencedaily":["http://sciencedaily.com"],
- // TODO: uses invalid security certificate
  "slashdot":["https://www.slashdot.org"],
  "sparkfun":["http://www.sparkfun.com"],
  "stackoverflow":["https://stackoverflow.com/search?q=%s","https://stackoverflow.com"],
  "startpage":["https://startpage.com/do/%s","https://startpage.com"],
  "strategypage":["https://strategypage.com"],
  "strava":["https://strava.com"],
+ "steam":["https://store.steampowered.com/"],
  "stackexchange-math":["https://math.stackexchange.com/search?q=%s","https://math.stackexchange.com"],
  "stackexchange-superuser":["https://superuser.com/search?q=%s","https://superuser.com/"],
  "stackexchange-tex":["https://tex.stackexchange.com/search?q=%s","https://tex.stackexchange.com"],
@@ -136,7 +136,6 @@
  "twitter":["https://twitter.com/search?q=%s&src=typd","https://twitter.com"],
  "universetoday":["http://www.universetoday.com"],
  "orgmode":["https://www.google.com/cse?cx=002987994228320350715%3Az4glpcrritm&q=%s&sa=Search&siteurl=orgmode.org%2Fworg","http://orgmode.org/worg/"],
- // TODO: set up search
  "bsdnow":["https://bsdnow.tv"],
  "undeadly":["http://undeadly.org"],
  "webofscience":["https://apps.webofknowledge.com/"],
@@ -144,10 +143,8 @@
  "youtube-user":["https://youtube.com/profile_videos?user=%s","https://www.youtube.com/feed/subscriptions"],
  "xpdf":["http://www.foolabs.com/xpdf/"],
  "zathura":["https://pwmt.org/projects/zathura/"],
- // local stuff here because it's useful
  "library-usask":["https://sundog.usask.ca/search/a?searchtype=Y&SORT=D&searcharg=%s&searchscope=8&called_from=catalogue_home_tab","https://sundog.usask.ca/search"],
  "library-usask-usearch":["library.usask.ca"],
- // TODO: do old....
  "library-usask-old":["https://sundog.usask.ca/search/a?searchtype=Y&SORT=D&searcharg=%s&searchscope=8&called_from=catalogue_home_tab","https://old.library.usask.ca/"],
  "library-saskatoon":["http://www.saskatoonlibrary.ca/"],
  // TODO: generate geographic webjumps programatically?

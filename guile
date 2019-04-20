@@ -1,3 +1,0 @@
-;; standard way to use readline, does not work well without it
-(use-modules (ice-9 readline))
-(activate-readline)

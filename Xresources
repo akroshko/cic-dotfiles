@@ -1,5 +1,4 @@
 ! xscreensaver ---------------------------------------------------------------
-! TODO: do these overide config file
 xscreensaver.lock:                True
 xscreensaver.mode:                random
 xscreensaver.timeout:             0:55:00
@@ -11,7 +10,6 @@ xscreensaver.dpmsQuickoffEnabled: False
 xscreensaver.dpmsStandby:         1:30:00
 xscreensaver.dpmsSuspend:         1:45:00
 xscreensaver.dpmsOff:             2:00:00
-! from arch wiki -------------------------------------------------------------
 ! xpdf -----------------------------------------------------------------------
 xpdf*enableFreetype:              yes
 xpdf*antialias:                   yes
@@ -26,12 +24,7 @@ URxvt*transparent:       false
 ! true transparency
 URxvt*depth:             32
 URxvt*background:        rgba:0000/0000/0200/c400
-! URxvt*tintColor: Black
-! URxvt*tintColor: Blue
-! URxvt*background: Blue
-! URxvt*background: Black
 URxvt*tintColor:         White
-! TODO: think I want higher for debugging?
 URxvt*saveLines:         65535
 ! these seem to give me scrollback paused, until key pressed
 URxvt*scrollTtyOutput:   false
@@ -40,66 +33,40 @@ URxvt*scrollTtyKeypress: true
 URxvt*foreground:        White
 URxvt.secondaryScreen:   1
 URxvt.secondaryScroll:   0
-! URxvt*font:     xft:Bitstream Vera Sans Mono:pixelsize=12:antialias=true:hinting=true
-! URxvt*boldFont: xft:Bitstream Vera Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
-! URxvt*font:     xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
-! URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
-! URxvt*font:     xft:Liberation Mono:pixelsize=10:antialias=true:hinting=true
-! URxvt*boldFont: xft:Liberation Mono:bold:pixelsize=10:antialias=true:hinting=true
-! URxvt*font:     xft:terminus:pixelsize=10
-! URxvt*boldFont: xft:terminus:bold:pixelsize=10
-! XXXX this is the same as above, but lets me do standard ascii art, etc...
-! URxvt*font:     -*-terminus-medium-r-*-*-12-*-*-*-*-*-iso8859-1
-! URxvt*boldFont: -*-terminus-bold-r-*-*-12-*-*-*-*-*-iso8859-1
 URxvt*font:     -*-terminus-medium-r-*-*-12-*-*-*-*-*-iso10646-1
 URxvt*boldFont: -*-terminus-bold-r-*-*-12-*-*-*-*-*-iso10646-1
-! URxvt*font:     xft:Nimbus Mono L:pixelsize=12
-! URxvt*boldFont: xft:Nimbus Mono L:bold:pixelsize=12
 ! TODO: does not seem to work that well
 ! TODO: also good to disable printing large scrollback by accident
 ! TODO: I have better ways of doing this now I think....
 URxvt.print-pipe: cat > $HOME/tmp/collect/urxvt-$(date +%Y%m%d%H%M%S).txt
 URxvt*color4: RoyalBlue
 URxvt*color12: RoyalBlue
-! URxvt*color4: black
-! URxvt*color12: black
 URxvt*scrollBar: true
 URxvt*scrollBar_right: false
 URxvt*scrollstyle: rxvt
-! see https://bbs.archlinux.org/viewtopic.php?id=149470
-! a really good thing, for some of my keys
-! from archwiki
-! TODO: change all names to .pl
-! TODO: forget how to even use this.... scrollback.pl,
-! TODO: is this good, no load default? because I change keys? see if this hurts functionality?
-! URxvt.perl-ext-common:       default
+! no extentions loaded by default
 URxvt.perl-ext-common:
-! XXXX: cic here to avoid conflicts
+! cic prefix to my extensions to avoid conflicts or ambiguity
 URxvt.perl-ext:              cic-urxvt-clipboard.pl,cic-urxvt-scrollback.pl,cic-urxvt-new-terminal.pl,cic-urxvt-searchable-scrollback.pl,cic-urxvt-help.pl
 URxvt.iso14755:              False
 URxvt.iconFile:              /opt/cic/icons/terminal.svg
 ! use cuda feeling keys in terminal
+! Mod3 is a Hyper key mapped to left-control
 URxvt.keysym.Mod3-c:         perl:clipboard:copy
 URxvt.keysym.Mod3-v:         perl:clipboard:paste
 URxvt.keysym.Control-period: \033[6~
 URxvt.keysym.Control-comma:  \033[5~
-! URxvt.keysym.M-r:            perl:searchable-scrollback:start
-! URxvt.keysym.Control-period: perl:pageup
-! URxvt.keysym.Control-comma:  perl:pagedown
-! see https://ubuntuforums.org/archive/index.php/t-783096.html
-! see man -s7 urxvt
-! keep this, useful
+! scroll terminal up/down with shift-up/down
 URxvt.keysym.Shift-Up:          command:\033]720;1\007
 URxvt.keysym.Shift-Down:        command:\033]721;1\007
-! TODO: do I still want this?
 URxvt.keysym.Control-less:      perl:pageup
 URxvt.keysym.Control-greater:   perl:pagedown
 ! just prints current buffer
 URxvt.keysym.Control-1:         perl:scrollback:save
 URxvt.keysym.Control-2:         perl:scrollback:save_emacs
+! TODO: are these consistent with other applications? open a file manager too?
 URxvt.keysym.Control-5:         perl:new:terminal
 URxvt.keysym.Control-6:         perl:new:emacsdired
-! does not work
 URxvt.keysym.Shift-F1:          perl:displayhelp:now
 ! clipboard
 URxvt.clipboard.copycmd:        xclip -i -selection clipboard

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Configure calibre with some more convienient keys -->
+<!-- This file is copied to "$HOME/.config/calibre/shortcuts/viewer.plist" -->
 <plist version="1.0">
   <dict>
     <key>Back</key>
@@ -18,7 +20,7 @@
     <array>
       <string>H</string>
     </array>
-    <!-- Looks like I can have 3 keys -->
+    <!-- Looks like I can have 3 keys for one function even if the GUI does not let me do this-->
     <key>Next Page</key>
     <array>
       <string>PgDown</string>
@@ -51,7 +53,7 @@
     <array>
       <string>q</string>
     </array>
-    <!-- modify these for scrolling around stuff??? -->
+    <!-- TODO: modify these for scrolling around stuff??? -->
     <key>Right</key>
     <array>
       <string>L</string>

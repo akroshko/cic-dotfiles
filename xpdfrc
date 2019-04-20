@@ -1,15 +1,18 @@
+# Author:   Andrew Kroshko 2015-2019
+# Created:  Tue Sep 15, 2015
+# Version:  20190411
+# Website:  https://github.com/akroshko/cic-dotfiles
+# License:  GPLv3
+
+# I don't use xpdf much anymore, but it is the best for some types of
+# documents. This is provided until I depricate it entirely.
+
+# TODO: I need to update this to match my current shortcut keys with
+# other items.
+
 continuousView no
 # put information about the current file into a suitable temp file
 bind ctrl-i            any "run(echo '%f\n%p' > ~/tmp/xpdf-tmp.txt)"
-# hardcoded link for xulpdftex-code
-# TODO: not sure I want to ditch hand-coded yet?
-# bind ctrl-mousePress1 any "run(python ~/.mouseclick.py %f %p %j %k)"
-# create attachment
-# TODO: key for continuous mode
-# TODO: make sure this works
-bind ctrl-]            any "run(~/.attachment-xpdf.sh %f %p)"
-# TODO: becoming obsolete due to zathura
-bind ctrl-mousePress1  any "run(~/.mouseclick.sh %f %p %j %k)"
 bind ctrl-o            any  toggleOutline
 # TODO: experiment with both
 bind i                 any  toggleOutline
@@ -32,7 +35,6 @@ bind v                 any  scrollDown(16)
 bind ctrl-s            any  find
 bind alt-s             any  findNext
 bind s                 any  findNext
-# TODO: not sure I really want this, almost should be other way
 bind _                 any  zoomFitPage
 bind =                 any  zoomFitWidth
 # TODO: don't work after using above two, need to chain commands
