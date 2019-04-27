@@ -47,7 +47,7 @@ URxvt*scrollstyle: rxvt
 ! no extentions loaded by default
 URxvt.perl-ext-common:
 ! cic prefix to my extensions to avoid conflicts or ambiguity
-URxvt.perl-ext:              cic-urxvt-clipboard.pl,cic-urxvt-scrollback.pl,cic-urxvt-new-terminal.pl,cic-urxvt-searchable-scrollback.pl,cic-urxvt-help.pl
+URxvt.perl-ext:              cic-urxvt-clipboard.pl,cic-urxvt-scrollback.pl,cic-urxvt-new-terminal.pl,cic-urxvt-searchable-scrollback.pl,cic-urxvt-help.pl,cic-urxvt-url-select.pl
 URxvt.iso14755:              False
 URxvt.iconFile:              /opt/cic/icons/terminal.svg
 ! use cuda feeling keys in terminal
@@ -71,3 +71,8 @@ URxvt.keysym.Shift-F1:          perl:displayhelp:now
 ! clipboard
 URxvt.clipboard.copycmd:        xclip -i -selection clipboard
 URxvt.clipboard.pastecmd:       xclip -o -selection clipboard
+! url-select
+! TODO: make C-3?
+URxvt.keysym.M-u:               perl:url-select:select_next
+URxvt.url-select.button:        3
+URxvt.url-select.underline:     True

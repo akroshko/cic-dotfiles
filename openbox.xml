@@ -231,6 +231,15 @@
     <keybind key="C-W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
+    <keybind key="M-1">
+      <action name="Execute"><execute>~/bin/send-m1-to-emacs.sh</execute></action>
+    </keybind>
+    <keybind key="M-2">
+      <action name="Execute"><execute>~/bin/send-m2-to-emacs.sh</execute></action>
+    </keybind>
+    <keybind key="M-3">
+      <action name="Execute"><execute>~/bin/send-m3-to-emacs.sh</execute></action>
+    </keybind>
     <keybind key="M-5">
       <action name="Execute"><execute>~/bin/send-m5-to-emacs.sh</execute></action>
     </keybind>
@@ -419,7 +428,7 @@
     </keybind>
     <keybind key="M-grave">
       <!-- <action name="Lower"/> -->
-      <action name="Execute"><execute>~/bin/x11_restore_saved_window.sh</execute></action>
+      <action name="Execute"><execute>~/bin/send-m-grave-to-emacs.sh</execute></action>
     </keybind>
     <!-- TODO: move to more repls? move back if already at a repl? -->
     <keybind key="M-S-q">
