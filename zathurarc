@@ -25,10 +25,10 @@ map [fullscreen]        q          quit
 # map reload
 map [normal]            %          reload
 map [fullscreen]        %          reload
-map [normal]            r          reload
-map [fullscreen]        r          reload
-# map [normal]            `          reload
-# map [fullscreen]        `          reload
+map [normal]            g          reload
+map [fullscreen]        g          reload
+# map [normal]          `          reload
+# map [fullscreen]      `          reload
 # change from navigate previous, navigate next
 map [normal]            b          scroll full-up
 map [fullscreen]        b          scroll full-up
@@ -48,104 +48,104 @@ map [fullscreen]        <S-Up>     scroll full-up
 map [normal]            <S-Down>   scroll full-down
 map [fullscreen]        <S-Down>   scroll full-down
 # better way of doing this?
-map [normal]            <C-s>    focus_inputbar /
-map [fullscreen]        <C-s>    focus_inputbar /
+map [normal]            <C-s>      focus_inputbar /
+map [fullscreen]        <C-s>      focus_inputbar /
 # TODO: map equals
-map [normal]            _        adjust_window best-fit
-map [fullscreen]        _        adjust_window best-fit
-map [normal]            =        adjust_window width
-map [fullscreen]        =        adjust_window width
+map [normal]            _          adjust_window best-fit
+map [fullscreen]        _          adjust_window best-fit
+map [normal]            =          adjust_window width
+map [fullscreen]        =          adjust_window width
 # emacs and info mode keys
-map [normal]            \<       goto top
-map [fullscreen]        \<       goto top
-map [normal]            \>       goto bottom
-map [fullscreen]        \>       goto bottom
-map [normal]            <A-\<>   goto top
-map [fullscreen]        <A-\<>   goto top
-map [normal]            <A-\>>   goto bottom
-map [fullscreen]        <A-\>>   goto bottom
-map [normal]            <C-g>    abort
-map [fullscreen]        <C-g>    abort
-map [normal]            <C-p>    scroll up
-map [fullscreen]        <C-p>    scroll up
-map [normal]            <C-n>    scroll down
-map [fullscreen]        <C-n>    scroll down
+map [normal]            \<         goto top
+map [fullscreen]        \<         goto top
+map [normal]            \>         goto bottom
+map [fullscreen]        \>         goto bottom
+map [normal]            <A-\<>     goto top
+map [fullscreen]        <A-\<>     goto top
+map [normal]            <A-\>>     goto bottom
+map [fullscreen]        <A-\>>     goto bottom
+map [normal]            <C-g>      abort
+map [fullscreen]        <C-g>      abort
+map [normal]            <C-p>      scroll up
+map [fullscreen]        <C-p>      scroll up
+map [normal]            <C-n>      scroll down
+map [fullscreen]        <C-n>      scroll down
 # esdf keys with something else as follow???
 # map [normal]            f        follow
 # map [fullscreen]        f        follow
-map [normal]            w        toggle_page_mode
-map [fullscreen]        w        toggle_page_mode
-map [normal]            e        scroll up
-map [fullscreen]        e        scroll up
-map [normal]            <C-e>    scroll up
-map [fullscreen]        <C-e>    scroll up
-map [normal]            s        scroll left
-map [fullscreen]        s        scroll left
-map [normal]            <C-s>    scroll left
-map [fullscreen]        <C-s>    scroll left
-map [normal]            d        scroll down
-map [fullscreen]        d        scroll down
-map [normal]            <C-d>    scroll down
-map [fullscreen]        <C-d>    scroll down
-map [normal]            f        scroll right
-map [fullscreen]        f        scroll right
-map [normal]            <C-f>    scroll right
-map [fullscreen]        <C-f>    scroll right
-map [normal]            E        zoom in
-map [fullscreen]        E        zoom in
-map [normal]            D        zoom out
-map [fullscreen]        D        zoom out
-map [normal]            W        adjust_window width
-map [fullscreen]        W        adjust_window width
-map [normal]            F        adjust_window fit
-map [fullscreen]        F        adjust_window fit
+map [normal]            w          toggle_page_mode
+map [fullscreen]        w          toggle_page_mode
+map [normal]            e          scroll up
+map [fullscreen]        e          scroll up
+map [normal]            <C-e>      scroll up
+map [fullscreen]        <C-e>      scroll up
+map [normal]            s          scroll left
+map [fullscreen]        s          scroll left
+map [normal]            <C-s>      scroll left
+map [fullscreen]        <C-s>      scroll left
+map [normal]            d          scroll down
+map [fullscreen]        d          scroll down
+map [normal]            <C-d>      scroll down
+map [fullscreen]        <C-d>      scroll down
+map [normal]            f          scroll right
+map [fullscreen]        f          scroll right
+map [normal]            <C-f>      scroll right
+map [fullscreen]        <C-f>      scroll right
+map [normal]            E          zoom in
+map [fullscreen]        E          zoom in
+map [normal]            D          zoom out
+map [fullscreen]        D          zoom out
+map [normal]            W          adjust_window width
+map [fullscreen]        W          adjust_window width
+map [normal]            F          adjust_window fit
+map [fullscreen]        F          adjust_window fit
 # TOOD: better rotate other way?
-map [normal]            R        rotate rotate-cw
-map [fullscreen]        R        rotate rotate-cw
-map [normal]            <C-,>    navigate previous
-map [fullscreen]        <C-,>    navigate previous
-map [normal]            <C-.>    navigate next
-map [fullscreen]        <C-.>    navigate next
+map [normal]            R          rotate rotate-cw
+map [fullscreen]        R          rotate rotate-cw
+map [normal]            <C-,>      navigate previous
+map [fullscreen]        <C-,>      navigate previous
+map [normal]            <C-.>      navigate next
+map [fullscreen]        <C-.>      navigate next
 # scroll easily
-map [normal]            v        scroll down
-map [fullscreen]        v        scroll down
+map [normal]            v          scroll down
+map [fullscreen]        v          scroll down
 # back
-map [normal]            l        jumplist backward
-map [fullscreen]        l        jumplist backward
-map [normal]            a        jumplist backward
-map [fullscreen]        a        jumplist backward
-map [normal]            <F21>    jumplist backward
-map [fullscreen]        <F21>    jumplist backward
-map [normal]            <F22>    toggle_index
-map [fullscreen]        <F22>    toggle_index
+map [normal]            l          jumplist backward
+map [fullscreen]        l          jumplist backward
+map [normal]            a          jumplist backward
+map [fullscreen]        a          jumplist backward
+map [normal]            <F21>      jumplist backward
+map [fullscreen]        <F21>      jumplist backward
+map [normal]            <F22>      toggle_index
+map [fullscreen]        <F22>      toggle_index
 # index
-map [normal]            i        toggle_index
-map [fullscreen]        i        toggle_index
+map [normal]            i          toggle_index
+map [fullscreen]        i          toggle_index
 # TODO: find out if these were defaults for anything?
 map [fullscreen]
-map [normal]            ]        feedkeys ":exec zathura-switch-file.py $FILE"
-map [fullscreen]        ]        feedkeys ":exec zathura-switch-file.py $FILE"
-map [normal]            }        feedkeys ":exec zathura-switch-file.py $FILE --bytime"
-map [fullscreen]        }        feedkeys ":exec zathura-switch-file.py $FILE --bytime"
-map [normal]            [        feedkeys ":exec zathura-switch-file.py $FILE --previous"
-map [fullscreen]        [        feedkeys ":exec zathura-switch-file.py $FILE --previous"
-map [normal]            {        feedkeys ":exec zathura-switch-file.py $FILE --bytime --previous"
-map [fullscreen]        {        feedkeys ":exec zathura-switch-file.py $FILE --bytime --previous"
-map [normal]            <A-l>    feedkeys ":exec emacs-window-uid-from-filename.sh $FILE"
-map [fullscreen]        <A-l>    feedkeys ":exec emacs-window-uid-from-filename.sh $FILE"
+map [normal]            ]          feedkeys ":exec zathura-switch-file.py $FILE"
+map [fullscreen]        ]          feedkeys ":exec zathura-switch-file.py $FILE"
+map [normal]            }          feedkeys ":exec zathura-switch-file.py $FILE --bytime"
+map [fullscreen]        }          feedkeys ":exec zathura-switch-file.py $FILE --bytime"
+map [normal]            [          feedkeys ":exec zathura-switch-file.py $FILE --previous"
+map [fullscreen]        [          feedkeys ":exec zathura-switch-file.py $FILE --previous"
+map [normal]            {          feedkeys ":exec zathura-switch-file.py $FILE --bytime --previous"
+map [fullscreen]        {          feedkeys ":exec zathura-switch-file.py $FILE --bytime --previous"
+map [normal]            <A-l>      feedkeys ":exec emacs-window-uid-from-filename.sh $FILE"
+map [fullscreen]        <A-l>      feedkeys ":exec emacs-window-uid-from-filename.sh $FILE"
 # TODO: may not be permanent
-map [normal]            <A-y>    feedkeys ":exec zathura-capture-page.py $FILE"
-map [fullscreen]        <A-y>    feedkeys ":exec zathura-capture-page.py $FILE"
+map [normal]            <A-y>      feedkeys ":exec zathura-capture-page.py $FILE"
+map [fullscreen]        <A-y>      feedkeys ":exec zathura-capture-page.py $FILE"
 # TODO: duplicate (mirror) current file
 #       make a little harder?
 #       zathura needs a $PAGE too
 # m matches my key in conkeror?
-map [normal]            m        feedkeys ":exec zathura $FILE"
-map [fullscreen]        m        feedkeys ":exec zathura $FILE"
+map [normal]            m          feedkeys ":exec zathura $FILE"
+map [fullscreen]        m          feedkeys ":exec zathura $FILE"
 # good thing to use, c means toggle-continuous....
 # TODO: possibly hook into other (fit-page-like ?) commands and test
-map [normal]            c        set scroll-page-aware
-map [fullscreen]        c        set scroll-page-aware
+map [normal]            c          set scroll-page-aware
+map [fullscreen]        c          set scroll-page-aware
 # TODO: experimental, wish I had a prompt after like emacs
-map [normal]            <A-g>    goto
-map [fullscreen]        <A-g>    goto
+map [normal]            <A-g>      goto
+map [fullscreen]        <A-g>      goto

@@ -24,7 +24,9 @@ set output-meta on
 # TODO: experimenting with menu-complete.... can I use c-j elsewhere consistently
 # "\M-i": menu-complete
 # https://www.reddit.com/r/commandline/comments/kbeoe/you_can_make_readline_and_bash_much_more_user/
-Control-j: menu-complete
+$if Bash
+    Control-j: menu-complete
+$endif
 # TODO: no!!! too confusing with emacs keys
 # Control-k: menu-complete-backward
 # XXXX: required for sage terminal
