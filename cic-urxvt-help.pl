@@ -57,10 +57,10 @@ sub msg_multiline {
 
 sub displayhelp_now {
     my ($self) = @_;
-    $self->msg_multiline(("C-1: Save selection to clipboard.                                      ",
-                          "C-2: Capture selection as buffer in Emacs.                             ",
-                          "C-5: Open new RXVT terminal at current directory.                      ",
-                          "C-6: Open Emacs dired-mode at current directory.                       ",
+    $self->msg_multiline(("C-4: Save selection to clipboard.                                      ",
+                          "C-5: Capture selection as buffer in Emacs.                             ",
+                          "C-?: Open new RXVT terminal at current directory.                      ",
+                          "C-?: Open Emacs dired-mode at current directory.                       ",
                           "m-r: Search backward in scrollback (use arrow keys to navigate search)."));
 
     ()

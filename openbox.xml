@@ -240,6 +240,9 @@
     <keybind key="M-3">
       <action name="Execute"><execute>~/bin/send-m3-to-emacs.sh</execute></action>
     </keybind>
+    <keybind key="C-3">
+      <action name="Execute"><execute>~/bin/send-c3-to-emacs.sh</execute></action>
+    </keybind>
     <keybind key="M-5">
       <action name="Execute"><execute>~/bin/send-m5-to-emacs.sh</execute></action>
     </keybind>
