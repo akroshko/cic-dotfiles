@@ -414,7 +414,8 @@ page_mode_deactivate(dailymotion_mode);
 // page_mode_deactivate(duckduckgo_mode);
 page_mode_deactivate(google_calendar_mode);
 page_mode_deactivate(google_maps_mode);
-page_mode_deactivate(google_reader_mode);
+// disabled in my version of conkeror
+// page_mode_deactivate(google_reader_mode);
 page_mode_deactivate(google_video_mode);
 page_mode_deactivate(smbc_mode);
 page_mode_deactivate(xkcd_mode);
@@ -424,7 +425,6 @@ page_mode_deactivate(youtube_player_mode);
 session_pref("conkeror.load.page-modes/dailymotion", 0);
 session_pref("conkeror.load.page-modes/google-calendar", 0);
 session_pref("conkeror.load.page-modes/google-maps", 0);
-session_pref("conkeror.load.page-modes/google-reader", 0);
 session_pref("conkeror.load.page-modes/google-video", 0);
 session_pref("conkeror.load.page-modes/smbc", 0);
 session_pref("conkeror.load.page-modes/xkcd", 0);

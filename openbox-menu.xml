@@ -68,7 +68,7 @@
   <separator />
   <!-- TODO: Eventually have both timeout and hit any key?  And/or hit any key to suspend timeout  -->
   <item label="Refresh local settings">
-    <action name="Execute"><execute>rxvt-unicode -e bash -i -c "source ~/.bash_library;harm-bash;sleep 5"</execute></action>
+    <action name="Execute"><execute>rxvt-unicode -name rxvt-below --geometry +0+0 -e bash -i -c "source ~/.bash_library;harm-bash;sleep 5"</execute></action>
   </item>
   <item label="Rotate wallpaper">
     <action name="Execute"><execute>bash -c "source ~/.bash_library;feh-rotate-wallpaper"</execute></action>
