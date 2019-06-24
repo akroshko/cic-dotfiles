@@ -372,6 +372,12 @@
     <keybind key="KP_Subtract">
       <action name="Execute"><execute>~/bin/web-video-minimize.sh --pause</execute></action>
     </keybind>
+    <keybind key="H-a">
+      <action name="Execute"><execute>~/bin/web-video-minimize.sh --pause</execute></action>
+    </keybind>
+    <keybind key="C-W-a">
+      <action name="Execute"><execute>~/bin/web-video-minimize.sh --pause</execute></action>
+    </keybind>
     <!-- Or do I want control? -->
     <keybind key="S-KP_Subtract">
       <action name="Execute"><execute>~/bin/web-video-minimize.sh</execute></action>
@@ -379,7 +385,19 @@
     <keybind key="C-KP_Subtract">
       <action name="Execute"><execute>~/bin/web-video-restore.sh</execute></action>
     </keybind>
+    <keybind key="H-S-a">
+      <action name="Execute"><execute>~/bin/web-video-restore.sh</execute></action>
+    </keybind>
+    <keybind key="C-W-S-a">
+      <action name="Execute"><execute>~/bin/web-video-restore.sh</execute></action>
+    </keybind>
     <keybind key="M-KP_Subtract">
+      <action name="Execute"><execute>~/bin/web-video-pause-toggle.sh</execute></action>
+    </keybind>
+    <keybind key="H-s">
+      <action name="Execute"><execute>~/bin/web-video-pause-toggle.sh</execute></action>
+    </keybind>
+    <keybind key="C-W-s">
       <action name="Execute"><execute>~/bin/web-video-pause-toggle.sh</execute></action>
     </keybind>
     <keybind key="KP_Add">
@@ -400,6 +418,9 @@
       <action name="Execute"><execute>~/bin/notify-amixer-mute.sh</execute></action>
     </keybind>
     <keybind key="KP_Enter">
+      <action name="ToggleShowDesktop"/>
+    </keybind>
+    <keybind key="H-z">
       <action name="ToggleShowDesktop"/>
     </keybind>
     <keybind key="S-KP_Enter">
@@ -543,7 +564,19 @@
         <wrap>no</wrap>
       </action>
     </keybind>
+    <keybind key="H-j">
+      <action name="GoToDesktop">
+        <to>previous</to>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
     <keybind key="H-W-period">
+      <action name="GoToDesktop">
+        <to>next</to>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
+    <keybind key="H-l">
       <action name="GoToDesktop">
         <to>next</to>
         <wrap>no</wrap>
