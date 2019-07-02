@@ -43,13 +43,15 @@
  "dictionary":["http://dictionary.reference.com/browse/%s"],
  "digikey":["http://www.digikey.ca/"],
  "dockapps":["http://www.dockapps.net/"],
- "ebay":["https://ebay.ca"],
+ // TODO: tweak this?
+ "ebay":["https://www.ebay.ca/sch/i.html?_nkw=%s&_sacat=0","https://ebay.ca"],
  // TODO: might have to be updated...
  "emacswiki":["https://www.google.com/cse?cx=004774160799092323420%3A6-ff2s0o6yi&q=%s&sa=Search&siteurl=emacswiki.org%2F","https://www.emacswiki.org/"],
  "emacswiki-elispcookbook":["https://www.emacswiki.org/emacs/ElispCookbook"],
  "emacs-long-lost-string":["https://github.com/magnars/s.el"],
  "electronicstutorials":["http://www.electronics-tutorials.ws/"],
  "emojipedia":["https://emojipedia.org/"],
+ "engadget":["https://www.engadget.com/"],
  // TODO: uses invalid security certificate
  "encyclopedia":["http://www.reference.com/browse/%s","http://www.reference.com"],
  "epicurious":["https://www.epicurious.com/tools/searchresults?search=%s","https://www.epicurious.com"],

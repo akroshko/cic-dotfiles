@@ -18,6 +18,8 @@ set scroll-full-overlap 0.075
 set window-width        1920
 set window-height       1080
 set selection-clipboard clipboard
+# TODO: why does this have to be down here? something above overrides it if it is up further
+set first-page-column   1:1
 # TODO: would love to get command period working here
 # quit that is not so easy
 map [normal]            q          quit
@@ -39,9 +41,9 @@ map [fullscreen]        <C-.>      scroll full-up
 map [normal]            <C-,>      scroll full-down
 map [fullscreen]        <C-,>      scroll full-down
 # TODO: I do not remember thse that well...., do I want them with control too?
-map [normal] ,                     scroll full-up
+map [normal]            ,          scroll full-up
 map [fullscreen]        ,          scroll full-up
-map [normal] .                     scroll full-down
+map [normal]            .          scroll full-down
 map [fullscreen]        .          scroll full-down
 map [normal]            <S-Up>     scroll full-up
 map [fullscreen]        <S-Up>     scroll full-up
@@ -99,7 +101,7 @@ map [normal]            W          adjust_window width
 map [fullscreen]        W          adjust_window width
 map [normal]            F          adjust_window fit
 map [fullscreen]        F          adjust_window fit
-# TOOD: better rotate other way?
+# TODO: better rotate other way?
 map [normal]            R          rotate rotate-cw
 map [fullscreen]        R          rotate rotate-cw
 map [normal]            <C-,>      navigate previous
@@ -114,10 +116,10 @@ map [normal]            l          jumplist backward
 map [fullscreen]        l          jumplist backward
 map [normal]            a          jumplist backward
 map [fullscreen]        a          jumplist backward
-map [normal]            <F21>      jumplist backward
-map [fullscreen]        <F21>      jumplist backward
-map [normal]            <F22>      toggle_index
-map [fullscreen]        <F22>      toggle_index
+# map [normal]            <F21>      jumplist backward
+# map [fullscreen]        <F21>      jumplist backward
+# map [normal]            <F22>      toggle_index
+# map [fullscreen]        <F22>      toggle_index
 # index
 map [normal]            i          toggle_index
 map [fullscreen]        i          toggle_index
@@ -134,8 +136,11 @@ map [fullscreen]        {          feedkeys ":exec zathura-switch-file.py $FILE 
 map [normal]            <A-l>      feedkeys ":exec emacs-window-uid-from-filename.sh $FILE"
 map [fullscreen]        <A-l>      feedkeys ":exec emacs-window-uid-from-filename.sh $FILE"
 # TODO: may not be permanent
-map [normal]            <A-y>      feedkeys ":exec zathura-capture-page.py $FILE"
-map [fullscreen]        <A-y>      feedkeys ":exec zathura-capture-page.py $FILE"
+# map [normal]            <A-y>      feedkeys ":exec zathura-capture-page.py $FILE"
+# map [fullscreen]        <A-y>      feedkeys ":exec zathura-capture-page.py $FILE"
+# TODO: may not be permanent
+map [normal]            <A-y>      feedkeys ":exec zathura-extract-page.py $FILE"
+map [fullscreen]        <A-y>      feedkeys ":exec zathura-extract-page.py $FILE"
 # TODO: duplicate (mirror) current file
 #       make a little harder?
 #       zathura needs a $PAGE too

@@ -5,7 +5,7 @@
 <!-- Author: Andrew Kroshko -->
 <!-- Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com> -->
 <!-- Created: Thu June 09, 2016 -->
-<!-- Version: 20190520 -->
+<!-- Version: 20190626 -->
 <!-- URL: https://github.com/akroshko/cic-groups -->
 
 <!-- This program is free software: you can redistribute it and/or modify -->
@@ -368,36 +368,16 @@
     <keybind key="S-BackSpace">
       <action name="Iconify"/>
     </keybind>
-    <!-- ==== Keypad ======================================== -->
-    <keybind key="KP_Subtract">
-      <action name="Execute"><execute>~/bin/web-video-minimize.sh --pause</execute></action>
-    </keybind>
     <keybind key="H-a">
       <action name="Execute"><execute>~/bin/web-video-minimize.sh --pause</execute></action>
     </keybind>
-    <keybind key="C-W-a">
-      <action name="Execute"><execute>~/bin/web-video-minimize.sh --pause</execute></action>
-    </keybind>
-    <!-- Or do I want control? -->
-    <keybind key="S-KP_Subtract">
+    <keybind key="H-S-a">
       <action name="Execute"><execute>~/bin/web-video-minimize.sh</execute></action>
     </keybind>
-    <keybind key="C-KP_Subtract">
+    <keybind key="H-C-a">
       <action name="Execute"><execute>~/bin/web-video-restore.sh</execute></action>
-    </keybind>
-    <keybind key="H-S-a">
-      <action name="Execute"><execute>~/bin/web-video-restore.sh</execute></action>
-    </keybind>
-    <keybind key="C-W-S-a">
-      <action name="Execute"><execute>~/bin/web-video-restore.sh</execute></action>
-    </keybind>
-    <keybind key="M-KP_Subtract">
-      <action name="Execute"><execute>~/bin/web-video-pause-toggle.sh</execute></action>
     </keybind>
     <keybind key="H-s">
-      <action name="Execute"><execute>~/bin/web-video-pause-toggle.sh</execute></action>
-    </keybind>
-    <keybind key="C-W-s">
       <action name="Execute"><execute>~/bin/web-video-pause-toggle.sh</execute></action>
     </keybind>
     <keybind key="KP_Add">
@@ -417,19 +397,30 @@
       <action name="Execute"><execute>amixer sset Master unmute</execute></action>
       <action name="Execute"><execute>~/bin/notify-amixer-mute.sh</execute></action>
     </keybind>
-    <keybind key="KP_Enter">
-      <action name="ToggleShowDesktop"/>
-    </keybind>
     <keybind key="H-z">
       <action name="ToggleShowDesktop"/>
     </keybind>
-    <keybind key="S-KP_Enter">
-      <action name="GoToDesktop"><to>3</to></action>
-      <action name="Execute"><execute>bash -c "source ~/.bash_library;~/bin/launch-emacsclient --eval \"(progn (cic:x-force-maximized))\""</execute></action>
+    <!-- TODO: need restore -->
+    <keybind key="H-S-z">
+      <action name="GoToDesktop"><to>1</to></action>
     </keybind>
-    <keybind key="C-KP_Enter">
+    <keybind key="H-q">
       <action name="Execute"><execute>xscreensaver-command -lock</execute></action>
     </keybind>
+    <!-- Not sure I want this is way -->
+    <keybind key="H-S-q">
+      <action name="Execute"><execute>bash -c "sleep 1;xset dpms force off"</execute></action>
+    </keybind>
+    <keybind key="H-W-M-q">
+      <action name="Execute"><execute>rxvt-unicode -name shutdown --geometry +0+0 -e bash -i -c "echo 'Enter password to shutdown!';sudo shutdown now"</execute></action>
+    </keybind>
+    <!-- <keybind key="S-KP_Enter"> -->
+    <!--   <action name="GoToDesktop"><to>3</to></action> -->
+    <!--   <action name="Execute"><execute>bash -c "source ~/.bash_library;~/bin/launch-emacsclient -\-eval \"(progn (cic:x-force-maximized))\""</execute></action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="C-KP_Enter"> -->
+    <!--   <action name="Execute"><execute>xscreensaver-command -lock</execute></action> -->
+    <!-- </keybind> -->
     <keybind key="M-S-m">
       <action name="ToggleMaximize"/>
     </keybind>
