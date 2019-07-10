@@ -433,6 +433,7 @@
     <keybind key="M-BackSpace">
       <action name="Close"/>
     </keybind>
+    <!-- Do I still need this? -->
     <keybind key="M-W-j">
       <action name="NextWindow"/>
     </keybind>
@@ -441,6 +442,12 @@
     </keybind>
     <keybind key="M-W-q">
       <action name="Close"/>
+    </keybind>
+    <keybind key="H-d">
+      <action name="NextWindow"/>
+    </keybind>
+    <keybind key="H-e">
+      <action name="PreviousWindow"/>
     </keybind>
     <!-- TODO: temporary, need to decide -->
     <!-- snap left -->
@@ -549,7 +556,7 @@
     <keybind key="C-W-4">
       <action name="GoToDesktop"><to>4</to></action>
     </keybind>
-    <keybind key="H-W-comma">
+    <keybind key="H-comma">
       <action name="GoToDesktop">
         <to>previous</to>
         <wrap>no</wrap>
@@ -561,7 +568,7 @@
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="H-W-period">
+    <keybind key="H-period">
       <action name="GoToDesktop">
         <to>next</to>
         <wrap>no</wrap>
