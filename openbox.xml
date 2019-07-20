@@ -229,53 +229,53 @@
       <action name="ToggleShowDesktop"/>
     </keybind>
     <keybind key="S-C-2">
-      <action name="Execute"><execute>~/bin/screenshot-save.sh --window</execute></action>
+      <action name="Execute"><execute>bash ~/bin/screenshot-save.sh --window</execute></action>
     </keybind>
     <keybind key="S-C-3">
-      <action name="Execute"><execute>~/bin/screenshot-save.sh --screen</execute></action>
+      <action name="Execute"><execute>bash ~/bin/screenshot-save.sh --screen</execute></action>
     </keybind>
     <keybind key="C-W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
     <keybind key="C-grave">
-      <action name="Execute"><execute>~/bin/send-key-to-emacs.sh --c-grave</execute></action>
+      <action name="Execute"><execute>bash ~/bin/send-key-to-emacs.sh --c-grave</execute></action>
     </keybind>
     <keybind key="M-1">
-      <action name="Execute"><execute>~/bin/send-key-to-emacs.sh --m1</execute></action>
+      <action name="Execute"><execute>bash ~/bin/send-key-to-emacs.sh --m1</execute></action>
     </keybind>
     <keybind key="M-2">
-      <action name="Execute"><execute>~/bin/send-key-to-emacs.sh --m2</execute></action>
+      <action name="Execute"><execute>bash ~/bin/send-key-to-emacs.sh --m2</execute></action>
     </keybind>
     <keybind key="M-3">
-      <action name="Execute"><execute>~/bin/send-key-to-emacs.sh --m3</execute></action>
+      <action name="Execute"><execute>bash ~/bin/send-key-to-emacs.sh --m3</execute></action>
     </keybind>
     <!-- <keybind key="C-3"> -->
     <!--   <action name="Execute"><execute>~/bin/send-key-to-emacs.sh -\-c3</execute></action> -->
     <!-- </keybind> -->
     <!-- Change this at some point -->
     <keybind key="M-k">
-      <action name="Execute"><execute>~/bin/send-key-to-emacs.sh --c3</execute></action>
+      <action name="Execute"><execute>bash ~/bin/send-key-to-emacs.sh --c3</execute></action>
     </keybind>
     <keybind key="M-5">
-      <action name="Execute"><execute>~/bin/send-key-to-emacs.sh --m5</execute></action>
+      <action name="Execute"><execute>bash ~/bin/send-key-to-emacs.sh --m5</execute></action>
     </keybind>
     <keybind key="M-6">
-      <action name="Execute"><execute>~/bin/send-key-to-emacs.sh --m6</execute></action>
+      <action name="Execute"><execute>bash ~/bin/send-key-to-emacs.sh --m6</execute></action>
     </keybind>
     <keybind key="M-7">
-      <action name="Execute"><execute>~/bin/send-key-to-emacs.sh --m7</execute></action>
+      <action name="Execute"><execute>bash ~/bin/send-key-to-emacs.sh --m7</execute></action>
     </keybind>
     <keybind key="M-8">
-      <action name="Execute"><execute>~/bin/send-key-to-emacs.sh --m8</execute></action>
+      <action name="Execute"><execute>bash ~/bin/send-key-to-emacs.sh --m8</execute></action>
     </keybind>
     <keybind key="C-8">
-      <action name="Execute"><execute>~/bin/send-key-to-emacs.sh --c8</execute></action>
+      <action name="Execute"><execute>bash ~/bin/send-key-to-emacs.sh --c8</execute></action>
     </keybind>
     <keybind key="W-8">
-      <action name="Execute"><execute>~/bin/send-key-to-emacs.sh --s8</execute></action>
+      <action name="Execute"><execute>bash ~/bin/send-key-to-emacs.sh --s8</execute></action>
     </keybind>
     <keybind key="M-W-8">
-      <action name="Execute"><execute>~/bin/send-key-to-emacs.sh --ms8</execute></action>
+      <action name="Execute"><execute>bash ~/bin/send-key-to-emacs.sh --ms8</execute></action>
     </keybind>
     <!-- TODO change this -->
     <!-- <keybind key="m-k"> -->
@@ -292,16 +292,16 @@
     </keybind>
     <!-- TODO: do I still want this? -->
     <keybind key="F12">
-      <action name="Execute"><execute>~/bin/show-hints.sh</execute></action>
+      <action name="Execute"><execute>bash ~/bin/show-hints.sh</execute></action>
     </keybind>
     <keybind key="m-9">
-      <action name="Execute"><execute>~/bin/xclip-primary-insert-emacs-collection.sh</execute></action>
+      <action name="Execute"><execute>bash ~/bin/xclip-primary-insert-emacs-collection.sh</execute></action>
     </keybind>
     <keybind key="W-9">
-      <action name="Execute"><execute>~/bin/send-key-to-emacs.sh --s9</execute></action>
+      <action name="Execute"><execute>bash ~/bin/send-key-to-emacs.sh --s9</execute></action>
     </keybind>
     <keybind key="C-9">
-      <action name="Execute"><execute>~/bin/send-key-to-emacs.sh --c9</execute></action>
+      <action name="Execute"><execute>bash ~/bin/send-key-to-emacs.sh --c9</execute></action>
     </keybind>
     <!-- TODO: want other key for this for small keyboards? actually make just enter work for accept -->
     <keybind key="M-S-F10">
@@ -322,6 +322,9 @@
     </keybind>
     <!-- keep for now, but want to remove -->
     <keybind key="M-W-m">
+      <action name="ToggleMaximize"/>
+    </keybind>
+    <keybind key="H-m">
       <action name="ToggleMaximize"/>
     </keybind>
     <keybind key="H-W-m">
@@ -369,21 +372,21 @@
       <action name="Iconify"/>
     </keybind>
     <keybind key="H-a">
-      <action name="Execute"><execute>~/bin/web-video-minimize.sh --pause</execute></action>
+      <action name="Execute"><execute>bash ~/bin/web-video-minimize.sh --pause</execute></action>
     </keybind>
     <keybind key="H-S-a">
-      <action name="Execute"><execute>~/bin/web-video-minimize.sh</execute></action>
+      <action name="Execute"><execute>bash ~/bin/web-video-minimize.sh</execute></action>
     </keybind>
     <keybind key="H-C-a">
-      <action name="Execute"><execute>~/bin/web-video-restore.sh</execute></action>
+      <action name="Execute"><execute>bash ~/bin/web-video-restore.sh</execute></action>
     </keybind>
     <keybind key="H-s">
-      <action name="Execute"><execute>~/bin/web-video-pause-toggle.sh</execute></action>
+      <action name="Execute"><execute>bash ~/bin/web-video-pause-toggle.sh</execute></action>
     </keybind>
     <keybind key="KP_Add">
       <action name="Execute"><execute>bash -c "source ~/.bash_library;fullscreen-window-minimize"</execute></action>
       <action name="Execute"><execute>amixer sset Master mute</execute></action>
-      <action name="Execute"><execute>~/bin/notify-amixer-mute.sh</execute></action>
+      <action name="Execute"><execute>bash ~/bin/notify-amixer-mute.sh</execute></action>
     </keybind>
     <!-- should be restore? -->
     <keybind key="S-KP_Add">
@@ -395,20 +398,20 @@
     <keybind key="C-S-KP_Add">
       <action name="Execute"><execute>bash -c "source ~/.bash_library;fullscreen-window-move"</execute></action>
       <action name="Execute"><execute>amixer sset Master unmute</execute></action>
-      <action name="Execute"><execute>~/bin/notify-amixer-mute.sh</execute></action>
+      <action name="Execute"><execute>bash ~/bin/notify-amixer-mute.sh</execute></action>
     </keybind>
     <keybind key="H-z">
       <action name="ToggleShowDesktop"/>
     </keybind>
     <!-- TODO: need restore -->
-    <keybind key="H-S-z">
-      <action name="GoToDesktop"><to>1</to></action>
-    </keybind>
+    <!-- <keybind key="H-S-z"> -->
+    <!--   <action name="GoToDesktop"><to>1</to></action> -->
+    <!-- </keybind> -->
     <keybind key="H-q">
       <action name="Execute"><execute>xscreensaver-command -lock</execute></action>
     </keybind>
     <!-- Not sure I want this is way -->
-    <keybind key="H-S-q">
+    <keybind key="H-S-z">
       <action name="Execute"><execute>bash -c "sleep 1;xset dpms force off"</execute></action>
     </keybind>
     <keybind key="H-W-M-q">
@@ -427,6 +430,9 @@
     <keybind key="M-W-n">
       <action name="Iconify"/>
     </keybind>
+    <keybind key="H-n">
+      <action name="Iconify"/>
+    </keybind>
     <keybind key="M-W-BackSpace">
       <action name="Close"/>
     </keybind>
@@ -443,6 +449,14 @@
     <keybind key="M-W-q">
       <action name="Close"/>
     </keybind>
+    <!-- TODO: temporary switch window functions, choose which of these stay -->
+    <keybind key="H-space">
+      <action name="NextWindow"/>
+    </keybind>
+    <!-- Works really well with virtualbox and right control host key.  I never use right control as a control so it is mod-2 -->
+    <keybind key="mod2-space">
+      <action name="NextWindow"/>
+    </keybind>
     <keybind key="H-d">
       <action name="NextWindow"/>
     </keybind>
@@ -452,11 +466,11 @@
     <!-- TODO: temporary, need to decide -->
     <!-- snap left -->
     <keybind key="M-W-comma">
-      <action name="Execute"><execute>~/bin/x11_snap_current_window.sh 0</execute></action>
+      <action name="Execute"><execute>bash ~/bin/x11_snap_current_window.sh 0</execute></action>
     </keybind>
     <!-- snap right -->
     <keybind key="M-W-period">
-      <action name="Execute"><execute>~/bin/x11_snap_current_window.sh 1</execute></action>
+      <action name="Execute"><execute>bash ~/bin/x11_snap_current_window.sh 1</execute></action>
     </keybind>
     <keybind key="M-j">
       <action name="PreviousWindow">
@@ -488,39 +502,39 @@
     </keybind>
     <keybind key="XF86AudioLowerVolume">
       <action name="Execute"><execute>amixer set Master 5%-</execute></action>
-      <action name="Execute"><execute>~/bin/notify-amixer-volumes.sh</execute></action>
+      <action name="Execute"><execute>bash ~/bin/notify-amixer-volumes.sh</execute></action>
     </keybind>
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute"><execute>amixer set Master 5%+</execute></action>
-      <action name="Execute"><execute>~/bin/notify-amixer-volumes.sh</execute></action>
+      <action name="Execute"><execute>bash ~/bin/notify-amixer-volumes.sh</execute></action>
     </keybind>
     <keybind key="XF86AudioMute">
       <action name="Execute"><execute>amixer sset Master toggle</execute></action>
-      <action name="Execute"><execute>~/bin/notify-amixer-mute.sh</execute></action>
-    </keybind>
-    <keybind key="C-W-z">
-      <action name="Execute"><execute>amixer set Master 5%-</execute></action>
-      <action name="Execute"><execute>~/bin/notify-amixer-volumes.sh</execute></action>
+      <action name="Execute"><execute>bash ~/bin/notify-amixer-mute.sh</execute></action>
     </keybind>
     <keybind key="C-W-x">
+      <action name="Execute"><execute>amixer set Master 5%-</execute></action>
+      <action name="Execute"><execute>bash ~/bin/notify-amixer-volumes.sh</execute></action>
+    </keybind>
+    <keybind key="C-W-c">
       <action name="Execute"><execute>amixer set Master 5%+</execute></action>
-      <action name="Execute"><execute>~/bin/notify-amixer-volumes.sh</execute></action>
+      <action name="Execute"><execute>bash ~/bin/notify-amixer-volumes.sh</execute></action>
     </keybind>
     <!-- TODO: toggle or force off? notify?-->
-    <keybind key="C-W-c">
+    <keybind key="C-W-z">
       <action name="Execute"><execute>amixer sset Master toggle</execute></action>
-      <action name="Execute"><execute>~/bin/notify-amixer-mute.sh</execute></action>
+      <action name="Execute"><execute>bash ~/bin/notify-amixer-mute.sh</execute></action>
     </keybind>
     <keybind key="C-W-v">
       <action name="Execute"><execute>rxvt-unicode -title "alsamixer" -e bash -c alsamixer</execute></action>
     </keybind>
     <keybind key="M-W-minus">
       <action name="Execute"><execute>amixer set Master 5%-</execute></action>
-      <action name="Execute"><execute>~/bin/notify-amixer-volumes.sh</execute></action>
+      <action name="Execute"><execute>bash ~/bin/notify-amixer-volumes.sh</execute></action>
     </keybind>
     <keybind key="M-S-W-plus">
       <action name="Execute"><execute>amixer set Master 5%+</execute></action>
-      <action name="Execute"><execute>~/bin/notify-amixer-volumes.sh</execute></action>
+      <action name="Execute"><execute>bash ~/bin/notify-amixer-volumes.sh</execute></action>
     </keybind>
     <!-- Desktop keys -->
     <keybind key="M-W-d">

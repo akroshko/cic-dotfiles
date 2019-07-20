@@ -80,7 +80,7 @@ interactive("browse-buffer-history",
             for (var i = 0 ; i < history.count ; i += 1) {
                 entries[i] = history.getEntryAtIndex(i, false).URI.spec;
             }
-
+            // TODO: do I want space completes here?
             var url = yield I.minibuffer.read(
                 $prompt = "Go back or forward to:",
                 $completer = new all_word_completer($completions = entries),
