@@ -427,14 +427,8 @@
     <keybind key="M-S-m">
       <action name="ToggleMaximize"/>
     </keybind>
-    <keybind key="M-W-n">
-      <action name="Iconify"/>
-    </keybind>
     <keybind key="H-n">
       <action name="Iconify"/>
-    </keybind>
-    <keybind key="M-W-BackSpace">
-      <action name="Close"/>
     </keybind>
     <keybind key="M-BackSpace">
       <action name="Close"/>
@@ -446,6 +440,7 @@
     <keybind key="M-W-l">
       <action name="PreviousWindow"/>
     </keybind>
+    <!-- TODO: change this to possibly something else -->
     <keybind key="M-W-q">
       <action name="Close"/>
     </keybind>
@@ -463,7 +458,7 @@
     <keybind key="H-e">
       <action name="PreviousWindow"/>
     </keybind>
-    <!-- TODO: temporary, need to decide -->
+    <!-- TODO: temporary, need to decide, change to something else -->
     <!-- snap left -->
     <keybind key="M-W-comma">
       <action name="Execute"><execute>bash ~/bin/x11_snap_current_window.sh 0</execute></action>
@@ -536,13 +531,7 @@
       <action name="Execute"><execute>amixer set Master 5%+</execute></action>
       <action name="Execute"><execute>bash ~/bin/notify-amixer-volumes.sh</execute></action>
     </keybind>
-    <!-- Desktop keys -->
-    <keybind key="M-W-d">
-      <action name="ToggleShowDesktop"/>
-    </keybind>
-     <keybind key="M-W-space">
-      <action name="ToggleShowDesktop"/>
-     </keybind>
+    <!-- TODO: do I still want this -->
     <keybind key="H-W-space">
       <action name="Execute"><execute>xscreensaver-command -lock</execute></action>
     </keybind>
@@ -610,12 +599,10 @@
     <keybind key="M-z">
       <action name="ShowMenu"><menu>prog</menu></action>
     </keybind>
-    <keybind key="M-W-z">
-      <action name="ShowMenu"><menu>super</menu></action>
-    </keybind>
     <keybind key="M-a">
       <action name="ShowMenu"><menu>super</menu></action>
     </keybind>
+    <!-- TODO: change to something else -->
     <keybind key="M-S-z">
       <action name="ShowMenu"><menu>root-menu</menu></action>
     </keybind>
