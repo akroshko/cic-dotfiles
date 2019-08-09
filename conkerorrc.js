@@ -98,15 +98,25 @@ interactive("browse-buffer-history",
 // key 'h' is stolen from http://conkeror.org/History, since I don't use built-in history
 define_key(content_buffer_normal_keymap, "h", "browse-buffer-history");
 
+
+interactive("kill-current-buffer-force",
+    "Force kill current buffer",
+    function (I) {
+        kill_buffer(I.buffer,true);
+    });
+
 ////////////////////////////////////////
 // remap keys
 define_key(content_buffer_button_keymap, "space", "cmd_scrollPageDown",
            $browser_object = browser_object_focused_element);
 // hint keymap
-define_key(hint_keymap,                  "C-space","hints-exit");
-define_key(default_global_keymap,        "q",      "kill-current-buffer");
+define_key(hint_keymap,                  "C-space", "hints-exit");
+define_key(default_global_keymap,        "q",       "kill-current-buffer");
 // compared to q, this stops me from closing accidently, eventually replace q completely?
-define_key(default_global_keymap,        "s-q",    "kill-current-buffer");
+// TODO: may not want this
+define_key(default_global_keymap,        "s-q",     "kill-current-buffer");
+// TODO: also thinking of triple q hit
+define_key(default_global_keymap,        "Q",       "kill-current-buffer-force");
 define_key(content_buffer_normal_keymap, "o",       "browser-object-media");
 // follow and other surfing keys
 define_key(content_buffer_normal_keymap, "f",       "follow");
@@ -122,10 +132,11 @@ define_key(content_buffer_normal_keymap, "\\",      "");
 require("clicks-in-new-buffer.js");
 clicks_in_new_buffer_target = OPEN_NEW_WINDOW;
 clicks_in_new_buffer_button = 2;
+can_kill_last_buffer=false;
 
 // buffer switching
 define_key(content_buffer_normal_keymap, "s-space", "switch-to-buffer");
-define_key(minibuffer_keymap,            "s-space", "minibuffer-complete");
+define_key(minibuffer_keymap,            "s-space", "exit-minibuffer");
 
 // esdf keys for minibuffer
 define_key(minibuffer_keymap, "C-d", "minibuffer-complete");
@@ -368,12 +379,39 @@ session_pref("xpinstall.whitelist.required", false);
 session_pref("extensions.blocklist.enabled", false);
 session_pref("extensions.checkCompatibility", false);
 session_pref("extensions.checkUpdateSecurity", false);
+session_pref("extensions.update.enabled", false);
+session_pref("extensions.update.autoUpdateDefault", false);
+// 0306: disable add-on metadata updating
+// sends daily pings to Mozilla about extensions and recent startups
+session_pref("extensions.getAddons.cache.enabled", false);
+// 0303: disable search update (Options>Advanced>Update>Automatically update: search engines)
+session_pref("browser.search.update", false);
 session_pref("browser.history_expire_days",1);
 // session_pref("browser.download.manager.retention",1)
 session_pref("browser.display.show_image_placeholders",false);
+session_pref("toolkit.telemetry.unified", false);
+session_pref("toolkit.telemetry.enabled", false);
+// 0330b: set unifiedIsOptIn to make sure telemetry respects OptIn choice and that telemetry
+// is enabled ONLY for people that opted into it, even if unified Telemetry is enabled
+session_pref("toolkit.telemetry.unifiedIsOptIn", true); // (hidden pref)
+// 0341: disable Mozilla permission to silently opt you into tests
+session_pref("network.allow-experiments", false);
+// 0331: remove url of server telemetry pings are sent to
+session_pref("toolkit.telemetry.server", "");
+// 0606: disable pings (but enforce same host in case)
+// http://kb.mozillazine.org/Browser.send_pings
+// http://kb.mozillazine.org/Browser.send_pings.require_same_host
+session_pref("browser.send_pings", false);
+session_pref("browser.send_pings.require_same_host", true);
+session_pref("media.getusermedia.screensharing.enabled", false);
+session_pref("media.getusermedia.screensharing.allowed_domains", "");
+session_pref("media.getusermedia.screensharing.allow_on_old_platforms", false);
+session_pref("media.video_stats.enabled", false);
+session_pref("device.storage.enabled", false);
 session_pref("full-screen-api.enabled",true);
 // TODO: is this what I want, especially for slow computers
 // session_pref("network.prefetch-next",true);
+////////////////////////////////////////////////////////////////////////////////
 user_pref("network.http.max-persistent-connections-per-server",4);
 user_pref("network.http.pipelining",true);
 user_pref("network.http.pipelining.ssl",true);

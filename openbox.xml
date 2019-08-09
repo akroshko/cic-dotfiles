@@ -228,12 +228,12 @@
     <keybind key="M-S-D">
       <action name="ToggleShowDesktop"/>
     </keybind>
-    <keybind key="S-C-2">
-      <action name="Execute"><execute>bash ~/bin/screenshot-save.sh --window</execute></action>
-    </keybind>
-    <keybind key="S-C-3">
-      <action name="Execute"><execute>bash ~/bin/screenshot-save.sh --screen</execute></action>
-    </keybind>
+    <!-- <keybind key="S-C-2"> -->
+    <!--   <action name="Execute"><execute>bash ~/bin/screenshot-save.sh -\-window</execute></action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="S-C-3"> -->
+    <!--   <action name="Execute"><execute>bash ~/bin/screenshot-save.sh -\-screen</execute></action> -->
+    <!-- </keybind> -->
     <keybind key="C-W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
@@ -355,12 +355,13 @@
     <keybind key="M-Print">
       <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window-show"</execute></action>
     </keybind>
-    <keybind key="C-2">
-      <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window"</execute></action>
-    </keybind>
-    <keybind key="C-3">
-      <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-screen"</execute></action>
-    </keybind>
+    <!-- Disabled for now... -->
+    <!-- <keybind key="C-2"> -->
+    <!--   <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window"</execute></action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="C-3"> -->
+    <!--   <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-screen"</execute></action> -->
+    <!-- </keybind> -->
     <keybind key="M-W-slash">
       <action name="Execute"><execute>bash -c "source ~/.bash_library;whitenoise.sh"</execute></action>
     </keybind>
@@ -374,13 +375,15 @@
     <keybind key="H-a">
       <action name="Execute"><execute>bash ~/bin/web-video-minimize.sh --pause</execute></action>
     </keybind>
-    <keybind key="H-S-a">
-      <action name="Execute"><execute>bash ~/bin/web-video-minimize.sh</execute></action>
+    <!-- Not sure this is the key I want -->
+    <keybind key="H-s">
+      <action name="Execute"><execute>bash ~/bin/web-video-pause-toggle.sh</execute></action>
+      <action name="ToggleShowDesktop"/>
     </keybind>
     <keybind key="H-C-a">
       <action name="Execute"><execute>bash ~/bin/web-video-restore.sh</execute></action>
     </keybind>
-    <keybind key="H-s">
+    <keybind key="H-w">
       <action name="Execute"><execute>bash ~/bin/web-video-pause-toggle.sh</execute></action>
     </keybind>
     <keybind key="KP_Add">
@@ -571,6 +574,12 @@
         <wrap>no</wrap>
       </action>
     </keybind>
+    <keybind key="H-w-z">
+      <action name="GoToDesktop">
+        <to>previous</to>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
     <keybind key="H-period">
       <action name="GoToDesktop">
         <to>next</to>
@@ -583,13 +592,28 @@
         <wrap>no</wrap>
       </action>
     </keybind>
+    <keybind key="H-w-x">
+      <action name="GoToDesktop">
+        <to>next</to>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
     <keybind key="C-z">
       <action name="NextWindow">
         <raise>yes</raise>
       </action>
     </keybind>
+    <!-- Exile mouse pointer -->
+    <!-- TODO move to bottom corner -->
+    <keybind key="H-grave">
+      <action name="Execute"><execute>xdotool mousemove --screen 0 10 10</execute></action>
+    </keybind>
+    <keybind key="H-1">
+      <action name="ToggleFullscreen"/>
+    </keybind>
     <!-- Experimental, just for testing new ideas -->
-    <keybind key="M-W-9">
+    <!-- TODO way to undo this -->
+    <keybind key="H-9">
       <action name="Undecorate"/>
       <action name="MoveResizeTo">
         <x>0</x>

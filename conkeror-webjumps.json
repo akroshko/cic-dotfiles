@@ -4,10 +4,7 @@
  "abebooks":["https://www.abebooks.com/Canada/"],
  "adblockplus":["https://adblockplus.org"],
  "alberta-firehazard":["http://wildfire.alberta.ca/fire-danger-forecasts/images/firehaz.gif"],
- "alliexpress":["https://www.aliexpress.com/"],
  "alternativeto":["https://alternativeto.net/software/%s","https://alternativeto.net"],
- "amazon":["https://www.amazon.com/exec/obidos/external-search/?field-keywords=%s&mode=blended", "https://amazon.com"],
- "amazonca":["https://www.amazon.ca/exec/obidos/external-search/?field-keywords=%s&mode=blended", "https://amazon.ca"],
  "ams-author":["http://www.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=%s&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=ALLF&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=html&Submit=Search", "http://www.ams.org/mathscinet/"],
  "ams-key":["http://www.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=&co4=AND&pg5=TI&s5=&co5=AND&pg6=PC&s6=&co6=AND&pg7=ALLF&s7=%s&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=html&Submit=Search","http://www.ams.org/mathscinet/"],
  "ams-title":["http://www.ams.org/mathscinet/search/publications.html?pg4=AUCN&s4=&co4=AND&pg5=TI&s5=%s&co5=AND&pg6=PC&s6=&co6=AND&pg7=ALLF&s7=&co7=AND&dr=all&yrop=eq&arg3=&yearRangeFirst=&yearRangeSecond=&pg8=ET&s8=All&review_format=html&Submit=Search","http://www.ams.org/mathscinet/"],
@@ -32,7 +29,7 @@
  "ctan-description":["https://www.ctan.org/search/?search=%s&search_type=description","https://www.ctan.org"],
  "ctan-filename":["https://www.ctan.org/search/?search=%s&search_type=filename","https://www.ctan.org"],
  "ctan-package":["https://www.ctan.org/search/?search=%s&search_type=id","https://www.ctan.org"],
- "deal-extreme":["https://www.dx.com/"],
+
  "debian-stable-announce":["https://lists.debian.org/debian-stable-announce/"],
  "debian-stable-proposed":["https://release.debian.org/proposed-updates/stable.html"],
  "debian-stable-proposed-old":["https://release.debian.org/proposed-updates/oldstable.html"],
@@ -42,7 +39,6 @@
  "digikey":["http://www.digikey.ca/"],
  "dockapps":["http://www.dockapps.net/"],
  // TODO: tweak this?
- "ebay":["https://www.ebay.ca/sch/i.html?_nkw=%s&_sacat=0","https://ebay.ca"],
  // TODO: might have to be updated...
  "emacswiki":["https://www.google.com/cse?cx=004774160799092323420%3A6-ff2s0o6yi&q=%s&sa=Search&siteurl=emacswiki.org%2F","https://www.emacswiki.org/"],
  "emacswiki-elispcookbook":["https://www.emacswiki.org/emacs/ElispCookbook"],
@@ -52,7 +48,6 @@
  // TODO: uses invalid security certificate
  "encyclopedia":["http://www.reference.com/browse/%s","http://www.reference.com"],
  "epicurious":["https://www.epicurious.com/tools/searchresults?search=%s","https://www.epicurious.com"],
- "electronic-goldmine":["http://www.goldmine-elec-products.com/"],
  "facebook":["https://www.facebook.com/search/results.php?q=%s&init=quick","https://www.facebook.com"],
  "fdroid":["https://f-droid.org/en/"],
  "flash-player-check":["https://helpx.adobe.com/flash-player.html"],
@@ -91,7 +86,6 @@
  "openhub":["https://www.openhub.net/query=%s","https://www.openhub.net/"],
  "openbox":["http://openbox.org/wiki/Help:Contents"],
  "orgmode-hacks":["https://orgmode.org/worg/org-hacks.html"],
- "osnews":["http://www.osnews.com/"],
  "otv":["https://otvtech.ca"],
  "palemoon":["https://www.palemoon.org/"],
  "password-haystack":["https://www.grc.com/haystack.htm"],

@@ -3,7 +3,7 @@
 ;; Author: Andrew Kroshko
 ;; Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com>
 ;; Created: Wed, Jul 13, 2016
-;; Version: 20190413
+;; Version: 20190724
 ;; URL: https://github.com/akroshko/cic-emacs-common
 
 ;; This file is NOT part of GNU Emacs.
@@ -38,3 +38,10 @@
 ;; Default value is nil.
 ;; put all backup files in universal backup
 (setq backup-directory "~/.zile.backups")
+
+;; set up keys
+;; TODO: there are more to do
+(global-set-key "\C-s" 'backward-char)
+(global-set-key "\C-e" 'previous-line)
+(global-set-key "\C-d" 'next-line)
+(global-set-key "\C-h" 'delete-char)
