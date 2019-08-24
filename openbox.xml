@@ -346,6 +346,9 @@
     <keybind key="Print">
       <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window"</execute></action>
     </keybind>
+    <keybind key="H-Print">
+      <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window-in-tmp"</execute></action>
+    </keybind>
     <keybind key="C-Print">
       <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-screen"</execute></action>
     </keybind>
@@ -614,10 +617,20 @@
     <!-- Experimental, just for testing new ideas -->
     <!-- TODO way to undo this -->
     <keybind key="H-9">
-      <action name="Undecorate"/>
-      <action name="MoveResizeTo">
-        <x>0</x>
-        <y>0</y>
+      <action name="If">
+        <query>
+          <undecorated>yes</undecorated>
+        </query>
+        <then>
+          <action name="Decorate"/>
+        </then>
+        <else>
+          <action name="Undecorate"/>
+          <action name="MoveResizeTo">
+            <x>0</x>
+            <y>0</y>
+          </action>
+        </else>
       </action>
     </keybind>
     <keybind key="M-z">

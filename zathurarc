@@ -1,6 +1,6 @@
 # Author:   Andrew Kroshko 2015-2019
 # Created:  Sun Oct 23, 2016
-# Version:  20190411
+# Version: 20190819
 # Website:  https://github.com/akroshko/cic-dotfiles
 # License:  GPLv3
 
@@ -27,8 +27,8 @@ map [fullscreen]        q          quit
 # map reload
 map [normal]            %          reload
 map [fullscreen]        %          reload
-map [normal]            g          reload
-map [fullscreen]        g          reload
+map [normal]            C-g        reload
+map [fullscreen]        C-g        reload
 # map [normal]          `          reload
 # map [fullscreen]      `          reload
 # change from navigate previous, navigate next
@@ -133,14 +133,21 @@ map [normal]            [          feedkeys ":exec zathura-switch-file.py $FILE 
 map [fullscreen]        [          feedkeys ":exec zathura-switch-file.py $FILE --previous"
 map [normal]            {          feedkeys ":exec zathura-switch-file.py $FILE --bytime --previous"
 map [fullscreen]        {          feedkeys ":exec zathura-switch-file.py $FILE --bytime --previous"
+map [normal]            <A-/>      feedkeys ":exec move-file-to-downloads.sh $FILE zathura"
+map [fullscreen]        <A-/>      feedkeys ":exec move-file-to-downloads.sh $FILE zathura"
 map [normal]            <A-l>      feedkeys ":exec emacs-window-uid-from-filename.sh $FILE"
 map [fullscreen]        <A-l>      feedkeys ":exec emacs-window-uid-from-filename.sh $FILE"
+map [normal]            <A-u>      feedkeys ":exec add-uid-to-file.sh $FILE zathura"
+map [fullscreen]        <A-u>      feedkeys ":exec add-uid-to-file.sh $FILE zathura"
+# this is a good key for this, figure out if this can be merged with zathura-capture-page.py
+map [normal]            <A-y>      feedkeys ":exec document-split-pages.sh $FILE <<PAGE>> <<PAGE>> zathura"
+map [fullscreen]        <A-y>      feedkeys ":exec document-split-pages.sh $FILE <<PAGE>> <<PAGE>> zathura"
 # TODO: may not be permanent
 # map [normal]            <A-y>      feedkeys ":exec zathura-capture-page.py $FILE"
 # map [fullscreen]        <A-y>      feedkeys ":exec zathura-capture-page.py $FILE"
-# TODO: may not be permanent
-map [normal]            <A-y>      feedkeys ":exec zathura-extract-page.py $FILE"
-map [fullscreen]        <A-y>      feedkeys ":exec zathura-extract-page.py $FILE"
+# TODO: may not be permanent, merge with above?
+# map [normal]            <A-y>      feedkeys ":exec zathura-extract-page.py $FILE"
+# map [fullscreen]        <A-y>      feedkeys ":exec zathura-extract-page.py $FILE"
 # TODO: duplicate (mirror) current file
 #       make a little harder?
 #       zathura needs a $PAGE too

@@ -44,8 +44,8 @@ zoom_fill         equal
 # no second key for quit, especially not escape, I press escape too many times accidently
 quit              q
 # TODO: should I switch these around?
-reload_image      g
-render            G
+render            g            C-g
+reload_image      G
 # TODO: should I use < >, but I use them for top/bottom in other apps and emacs
 # TODO: figure out and sync with zathura
 orient_3          R
