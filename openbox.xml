@@ -305,7 +305,7 @@
     </keybind>
     <!-- TODO: want other key for this for small keyboards? actually make just enter work for accept -->
     <keybind key="M-S-F10">
-      <action name="Execute"><execute>rxvt-unicode -name rxvt-below --geometry +0+0 -e bash -i -c "while read -r -t 0;do read -r; done;IFS= read -n 1 -p 'Press [Enter] to hibernate or [Space] to abort... ' TRYAGAIN;if [[ ${TRYAGAIN} == ' ' ]];then echo '';echo 'Aborting hibernate!!!';sleep 5;else echo 'Hibernating...';sudo pm-hibernate;sleep 15;fi;"</execute></action>
+      <action name="Execute"><execute>rxvt-unicode -name rxvt-below --geometry +0+0 -e bash -i -c "while read -r -t 0;do read -r; done;IFS= read -n 1 -s -r -p 'Press [Enter] to hibernate or [Space] to abort... ' TRYAGAIN;if [[ ${TRYAGAIN} == ' ' ]];then echo '';echo 'Aborting hibernate!!!';sleep 5;else echo 'Hibernating...';sudo pm-hibernate;sleep 15;fi;"</execute></action>
     </keybind>
     <keybind key="F11">
       <action name="ToggleFullscreen"/>
@@ -437,6 +437,9 @@
       <action name="Iconify"/>
     </keybind>
     <keybind key="M-BackSpace">
+      <action name="Close"/>
+    </keybind>
+    <keybind key="H-BackSpace">
       <action name="Close"/>
     </keybind>
     <!-- Do I still need this? -->
@@ -950,14 +953,14 @@
   <menu>
     <!-- You can specify more than one menu file in here and they are all loaded,
          just don't make menu ids clash or, well, it'll be kind of pointless -->
-    <!-- XXXX: order matters!!! that's why openbox-menu-super.xml is last!!! -->
+    <!-- XXXX: order matters!!! that's why openbox-menu-admin.xml is last!!! -->
     <!-- system menu files on Debian systems -->
     <file>/var/lib/openbox/debian-menu.xml</file>
     <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
     <file>menu.xml</file>
     <file>~/.config/openbox/openbox-menu-screencapture.xml</file>
     <file>~/.config/openbox/openbox-menu-super-power-volume.xml</file>
-    <file>~/.config/openbox/openbox-menu-super.xml</file>
+    <file>~/.config/openbox/openbox-menu-admin.xml</file>
     <file>~/.config/openbox/openbox-menu-second.xml</file>
     <hideDelay>200</hideDelay>
     <!-- if a press-release lasts longer than this setting (in milliseconds), the

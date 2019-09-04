@@ -632,7 +632,7 @@ interactive("open-firefox", "",
     function (I) {
         var theurl = transform_url_location(I.buffer,I.buffer.display_uri_string);
         var cmd_str = 'firefox -P default -new-tab "' + theurl + '"';
-        dumpln(cmd_str);
+        dumpln("i: " + cmd_str);
         shell_command_blind(cmd_str);
     });
 define_key(content_buffer_normal_keymap, "C-c f", "open-firefox");
@@ -641,7 +641,7 @@ interactive("open-firefox-private", "",
     function (I) {
         var theurl = transform_url_location(I.buffer,I.buffer.display_uri_string);
         var cmd_str = 'firefox -private -new-tab "' + theurl + '"';
-        dumpln(cmd_str);
+        dumpln("i: " + cmd_str);
         shell_command_blind(cmd_str);
     });
 define_key(content_buffer_normal_keymap, "C-u C-c f", "open-firefox-private");
@@ -650,7 +650,7 @@ interactive("open-conkeror-private", "",
     function (I) {
         var theurl = transform_url_location(I.buffer,I.buffer.display_uri_string);
         var cmd_str = 'conkeror-private "' + theurl + '"';
-        dumpln(cmd_str);
+        dumpln("i: " + cmd_str);
         shell_command_blind(cmd_str);
     });
 define_key(content_buffer_normal_keymap, "C-c x", "open-conkeror-private");
@@ -660,7 +660,7 @@ interactive("open-chromium", "",
         // TODO: Can't auto-enable ad-blocker and avoid ads, I shred it enough that this is fine
         var theurl = transform_url_location(I.buffer,I.buffer.display_uri_string);
         var cmd_str = 'chromium --temp-profile "' + theurl + '"';
-        dumpln(cmd_str);
+        dumpln("i: " + cmd_str);
         shell_command_blind(cmd_str);
     });
 define_key(content_buffer_normal_keymap, "C-c g", "open-chromium");

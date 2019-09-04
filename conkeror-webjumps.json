@@ -62,6 +62,9 @@
  "gnuplot":["http://www.gnuplot.info"],
  "googleimages":["http://www.google.com/images?q=%s&safe=off", "https://www.google.com/imghp?as_q=&safe=off"],
  "googlescholar":["http://scholar.google.com/scholar?q=%s", "https://scholar.google.com"],
+ "googledocs":["https://docs.google.com/"],
+ "googledocs-sheets":["https://docs.google.com/spreadsheets/"],
+ "googleplay":["https://play.google.com/store/search?q=%s&c=apps&hl=en","https://play.google.com/apps"],
  // "hackerboards":["http://hackerboards.com"],
  "homedepot":["https://www.homedepot.ca/en/home.html"],
  // does not appear to have acceptable webjump
