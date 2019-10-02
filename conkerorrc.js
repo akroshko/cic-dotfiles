@@ -158,8 +158,12 @@ define_key(content_buffer_normal_keymap, "s-g",   "find-url");
 // TODO: used for other things
 // define_key(content_buffer_normal_keymap, "f4", "kill-buffer");
 // key redefines
+// TODO: choose which one or both? tab next/previous...
 define_key(content_buffer_normal_keymap, "s-]", "buffer-next");
 define_key(content_buffer_normal_keymap, "s-[", "buffer-previous");
+define_key(content_buffer_normal_keymap, "M-]", "buffer-next");
+define_key(content_buffer_normal_keymap, "M-[", "buffer-previous");
+
 // duplicate buffer
 interactive("duplicate-buffer", "Duplicate buffer",
             function (I) {

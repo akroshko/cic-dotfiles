@@ -16,7 +16,6 @@
  "atlasoftheuniverse":["http://www.atlasoftheuniverse.com/"],
  "bc-firehazard":["http://www2.gov.bc.ca/gov/content/safety/wildfire-status/fire-danger"],
  "be-electronics":["http://www.be-electronics.com/"],
- "books":["https://www.google.com/search?q=%s&tbm=bks", "https://books.google.com/"],
  "budget-bytes":["http://www.budgetbytes.com"],
  "buyapi":["https://www.buyapi.ca"],
  // TODO: add some non-search things here
@@ -60,6 +59,7 @@
  // "gmail":["https://mail.google.com/mail/?ui=html&zy=h"],
  "gmail":["https://mail.google.com/"],
  "gnuplot":["http://www.gnuplot.info"],
+ "googlebooks":["https://www.google.com/search?q=%s&tbm=bks", "https://books.google.com/"],
  "googleimages":["http://www.google.com/images?q=%s&safe=off", "https://www.google.com/imghp?as_q=&safe=off"],
  "googlescholar":["http://scholar.google.com/scholar?q=%s", "https://scholar.google.com"],
  "googledocs":["https://docs.google.com/"],
@@ -93,7 +93,6 @@
  "palemoon":["https://www.palemoon.org/"],
  "password-haystack":["https://www.grc.com/haystack.htm"],
  "physorg":["http://phys.org"],
- "plus":["https://plus.google.com/"],
  "portableapps":["https://portableapps.com/"],
  "psql-pev":["http://tatiyants.com/pev/#/plans/new"],
  "pwmt":["https://pwmt.org/"],
