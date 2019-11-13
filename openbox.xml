@@ -5,7 +5,7 @@
 <!-- Author: Andrew Kroshko -->
 <!-- Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com> -->
 <!-- Created: Thu June 09, 2016 -->
-<!-- Version: 20190626 -->
+<!-- Version: 20191106 -->
 <!-- URL: https://github.com/akroshko/cic-groups -->
 
 <!-- This program is free software: you can redistribute it and/or modify -->
@@ -226,18 +226,16 @@
     <!-- <keybind key="F2"> -->
     <!--   <action name="ToggleShowDesktop"/> -->
     <!-- </keybind> -->
-    <keybind key="M-S-D">
-      <action name="ToggleShowDesktop"/>
-    </keybind>
+    <!-- TODO this seems wrong  -->
+    <!-- <keybind key="M-S-D"> -->
+    <!--   <action name="ToggleShowDesktop"/> -->
+    <!-- </keybind> -->
     <!-- <keybind key="S-C-2"> -->
     <!--   <action name="Execute"><execute>bash ~/bin/screenshot-save.sh -\-window</execute></action> -->
     <!-- </keybind> -->
     <!-- <keybind key="S-C-3"> -->
     <!--   <action name="Execute"><execute>bash ~/bin/screenshot-save.sh -\-screen</execute></action> -->
     <!-- </keybind> -->
-    <keybind key="C-W-d">
-      <action name="ToggleShowDesktop"/>
-    </keybind>
     <keybind key="C-grave">
       <action name="Execute"><execute>bash ~/bin/send-key-to-emacs.sh --c-grave</execute></action>
     </keybind>
@@ -298,6 +296,9 @@
     <keybind key="F12">
       <action name="Execute"><execute>bash ~/bin/show-hints.sh</execute></action>
     </keybind>
+    <keybind key="M-F12">
+      <action name="Execute"><execute>bash ~/bin/show-hints-next.sh</execute></action>
+    </keybind>
     <keybind key="m-9">
       <action name="Execute"><execute>bash ~/bin/xclip-primary-insert-emacs-collection.sh</execute></action>
     </keybind>
@@ -350,17 +351,24 @@
     <keybind key="Print">
       <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window"</execute></action>
     </keybind>
+    <keybind key="H-y">
+      <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window"</execute></action>
+    </keybind>
+    <keybind key="S-Print">
+      <action name="ShowMenu"><menu>screen-capture</menu></action>
+    </keybind>
+    <!-- TODO not sure about these -->
+    <keybind key="M-Print">
+      <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window-show"</execute></action>
+    </keybind>
     <keybind key="H-Print">
       <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window-in-tmp"</execute></action>
     </keybind>
     <keybind key="C-Print">
       <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-screen"</execute></action>
     </keybind>
-    <keybind key="S-Print">
-      <action name="ShowMenu"><menu>screen-capture</menu></action>
-    </keybind>
-    <keybind key="M-Print">
-      <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window-show"</execute></action>
+    <keybind key="H-y">
+      <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window"</execute></action>
     </keybind>
     <!-- Disabled for now... -->
     <!-- <keybind key="C-2"> -->
@@ -379,6 +387,9 @@
     <keybind key="S-BackSpace">
       <action name="Iconify"/>
     </keybind>
+    <keybind key="H-b">
+      <action name="Execute"><execute>bash ~/bin/send-bookmark-key.sh</execute></action>
+    </keybind>
     <keybind key="H-a">
       <action name="Execute"><execute>bash ~/bin/web-video-minimize.sh --pause</execute></action>
     </keybind>
@@ -393,23 +404,23 @@
     <keybind key="H-w">
       <action name="Execute"><execute>bash ~/bin/web-video-pause-toggle.sh</execute></action>
     </keybind>
-    <keybind key="KP_Add">
-      <action name="Execute"><execute>bash -c "source ~/.bash_library;fullscreen-window-minimize"</execute></action>
-      <action name="Execute"><execute>amixer sset Master mute</execute></action>
-      <action name="Execute"><execute>bash ~/bin/notify-amixer-mute.sh</execute></action>
-    </keybind>
-    <!-- should be restore? -->
-    <keybind key="S-KP_Add">
-      <action name="Execute"><execute>bash -c "source ~/.bash_library;fullscreen-window-minimize"</execute></action>
-    </keybind>
-    <keybind key="C-KP_Add">
-      <action name="Execute"><execute>bash -c "source ~/.bash_library;fullscreen-window-move"</execute></action>
-    </keybind>
-    <keybind key="C-S-KP_Add">
-      <action name="Execute"><execute>bash -c "source ~/.bash_library;fullscreen-window-move"</execute></action>
-      <action name="Execute"><execute>amixer sset Master unmute</execute></action>
-      <action name="Execute"><execute>bash ~/bin/notify-amixer-mute.sh</execute></action>
-    </keybind>
+    <!-- <keybind key="KP_Add"> -->
+    <!--   <action name="Execute"><execute>bash -c "source ~/.bash_library;fullscreen-window-minimize"</execute></action> -->
+    <!--   <action name="Execute"><execute>amixer sset Master mute</execute></action> -->
+    <!--   <action name="Execute"><execute>bash ~/bin/notify-amixer-mute.sh</execute></action> -->
+    <!-- </keybind> -->
+    <!-- <!-\- should be restore? -\-> -->
+    <!-- <keybind key="S-KP_Add"> -->
+    <!--   <action name="Execute"><execute>bash -c "source ~/.bash_library;fullscreen-window-minimize"</execute></action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="C-KP_Add"> -->
+    <!--   <action name="Execute"><execute>bash -c "source ~/.bash_library;fullscreen-window-move"</execute></action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="C-S-KP_Add"> -->
+    <!--   <action name="Execute"><execute>bash -c "source ~/.bash_library;fullscreen-window-move"</execute></action> -->
+    <!--   <action name="Execute"><execute>amixer sset Master unmute</execute></action> -->
+    <!--   <action name="Execute"><execute>bash ~/bin/notify-amixer-mute.sh</execute></action> -->
+    <!-- </keybind> -->
     <keybind key="H-z">
       <action name="ToggleShowDesktop"/>
     </keybind>
@@ -465,6 +476,7 @@
     <keybind key="mod2-space">
       <action name="NextWindow"/>
     </keybind>
+    <!-- TODO: change to be more compatible-->
     <keybind key="H-d">
       <action name="NextWindow"/>
     </keybind>
@@ -489,6 +501,19 @@
       <action name="NextWindow">
         <raise>yes</raise>
       </action>
+    </keybind>
+    <!-- TODO: better noop -->
+    <keybind key="mod2-e">
+      <action name="Execute">true</action>
+    </keybind>
+    <keybind key="mod2-d">
+      <action name="Execute">true</action>
+    </keybind>
+    <keybind key="mod2-q">
+      <action name="Execute">true</action>
+    </keybind>
+    <keybind key="mod2-a">
+      <action name="Execute">true</action>
     </keybind>
     <keybind key="M-grave">
       <!-- <action name="Lower"/> -->
@@ -528,7 +553,6 @@
       <action name="Execute"><execute>amixer set Master 5%+</execute></action>
       <action name="Execute"><execute>bash ~/bin/notify-amixer-volumes.sh</execute></action>
     </keybind>
-    <!-- TODO: toggle or force off? notify?-->
     <keybind key="C-W-z">
       <action name="Execute"><execute>amixer sset Master toggle</execute></action>
       <action name="Execute"><execute>bash ~/bin/notify-amixer-mute.sh</execute></action>
@@ -609,6 +633,11 @@
       </action>
     </keybind>
     <keybind key="C-z">
+      <action name="NextWindow">
+        <raise>yes</raise>
+      </action>
+    </keybind>
+    <keybind key="M-Tab">
       <action name="NextWindow">
         <raise>yes</raise>
       </action>
@@ -1088,6 +1117,12 @@
     <!-- # you may use one or more of the name/class/role/title/type rules to specify -->
     <!-- # windows to match -->
     <!-- name="the window's _OB_APP_NAME property (see obxprop)" -->
+    <application
+        name="*transient*">
+      <focus>yes</focus>
+    </application>
+    <!-- name="rxvt-below*" -->
+    <!-- class="URxvt" -->
     <application
         name="rxvt-below">
       <focus>no</focus>

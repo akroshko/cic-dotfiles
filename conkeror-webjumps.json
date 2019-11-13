@@ -182,4 +182,9 @@
  "trails-jasper":["http://www.pc.gc.ca/apps/tcond/cond_e.asp?oPark=100244"],
  "usask-ecommons-thesises":["https://ecommons.usask.ca/handle/10388/381"],
  "vimeo":["https://vimeo.com"],
- "zdnet":["https://www.zdnet.com/"]}
+ "winehq":["https://www.winehq.org/"],
+ "winehq-faq":["https://wiki.winehq.org/FAQ"],
+ "winedb":["https://appdb.winehq.org/"],
+ "zdnet":["https://www.zdnet.com/"],
+ "saskjobs":["https://www.saskjobs.ca/"]
+}

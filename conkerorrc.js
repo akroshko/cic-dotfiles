@@ -278,6 +278,18 @@ define_key(minibuffer_base_keymap,       "page_down", "cmd_scrollPageDown");
 define_key(content_buffer_form_keymap,   "page_down", "cmd_scrollPageDown_unfocus");
 define_key(content_buffer_text_keymap,   "page_down", "cmd_scrollPageDown_unfocus");
 define_key(content_buffer_normal_keymap, "page_down", "cmd_scrollPageDown");
+// TODO: experimental
+define_key(default_global_keymap,        "C-s-q",     "cmd_scrollPageUp");
+define_key(minibuffer_base_keymap,       "C-s-q",     "cmd_scrollPageUp");
+define_key(content_buffer_form_keymap,   "C-s-q",     "cmd_scrollPageUp_unfocus");
+define_key(content_buffer_text_keymap,   "C-s-q",     "cmd_scrollPageUp_unfocus");
+define_key(content_buffer_normal_keymap, "C-s-q",     "cmd_scrollPageUp");
+// TODO: experimental
+define_key(default_global_keymap,        "C-s-a",     "cmd_scrollPageDown");
+define_key(minibuffer_base_keymap,       "C-s-a",     "cmd_scrollPageDown");
+define_key(content_buffer_form_keymap,   "C-s-a",     "cmd_scrollPageDown_unfocus");
+define_key(content_buffer_text_keymap,   "C-s-a",     "cmd_scrollPageDown_unfocus");
+define_key(content_buffer_normal_keymap, "C-s-a",     "cmd_scrollPageDown");
 // this is pageup that works as expected everywhere
 define_key(default_global_keymap,        "C-b",       "cmd_scrollPageUp");
 define_key(minibuffer_base_keymap,       "C-b",       "cmd_scrollPageUp");
@@ -290,18 +302,19 @@ define_key(minibuffer_base_keymap,       "C-v",       "cmd_scrollPageDown");
 define_key(content_buffer_form_keymap,   "C-v",       "cmd_scrollPageDown_unfocus");
 define_key(content_buffer_text_keymap,   "C-v",       "cmd_scrollPageDown_unfocus");
 define_key(content_buffer_normal_keymap, "C-v",       "cmd_scrollPageDown");
+// TODO: do I want this, or does it conflict with org-mode, etc.
 // this is pageup that works as expected everywhere
-define_key(default_global_keymap,        "S-up",      "cmd_scrollPageUp");
-define_key(minibuffer_base_keymap,       "S-up",      "cmd_scrollPageUp");
-define_key(content_buffer_form_keymap,   "S-up",      "cmd_scrollPageUp_unfocus");
-define_key(content_buffer_text_keymap,   "S-up",      "cmd_scrollPageUp_unfocus");
-define_key(content_buffer_normal_keymap, "S-up",      "cmd_scrollPageUp");
+// define_key(default_global_keymap,        "S-up",      "cmd_scrollPageUp");
+// define_key(minibuffer_base_keymap,       "S-up",      "cmd_scrollPageUp");
+// define_key(content_buffer_form_keymap,   "S-up",      "cmd_scrollPageUp_unfocus");
+// define_key(content_buffer_text_keymap,   "S-up",      "cmd_scrollPageUp_unfocus");
+// define_key(content_buffer_normal_keymap, "S-up",      "cmd_scrollPageUp");
 // this is pagedown that works as expected everywhere
-define_key(default_global_keymap,        "S-down",    "cmd_scrollPageDown");
-define_key(minibuffer_base_keymap,       "S-down",    "cmd_scrollPageDown");
-define_key(content_buffer_form_keymap,   "S-down",    "cmd_scrollPageDown_unfocus");
-define_key(content_buffer_text_keymap,   "S-down",    "cmd_scrollPageDown_unfocus");
-define_key(content_buffer_normal_keymap, "S-down",    "cmd_scrollPageDown");
+// define_key(default_global_keymap,        "S-down",    "cmd_scrollPageDown");
+// define_key(minibuffer_base_keymap,       "S-down",    "cmd_scrollPageDown");
+// define_key(content_buffer_form_keymap,   "S-down",    "cmd_scrollPageDown_unfocus");
+// define_key(content_buffer_text_keymap,   "S-down",    "cmd_scrollPageDown_unfocus");
+// define_key(content_buffer_normal_keymap, "S-down",    "cmd_scrollPageDown");
 
 define_key(default_global_keymap, "C-c r", "reload-config");
 
