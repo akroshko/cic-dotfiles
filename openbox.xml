@@ -5,7 +5,7 @@
 <!-- Author: Andrew Kroshko -->
 <!-- Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com> -->
 <!-- Created: Thu June 09, 2016 -->
-<!-- Version: 20191106 -->
+<!-- Version: 20191209 -->
 <!-- URL: https://github.com/akroshko/cic-groups -->
 
 <!-- This program is free software: you can redistribute it and/or modify -->
@@ -258,12 +258,6 @@
     <keybind key="M-5">
       <action name="Execute"><execute>bash ~/bin/send-key-to-emacs.sh --m5</execute></action>
     </keybind>
-    <keybind key="M-6">
-      <action name="Execute"><execute>bash ~/bin/send-key-to-emacs.sh --m6</execute></action>
-    </keybind>
-    <keybind key="M-7">
-      <action name="Execute"><execute>bash ~/bin/send-key-to-emacs.sh --m7</execute></action>
-    </keybind>
     <keybind key="M-8">
       <action name="Execute"><execute>bash ~/bin/send-key-to-emacs.sh --m8</execute></action>
     </keybind>
@@ -297,7 +291,7 @@
       <action name="Execute"><execute>bash ~/bin/show-hints.sh</execute></action>
     </keybind>
     <keybind key="M-F12">
-      <action name="Execute"><execute>bash ~/bin/show-hints-next.sh</execute></action>
+      <action name="Execute"><execute>bash ~/bin/show-hints.sh --next</execute></action>
     </keybind>
     <keybind key="m-9">
       <action name="Execute"><execute>bash ~/bin/xclip-primary-insert-emacs-collection.sh</execute></action>
@@ -348,34 +342,37 @@
     <keybind key="Menu">
       <action name="ShowMenu"><menu>client-list-combined-menu</menu></action>
     </keybind>
+    <!-- TODO: does work without the bash -->
     <keybind key="Print">
-      <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window"</execute></action>
+      <action name="Execute"><execute>~/bin/screenshot.sh --window</execute></action>
     </keybind>
     <keybind key="H-y">
-      <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window"</execute></action>
+      <action name="Execute"><execute>~/bin/screenshot.sh --window</execute></action>
     </keybind>
     <keybind key="S-Print">
-      <action name="ShowMenu"><menu>screen-capture</menu></action>
+      <action name="Execute"><execute>~/bin/screenshot.sh --window-edit</execute></action>
     </keybind>
-    <!-- TODO not sure about these -->
-    <keybind key="M-Print">
-      <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window-show"</execute></action>
-    </keybind>
-    <keybind key="H-Print">
-      <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window-in-tmp"</execute></action>
+    <keybind key="H-S-y">
+      <action name="Execute"><execute>~/bin/screenshot.sh --window-edit</execute></action>
     </keybind>
     <keybind key="C-Print">
-      <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-screen"</execute></action>
+      <action name="Execute"><execute>~/bin/screenshot.sh --screen</execute></action>
     </keybind>
-    <keybind key="H-y">
-      <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window"</execute></action>
+    <keybind key="H-C-y">
+      <action name="Execute"><execute>~/bin/screenshot.sh --screen</execute></action>
     </keybind>
-    <!-- Disabled for now... -->
-    <!-- <keybind key="C-2"> -->
-    <!--   <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window"</execute></action> -->
+    <keybind key="H-7">
+      <action name="Execute"><execute>~/bin/screenshot.sh --window-bib</execute></action>
+    </keybind>
+    <!-- <keybind key="S-Print"> -->
+    <!--   <action name="ShowMenu"><menu>screen-capture</menu></action> -->
     <!-- </keybind> -->
-    <!-- <keybind key="C-3"> -->
-    <!--   <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-screen"</execute></action> -->
+    <!-- TODO not sure about these -->
+    <keybind key="M-Print">
+      <action name="Execute"><execute>~/bin/screenshot.sh --window-show</execute></action>
+    </keybind>
+    <!-- <keybind key="H-Print"> -->
+    <!--   <action name="Execute"><execute>bash -c "source ~/.bash_library;screenshot-window-in-tmp"</execute></action> -->
     <!-- </keybind> -->
     <keybind key="M-W-slash">
       <action name="Execute"><execute>bash -c "source ~/.bash_library;whitenoise.sh"</execute></action>
@@ -535,38 +532,38 @@
     </keybind>
     <keybind key="XF86AudioLowerVolume">
       <action name="Execute"><execute>amixer set Master 5%-</execute></action>
-      <action name="Execute"><execute>bash ~/bin/notify-amixer-volumes.sh</execute></action>
+      <action name="Execute"><execute>~/bin/notify-amixer-volumes.sh</execute></action>
     </keybind>
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute"><execute>amixer set Master 5%+</execute></action>
-      <action name="Execute"><execute>bash ~/bin/notify-amixer-volumes.sh</execute></action>
+      <action name="Execute"><execute>~/bin/notify-amixer-volumes.sh</execute></action>
     </keybind>
     <keybind key="XF86AudioMute">
       <action name="Execute"><execute>amixer sset Master toggle</execute></action>
-      <action name="Execute"><execute>bash ~/bin/notify-amixer-mute.sh</execute></action>
+      <action name="Execute"><execute>~/bin/notify-amixer-mute.sh</execute></action>
     </keybind>
     <keybind key="C-W-x">
       <action name="Execute"><execute>amixer set Master 5%-</execute></action>
-      <action name="Execute"><execute>bash ~/bin/notify-amixer-volumes.sh</execute></action>
+      <action name="Execute"><execute>~/bin/notify-amixer-volumes.sh</execute></action>
     </keybind>
     <keybind key="C-W-c">
       <action name="Execute"><execute>amixer set Master 5%+</execute></action>
-      <action name="Execute"><execute>bash ~/bin/notify-amixer-volumes.sh</execute></action>
+      <action name="Execute"><execute>~/bin/notify-amixer-volumes.sh</execute></action>
     </keybind>
     <keybind key="C-W-z">
       <action name="Execute"><execute>amixer sset Master toggle</execute></action>
-      <action name="Execute"><execute>bash ~/bin/notify-amixer-mute.sh</execute></action>
+      <action name="Execute"><execute>~/bin/notify-amixer-mute.sh</execute></action>
     </keybind>
     <keybind key="C-W-v">
       <action name="Execute"><execute>rxvt-unicode -title "alsamixer" -e bash -c alsamixer</execute></action>
     </keybind>
     <keybind key="M-W-minus">
       <action name="Execute"><execute>amixer set Master 5%-</execute></action>
-      <action name="Execute"><execute>bash ~/bin/notify-amixer-volumes.sh</execute></action>
+      <action name="Execute"><execute>~/bin/notify-amixer-volumes.sh</execute></action>
     </keybind>
     <keybind key="M-S-W-plus">
       <action name="Execute"><execute>amixer set Master 5%+</execute></action>
-      <action name="Execute"><execute>bash ~/bin/notify-amixer-volumes.sh</execute></action>
+      <action name="Execute"><execute>~/bin/notify-amixer-volumes.sh</execute></action>
     </keybind>
     <!-- TODO: do I still want this -->
     <keybind key="H-W-space">

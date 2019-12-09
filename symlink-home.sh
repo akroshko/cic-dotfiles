@@ -6,7 +6,7 @@
 # Author: Andrew Kroshko
 # Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com>
 # Created: Fri Sep 18, 2015
-# Version: 20190413
+# Version: 20191209
 # URL: https://github.com/akroshko/cic-bash-common
 #
 # This program is free software: you can redistribute it and/or modify
@@ -73,7 +73,7 @@ main () {
     # calibre
     need_new_directory                                          "$HOME/.config/calibre/shortcuts"
     [[ -d "$HOME/.config/calibre/shortcuts" ]]               && cp_if_different "$SCRIPTPATH/calibre-viewer.plist" "$HOME/.config/calibre/shortcuts/viewer.plist"
-    [[ -f "$HOME/.config/calibre/viewer.py" ]]               && rm                                                 "$HOME/.config/calibre/viewer.py"
+    [[ -f "$HOME/.config/calibre/viewer.py" ]]               && \rm                                                "$HOME/.config/calibre/viewer.py"
     [[ -d "$HOME/.config/calibre/" ]]                        && cp_if_different "$SCRIPTPATH/calibre-viewer.py"    "$HOME/.config/calibre/viewer.py"
     # create some quick links
     need_new_directory "$HOME/bin"

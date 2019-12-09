@@ -534,6 +534,14 @@ session_pref("security.OCSP.require",false);
 // changed ghacks defaults because I use it
 session_pref("layout.css.visited_links_enabled", true);
 
+interactive("copy-url-literal","Copy url to clipboard.",
+    function (I) {
+        var the_url=I.buffer.current_uri.spec;
+        writeToClipboard(the_url);
+        I.window.minibuffer.message("Copied to clipboard: " + the_url);
+    });
+define_key(content_buffer_normal_keymap, "s-0", "copy-url-literal");
+
 // copy the current url and it's title to an org-mode link in the clipboard
 interactive("copy-url-title","Copy url and title to clipboard in org-mode format.",
     function (I) {
@@ -541,7 +549,7 @@ interactive("copy-url-title","Copy url and title to clipboard in org-mode format
         writeToClipboard(the_url_title);
         I.window.minibuffer.message("Copied to clipboard: " + the_url_title);
     });
-define_key(content_buffer_normal_keymap, "s-0", "copy-url-title");
+define_key(content_buffer_normal_keymap, "s-)", "copy-url-title");
 
 // copy the current url and the selected text to an org-mode link in the clipboard
 interactive("copy-url-selected","Copy url and the selected text to clipboard in org-mode format.",

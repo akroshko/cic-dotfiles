@@ -1,7 +1,7 @@
 #! perl -w
 # Author:   Andrew Kroshko 2017-2019
 # Created:  Sun Nov 19, 2017
-# Version:  20190411
+# Version:  20191209
 # Website:  https://github.com/akroshko/cic-dotfiles
 # License:  GPLv2
 

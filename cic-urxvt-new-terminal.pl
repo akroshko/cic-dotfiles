@@ -4,7 +4,7 @@
 # Author: Andrew Kroshko
 # Maintainer: Andrew Kroshko <akroshko.public+devel@gmail.com>
 # Created: Fri Jan 5, 2018
-# Version: 20190411
+# Version: 20191209
 # URL: https://github.com/akroshko/cic-dotfiles
 #
 # This program is free software: you can redistribute it and/or modify
