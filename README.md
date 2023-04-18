@@ -14,13 +14,4 @@ without a license header, generally where adding this is incompatible
 with the file type or would make routine editing of the file awkward,
 are GPLv3 licensed.
 
-The script
-[symlink-home.sh](https://github.com/akroshko/cic-dotfiles/blob/master/symlink-home.sh)
-requires functions from the
-[http://github.com/akroshko/cic-bash-common](http://github.com/akroshko/cic-bash-common)
-library and symlinks the config into the home directory.
 
-The script
-[weather-update.py](http://github.com/akroshko/cic-python-common/weather-update.py)
-is used by
-[conkyrc](https://github.com/akroshko/cic-dotfiles/blob/master/conkyrc).
