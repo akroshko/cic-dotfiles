@@ -2,59 +2,41 @@
 # http://codeinthehole.com/archives/17-The-most-important-command-line-tip-incremental-history-searching-with-.inputrc.html
 # http://fahdshariff.blogspot.ca/2011/08/my-bash-profile-part-vi-inputrc.html
 # https://wiki.archlinux.org/index.php/Readline
-set bell-style none
-set completion-ignore-case On
-set colored-stats On
-set echo-control-characters Off
-# TAB: menu-complete
-set show-all-if-ambiguous on
-# XXXX these may need customization under some circumstances
-set meta-flag on
-set convert-meta on
-set input-meta on
-set output-meta on
-# Incrementally search history with up/down arrow keys
-"\e[A": history-search-backward
-"\e[B": history-search-forward
-# Incrementally search history with M-p/M-n
-"\M-p": history-search-backward
-"\M-n": history-search-forward
-# found using C-v and then typing control-backspace
-# "\C-h": backward-kill-word
-# TODO: experimenting with menu-complete.... can I use c-j elsewhere consistently
-# "\M-i": menu-complete
+# https://wiki.archlinux.org/index.php/Home_and_End_keys_not_working
 # https://www.reddit.com/r/commandline/comments/kbeoe/you_can_make_readline_and_bash_much_more_user/
+set bell-style none
+set editing-mode emacs
+set convert-meta on
+set colored-completion-prefix On
+set colored-stats On
+set completion-ignore-case On
+set completion-map-case On
+set echo-control-characters Off
+set input-meta on
+set meta-flag on
+set output-meta on
+set show-all-if-ambiguous on
+set show-mode-in-prompt off
+# Incrementally search history with up/down arrow keys
+"\e[A":  history-search-backward
+"\e[B":  history-search-forward
+"\e[[A": history-search-backward
+"\e[[B": history-search-forward
+"\M-p":  history-search-backward
+"\M-n":  history-search-forward
 $if Bash
-    Control-j: menu-complete
+    "\C-i": complete
+    # TAB: menu-complete # intended according to bash man page
+    "\C-n": menu-complete
+    "\C-p": menu-complete-backward
 $endif
-# TODO: no!!! too confusing with emacs keys
-# Control-k: menu-complete-backward
 # XXXX: required for sage terminal
 "\e[3~":delete-char
 ########################################
-# esdf style movement keys
-"\C-e": previous-screen-line
-"\C-s": backward-char
-"\C-d": next-screen-line
-"\C-f": forward-char
-"\M-s": backward-word
-"\M-f": forward-word
-"\C-a": beginning-of-line
-"\C-r": end-of-line
-"\C-h": delete-char
-"\M-h": kill-word
-########################################
 # needed for home and end keys
-# https://wiki.archlinux.org/index.php/Home_and_End_keys_not_working
 # allow the use of the Home/End keys, from default /etc/inputrc
-# "\e[1~": beginning-of-line
-# "\e[4~": end-of-line
-# $if term=rxvt
 "\e[7~": beginning-of-line
 "\e[8~": end-of-line
-# "\eOc": forward-word
-# "\eOd": backward-word
-# $endif
 
 $if Bash
     Space: magic-space
