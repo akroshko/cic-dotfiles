@@ -55,25 +55,6 @@
             (throw 'requiring-package-fail nil)))))))
 (put 'requiring-package 'lisp-indent-function 1)
 
-(defmacro* requiring-catch ((requiring-name &key error-if-fail) &rest forms)
-  "Run code with description REQUIRING-NAME and put errors in
-load log."
-  `(catch 'requiring-package-fail
-     (progn
-       (condition-case error-string
-           (progn
-             ,@forms)
-         (error
-          (let ((msg (format "Failed to run requiring name %s "
-                             ,requiring-name)))
-            (setq load-errors-p t)
-            (with-current-buffer (get-buffer-create "*Load log*")
-              (insert msg "\n")
-              (insert (format "The error was %s\n" error-string)))
-            (if ,error-if-fail
-                (error msg)
-              (throw 'requiring-package-fail nil))))))))
-
 (requiring-package (org))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -281,7 +262,8 @@ read only."
     (dired-omit-mode 1)
     (hl-line-mode 1))
   ;; set omit by default
-  (add-hook 'dired-mode-hook 'dired-mode-hook--minor-modes))
+  (add-hook 'dired-mode-hook 'dired-mode-hook--minor-modes)
+  (define-key dired-mode-map (kbd "M-o") 'dired-omit-mode))
 (requiring-package (wdired)
   (setq wdired-use-dired-vertical-movement 'sometimes
         wdired-confirm-overwrite t
@@ -309,6 +291,30 @@ read only."
  'emacs-lisp-mode
  '(("(\\s-*\\(\\_<\\(?:\\sw\\|\\s_\\)+\\)\\_>"
    1 'font-lock-func-face)))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; helm
+(requiring-package (helm)
+  (require 'helm-grep)
+  (setq helm-M-x-fuzzy-match t
+        helm-mode-fuzzy-match t
+        helm-buffers-fuzzy-matching t
+        helm-imenu-fuzzy-match t
+        helm-lisp-fuzzy-completion t
+        helm-display-header-line t
+        ;; helm-split-window-in-side-p t ;; open helm buffer inside current window, not occupy whole other window
+        helm-echo-input-in-header-line t
+        ;; would love unlimited
+        helm-candidate-number-limit 999)
+  (add-to-list 'helm-sources-using-default-as-input 'helm-source-man-pages)
+  ;; see helm-google-suggest-use-curl-p
+  (helm-mode 1)
+  (global-set-key (kbd "M-x")                          'undefined)
+  (global-set-key (kbd "M-x")                          #'helm-M-x)
+  (global-set-key (kbd "M-y")                          #'helm-show-kill-ring)
+  (global-set-key (kbd "C-x C-f")                      #'helm-find-files)
+  ;; may conflict with major mode keybindings
+  (global-set-key (kbd "C-c i")                        #'helm-imenu)
+  (global-set-key (kbd "C-c o")                        #'helm-occur))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; image-mode
 ;; TODO: find out how to animate images by default
@@ -442,7 +448,16 @@ read only."
         org-log-note-clock-out nil
         org-log-redeadline nil
         org-log-reschedule nil)
-  (add-hook 'org-capture-mode-hook 'delete-other-windows))
+  (add-hook 'org-capture-mode-hook 'delete-other-windows)
+  ;; I like to use org-mode tables that may be read-only, this ensures TAB works for next field
+  (defun org-table-next-previous-field--handle-read-only (orig-fun &rest args)
+    "Ensure next and previous field can be navigated in read-only for org-mode."
+    (if buffer-read-only
+        (let ((org-table-automatic-realign nil))
+          (apply orig-fun args))
+      (apply orig-fun args)))
+  (advice-add 'org-table-next-field :around #'org-table-next-previous-field--handle-read-only)
+  (advice-add 'org-table-previous-field :around #'org-table-next-previous-field--handle-read-only))
 ;; this tends to work best for shells in Emacs
 (setenv "PAGER" "cat")
 
@@ -520,13 +535,54 @@ read only."
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; finally load the rest of the site
+;; but only if server is running
 
+;; (when (and (fboundp #'server-running-p) (server-running-p)))
 (if (file-exists-p "~/.emacs.d/emacs-local.el")
     (load "~/.emacs.d/emacs-local.el")
   (message "Not loading ~/.emacs.d/emacs-local.el because it does not exist."))
 ;; this ensures that emacs gets rid of garbage from startup
 ;; very good for if I'm starting up and immediately profiling something
 (garbage-collect)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; modeline
+;; change modeline if there are errors after emacs-local.el
+(defvar modeline-already-added
+  nil
+  "Indicate whether additional modeline indicators have already
+  been added.")
+
+(defvar modeline-dirty
+  nil
+  "Indicate whether modeline is abnormal.")
+
+(defvar modeline-other-error
+  nil)
+
+;; this makes the modeline red if "*Load log* buffer exists
+;; this can quickly allow seeing if there's a problem rather than working for hours with a problem present
+(unless modeline-already-added
+  ;; mode-line-stuff
+  (unless (some 'identity (mapcar (lambda (e) (ignore-errors (string-match-p "case:" e))) mode-line-format))
+    (setq-default mode-line-format (append mode-line-format (list
+                                                             '(:eval (cond ((or (get-buffer "*Load log*") modeline-other-error)
+                                                                            (set-face-background 'mode-line "#ff0000")
+                                                                            (setq modeline-dirty t)
+                                                                            (if modeline-other-error
+                                                                                modeline-other-error
+                                                                              "load:ERR"))
+                                                                           (t
+                                                                            (when modeline-dirty
+                                                                              (configure-modeline-color)
+                                                                              (setq modeline-dirty nil))
+                                                                            "load:OK ")))
+                                                             "case:"
+                                                             '(:eval (if case-fold-search
+                                                                         "insensitive "
+                                                                       (propertize "sensitive   " 'font-lock-face '(:foreground "yellow"))))))))
+  ;; XXXX: remove this line for debugging the above....
+  (setq modeline-already-added t))
 
 ;; TODO: want to make this clearer that end of emacs.el was reached
 (message "Emacs loaded without error!")
