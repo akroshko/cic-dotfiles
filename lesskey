@@ -1,3 +1,55 @@
+# Emacs keys
+# not complete, but means I can use the keys in my muscle memory in my pager
+
 #command
-, back-scroll
-. forw-scroll
+\40      forw-screen
+# shift-space mapped in my rxvt Xresources
+\e[32;2u back-screen
+^V       forw-screen
+\e[6~    forw-screen
+\ev      back-screen
+\e[A     back-line
+\e[B     forw-line
+\e[C     right-scroll
+\e[D     left-scroll
+^P       back-line
+^N       forw-line
+p        back-line
+n        forw-line
+^F       right-scroll
+^B       left-scroll
+f        right-scroll
+b        left-scroll
+
+^S       forw-search
+^R       back-search
+s        repeat-search
+
+\e<      goto-line
+\e>      goto-end
+
+^L       repaint
+
+^H       help
+
+q        quit
+Q        quit
+
+#line-edit
+
+^P       up
+^N       down
+^F       right
+^B       left
+
+\eb      word-left
+\eB      word-left
+\ef      word-right
+\eF      word-right
+^D       delete
+\ed      word-delete
+\eD      word-delete
+
+\t       forw-complete
+^Q       literal
+^G        abort

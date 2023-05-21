@@ -47,7 +47,7 @@ colorscheme elflord
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 cnoremap <C-k> <nop>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" keys to match up with what I do in Emacs/evil
+" keys to match up with what I do in Emacs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " not sure exactly which terminal settings need this
 " comment these out for 8-bit terminal
