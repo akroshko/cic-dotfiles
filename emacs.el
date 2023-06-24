@@ -13,9 +13,11 @@
 (setq x-meta-keysym 'meta)
 
 ;; set up some non-default keys for very standard Emacs functions
+
 (global-set-key (kbd "C-x M-c")  #'save-buffers-kill-emacs)
 (global-set-key (kbd "C-x r e")  #'string-insert-rectangle)
 (global-set-key (kbd "C-x r \\") #'delete-whitespace-rectangle)
+(global-set-key (kbd "M-o")      #'other-window)
 ;; TODO: move this
 (global-set-key [f11]            #'cic:toggle-fullscreen)
 
@@ -55,6 +57,7 @@
             (throw 'requiring-package-fail nil)))))))
 (put 'requiring-package 'lisp-indent-function 1)
 
+;; org is quite essential
 (requiring-package (org))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -263,7 +266,7 @@ read only."
     (hl-line-mode 1))
   ;; set omit by default
   (add-hook 'dired-mode-hook 'dired-mode-hook--minor-modes)
-  (define-key dired-mode-map (kbd "M-o") 'dired-omit-mode))
+  (define-key dired-mode-map (kbd "C-x C-o") #'dired-omit-mode))
 (requiring-package (wdired)
   (setq wdired-use-dired-vertical-movement 'sometimes
         wdired-confirm-overwrite t
@@ -306,15 +309,19 @@ read only."
         ;; would love unlimited
         helm-candidate-number-limit 999)
   (add-to-list 'helm-sources-using-default-as-input 'helm-source-man-pages)
-  ;; see helm-google-suggest-use-curl-p
-  (helm-mode 1)
+  ;; because C-x c is close to C-x C-c
+  (global-set-key (kbd "C-c h") 'helm-command-prefix)
+  (global-unset-key (kbd "C-x c"))
+  ;; some nice bindings
   (global-set-key (kbd "M-x")                          'undefined)
   (global-set-key (kbd "M-x")                          #'helm-M-x)
   (global-set-key (kbd "M-y")                          #'helm-show-kill-ring)
   (global-set-key (kbd "C-x C-f")                      #'helm-find-files)
   ;; may conflict with major mode keybindings
   (global-set-key (kbd "C-c i")                        #'helm-imenu)
-  (global-set-key (kbd "C-c o")                        #'helm-occur))
+  (global-set-key (kbd "C-c o")                        #'helm-occur)
+  ;; see helm-google-suggest-use-curl-p
+  (helm-mode 1))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; image-mode
 ;; TODO: find out how to animate images by default
@@ -372,7 +379,7 @@ read only."
   ;; (set-face-foreground 'org-quote "#8b6508")
   (modify-syntax-entry ?~ "." org-mode-syntax-table)
   ;; TODO temporarily disabling non-standard
-  (setq org-archive-location nil ;; "%s.archive::"
+  (setq org-archive-location "::* Archived" ;; "%s.archive::"
         org-todo-keyword-faces '(("TODO"             . "firebrick")
                                  ("DONE"             . (:foreground "dark orange" :background "blue"       :weight bold)))
         org-enforce-todo-dependencies t
@@ -383,10 +390,12 @@ read only."
         org-agenda-todo-list-sublevels t
         org-agenda-todo-ignore-scheduled t
         org-agenda-todo-ignore-deadlines t
+
         org-ctrl-k-protect-subtree nil
         org-cycle-global-at-bob t
         org-cycle-include-plain-lists nil
         org-cycle-level-after-item/entry-creation nil
+        org-fontify-emphasized-text t
         org-fontify-whole-heading-line t
         org-ellipsis "➤➤➤"
         ;; org-ellipsis "⤵"
@@ -394,12 +403,13 @@ read only."
         ;; org-latex-listings t
         org-pretty-entities t
         org-pretty-entities-include-sub-superscripts nil
-        org-fontify-emphasized-text t)
-  ;; stop links from being dumb
+        org-use-tag-inheritance t)
+  ;; stop links from opening in a way I don't like
   (setf (cdr (assoc 'file org-link-frame-setup)) 'find-file)
   ;; org-mode images
-  ;; disable inline images by default, then toggle them on in the hook above
+  ;; disable inline images by default
   (setq org-startup-with-inline-images nil
+        ;; keep images small
         org-image-actual-width 128)
   ;; this allows the file local variable org-image-actual-width to take effect
   (put 'org-image-actual-width 'safe-local-variable 'integerp)
