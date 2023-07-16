@@ -13,7 +13,6 @@
 (setq x-meta-keysym 'meta)
 
 ;; set up some non-default keys for very standard Emacs functions
-
 (global-set-key (kbd "C-x M-c")  #'save-buffers-kill-emacs)
 (global-set-key (kbd "C-x r e")  #'string-insert-rectangle)
 (global-set-key (kbd "C-x r \\") #'delete-whitespace-rectangle)
@@ -296,8 +295,51 @@ read only."
    1 'font-lock-func-face)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; etags
-(setq tags-file-name "TAGS"
+;;
+;; automatically load tags, this is because I typically use universal
+;; ctags with -R -e to navigate at large codebases
+;;
+;; the buffer local tags table is also nice when looking at multiple
+;; large projects in the same session
+(setq tags-add-tables t
       tags-revert-without-query t)
+(defun find-file-upwards (file-to-find)
+  "Recursively searches each parent directory starting from the default-directory,
+looking for a file with name FILE-TO-FIND.  Returns the path to
+FILE-TO-FIND or nil if not found."
+  (cl-labels ((find-file-r (path)
+                           (let* ((parent (file-name-directory path))
+                                  (possible-file (concat parent "/" file-to-find)))
+                             (cond
+                              ((file-exists-p possible-file)
+                               ;; found
+                               possible-file)
+                              ((or (null parent) (equal parent (directory-file-name parent)))
+                               ;; The parent of ~ is nil and the parent of / is itself.
+                               ;; Thus the terminating condition for not finding the file
+                               ;; accounts for both.
+                               ;; i.e., not found
+                               nil)
+                              (t
+                               ;; continue upwards
+                               (find-file-r (directory-file-name parent)))))))
+    (find-file-r default-directory)))
+(defun upward-tag-table ()
+  "Find an etags TABLE upward in the directory hierarchy."
+  (interactive)
+  (let ((found-tags-file (find-file-upwards "TAGS")))
+    (when found-tags-file
+      (message "Loading tags file: %s" found-tags-file)
+      (visit-tags-table found-tags-file t))))
+;; find tags table for common functions
+(defun xref--find-tags-table (orig-fun &rest args)
+  "Advice to make sure the right tags table is loaded."
+  (unless tags-file-name
+    (upward-tag-table))
+  (apply orig-fun args))
+(advice-add 'xref-find-definitions :around #'xref--find-tags-table)
+(advice-add 'xref-find-references :around #'xref--find-tags-table)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; helm
 (requiring-package (helm)
@@ -360,7 +402,8 @@ read only."
                              ("screen"     . shell-script)
                              ("shell"      . sh)
                              ("sql"        . sql)
-                             ("sqlite"     . sql))
+                             ("sqlite"     . sql)
+                             ("xml"        . nxml))
         org-src-preserve-indentation t
         org-src-fontify-natively t)
   (requiring-package (ob-emacs-lisp))
@@ -504,7 +547,15 @@ read only."
       )
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; xref
-(setq xref-prompt-for-identifier nil)
+(requiring-package (xref)
+  (setq xref-prompt-for-identifier nil)
+  ;; change xref keys to conflict less
+  (global-set-key (kbd "M-.") 'xref-find-definitions)
+  ;; these are better keys that don't conflict with anaconda and paredit mode
+  (global-set-key (kbd "M-,") 'xref-find-references)
+  (global-set-key (kbd "M-[") 'xref-pop-marker-stack)
+  ;; (global-set-key (kbd "M-]") 'undefined)
+  )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; configure modeline last
