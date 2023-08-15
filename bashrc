@@ -27,7 +27,7 @@
 [[ -f /etc/bash.bashrc ]] && source /etc/bash.bashrc
 ################################################################################
 # standard bashrc settings that should work on any GNU system
-set -o vi
+set -o emacs
 
 ################################################################################
 ## things I'm defining in only one places so I have one monolithic bashrc, often sourced by scripts
@@ -188,9 +188,9 @@ if [[ -n "$PS1" ]]; then
     ################################################################################
     ## set interesting things for bashrc, should these be here or a seperate file?
     # XXXX: is it likely this may clobber other things in the namespace?
-    export VISUAL="vim"
-    export ALTERNATE_EDITOR="vim"
-    export EDITOR="vim"
+    export VISUAL="emacs -nw"
+    export EDITOR="zile"
+    export ALTERNATE_EDITOR="mg"
     alias f90='gfortran'
     alias gpg='gpg2'
     alias hrc='harm-bashrc'
@@ -225,7 +225,10 @@ if [[ -n "$PS1" ]]; then
     shopt -s autocd extglob histappend
     export IGNOREEOF=99
     shopt -s expand_aliases
+    export MAILCHECK=-1
     force_color_prompt=yes
+    # turn off mail
+    export MAILCHECK=-1
     # this allows C-s to be useful in a terminal
     [[ $- == *i* ]] && stty -ixon
     case "$TERM" in
@@ -234,11 +237,12 @@ if [[ -n "$PS1" ]]; then
         ;;
     linux|xterm*|rxvt*|eterm*|screen*)
         if [ $(id -u) -eq 0 ]; then
+            # \[\033[6 q\] gives a vertical cursor in xterm/rxvt
             export PS1="\[${BPurple}\]\H $(if [[ -n $SSH_CLIENT && $TERM =~ screen ]];then echo -n '(ssh,screen) ';elif [[ -n $SSH_CLIENT ]];then echo -n '(ssh) ';elif [[ $TERM =~ screen ]];then echo -n '(screen) ';fi)\[${Purple}\]\j \[${BBLue}\]\w
-\[${Yellow}\][\!] \`exitstatus=\$?;if [[ exitstatus -eq 0 ]];then echo \[\033[32m\]\${exitstatus}\[\e[0m\];else echo \[\033[31m\]\${exitstatus}\[\e[0m\]; fi\` \[${Cyan}\]\t \[${Green}\]\u \[${BRed}\]"'\$'"\[${Color_Off}\] "
+\[${Yellow}\][\!] \`exitstatus=\$?;if [[ exitstatus -eq 0 ]];then echo \[\033[32m\]\${exitstatus}\[\e[0m\];else echo \[\033[31m\]\${exitstatus}\[\e[0m\]; fi\` \[${Cyan}\]\t \[${Green}\]\u \[${BRed}\]"'\$'"\[${Color_Off}\]\[\033[6 q\] "
         else
             export PS1="\[${BPurple}\]\H $(if [[ -n $SSH_CLIENT && $TERM =~ screen ]];then echo -n '(ssh,screen) ';elif [[ -n $SSH_CLIENT ]];then echo -n '(ssh) ';elif [[ $TERM =~ screen ]];then echo -n '(screen) ';fi)\[${Purple}\]\j \[${BBLue}\]\w
-\[${Yellow}\][\!] \`exitstatus=\$?;if [[ exitstatus -eq 0 ]];then echo \[\033[32m\]\${exitstatus}\[\e[0m\];else echo \[\033[31m\]\${exitstatus}\[\e[0m\]; fi\` \[${Cyan}\]\t \[${Green}\]\u \[${BGreen}\]\$\[${Color_Off}\] "
+\[${Yellow}\][\!] \`exitstatus=\$?;if [[ exitstatus -eq 0 ]];then echo \[\033[32m\]\${exitstatus}\[\e[0m\];else echo \[\033[31m\]\${exitstatus}\[\e[0m\]; fi\` \[${Cyan}\]\t \[${Green}\]\u \[${BGreen}\]\$\[${Color_Off}\]\[\033[6 q\] "
             # XXXX: originally was "linux" to help with sage -python, but interfered with htop
             #       seems fine with rxvt-256color because this is in both sage and Debian
             # export TERM=xterm-256color

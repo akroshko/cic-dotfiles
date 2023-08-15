@@ -77,11 +77,5 @@ main () {
     [[ -d "$HOME/.config/calibre/" ]]                        && cp_if_different "$SCRIPTPATH/calibre-viewer.py"    "$HOME/.config/calibre/viewer.py"
     # create some quick links
     need_new_directory "$HOME/bin"
-    # TODO: do better, works for now
-    need_new_symlink "$SCRIPTPATH/../cic-bash-common/launch-emacsclient"          "$HOME/bin/launch-emacsclient"
-    need_new_symlink "$SCRIPTPATH/../cic-bash-common/launch-emacsclient-fail.sh"  "$HOME/bin/launch-emacsclient-fail.sh"
-    need_new_symlink "$SCRIPTPATH/../cic-bash-common/x11_restore_saved_window.sh" "$HOME/bin/x11_restore_saved_window.sh"
-    need_new_symlink "$SCRIPTPATH/../cic-bash-common/x11_save_focused_window.sh"  "$HOME/bin/x11_save_focused_window.sh"
-    need_new_symlink "$SCRIPTPATH/../cic-bash-common/zathura-tex-local.sh"        "$HOME/bin/zathura-tex-local.sh"
 }
 main
