@@ -17,6 +17,7 @@
 (global-set-key (kbd "C-x r e")  #'string-insert-rectangle)
 (global-set-key (kbd "C-x r \\") #'delete-whitespace-rectangle)
 (global-set-key (kbd "M-o")      #'other-window)
+(global-set-key (kbd "C-\\")     'undefined)
 ;; TODO: move this
 (global-set-key [f11]            #'cic:toggle-fullscreen)
 
@@ -138,7 +139,7 @@
 ;; disable backup and autosave
 (setq backup-inhibited t
       auto-save-default nil
-      tags-revert-without-query 1)
+      tags-revert-without-query t)
 (requiring-package (autorevert)
   (global-auto-revert-mode t)
   ;; TODO: don't indicate about reverting for now, could this cause me problems?
@@ -552,8 +553,10 @@ FILE-TO-FIND or nil if not found."
   ;; change xref keys to conflict less
   (global-set-key (kbd "M-.") 'xref-find-definitions)
   ;; these are better keys that don't conflict with anaconda and paredit mode
-  (global-set-key (kbd "M-,") 'xref-find-references)
-  (global-set-key (kbd "M-[") 'xref-pop-marker-stack)
+  (global-set-key (kbd "M-,") 'xref-pop-marker-stack)
+  (global-set-key (kbd "M-?") 'xref-find-references)
+  ;; want these to find documentation
+  ;; (global-set-key (kbd "M-[") ')
   ;; (global-set-key (kbd "M-]") 'undefined)
   )
 
