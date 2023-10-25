@@ -454,6 +454,8 @@ FILE-TO-FIND or nil if not found."
         org-use-tag-inheritance t)
   ;; stop links from opening in a way I don't like
   (setf (cdr (assoc 'file org-link-frame-setup)) 'find-file)
+  ;; stop links from creating
+  (setq org-link-search-must-match-exact-headline t)
   ;; org-mode images
   ;; disable inline images by default
   (setq org-startup-with-inline-images nil

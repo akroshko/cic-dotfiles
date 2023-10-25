@@ -25,6 +25,7 @@
 ################################################################################
 # source system bashrc
 [[ -f /etc/bash.bashrc ]] && source /etc/bash.bashrc
+[[ -f /etc/bash_completion ]] && source /etc/bash_completion
 ################################################################################
 # standard bashrc settings that should work on any GNU system
 set -o emacs
@@ -143,8 +144,8 @@ if [[ -n "$PS1" ]]; then
     alias bash-nodebug='set +xv'
     # stops things from overflowing /tmp if space is limited
     # TODO: this should be a function to make sure MAGICK_TEMPORARY_PATH works
-    alias agu='sudo apt-get update && sudo apt list --upgradable && sudo apt-get dist-upgrade && sudo apt-file update'
-    alias agu-dry-run='sudo apt-get update && sudo apt list --upgradable && sudo apt-get dist-upgrade --dry-run'
+    alias agu='sudo apt update && sudo apt list --upgradable && sudo apt dist-upgrade && sudo apt-file update'
+    alias agu-dry-run='sudo apt update && sudo apt list --upgradable && sudo apt dist-upgrade --dry-run'
     alias ag-autoremove='sudo apt-get autoremove'
     alias ssh-controlmaster-list='\ps -elf | \grep controlmaster | \grep -v grep'
     alias cat-json='python3 -m json.tool'
@@ -298,15 +299,7 @@ if [[ -d "$HOME/.bashrc.d/" ]]; then
         source "$FILE"
     done
 fi
-# load everything in ~/.bash_library.d
-if [[ -d "$HOME/.bash_library.d" ]]; then
-    # load everything in ~/.bash_library.d
-    for FILE in $HOME/.bash_library.d/*;do
-        source "$FILE"
-    done
-fi
 popd >/dev/null
-
 
 ################################################################################
 ################################################################################
