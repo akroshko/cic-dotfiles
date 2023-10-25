@@ -1,0 +1,7 @@
+PS1=""
+THE_EUID=$(id -u)
+if [ $THE_EUID -eq 0 ]; then
+    export PS1="# "
+else
+    export PS1="$ "
+fi
