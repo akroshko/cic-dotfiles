@@ -7,6 +7,8 @@
 ;; things to set first for a minimally functional/familiar system
 ;; make sure warnings do not pop up
 (require 'cl)
+(require 'cl-lib)
+(require 'cl-generic)
 
 (setq warning-minimum-level :warning)
 
@@ -16,16 +18,22 @@
 (global-set-key (kbd "C-x M-c")  #'save-buffers-kill-emacs)
 (global-set-key (kbd "C-x r e")  #'string-insert-rectangle)
 (global-set-key (kbd "C-x r \\") #'delete-whitespace-rectangle)
-(global-set-key (kbd "M-o")      #'other-window)
+;; disabling for now
+;; (global-set-key (kbd "M-o")      #'other-window)
 (global-set-key (kbd "C-\\")     'undefined)
 ;; TODO: move this
 (global-set-key [f11]            #'cic:toggle-fullscreen)
 
-;; faster startup, might want to change for smaller systems
-(setq gc-cons-threshold (eval-when-compile (* 256 1024 1024))
+;; faster startup, plus performance for things like lsp and some of my own custom packages
+;; might want to change for smaller systems
+(setq gc-cons-threshold (eval-when-compile (* 128 1024 1024))
+      read-process-output-max (eval-when-compile (* 4 1024 1024))
       message-log-max t)
-(run-with-idle-timer 2 t (lambda () (garbage-collect)))
-; set up some queries to be nice and verbose
+;; long enough not to intere with slow typing
+(run-with-idle-timer 10 t (lambda () (garbage-collect)))
+;; suppress compilation warnings
+(setq warning-suppress-log-types '((comp)))
+;; set up some queries to be nice and verbose
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq confirm-kill-emacs 'yes-or-no-p)
 
@@ -346,6 +354,7 @@ FILE-TO-FIND or nil if not found."
 (requiring-package (helm)
   (require 'helm-grep)
   (setq helm-M-x-fuzzy-match t
+        helm-M-x-show-short-doc t
         helm-mode-fuzzy-match t
         helm-buffers-fuzzy-matching t
         helm-imenu-fuzzy-match t
@@ -353,8 +362,11 @@ FILE-TO-FIND or nil if not found."
         helm-display-header-line t
         ;; helm-split-window-in-side-p t ;; open helm buffer inside current window, not occupy whole other window
         helm-echo-input-in-header-line t
-        ;; would love unlimited
-        helm-candidate-number-limit 999)
+        ;; would love unlimited if I could get performance
+        helm-candidate-number-limit 999
+        helm-file-name-case-fold-search t
+        helm-case-fold-search t
+        helm-occur-keep-closest-position t)
   (add-to-list 'helm-sources-using-default-as-input 'helm-source-man-pages)
   ;; because C-x c is close to C-x C-c
   (global-set-key (kbd "C-c h") 'helm-command-prefix)
@@ -463,11 +475,12 @@ FILE-TO-FIND or nil if not found."
         org-image-actual-width 128)
   ;; this allows the file local variable org-image-actual-width to take effect
   (put 'org-image-actual-width 'safe-local-variable 'integerp)
-  (defun org-image-enable ()
-    ;; this eq is on purpose and not derived-mode-p, in order to let derived modes set their own behaviour
-    (when (eq major-mode 'org-mode)
-      (org-display-inline-images)))
-  (add-hook 'hack-local-variables-hook 'org-image-enable)
+  ;; TODO: disabling for now...
+  ;; (defun org-image-enable ()
+  ;;   ;; this eq is on purpose and not derived-mode-p, in order to let derived modes set their own behaviour
+  ;;   (when (eq major-mode 'org-mode)
+  ;;     (org-display-inline-images)))
+  ;; (add-hook 'hack-local-variables-hook 'org-image-enable)
   ;; literal hyperlinks setup
   ;; (add-hook 'org-mode-hook 'org-list-highlight-setup)
   (defun org-literal-hyperlinks-setup ()
@@ -535,10 +548,11 @@ FILE-TO-FIND or nil if not found."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; disable vc for now, I just use a shell although I would like to use it from emacs
 (requiring-package (vc)
-  (defun remove-vc-modeline ()
-    (setq mode-line-format (remove '(vc-mode vc-mode) mode-line-format)))
-  (remove-hook 'find-file-hook 'vc-find-file-hook)
-  (add-hook    'find-file-hook 'remove-vc-modeline))
+  ;; (defun remove-vc-modeline ()
+  ;;   (setq mode-line-format (remove '(vc-mode vc-mode) mode-line-format)))
+  ;; (remove-hook 'find-file-hook 'vc-find-file-hook)
+  ;; (add-hook    'find-file-hook 'remove-vc-modeline)
+  )
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; printing
 ;; https://www.emacswiki.org/emacs/CupsInEmacs
@@ -633,27 +647,37 @@ FILE-TO-FIND or nil if not found."
 (defvar modeline-other-error
   nil)
 
+(defconst cic:modeline-load-log '(:eval (cond ((or (get-buffer "*Load log*") modeline-other-error)
+                                                                          (set-face-background 'mode-line "#ff0000")
+                                                                          (setq modeline-dirty t)
+                                                                          (if modeline-other-error
+                                                                              modeline-other-error
+                                                                            "load:ERR"))
+                                                                         (t
+                                                                          (when modeline-dirty
+                                                                            (configure-modeline-color)
+                                                                            (setq modeline-dirty nil))
+                                                                          "load:OK"))))
+
+(defconst cic:modeline-case-fold '(:eval (if case-fold-search
+                                             "case:insensitive"
+                                           (propertize "case:sensitive  " 'font-lock-face '(:foreground "yellow"
+                                                                                                        :background "dark blue")))))
+
 ;; this makes the modeline red if "*Load log* buffer exists
 ;; this can quickly allow seeing if there's a problem rather than working for hours with a problem present
 (unless modeline-already-added
   ;; mode-line-stuff
-  (unless (some 'identity (mapcar (lambda (e) (ignore-errors (string-match-p "case:" e))) mode-line-format))
+  ;; TODO: no longer works, see how other packages do it
+  ;; unless (some 'identity (mapcar (lambda (e) (ignore-errors (string-match-p "case:" e))) mode-line-format))
+  (unless (member 'cic:modeline-load-log mode-line-format)
     (setq-default mode-line-format (append mode-line-format (list
-                                                             '(:eval (cond ((or (get-buffer "*Load log*") modeline-other-error)
-                                                                            (set-face-background 'mode-line "#ff0000")
-                                                                            (setq modeline-dirty t)
-                                                                            (if modeline-other-error
-                                                                                modeline-other-error
-                                                                              "load:ERR"))
-                                                                           (t
-                                                                            (when modeline-dirty
-                                                                              (configure-modeline-color)
-                                                                              (setq modeline-dirty nil))
-                                                                            "load:OK ")))
-                                                             "case:"
-                                                             '(:eval (if case-fold-search
-                                                                         "insensitive "
-                                                                       (propertize "sensitive   " 'font-lock-face '(:foreground "yellow"))))))))
+                                                             " "
+                                                             'cic:modeline-load-log))))
+  (unless (member 'cic:modeline-case-fold mode-line-format)
+    (setq-default mode-line-format (append mode-line-format (list
+                                                             " "
+                                                             'cic:modeline-case-fold))))
   ;; XXXX: remove this line for debugging the above....
   (setq modeline-already-added t))
 
