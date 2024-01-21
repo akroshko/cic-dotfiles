@@ -568,7 +568,6 @@ FILE-TO-FIND or nil if not found."
   (setq xref-prompt-for-identifier nil)
   ;; change xref keys to conflict less
   (global-set-key (kbd "M-.") 'xref-find-definitions)
-  ;; these are better keys that don't conflict with anaconda and paredit mode
   (global-set-key (kbd "M-,") 'xref-pop-marker-stack)
   (global-set-key (kbd "M-?") 'xref-find-references)
   ;; want these to find documentation
@@ -633,6 +632,25 @@ FILE-TO-FIND or nil if not found."
 (garbage-collect)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; register a frame
+;; just the basics to register a frame and have it display
+;; this value can then be used further
+
+(defvar frame-registered
+  ""
+  nil)
+
+(defun frame-register (&optional arg)
+  ""
+  (interactive "P")
+  (cond (arg
+         (setq frame-registered nil)
+         (force-mode-line-update))
+        (t
+         (setq frame-registered (selected-frame))
+         (force-mode-line-update))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; modeline
 ;; change modeline if there are errors after emacs-local.el
 (defvar modeline-already-added
@@ -640,46 +658,60 @@ FILE-TO-FIND or nil if not found."
   "Indicate whether additional modeline indicators have already
   been added.")
 
-(defvar modeline-dirty
+(defvar modeline-dirty-registered
+  nil
+  "Indicate whether modeline is abnormal.")
+
+(defvar modeline-dirty-load-log
   nil
   "Indicate whether modeline is abnormal.")
 
 (defvar modeline-other-error
   nil)
 
-(defconst cic:modeline-load-log '(:eval (cond ((or (get-buffer "*Load log*") modeline-other-error)
-                                                                          (set-face-background 'mode-line "#ff0000")
-                                                                          (setq modeline-dirty t)
-                                                                          (if modeline-other-error
-                                                                              modeline-other-error
-                                                                            "load:ERR"))
-                                                                         (t
-                                                                          (when modeline-dirty
-                                                                            (configure-modeline-color)
-                                                                            (setq modeline-dirty nil))
-                                                                          "load:OK"))))
+(defconst modeline-registered '(:eval (cond ((eq (window-frame (selected-window))
+                                                 frame-registered)
+                                             (propertize " !!!REGISTERED!!!" 'font-lock-face '(:foreground "black"
+                                                                                               :background "violet")))
+                                            (t
+                                             ""))))
 
-(defconst cic:modeline-case-fold '(:eval (if case-fold-search
-                                             "case:insensitive"
-                                           (propertize "case:sensitive  " 'font-lock-face '(:foreground "yellow"
-                                                                                                        :background "dark blue")))))
+(defconst modeline-load-log '(:eval (cond ((or (get-buffer "*Load log*") modeline-other-error)
+                                           (set-face-background 'mode-line "#ff0000")
+                                           (setq modeline-dirty-load-log t)
+                                           (if modeline-other-error
+                                               modeline-other-error
+                                             " load:ERR"))
+                                          (t
+                                           (when modeline-dirty-load-log
+                                             (configure-modeline-color)
+                                             (setq modeline-dirty nil))
+                                           " load:OK"))))
+
+(defconst modeline-case-fold '(:eval (if case-fold-search
+                                         " case:insensitive"
+                                       (propertize " case:sensitive  " 'font-lock-face '(:foreground "yellow"
+                                                                                        :background "dark blue")))))
 
 ;; this makes the modeline red if "*Load log* buffer exists
 ;; this can quickly allow seeing if there's a problem rather than working for hours with a problem present
 (unless modeline-already-added
   ;; mode-line-stuff
-  ;; TODO: no longer works, see how other packages do it
-  ;; unless (some 'identity (mapcar (lambda (e) (ignore-errors (string-match-p "case:" e))) mode-line-format))
-  (unless (member 'cic:modeline-load-log mode-line-format)
+  (unless (member 'modeline-registered mode-line-format)
     (setq-default mode-line-format (append mode-line-format (list
-                                                             " "
-                                                             'cic:modeline-load-log))))
-  (unless (member 'cic:modeline-case-fold mode-line-format)
+                                                             'modeline-registered))))
+  (unless (member 'modeline-case-fold mode-line-format)
     (setq-default mode-line-format (append mode-line-format (list
-                                                             " "
-                                                             'cic:modeline-case-fold))))
+                                                             'modeline-case-fold))))
+  (unless (member 'modeline-load-log mode-line-format)
+    (setq-default mode-line-format (append mode-line-format (list
+                                                             'modeline-load-log))))
   ;; XXXX: remove this line for debugging the above....
   (setq modeline-already-added t))
+
+(defun toggle-case-fold-search--update-modeline (&rest args)
+  (force-mode-line-update t))
+(advice-add 'toggle-case-fold-search :after #'toggle-case-fold-search--update-modeline)
 
 ;; TODO: want to make this clearer that end of emacs.el was reached
 (message "Emacs loaded without error!")
